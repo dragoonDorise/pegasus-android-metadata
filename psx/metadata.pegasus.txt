@@ -1,0 +1,7 @@
+collection: PlayStation
+shortname: psx
+extensions: bin, cbn, ccd, chd, cue, exe, img, m3u, mdf, pbp, toc
+launch: am start
+  -n com.github.stenzek.duckstation/.EmulationActivity
+  -e bootPath "{file.path}"
+  --ez resumeState 0
