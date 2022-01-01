@@ -1,8 +1,8 @@
 # Android - Pegasus metadata pack
 
-This guide will help you make it as easy as possible to use your Android Handheld with the Pegasus Frontend, in my opinion one of the best Frontend Emulators out there.
+This guide will help you make it as easy as possible to use your Android Handheld with the Pegasus Frontend, in my opinion it's one of the best Frontend Emulators out there.
 
-The bad thing about Pegasus is that you need to make a lot of configuration, This pack tries to make the experience as plug & play as possible so you don't have to tinker with config files.
+The bad thing about Pegasus is that you need to do a lot of tinkering and configuration, This pack tries to make the experience as plug & play as possible so you don't have to tinker with config files.
 
 Table of contents:
 
@@ -14,7 +14,7 @@ Table of contents:
 
 ## Pegasus Metadata
 
-We offer support for the folowing systems with their respective emulators, you might need to download them separately from the Google Play Store or within Retroarch
+This pack offers support for the following systems with their respective emulators, you might need to download them separately from the Google Play Store or within Retroarch when a core is used for that system.
 
 | System                    | Emulator                             |
 | ------------------------- | ------------------------------------ |
@@ -49,7 +49,7 @@ We offer support for the folowing systems with their respective emulators, you m
 | Super Nintendo            | Retroarch 1.9 Snes9x Current core    |
 | Wonderswan & Color        | Retroarch 1.9 Beetle Cygne core      |
 
-Keep in mind not all Android Systems are powerful enought to run all those systems. You can check your device compatibiliy in these Community maintained guides:
+Keep in mind not all Android Systems are powerful enough to run all those systems. You can check your device compatibility in these Community maintained guides:
 
 [RG552 Compatibility List](https://tinyurl.com/RG552GameSettings)
 
@@ -63,7 +63,7 @@ You can install any [Pegasus Theme](https://pegasus-frontend.org/tools/themes/),
 
 ## Retroarch configuration
 
-We're also including some Retroarch configuration that will do the following:
+We're also including a Retroarch configuration preset that will do the following:
 
 - Set the global aspect ratio to Core Provided
 - Set the right aspect ratio (1:1) for Handhelds & Mame Systems
@@ -91,15 +91,15 @@ On your handheld browser go to [Pegasus website](https://pegasus-frontend.org/#d
 
 Just click here: [Pegasus Frontend Android Metadata ](https://github.com/dragoonDorise/pegasus-android-metadata/archive/main.zip)
 
-Unzip it in your computer, insert your SD Card in your computer and just copy the contents of the pegasus-android-metadata-main folder, **don't copy the folder itself, only the content**.
+Unzip it in your computer, insert your SD Card in your computer and just copy the contents of the pegasus-android-metadata-main folder, **don't copy the folder itself, only the content**. This will create several folders for each system and a **-internal** folder with the configuration for Pegasus and Retroarch.
 
 ## 4 - Transfer your Roms
 
 Now that you have the Metadata pack in your handheld lets copy some games, just drag and drop the rom files in every system folder ( we recommend using no intro roms found on archive.org )
 
-Example: I want to transfer **Legend of Zelda, The - A Link to the Past (USA).zip** for Super Nes, just drag and drop the file to sdcard/snes/, repeat the process with the rest of the systems you want to play.
+Example: I you want to transfer **Legend of Zelda, The - A Link to the Past (USA).zip** for Super Nintendo, just drag and drop the file to the snes/ folder in the SD Card, repeat the process with the rest of the systems you want to play.
 
-When you are good to go, insert the SD Card on your Handheld and go to the next step.
+When you are good to go, insert the SD Card on your Handheld and carry on to the next step.
 
 ## 5 - Configure Pegasus & Retroarch
 
@@ -107,10 +107,10 @@ Use your Android file browser app and navigate to your SD card and look for the 
 
 In there you'll see several folders.
 
-common
-rg552
-odin
-etc..
+    common
+    rg552
+    odin
+    etc..
 
 You need to copy the contents of the **commons** folder to your Android internal storage, on the root folder where you should have a RetroArch and pegasus-frontend folders already, make sure you merge your folders so we add these files to the ones that are already there, You'll probably need to overwrite some files. Remember: Merge folders and overwrite files.
 
@@ -163,15 +163,15 @@ snes/media/
 - [Super Nintendo](https://mega.nz/folder/py401SCI#5Gm6js7zz8yzvAqYW6vkaw)
 - Wonderswan & Color
 
-Keep in mind these are complete romsets artwork so they are heavy, several GB in total
+Keep in mind these are complete romset's artwork so they take a lot of space, several GB in total
 
-As soon as you have copied the media folders to your SD card you are good to go, put your SD Card back into your handheld, **ppen Pegasus and start playing!**
+As soon as you have copied the media folders to your SD card you are good to go, put your SD Card back into your handheld, **open Pegasus and start playing!**
 
 If something does not work please open an [issue](https://github.com/dragoonDorise/pegasus-android-metadata/issues)
 
 # Some Tips
 
-There are some som tips that can help you manage your collection Better.
+There are some some tips that can help you manage your collection Better.
 
 - Use CHD format
 - Clean your Mame roms
@@ -186,11 +186,11 @@ And put it into your ISO rom folder
 
 2 Create a convert.bat file in the very same folder and copy this code inside that create.bat file
 
-    	for /r %%i in (_.cue, _.gdi, \*.iso) do chdman createcd -i "%%i" -o "%%~ni.chd"
+    for /r %%i in (_.cue, _.gdi, \*.iso) do chdman createcd -i "%%i" -o "%%~ni.chd"
 
-3 Execute create.bat, in some hours you'll see how your old ISO roms are now CHD that are so much lighter
+3 Execute create.bat, in some minutes/hours you'll see how your old ISO roms are now in CHD format and that they now take a lot less space.
 
-## Clean your Mame roms
+## Clean up your Mame roms
 
 Mame romsets are usually full of clones and roms that we don't want, follow this [guide](https://www.youtube.com/watch?v=GZfoOTckURA) to fix that.
 
@@ -210,7 +210,7 @@ In there complete your screen scrapper login data, click in VALIDATE and click N
 
 In the next screen choose "Generic Emulation" and click NEXT
 
-Insert your RG522 SD card onto your computer, now chose the path to your sd card with all the systems in it.
+Insert your SD card onto your computer, now chose the path to your sd card with all the systems in it.
 
 You should see a screen like this:
 
@@ -238,6 +238,6 @@ Hit the play button and wait, depending of the number of roms this could take fr
 
 When it's finished you will have a media folder inside of every of your rom systems. Just put your SD card back and you are good to go.
 
-Example: The path the media folder in your RP2 for Super Nintendo should be:
+Example: The path the media folder in your SD Card for Super Nintendo should be:
 
     /snes/media
