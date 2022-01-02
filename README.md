@@ -60,12 +60,12 @@ Keep in mind not all Android Handhelds are powerful enough to run all those syst
 
 [Retroid Pocket 2+ Compatibility List](https://tinyurl.com/RP2PlusGameSettings)
 
-## Bundled Pegasus Theme
+## Bundled Pegasus Themes
 
 <img src="https://raw.githubusercontent.com/dragoonDorise/RP-Switch/main/screenshots/RG552.jpg">
 <img src="https://github.com/dragoonDorise/RP-epic-noir/blob/main/screenshots/hero-odin.jpg?raw=true">
 
-You can install any [Pegasus Theme](https://pegasus-frontend.org/tools/themes/), but I'm providing two of my own that is adapted to all kinds of screens, 4:3 as seen on the Retroid Pocket 2 and 2+, 5:3 as the one in the RG552 or 16:9 like Ayn's Odin screen.
+You can install any [Pegasus Theme](https://pegasus-frontend.org/tools/themes/), but I'm providing two of my own that are adapted to all kinds of screens, 4:3 as seen on the Retroid Pocket 2 and 2+, 5:3 as the one in the RG552 or 16:9 like Ayn's Odin screen.
 
 ## Retroarch configuration
 
