@@ -1,5 +1,5 @@
-collection: Neo Geo Pocket Color
-shortname: ngpc
+collection: Neo Geo Pocket
+shortname: ngp
 extensions: ngc, ngp, ngpc, npc, 7z, zip
 launch: am start
   -n com.retroarch/.browser.retroactivity.RetroActivityFuture

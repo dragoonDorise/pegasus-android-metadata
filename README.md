@@ -18,29 +18,30 @@ This pack offers support for the following systems with their respective emulato
 
 | System                    | Emulator                             |
 | ------------------------- | ------------------------------------ |
-| Atari 2600                | Retroarch 1.9 stella core            |
+| Atari 2600                | Retroarch 1.9 Stella core            |
+| Atari Lynx                | Retroarch 1.9 Beetle Lynx core       |
 | Doom                      | Retroarch 1.9 PrBoom core            |
 | GameBoy                   | Retroarch 1.9 Gambatte core          |
 | GameBoy Color             | Retroarch 1.9 Gambatte core          |
 | GameBoy Advance           | Retroarch 1.5 mGBA core              |
 | Dreamcast                 | Reddream                             |
 | Dos                       | Retroarch 1.9 DOSBox core            |
-| Final Burn Alpha          | Retroarch 1.9 fba 2020 core          |
-| Final Burn Neo            | Retroarch 1.9 fbn core               |
+| Final Burn Alpha          | Retroarch 1.9 Fba 2020 core          |
+| Final Burn Neo            | Retroarch 1.9 Fbn core               |
 | Mame 2010 ( 0.139 )       | Retroarch 1.9 Mame 2010 core         |
 | Master System             | Retroarch 1.9 Genesis Plus GX core   |
-| Neo Geo                   | Retroarch 1.9 fba 2020 Neo Geo core  |
-| Neo Geo CD                | Retroarch 1.9 fbn core               |
+| Neo Geo                   | Retroarch 1.9 Fba 2020 Neo Geo core  |
+| Neo Geo CD                | Retroarch 1.9 Fbn core               |
 | Neo Geo Pocket & Color    | Retroarch 1.9 Beetle NeoPop          |
 | Nintendo DS               | Drastic                              |
 | Nintendo NES              | Retroarch 1.9 Nestopia core          |
 | Nintendo 64               | Mupen64plus FZ                       |
 | Nintendo Gamecube         | Mupen64plus FZ                       |
-| PC engine                 | Retroarch 1.9 mednafen pce fast core |
+| PC engine                 | Retroarch 1.9 Mednafen pce fast core |
 | Playstation               | Retroarch 1.9 PCSX Rearmed core      |
 | Pokemon Mini              | Retroarch 1.9 PokeMini core          |
 | PSP                       | PPSSPP                               |
-| ScummVM                   | Retroarch 1.9 scummvm core           |
+| ScummVM                   | Retroarch 1.9 Scummvm core           |
 | Sega 32X                  | Retroarch 1.9 Genesis Plus GX core   |
 | Sega CD                   | Retroarch 1.9 Genesis Plus GX core   |
 | Sega Game Gear            | Retroarch 1.9 Genesis Plus GX core   |

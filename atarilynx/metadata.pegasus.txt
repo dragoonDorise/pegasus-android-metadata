@@ -1,10 +1,10 @@
-collection: Neo Geo Pocket Color
-shortname: ngpc
-extensions: ngc, ngp, ngpc, npc, 7z, zip
+collection: Lynx
+shortname: atarilynx
+extensions: lnx, o, zip, 7z
 launch: am start
   -n com.retroarch/.browser.retroactivity.RetroActivityFuture
   -e ROM {file.path}
-  -e LIBRETRO /data/data/com.retroarch/cores/mednafen_ngp_libretro_android.so
+  -e LIBRETRO /data/data/com.retroarch/cores/mednafen_lynx_libretro_android.so
   -e CONFIGFILE /storage/emulated/0/Android/data/com.retroarch/files/retroarch.cfg
   -e IME com.android.inputmethod.latin/.LatinIME
   -e DATADIR /data/data/com.retroarch
