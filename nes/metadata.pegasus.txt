@@ -1,4 +1,4 @@
-collection: Nintendo Entertainment System
+collection: Nintendo NES
 shortname: nes
 extensions: fds, nes, unf, unif, zip, 7z
 launch: am start

@@ -1,4 +1,4 @@
-collection: Super Nintendo Entertainment System
+collection: Super Nintendo
 shortname: snes
 extensions: 7z, bin, fig, mgd, sfc, smc, swc, zip
 launch: am start
