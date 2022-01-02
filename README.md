@@ -24,8 +24,10 @@ This pack offers support for the following systems with their respective emulato
 | GameBoy                   | Retroarch 1.9 Gambatte core          |
 | GameBoy Color             | Retroarch 1.9 Gambatte core          |
 | GameBoy Advance           | Retroarch 1.5 mGBA core              |
-| Dreamcast                 | Reddream                             |
+| Gamecube                  | Dolphin                              |
+| DooM                      | Retroarch 1.9 Doom core              |
 | Dos                       | Retroarch 1.9 DOSBox core            |
+| Dreamcast                 | Reddream                             |
 | Final Burn Alpha          | Retroarch 1.9 Fba 2020 core          |
 | Final Burn Neo            | Retroarch 1.9 Fbn core               |
 | Mame 2010 ( 0.139 )       | Retroarch 1.9 Mame 2010 core         |
@@ -34,11 +36,13 @@ This pack offers support for the following systems with their respective emulato
 | Neo Geo CD                | Retroarch 1.9 Fbn core               |
 | Neo Geo Pocket & Color    | Retroarch 1.9 Beetle NeoPop          |
 | Nintendo DS               | Drastic                              |
+| Nintendo 3DS              | Citra                                |
 | Nintendo NES              | Retroarch 1.9 Nestopia core          |
 | Nintendo 64               | Mupen64plus FZ                       |
 | Nintendo Gamecube         | Mupen64plus FZ                       |
 | PC engine                 | Retroarch 1.9 Mednafen pce fast core |
 | Playstation               | Retroarch 1.9 PCSX Rearmed core      |
+| Playstation 2             | Aether SX2                           |
 | Pokemon Mini              | Retroarch 1.9 PokeMini core          |
 | PSP                       | PPSSPP                               |
 | ScummVM                   | Retroarch 1.9 Scummvm core           |
@@ -50,7 +54,7 @@ This pack offers support for the following systems with their respective emulato
 | Super Nintendo            | Retroarch 1.9 Snes9x Current core    |
 | Wonderswan & Color        | Retroarch 1.9 Beetle Cygne core      |
 
-Keep in mind not all Android Systems are powerful enough to run all those systems. You can check your device compatibility in these Community maintained guides:
+Keep in mind not all Android Handhelds are powerful enough to run all those systems. You can check your device compatibility in these Community maintained guides:
 
 [RG552 Compatibility List](https://tinyurl.com/RG552GameSettings)
 
