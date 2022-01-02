@@ -1,4 +1,4 @@
-collection: Arcade (various)
+collection: Arcade (FBA)
 shortname: fba
 extensions: 7z, iso, zip
 launch: am start

@@ -1,5 +1,5 @@
-collection: Arcade (various)
-shortname: fba
+collection: Arcade (FBN)
+shortname: fbn
 extensions: 7z, cue, zip
 launch: am start
   -n com.retroarch/.browser.retroactivity.RetroActivityFuture
