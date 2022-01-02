@@ -7,7 +7,7 @@ The bad thing about Pegasus is that you need to do a lot of tinkering and config
 Table of contents:
 
 - **Pegasus Metadata to launch the emulators**
-- **RPSwitch Pegasus Theme**
+- **Bundled Pegasus Themes**
 - **Retroarch configuration**
 - **Installing this pack**
 - **Some Tips**
@@ -60,11 +60,12 @@ Keep in mind not all Android Handhelds are powerful enough to run all those syst
 
 [Retroid Pocket 2+ Compatibility List](https://tinyurl.com/RP2PlusGameSettings)
 
-## RPSwitch Pegasus Theme
+## Bundled Pegasus Theme
 
 <img src="https://raw.githubusercontent.com/dragoonDorise/RP-Switch/main/screenshots/RG552.jpg">
+<img src="https://github.com/dragoonDorise/RP-epic-noir/blob/main/screenshots/hero-odin.jpg?raw=true">
 
-You can install any [Pegasus Theme](https://pegasus-frontend.org/tools/themes/), but I'm providing one of my own that is adapted to all kinds of screens, 4:3 as seen on the Retroid Pocket 2 and 2+, 5:3 as the one in the RG552 or 16:9 like Ayn's Odin screen.
+You can install any [Pegasus Theme](https://pegasus-frontend.org/tools/themes/), but I'm providing two of my own that is adapted to all kinds of screens, 4:3 as seen on the Retroid Pocket 2 and 2+, 5:3 as the one in the RG552 or 16:9 like Ayn's Odin screen.
 
 ## Retroarch configuration
 
