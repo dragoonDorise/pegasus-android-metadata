@@ -1,0 +1,7 @@
+## SYSTEM CAPCOM PLAYSYSTEM 1 ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".zip .zip .7z .7z"
+
+cps1
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".zip .zip .7z .7z"

@@ -1,0 +1,5 @@
+## SYSTEM THOMSON - MO/TO (THEODORE) ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".fd .sap .k7 .m7 .m5 .rom .zip"
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".fd .sap .k7 .m7 .m5 .rom .zip"

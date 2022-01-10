@@ -1,0 +1,7 @@
+## SYSTEM CAPCOM PLAYSYSTEM 3 ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".zip .zip .7z .7z"
+
+cps3
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".zip .zip .7z .7z"

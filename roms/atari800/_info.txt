@@ -1,0 +1,5 @@
+## SYSTEM ATARI 800 ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".rom .xfd .atr .atx .cdm .cas .car .bin .a52 .xex .zip .7z"
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".rom .xfd .atr .atx .cdm .cas .car .bin .a52 .xex .zip .7z"

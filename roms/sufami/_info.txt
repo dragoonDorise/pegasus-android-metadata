@@ -1,0 +1,5 @@
+## SYSTEM SUFAMI TURBO ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".st .fig .bs .smc .sfc .zip .7z"
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".st .fig .bs .smc .sfc .zip .7z"

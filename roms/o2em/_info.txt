@@ -1,0 +1,5 @@
+## SYSTEM ODYSSEY2 ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".bin .zip .7z"
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".bin .zip .7z"

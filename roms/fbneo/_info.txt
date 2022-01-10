@@ -1,0 +1,13 @@
+## SYSTEM FINAL BURN NEO ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".zip .7z"
+
+ROMs version must be 0.2.97.44
+
+The file fbneo_029671_od_release_10_working_roms.dat may be used to check ROMs with clrmamepro available at http://mamedev.emulab.it/clrmamepro/
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".zip .7z"
+
+La version des ROMs doit être 0.2.97.44
+
+Le fichier fbneo_029671_od_release_10_working_roms.dat peut servir à valider les ROMs avec clrmamepro disponible sur http://mamedev.emulab.it/clrmamepro/

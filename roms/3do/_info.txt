@@ -1,0 +1,5 @@
+## SYSTEM 3DO INTERACTIVE MULTIPLAYER ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".iso .chd .cue"
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".iso .chd .cue"

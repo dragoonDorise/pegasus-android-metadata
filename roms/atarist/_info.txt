@@ -1,0 +1,5 @@
+## SYSTEM ATARI ST ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".st .msa .stx .dim .ipf .m3u .zip .7z"
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".st .msa .stx .dim .ipf .m3u .zip .7z"

@@ -1,0 +1,5 @@
+## SYSTEM MRBOOM ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".libretro"
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".libretro"

@@ -1,0 +1,5 @@
+## SYSTEM AMIGA OCS/ECS ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".zip .adf .uae .ipf .dms .dmz .adz .lha .hdf .exe"
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".zip .adf .uae .ipf .dms .dmz .adz .lha .hdf .exe"

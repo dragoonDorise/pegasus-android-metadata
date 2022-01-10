@@ -1,0 +1,5 @@
+## SYSTEM VIRTUAL BOY ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".vb .zip .7z"
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".vb .zip .7z"

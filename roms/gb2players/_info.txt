@@ -1,0 +1,5 @@
+## SYSTEM GAME BOY (2 PLAYERS) ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".gb .zip .7z"
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".gb .zip .7z"

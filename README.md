@@ -1,4 +1,6 @@
-# Android - Pegasus metadata pack
+# Work in progress, only for testing purposes!
+
+## Android - Pegasus metadata pack
 
 This guide will help you make it as easy as possible to use your Android Handheld with the Pegasus Frontend, in my opinion it's one of the best Frontend Emulators out there.
 
@@ -67,7 +69,9 @@ Keep in mind not all Android Handhelds are powerful enough to run all those syst
 
 You can install any [Pegasus Theme](https://pegasus-frontend.org/tools/themes/), but I'm providing two of my own that are adapted to all kinds of screens, 4:3 as seen on the Retroid Pocket 2 and 2+, 5:3 as the one in the RG552 or 16:9 like Ayn's Odin screen.
 
-## Retroarch configuration
+## Future Retroarch configuration
+
+### To do.
 
 We're also including a Retroarch configuration preset that will do the following:
 

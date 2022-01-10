@@ -1,0 +1,5 @@
+## SYSTEM PC ENGINE CD ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".pce .cue .ccd .iso .img .chd"
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".pce .cue .ccd .iso .img .chd"

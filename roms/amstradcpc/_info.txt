@@ -1,0 +1,11 @@
+## SYSTEM AMSTRAD CPC ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".dsk .sna .tap .cdt .voc .m3u .zip .7z"
+
+To enable gamepad support, go in RetroArch menu with "Hotkey + B", then switch this option:
+"Quick Menu/Core Input Options/User 1 Device type: Retropad" with "Amstrad Joystick"
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".dsk .sna .tap .cdt .voc .m3u .zip .7z"
+
+Pour activer le gamepad, entrer dans le menu Retroarch avec "Hotkey+B", puis modifiez l'option:
+"Quick Menu/Core Input Options/User 1 Device type : Retropad" en "Amstrad Joystick"

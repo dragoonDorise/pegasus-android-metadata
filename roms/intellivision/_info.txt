@@ -1,0 +1,5 @@
+## SYSTEM MATTEL INTELLIVISION ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".int .bin .rom .zip .7z"
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".int .bin .rom .zip .7z"

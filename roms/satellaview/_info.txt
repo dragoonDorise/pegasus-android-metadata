@@ -1,0 +1,5 @@
+## SYSTEM SATELLAVIEW ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".bs .smc .sfc .zip .7z"
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".bs .smc .sfc .zip .7z"

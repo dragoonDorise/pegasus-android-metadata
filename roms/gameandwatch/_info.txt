@@ -1,0 +1,5 @@
+## SYSTEM GAME AND WATCH ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".mgw .zip .7z"
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".mgw .zip .7z"

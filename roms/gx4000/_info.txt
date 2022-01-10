@@ -1,0 +1,5 @@
+## SYSTEM AMSTRAD GX4000 ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".dsk .m3u .cpr .zip .7z"
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".dsk .m3u .cpr .zip .7z"

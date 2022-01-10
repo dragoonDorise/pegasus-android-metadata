@@ -1,0 +1,5 @@
+## SYSTEM VECTREX ##
+-------------------------------------------------------------------------------
+ROM files extensions accepted: ".bin .gam .vec .zip .7z"
+-------------------------------------------------------------------------------
+Extensions des fichiers ROMs permises: ".bin .gam .vec .zip .7z"
