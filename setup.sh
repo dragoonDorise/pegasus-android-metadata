@@ -6,7 +6,7 @@ echo "Press Enter to start"
 read pausa
 #pkg update -y && pkg upgrade -y
 #pkg install x11-repo build-essential qt5-qtbase -y 
-pkg install git wget rsync unzip -y
+pkg install git wget rsync unzip whiptail -y
 termux-setup-storage
 mkdir ~/dragoonDoriseTools
 cd dragoonDoriseTools
