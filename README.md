@@ -95,6 +95,8 @@ Open RetroArch on your Handheld, if you don't have it installed just download it
 
 Anotate the XXXX-XXXX number, it will be some random number like ECA-11EF, we will need it later.
 
+Make sure your SD Card is on your handheld and with at least 5G free of space
+
 ## Automatic installation - Recommended
 
 This option provides a unattended installation of this Pegasus Metadata Pack, Pegasus itself, some Pegasus Themes and the RetroArch configuration.
