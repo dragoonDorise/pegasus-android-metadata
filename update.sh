@@ -7,6 +7,7 @@ git pull
 cd ~/storage/shared/pegasus-frontend/themesRP-switch
 git pull
 
+
 echo 'Done! If you want to update the metadata pack press Enter, close Termux otherwise.'
 echo 'DISCLAIMER: This will remove any changes you could have made to Pegasus metatada files or RetroArch core overrides'
 echo "This won't delete any roms"
@@ -22,6 +23,9 @@ rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-
 #update script update
 cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ./
 chmod a+rwx update.sh
+
+cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh ./
+chmod a+rwx scrap.sh
 
 rm -rf ~/dragoonDoriseTools/
 

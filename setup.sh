@@ -35,6 +35,8 @@ cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-fronten
 cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend
 cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ./
 chmod a+rwx update.sh
+cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh ./
+chmod a+rwx scrap.sh
 echo "Remember the XXXX-XXXX number we get from RetroArch? Now is the time to use it:)"
 echo "Type it here and press Enter"
 read sdcard
