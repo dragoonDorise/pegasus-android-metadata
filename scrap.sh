@@ -21,8 +21,8 @@ ans=$(whiptail --title "Rom Scrapper (more systems to come)" \
 		
    3>&1 1<&2 2>&3)
 
-mapfile -t selected_system_names <<< "$ans"
-
-for system_name in "${selected_system_names[@]}"; do
-   echo "System name: ${system_name}"
- done
+#mapfile -t selected_system_names <<< "$ans"
+#
+#for system_name in "${selected_system_names[@]}"; do
+#   echo "System name: ${system_name}"
+# done
