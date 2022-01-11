@@ -1,5 +1,7 @@
 # Work in progress, only for testing purposes!
 
+<img src="https://github.com/dragoonDorise/RP-epic-noir/blob/main/screenshots/hero-odin.jpg?raw=true">
+
 ## Android - Pegasus metadata pack
 
 This guide will help you make it as easy as possible to use your Android Handheld with the Pegasus Frontend, in my opinion it's one of the best Frontend Emulators out there.
@@ -9,14 +11,13 @@ The bad thing about Pegasus is that you need to do a lot of tinkering and config
 Table of contents:
 
 - **Pegasus Metadata to launch the emulators**
-- **Bundled Pegasus Themes**
 - **Retroarch configuration**
 - **Installing this pack**
 - **Some Tips**
 
 ## Pegasus Metadata
 
-This pack offers support for the following systems with their respective emulators, you might need to download them separately from the Google Play Store or within Retroarch when a core is used for that system.
+This pack offers support for the following systems with their respective emulators, you _ might need to download them separately from the Google Play Store or within RetroArch_ when a core is used for that system.
 
 | System                    | Emulator                             |
 | ------------------------- | ------------------------------------ |
@@ -62,16 +63,7 @@ Keep in mind not all Android Handhelds are powerful enough to run all those syst
 
 [Retroid Pocket 2+ Compatibility List](https://tinyurl.com/RP2PlusGameSettings)
 
-## Bundled Pegasus Themes
-
-<img src="https://raw.githubusercontent.com/dragoonDorise/RP-Switch/main/screenshots/RG552.jpg">
-<img src="https://github.com/dragoonDorise/RP-epic-noir/blob/main/screenshots/hero-odin.jpg?raw=true">
-
-You can install any [Pegasus Theme](https://pegasus-frontend.org/tools/themes/), but I'm providing two of my own that are adapted to all kinds of screens, 4:3 as seen on the Retroid Pocket 2 and 2+, 5:3 as the one in the RG552 or 16:9 like Ayn's Odin screen.
-
-## Future Retroarch configuration
-
-### To do.
+## Retroarch configuration
 
 We're also including a Retroarch configuration preset that will do the following:
 
@@ -82,7 +74,7 @@ We're also including a Retroarch configuration preset that will do the following
 - AutoSave and AutoLoad State \*
 - Activate Integer Scale for all systems \*
 
-\* Only for automatic Installations
+\* Only for Automatic Installations
 
 This configuration is based on [RGC RG552 Linux Setup](https://retrogamecorps.com/2021/12/27/anbernic-rg552-linux-setup-guide/)
 
@@ -90,7 +82,7 @@ This configuration is based on [RGC RG552 Linux Setup](https://retrogamecorps.co
 
 Just follow the steps, it should be pretty straightforward if you are finding any trouble just open an [issue](https://github.com/dragoonDorise/pegasus-android-metadata/issues)
 
-## Step 0 - Enable APK installation and preparations
+## Step 0 - Enable APK installation and other preparations
 
 First you'll need to enable installing APK packages, which can be done in your Android device on Settings → Security → Unknown Sources, turned on. You need this to install Pegasus, since it's not available on the Google App Store
 
@@ -101,15 +93,19 @@ Open RetroArch on your Handheld, if you don't have it installed just download it
     emulated
     self
 
-Anotate the XXXX-XXXX number, it will be some random number like ECA-11EF
+Anotate the XXXX-XXXX number, it will be some random number like ECA-11EF, we will need it later.
 
-## Automatic installation.
+## Automatic installation - Recommended
+
+This option provides a unattended installation of this Pegasus Metadata Pack, Pegasus itself, some Pegasus Themes and the RetroArch configuration.
 
 Download onto your handheld [Termux](https://f-droid.org/repo/com.termux_117.apk) and install it, we will use this app for configuring your machine, download Pegasus and some Pegasus Themes.
 
-Open Termux on your handheld and copy paste this command, and follow the steps as you are asked
+Open Termux on your handheld, give it write permissions and just copy paste this command.
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/dragoonDorise/pegasus-android-metadata/main/setup.sh)"
+
+Press Enter and follow the steps the script will show you, when it's finished you'll have everything setup
 
 ## Manual installation.
 
@@ -154,7 +150,20 @@ For some systems you need to copy some extra files because you need extra config
 
 Example, If you have an Anbernic RG552 you'll need to Copy the contents of the common folder and then copy the contents of the rg552 folder. **Always copy the common folder first**
 
-## 6 Download your roms Artwork
+## 6 Installing Themes
+
+<img src="https://raw.githubusercontent.com/dragoonDorise/RP-Switch/main/screenshots/RG552.jpg">
+<img src="https://github.com/dragoonDorise/RP-epic-noir/blob/main/screenshots/hero-odin.jpg?raw=true">
+
+You can install any [Pegasus Theme](https://pegasus-frontend.org/tools/themes/), but I recommend two of my own that are adapted to all kinds of screens, 4:3 as seen on the Retroid Pocket 2 and 2+, 5:3 as the one in the RG552 or 16:9 like Ayn's Odin screen.
+
+Just download them an unzip them in the themes folder
+
+[RP Switch](https://github.com/dragoonDorise/RP-Switch/archive/main.zip)
+
+[RP Epic Noir](https://github.com/dragoonDorise/RP-epic-noir/archive/main.zip)
+
+## 7 Download your roms Artwork
 
 Pegasus doenst download your Rom's assets so you need to scrape those yourself if you want your theme to look nice:
 
