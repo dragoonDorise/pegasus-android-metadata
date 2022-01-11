@@ -44,8 +44,11 @@ sed -i "s/0000-0000\//${sdcard}\/Android\/data\/com.termux\/files/g" ~/storage/s
 # Instaling roms folders
 
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-1
-#git clone https://github.com/dragoonDorise/pegasus-artwork.git ~/storage/external-1/.
-#unzip 
+#git clone https://github.com/dragoonDorise/pegasus-artwork.git ~/dragoonDoriseTools/
+#unzip ~/dragoonDoriseTools/art.zip
+#rm ~/dragoonDoriseTools/art.zip
+#rsync -r ~/dragoonDoriseTools/art/ ~/storage/external-1
+
 #Configure Retroarch
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/ ~/storage/shared/RetroArch/config/
 
