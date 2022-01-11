@@ -1,5 +1,6 @@
 import QtQuick 2.12
-
+ 
+    
 
   Item{
     id: homepage  
@@ -8,6 +9,7 @@ import QtQuick 2.12
       id: header
     }
     
+
     Rectangle {
         id: main
         color: mainCSS.background
@@ -90,9 +92,9 @@ import QtQuick 2.12
                                 id: systems__item_left
                                 color:"transparent"
                                 height: main.height-50
-                                width:parent.width/2.2
+                                width: aspectRatio === 169 ? parent.width/2.2 : parent.width
                                 anchors.left : parent.left
-                                anchors.leftMargin: 64;  
+                                anchors.leftMargin: vw(5);  
                                 z:20
                                 visible: currentPage === 'HomePage' ? 1 : 0 ;
                                 Text {
@@ -102,11 +104,11 @@ import QtQuick 2.12
                                     anchors.left: parent.left
                                     anchors.topMargin: 86;  
                                     color: "#646363"
-                                    font.pixelSize: vpx(6*screenRatio)
+                                    font.pixelSize: aspectRatio === 169 ? vpx(6*screenRatio) :  vpx(18*screenRatio) 
                                     font.family: bodyFont.name
                                     verticalAlignment: Text.AlignTop
                                     elide: Text.ElideRight
-                                    width: systems.width/2
+                                    width: aspectRatio === 169 ? systems.width/2 : systems.width
                                   //  height: vpx(270)
                                     opacity: systems__item_container.ListView.isCurrentItem ? 1 : 0
                                     visible : systemDetail[modelData.shortName] == undefined ? 0: 1
@@ -118,7 +120,7 @@ import QtQuick 2.12
                                       text: modelData.name
                                       anchors.top: systems__item_detail.bottom
                                       anchors.left: parent.left          
-                                      anchors.topMargin: 26;                              
+                                      anchors.topMargin: aspectRatio === 169 ? 26 : 12;
                                       color: "#fff"
                                       font.pixelSize: vpx(70*screenRatio)
                                       font.bold: true
@@ -161,6 +163,7 @@ import QtQuick 2.12
                                       width: systems.width/3
                                       opacity: systems__item_container.ListView.isCurrentItem ? 1 : 0
                                       wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                                      visible: aspectRatio === 169 ? true: false
                                   }
 
                                                           

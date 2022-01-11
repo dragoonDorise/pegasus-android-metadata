@@ -89,9 +89,17 @@ This configuration is based on [RGC RG552 Linux Setup](https://retrogamecorps.co
 
 Just follow the steps, it should be pretty straightforward if you are finding any trouble just open an [issue](https://github.com/dragoonDorise/pegasus-android-metadata/issues)
 
-## 1 - Enable APK installation
+## Step 0 - Enable APK installation
 
 First you'll need to enable installing APK packages, which can be done in your Android device on Settings → Security → Unknown Sources, turned on. You need this to install Pegasus, since it's not available on the Google App Store
+
+## Automatic installation.
+
+Download onto your handheld [Termux](https://f-droid.org/repo/com.termux_117.apk), we will use this apps for configuring our machine, download some Pegasus , some Themes and to scrap our roms from our handheld.
+
+## Manual installation.
+
+If you want to do it all by yourselft step by step just follow these steps.
 
 ## 2 - Download Pegasus
 

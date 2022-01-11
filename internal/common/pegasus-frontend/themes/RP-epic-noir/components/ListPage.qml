@@ -70,7 +70,7 @@ import QtQuick 2.12
 
                     Item
                     {
-                      height:40                      
+                      height:aspectRatio === 43 ? 40 : 60                      
                       id: delegateContainer
                       property bool selected: delegateContainer.ListView.isCurrentItem
                       property var gameViewStyle : 'standard'
@@ -159,9 +159,9 @@ import QtQuick 2.12
                           Rectangle{
                               id: game_selected
                               width:games.width
-                              height:game_title.height+10
+                              height: delegateContainer.height
                               anchors.top: parent.top
-                              anchors.topMargin: -4
+                              
                               color:"#272c35"
                               visible: selected ? true : false                          
                           }     
@@ -174,7 +174,7 @@ import QtQuick 2.12
                             color: "white"
                            
                             font.family: bodyFont.name
-                            font.pixelSize: 20
+                            font.pixelSize: delegateContainer.height/2
                             verticalAlignment: Text.AlignVCenter
                             elide: Text.ElideRight
                             visible: selected ? true : false 
@@ -188,7 +188,7 @@ import QtQuick 2.12
                               anchors.leftMargin: 12
                               color: "#434643"
                               font.family: bodyFont.name
-                              font.pixelSize: 20
+                              font.pixelSize: delegateContainer.height/2
                               verticalAlignment: Text.AlignVCenter
                               elide: Text.ElideRight
                               
@@ -232,7 +232,7 @@ import QtQuick 2.12
           Image {
               id: game_screenshot
               width: parent.width    
-              height:parent.height*0.6
+              height:currentCollection.games.get(gameView.currentIndex).description ? parent.height*0.6 :  parent.height
               fillMode: Image.PreserveAspectFit
               anchors.top:parent.top
               anchors.right: parent.right
