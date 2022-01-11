@@ -24,5 +24,5 @@ ans=$(whiptail --title "Rom Scrapper (more systems to come)" \
 mapfile -t selected_system_names <<< "$ans"
 
 for system_name in "${selected_system_names[@]}"; do
-   echo "System name: $system_name"
+   echo "System name: ${system_name}"
  done
