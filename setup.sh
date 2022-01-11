@@ -16,7 +16,7 @@ git clone https://github.com/dragoonDorise/pegasus-android-metadata.git pegasus-
 #git clone https://github.com/muldjord/skyscraper.git skyscraper
 
 #Download Pegasus
-wget https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w40/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
+wget https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w40/pegasus-fe_alpha15-85-gfff1a5b2_android.apk ~/dragoonDoriseTools/
 
 #Install Skyscraper
 #cd skyscraper
@@ -33,6 +33,13 @@ mkdir ~/storage/shared/pegasus-frontend/themes
 cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend
 cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend
 
+echo "Remember the XXXX-XXXX number we get from RetroArch? Now is the time to use it:)"
+echo "Type it here and press Enter"
+read sdcard
+
+sed -i "s/0000-0000/${sdcard}/g" ~/storage/shared/pegasus-frontend/game_dirs.txt 
+
+
 #Configure Retroarch
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/ ~/storage/shared/RetroArch/config/
 
@@ -44,4 +51,4 @@ git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasu
 #Configure RetroArch
 
 #Launch Pegasus
-xdg-open pegasus-fe_alpha15-85-gfff1a5b2_android.apk
+xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk

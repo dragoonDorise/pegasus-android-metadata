@@ -48,7 +48,7 @@ This pack offers support for the following systems with their respective emulato
 | Pokemon Mini              | Retroarch 1.9 PokeMini core          |
 | PSP                       | PPSSPP                               |
 | ScummVM                   | Retroarch 1.9 Scummvm core           |
-| Sega 32X                  | Retroarch 1.9 PicoDrive core   |
+| Sega 32X                  | Retroarch 1.9 PicoDrive core         |
 | Sega CD                   | Retroarch 1.9 Genesis Plus GX core   |
 | Sega Game Gear            | Retroarch 1.9 Genesis Plus GX core   |
 | Sega Genesis / Mega Drive | Retroarch 1.9 Genesis Plus GX core   |
@@ -75,13 +75,14 @@ You can install any [Pegasus Theme](https://pegasus-frontend.org/tools/themes/),
 
 We're also including a Retroarch configuration preset that will do the following:
 
-- Set the global aspect ratio to Core Provided
 - Set the right aspect ratio (1:1) for Handhelds & Mame Systems
 - Set the right aspect ratio (4:3 )for SNES and NES
 - Install LCD3 Shader for all Handhelds
-- Hide the load content splash screen
-- AutoSave and AutoLoad State
-- Activate Integer Scale for all systems
+- Hide the load content splash screen \*
+- AutoSave and AutoLoad State \*
+- Activate Integer Scale for all systems \*
+
+\* Only for automatic Installations
 
 This configuration is based on [RGC RG552 Linux Setup](https://retrogamecorps.com/2021/12/27/anbernic-rg552-linux-setup-guide/)
 
@@ -89,13 +90,26 @@ This configuration is based on [RGC RG552 Linux Setup](https://retrogamecorps.co
 
 Just follow the steps, it should be pretty straightforward if you are finding any trouble just open an [issue](https://github.com/dragoonDorise/pegasus-android-metadata/issues)
 
-## Step 0 - Enable APK installation
+## Step 0 - Enable APK installation and preparations
 
 First you'll need to enable installing APK packages, which can be done in your Android device on Settings → Security → Unknown Sources, turned on. You need this to install Pegasus, since it's not available on the Google App Store
 
+Open RetroArch on your Handheld, if you don't have it installed just download it from the Google Play Store, go to "Load Content", then select "/storage" and you'll get a screen like this:
+
+    Parent Directory
+    XXXX-XXXX
+    emulated
+    self
+
+Anotate the XXXX-XXXX number, it will be some random number like ECA-11EF
+
 ## Automatic installation.
 
-Download onto your handheld [Termux](https://f-droid.org/repo/com.termux_117.apk), we will use this apps for configuring our machine, download some Pegasus , some Themes and to scrap our roms from our handheld.
+Download onto your handheld [Termux](https://f-droid.org/repo/com.termux_117.apk) and install it, we will use this app for configuring your machine, download Pegasus and some Pegasus Themes.
+
+Open Termux on your handheld and copy paste this command, and follow the steps as you are asked
+
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/dragoonDorise/pegasus-android-metadata/main/setup.sh)"
 
 ## Manual installation.
 
@@ -109,7 +123,7 @@ On your handheld browser go to [Pegasus website](https://pegasus-frontend.org/#d
 
 Just click here: [Pegasus Frontend Android Metadata ](https://github.com/dragoonDorise/pegasus-android-metadata/archive/main.zip)
 
-Unzip it in your computer, insert your SD Card in your computer and just copy the contents of the pegasus-android-metadata-main folder, **don't copy the folder itself, only the content**. This will create several folders for each system and a **-internal** folder with the configuration for Pegasus and Retroarch.
+Unzip it in your computer, insert your SD Card in your computer and just copy the contents of the _roms_ folder, **don't copy the folder itself, only the contents**.
 
 ## 4 - Transfer your Roms
 
@@ -132,11 +146,13 @@ In there you'll see several folders.
 
 You need to copy the contents of the **commons** folder to your Android internal storage, on the root folder where you should have a RetroArch and pegasus-frontend folders already, make sure you merge your folders so we add these files to the ones that are already there, You'll probably need to overwrite some files. Remember: Merge folders and overwrite files.
 
-For some systems need to copy some extra files because you need extra configuration, just look for your systems name folder and do the same, copy its contents in your Android internal storage.
+Remember the XXXX-XXXX number we got earlier?
+
+Edit internal/common/pegasus-frontend/game_dirs.txt and replace 0000-0000 with the number.
+
+For some systems you need to copy some extra files because you need extra configuration, just look for your systems name folder and do the same, copy its contents in your Android internal storage.
 
 Example, If you have an Anbernic RG552 you'll need to Copy the contents of the common folder and then copy the contents of the rg552 folder. **Always copy the common folder first**
-
-Once this is done you can delete this folder if you want.
 
 ## 6 Download your roms Artwork
 
