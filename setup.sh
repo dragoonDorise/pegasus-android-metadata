@@ -54,7 +54,6 @@ rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch
 git clone https://github.com/dragoonDorise/RP-epic-noir.git ~/storage/shared/pegasus-frontend/themesRP-epic-noir
 git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themesRP-switch
 
-#Configure RetroArch
 
 echo "You can now remove your SD Card"
 echo "Insert your SD Card on your computer and copy your roms to the /Android/data/com.termux/files folder you will see there, every system has it's own folder for each set of roms"
