@@ -48,7 +48,7 @@ This pack offers support for the following systems with their respective emulato
 | Pokemon Mini              | Retroarch 1.9 PokeMini core          |
 | PSP                       | PPSSPP                               |
 | ScummVM                   | Retroarch 1.9 Scummvm core           |
-| Sega 32X                  | Retroarch 1.9 Genesis Plus GX core   |
+| Sega 32X                  | Retroarch 1.9 PicoDrive core   |
 | Sega CD                   | Retroarch 1.9 Genesis Plus GX core   |
 | Sega Game Gear            | Retroarch 1.9 Genesis Plus GX core   |
 | Sega Genesis / Mega Drive | Retroarch 1.9 Genesis Plus GX core   |
