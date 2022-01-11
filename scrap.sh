@@ -1,10 +1,107 @@
 #!/bin/sh
-ans=$(whiptail --title "https://atareao.es" \
-   --checklist "Elige uno o varios colores" 10 80 4 \
-   "AZUL" "azul" OFF \
-   "ROJO" "rojo" ON \
-   "GRIS" "gris" ON \
-   "LILA" "lila" OFF \
+ans=$(whiptail --title "Rom Scrapper" \
+   --checklist "Please Select your platform with the Space" 10 80 4 \
+		"3do" "3do" OFF \
+		"3ds" "3ds" OFF \
+		"amiga500" "amiga500" OFF \
+		"amiga1200" "amiga1200" OFF \
+		"amigacd32" "amigacd32" OFF \
+		"amigacdtv" "amigacdtv" OFF \
+		"amstradcpc" "amstradcpc" OFF \
+		"atari800" "atari800" OFF \
+		"atari2600" "atari2600" OFF \
+		"atari5200" "atari5200" OFF \
+		"atari7800" "atari7800" OFF \
+		"atarilynx" "atarilynx" OFF \
+		"atarist" "atarist" OFF \
+		"atomiswave" "atomiswave" OFF \
+		"c20" "c20" OFF \
+		"c64" "c64" OFF \
+		"c128" "c128" OFF \
+		"cannonball" "cannonball" OFF \
+		"cavestory" "cavestory" OFF \
+		"colecovision" "colecovision" OFF \
+		"cps1" "cps1" OFF \
+		"cps2" "cps2" OFF \
+		"cps3" "cps3" OFF \
+		"daphne" "daphne" OFF \
+		"doom" "doom" OFF \
+		"dos" "dos" OFF \
+		"dreamcast" "dreamcast" OFF \
+		"fba" "fba" OFF \
+		"fbn" "fbn" OFF \
+		"fbneo" "fbneo" OFF \
+		"fds" "fds" OFF \
+		"gameandwatch" "gameandwatch" OFF \
+		"gamegear" "gamegear" OFF \
+		"gb" "gb" OFF \
+		"gb2players" "gb2players" OFF \
+		"gba" "gba" OFF \
+		"gbc" "gbc" OFF \
+		"gbc2players" "gbc2players" OFF \
+		"gc" "gc" OFF \
+		"genesis" "genesis" OFF \
+		"gx4000" "gx4000" OFF \
+		"inputtest" "inputtest" OFF \
+		"intellivision" "intellivision" OFF \
+		"lightgun" "lightgun" OFF \
+		"LOST.DIR" "LOST.DIR" OFF \
+		"lutro" "lutro" OFF \
+		"lynx" "lynx" OFF \
+		"mame" "mame" OFF \
+		"mastersystem" "mastersystem" OFF \
+		"megadrive" "megadrive" OFF \
+		"moonlight" "moonlight" OFF \
+		"mrboom" "mrboom" OFF \
+		"msx1" "msx1" OFF \
+		"msx2" "msx2" OFF \
+		"msx2+" "msx2+" OFF \
+		"n64" "n64" OFF \
+		"naomi" "naomi" OFF \
+		"nds" "nds" OFF \
+		"neogeo" "neogeo" OFF \
+		"neogeocd" "neogeocd" OFF \
+		"nes" "nes" OFF \
+		"ngp" "ngp" OFF \
+		"ngpc" "ngpc" OFF \
+		"o2em" "o2em" OFF \
+		"openbor" "openbor" OFF \
+		"pc88" "pc88" OFF \
+		"pc98" "pc98" OFF \
+		"pcengine" "pcengine" OFF \
+		"pcenginecd" "pcenginecd" OFF \
+		"pcfx" "pcfx" OFF \
+		"pico8" "pico8" OFF \
+		"pokemini" "pokemini" OFF \
+		"pokemon_mini" "pokemon_mini" OFF \
+		"prboom" "prboom" OFF \
+		"ps2" "ps2" OFF \
+		"psp" "psp" OFF \
+		"psx" "psx" OFF \
+		"pygame" "pygame" OFF \
+		"satellaview" "satellaview" OFF \
+		"saturn" "saturn" OFF \
+		"scummvm" "scummvm" OFF \
+		"scummvn" "scummvn" OFF \
+		"sega32x" "sega32x" OFF \
+		"segacd" "segacd" OFF \
+		"sg1000" "sg1000" OFF \
+		"snes" "snes" OFF \
+		"sufami" "sufami" OFF \
+		"supergrafx" "supergrafx" OFF \
+		"thomson" "thomson" OFF \
+		"tic80" "tic80" OFF \
+		"tyrquake" "tyrquake" OFF \
+		"vectrex" "vectrex" OFF \
+		"virtualboy" "virtualboy" OFF \
+		"wonderswan" "wonderswan" OFF \
+		"wswan" "wswan" OFF \
+		"wswanc" "wswanc" OFF \
+		"x68000" "x68000" OFF \
+		"zx81" "zx81" OFF \
+		"zxspectrum" "zxspectrum" OFF \
    3>&1 1<&2 2>&3)
 
-echo ans   
+echo ${ans}   
+
+
