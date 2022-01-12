@@ -31,12 +31,22 @@ wget https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w4
 #Configure Pegasus
 mkdir ~/storage/shared/pegasus-frontend
 mkdir ~/storage/shared/pegasus-frontend/themes
+
+#Backup
+cp ~/storage/shared/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend/settings.txt.bak
+cp ~/storage/shared/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend/settings.txt.bak
+
 cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend
 cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend
-cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ./
-chmod a+rwx update.sh
-cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh ./
-chmod a+rwx scrap.sh
+
+cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/dragoonDoriseTools/update.sh
+chmod a+rwx ~/dragoonDoriseTools/update.sh
+cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/dragoonDoriseTools/scrap.sh
+chmod a+rwx ~/dragoonDoriseTools/scrap.sh
+cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/dragoonDoriseTools/undo.sh
+chmod a+rwx ~/dragoonDoriseTools/undo.sh
+
+
 echo "Remember the XXXX-XXXX number we get from RetroArch? Now is the time to use it:)"
 echo "Type it here and press Enter"
 read sdcard
@@ -66,7 +76,7 @@ echo "Meanwhile press Enter, we will install Pegasus"
 echo "If you need to update Pegasus or the themes presents on this guide just come back to Termux and execute update.sh and follow the instructions"
 read pause
 
-rm -rf ~/dragoonDoriseTools/
+#rm -rf ~/dragoonDoriseTools/
 
 #Launch Pegasus
 xdg-open pegasus-fe_alpha15-85-gfff1a5b2_android.apk

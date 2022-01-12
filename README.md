@@ -4,13 +4,11 @@
 
 ## Android - Pegasus metadata pack
 
-This guide will help you make it as easy as possible to use your Android Handheld with the Pegasus Frontend, in my opinion it's one of the best Frontend Emulators out there.
-
-The bad thing about Pegasus is that you need to do a lot of tinkering and configuration, This pack tries to make the experience as plug & play as possible so you don't have to tinker with config files.
+This guide will help you install, configure [Pegasus Frontend](https://pegasus-frontend.org) and scrap your roms artwork on your Android Handheld.
 
 Table of contents:
 
-- **Pegasus Metadata to launch the emulators**
+- **Pegasus Metadata**
 - **Retroarch configuration**
 - **Installing this pack**
 - **Some Tips**
@@ -63,6 +61,8 @@ Keep in mind not all Android Handhelds are powerful enough to run all those syst
 
 [Retroid Pocket 2+ Compatibility List](https://tinyurl.com/RP2PlusGameSettings)
 
+[Powkiddy X18S Compatibility List](https://tinyurl.com/X18SGameSettings)
+
 ## Retroarch configuration
 
 We're also including a Retroarch configuration preset that will do the following:
@@ -74,13 +74,13 @@ We're also including a Retroarch configuration preset that will do the following
 - AutoSave and AutoLoad State \*
 - Activate Integer Scale for all systems \*
 
-\* Only for Automatic Installations
+\* Only available on Automatic Installations
 
 This configuration is based on [RGC RG552 Linux Setup](https://retrogamecorps.com/2021/12/27/anbernic-rg552-linux-setup-guide/)
 
 # Installing this pack
 
-Just follow the steps, it should be pretty straightforward if you are finding any trouble just open an [issue](https://github.com/dragoonDorise/pegasus-android-metadata/issues)
+Just follow the next steps, it should be pretty straightforward.
 
 ## Step 0 - Enable APK installation and other preparations
 
@@ -95,19 +95,44 @@ Open RetroArch on your Handheld, if you don't have it installed just download it
 
 Anotate the XXXX-XXXX number, it will be some random number like ECA-11EF, we will need it later.
 
-Make sure your SD Card is on your handheld and with at least 5G free of space
+Now you have to options:
+
+- Automatic installation - Just run and script that will do everything for you. This is needed for thr RetroArch configuration and for the on device rom artwork scraper. These option also installs some Pegasus Themes and gives you an updater script so you can install more themes or systems on the future from your Handheld. **This is the recommended installation**
+
+- Manual instalation - You'll have to copy this repository,  configure Retroarch and scrap your roms artwork on a Windows PC. **I don't recommend this option. **
 
 ## Automatic installation - Recommended
 
-This option provides a unattended installation of this Pegasus Metadata Pack, Pegasus itself, some Pegasus Themes and the RetroArch configuration.
+Download onto your handheld the app [Termux](https://f-droid.org/repo/com.termux_117.apk) and install it, we will use this app so we can automate everything.
 
-Download onto your handheld [Termux](https://f-droid.org/repo/com.termux_117.apk) and install it, we will use this app for configuring your machine, download Pegasus and some Pegasus Themes.
-
-Open Termux on your handheld, give it write permissions and just copy paste this command.
+Open Termux on your handheld, give it write permissions when it asks for them and just copy and paste the following command.
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/dragoonDorise/pegasus-android-metadata/main/setup.sh)"
 
-Press Enter and follow the steps the script will show you, when it's finished you'll have everything setup
+Press Enter and follow the steps the script will show you, when it's finished you'll have everything installed and you'll only need to copy your roms to the specific folders created in the SD Card.
+
+### Scraping your roms
+When you have copied your roms in the SD Card, open Termux again and type this command:
+
+    scrap.sh    
+
+Press Enter, this will show a dialog screen where you need to choose the platforms you want to scrap, any rom already scrapped will be ignored, use the DPAD to move in the menu and press the Space in the Android Virtual Keyboard and Press A when ready.
+
+Right now the script uses Retroarch Thumbnail repository, so not all roms are available. Work is being done to replace this with **Screen Scrapper**
+
+### Updating your Pegasus Metadata Pack installation.
+
+I plan to provide updates to this Metadata Pack so more systems / themes are available and any possible bug is fixed, you can do this by opening Termux again and typing this command:
+
+    update.sh    
+
+### Undoing everything
+
+If you don't like this Metadata Pack and you had already your handheld preconfigured you can undo everything, just open Termux and execute this script.
+
+    undo.sh
+
+Press Enter and just wait for everything to finish, this will restore everything the way it was when you installed this Metadata Pack
 
 ## Manual installation.
 

@@ -1,9 +1,8 @@
 #!/bin/sh
 #
-#git clone https://github.com/dragoonDorise/pegasus-artwork.git ./pegasus-artwork
 
 selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
-   --checklist "Please Select your platform with the Space" 10 80 4 \
+   --checklist "Move using yout DPAD and select your platforms with the Space" 10 80 4 \
 		"gb" "" ON \
    3>&1 1<&2 2>&3)
 
@@ -26,36 +25,50 @@ for device_name in ${selected_device_names[@]};
 		 secondString=".png"
 		 capture="${firstString/.7z/"$secondString"}"   
 		 
-		firstString=$capture
+		 firstString=$capture
 		 secondString=""
 		 capture="${firstString/"/data/data/com.termux/files/home/storage/external-1/$system/"/"$secondString"}"   
 		 
+		case $system in
+		
+  		gb)
+			remoteSystem="Nintendo - Game Boy"
+			;;
+		
+  		Romania | Moldova)
+			echo -n "Romanian"
+			;;
+		
+  		Italy | "San Marino" | Switzerland | "Vatican City")
+			echo -n "Italian"
+			;;
+		
+  		*)
+			echo -n "unknown"
+			;;
+		esac		 
 				
 		FILE=~/storage/external-1/$system/media/screenshot/$capture
 		if [ -f "$FILE" ]; then
 			echo "$FILE exists, ignoring"
 		else 
-			wget  "http://thumbnails.libretro.com/Nintendo - Game Boy/Named_Snaps/$capture" -P ~/storage/external-1/$system/media/screenshot/
+			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$capture" -P ~/storage/external-1/$system/media/screenshot/
 		fi
 		
 		FILE=~/storage/external-1/$system/media/box2dfront/$capture
 		if [ -f "$FILE" ]; then
 			echo "$FILE exists, ignoring"
 		else 
-			wget  "http://thumbnails.libretro.com/Nintendo - Game Boy/Named_Boxarts/$capture" -P ~/storage/external-1/$system/media/box2dfront/
+			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$capture" -P ~/storage/external-1/$system/media/box2dfront/
 		fi
 		
 		FILE=~/storage/external-1/$system/media/wheel/$capture
 		if [ -f "$FILE" ]; then
 			echo "$FILE exists, ignoring"
 		else 
-			wget  "http://thumbnails.libretro.com/Nintendo - Game Boy/Named_Titles/$capture" -P ~/storage/external-1/$system/media/wheel/
+			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Titles/$capture" -P ~/storage/external-1/$system/media/wheel/
 		fi
-		
-				 
 				
-				
-		
 		
 		
 		#for rom in $entry
