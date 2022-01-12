@@ -114,7 +114,7 @@ Press Enter and follow the steps the script will show you, when it's finished yo
 ### Scraping your roms
 When you have copied your roms in the SD Card, open Termux again and type this command:
 
-    scrap.sh    
+    bash scrap.sh    
 
 Press Enter, this will show a dialog screen where you need to choose the platforms you want to scrap, any rom already scrapped will be ignored, use the DPAD to move in the menu and press the Space in the Android Virtual Keyboard and Press A when ready.
 
@@ -124,13 +124,13 @@ Right now the script uses Retroarch Thumbnail repository, so not all roms are av
 
 I plan to provide updates to this Metadata Pack so more systems / themes are available and any possible bug is fixed, you can do this by opening Termux again and typing this command:
 
-    update.sh    
+    bash update.sh    
 
 ### Undoing everything
 
 If you don't like this Metadata Pack and you had already your handheld preconfigured you can undo everything, just open Termux and execute this script.
 
-    undo.sh
+    bash undo.sh
 
 Press Enter and just wait for everything to finish, this will restore everything the way it was when you installed this Metadata Pack
 
