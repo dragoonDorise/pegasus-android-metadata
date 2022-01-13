@@ -13,6 +13,19 @@ rm -f undo.sh
 
 rm -f pegasus-fe_alpha15-85-gfff1a5b2_android.apk
 
+#Restoring Retroarch
+rm -f ~/storage/shared/RetroArch/config/
+
+FILE=~/storage/shared/RetroArch/config_bak
+if [ -f "$FILE" ]; then
+	rm -rf ~/storage/shared/RetroArch/config/
+	cp ~/storage/shared/RetroArch/config_bak/ ~/storage/shared/RetroArch/config/
+	rm ~/storage/shared/RetroArch/config_bak/
+else 
+	
+	
+fi
+
 clear
 
 echo "All cleaned up!"

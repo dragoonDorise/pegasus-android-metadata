@@ -39,12 +39,12 @@ cp ~/storage/shared/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-fron
 cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend
 cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend
 
-cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/dragoonDoriseTools/update.sh
-chmod a+rwx ~/dragoonDoriseTools/update.sh
-cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/dragoonDoriseTools/scrap.sh
-chmod a+rwx ~/dragoonDoriseTools/scrap.sh
-cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/dragoonDoriseTools/undo.sh
-chmod a+rwx ~/dragoonDoriseTools/undo.sh
+cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/update.sh
+chmod a+rwx ~/update.sh
+cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/scrap.sh
+chmod a+rwx ~/scrap.sh
+cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh
+chmod a+rwx ~/undo.sh
 
 
 echo "Remember the XXXX-XXXX number we get from RetroArch? Now is the time to use it:)"
@@ -62,6 +62,7 @@ rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-
 #rsync -r ~/dragoonDoriseTools/art/ ~/storage/external-1
 
 #Configure Retroarch
+cp ~/storage/shared/RetroArch/config/ ~/storage/shared/RetroArch/config_bak/
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/ ~/storage/shared/RetroArch/config/
 
 
