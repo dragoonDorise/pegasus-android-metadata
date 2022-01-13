@@ -2,9 +2,10 @@
 
 echo "Hi! We're gonna start configuring your Android Device"
 echo "Make sure your SD Card is inserted"
-echo "Press Enter to start"
+echo "The script might ask you to confirm installation, just type y and press Enter"
+echo "Press now Enter to start"
 read pausa
-#pkg update -y && pkg upgrade -y
+pkg update -y && pkg upgrade -y
 #pkg install x11-repo build-essential qt5-qtbase -y 
 pkg install git wget rsync unzip whiptail -y
 termux-setup-storage
