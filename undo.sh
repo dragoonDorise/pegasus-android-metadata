@@ -11,7 +11,7 @@ rm -f scrap.sh
 rm -f update.sh
 rm -f undo.sh
 
-rm -f pegasus-fe_alpha15-85-gfff1a5b2_android.apk
+rm -f ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
 
 #Restoring Retroarch
 rm -f ~/storage/shared/RetroArch/config/

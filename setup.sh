@@ -80,6 +80,6 @@ read pause
 #rm -rf ~/dragoonDoriseTools/
 
 #Launch Pegasus
-xdg-open pegasus-fe_alpha15-85-gfff1a5b2_android.apk
+xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
 
 echo "All Done! You can now close Termux"
