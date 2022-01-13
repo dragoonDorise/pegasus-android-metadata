@@ -5,7 +5,7 @@ echo "Make sure your SD Card is inserted"
 echo "The script might ask you to confirm installation, just type y and press Enter"
 echo "Press now Enter to start"
 read pausa
-pkg update -y && pkg upgrade -y
+pkg update -y -F && pkg upgrade -y -F
 #pkg install x11-repo build-essential qt5-qtbase -y 
 pkg install git wget rsync unzip whiptail -y
 termux-setup-storage
