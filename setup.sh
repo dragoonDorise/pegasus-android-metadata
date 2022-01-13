@@ -2,7 +2,7 @@
 
 echo "Hi! We're gonna start configuring your Android Device"
 echo "Make sure your SD Card is inserted"
-echo "The script might ask you to confirm installation, just type y and press Enter"
+echo "The script might ask you to confirm installation, just type Y (capital) and press Enter"
 echo "Press now Enter to start"
 read pausa
 pkg update -y -F && pkg upgrade -y -F
