@@ -86,16 +86,7 @@ Just follow the next steps, it should be pretty straightforward.
 
 First you'll need to enable installing APK packages, which can be done in your Android device on Settings → Security → Unknown Sources, turned on. You need this to install Pegasus, since it's not available on the Google App Store
 
-Open RetroArch on your Handheld, if you don't have it installed just download it from the Google Play Store, go to "Load Content", then select "/storage" and you'll get a screen like this:
-
-    Parent Directory
-    XXXX-XXXX
-    emulated
-    self
-
-Anotate the XXXX-XXXX number, it will be some random number like ECA-11EF, we will need it later.
-
-Now you have to options:
+You have to options for installing this Pack:
 
 - Automatic installation - Just run and script that will do everything for you. This is needed for thr RetroArch configuration and for the on device rom artwork scraper. These option also installs some Pegasus Themes and gives you an updater script so you can install more themes or systems on the future from your Handheld. **This is the recommended installation**
 
@@ -139,6 +130,18 @@ Press Enter and just wait for everything to finish, this will restore everything
 ## Manual installation.
 
 If you want to do it all by yourselft step by step just follow these steps.
+
+## 1 - Get your SD Card ID
+
+Open RetroArch on your Handheld, if you don't have it installed just download it from the Google Play Store, go to "Load Content", then select "/storage" and you'll get a screen like this:
+
+    Parent Directory
+    XXXX-XXXX
+    emulated
+    self
+
+Anotate the XXXX-XXXX number, it will be some random number like ECA-11EF, we will need it later.
+
 
 ## 2 - Download Pegasus
 

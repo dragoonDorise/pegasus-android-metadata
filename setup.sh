@@ -48,11 +48,20 @@ cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh
 chmod a+rwx ~/undo.sh
 
 
-echo "Remember the XXXX-XXXX number we get from RetroArch? Now is the time to use it:)"
-echo "Type it here and press Enter"
-read sdcard
+#We get the SD Card Volume name
+for entry in /storage/*
+ do
+	 STR=$entry
+	 SUB='-'
+	 if grep -q "$SUB" <<< "$STR"; then
+		 firstString=$entry
+			 secondString=""
+		  sdcardID="${firstString/"/storage/"/"$secondString"}"   
+	 fi
+ done
+ 
 
-sed -i "s/0000-0000\//${sdcard}\/Android\/data\/com.termux\/files/g" ~/storage/shared/pegasus-frontend/game_dirs.txt 
+sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files/g" ~/storage/shared/pegasus-frontend/game_dirs.txt 
 
 # Instaling roms folders
 
