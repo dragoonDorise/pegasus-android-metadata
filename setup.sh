@@ -61,7 +61,7 @@ for entry in /storage/*
  done
  
 
-sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files/g" ~/storage/shared/pegasus-frontend/game_dirs.txt 
+sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt 
 
 # Instaling roms folders
 
