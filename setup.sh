@@ -18,25 +18,25 @@ echo -e  "The script might ask you to confirm some steps along the installation 
 echo -e  "${BLINK}Press now the A button  to start${NONE}"
 read pausa
 clear
-echo -e "Installing components..."
+echo -ne "Installing components..."
 pkg update -y -F && pkg upgrade -y -F
 #pkg install x11-repo build-essential qt5-qtbase -y 
 pkg install git wget rsync unzip whiptail -y  &> /dev/null
 termux-setup-storage &> /dev/null
 mkdir ~/dragoonDoriseTools &> /dev/null
 cd dragoonDoriseTools &> /dev/null
-echo -ne "${BOLD}OK${NONE}"
+echo -e "${BOLD}OK${NONE}"
 
-echo -e "Downloading Metadata..."
+echo -ne "Downloading Metadata..."
 #Download Pegasus Metadata files
 git clone https://github.com/dragoonDorise/pegasus-android-metadata.git pegasus-android-metadata/ &> /dev/null
 #git clone https://github.com/muldjord/skyscraper.git skyscraper
-echo -ne "${BOLD}OK${NONE}"
+echo -e "${BOLD}OK${NONE}"
 
 #Download Pegasus
-echo -e "Downloading Pegasus..."
+echo -ne "Downloading Pegasus..."
 wget https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w40/pegasus-fe_alpha15-85-gfff1a5b2_android.apk &> /dev/null
-echo -ne "${BOLD}OK${NONE}"
+echo -e "${BOLD}OK${NONE}"
 
 #Install Skyscraper
 #cd skyscraper
@@ -48,27 +48,27 @@ echo -ne "${BOLD}OK${NONE}"
 #cd ..
 
 #Configure Pegasus
-echo -e "Configuring Pegasus..."
+echo -ne "Configuring Pegasus..."
 mkdir ~/storage/shared/pegasus-frontend &> /dev/null
 mkdir ~/storage/shared/pegasus-frontend/themes &> /dev/null
-echo -ne "${BOLD}OK${NONE}"
+echo -e "${BOLD}OK${NONE}"
 
 #Backup
-echo -e "Creating Backups of everything..."
+echo -ne "Creating Backups of everything..."
 cp ~/storage/shared/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend/settings.txt.bak &> /dev/null
 cp ~/storage/shared/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend/settings.txt.bak &> /dev/null
 cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend &> /dev/null
 cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend &> /dev/null
-echo -ne "${BOLD}OK${NONE}"
+echo -e "${BOLD}OK${NONE}"
 
-echo -e "Installing Scrap, Update & Undo Scripts..."
+echo -ne "Installing Scrap, Update & Undo Scripts..."
 cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/update.sh &> /dev/null
 chmod a+rwx ~/update.sh &> /dev/null
 cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/scrap.sh &> /dev/null
 chmod a+rwx ~/scrap.sh &> /dev/null
 cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh &> /dev/null
 chmod a+rwx ~/undo.sh &> /dev/null
-echo -ne "${BOLD}OK${NONE}"
+echo -e "${BOLD}OK${NONE}"
 
 #We get the SD Card Volume name
 for entry in /storage/*
@@ -82,28 +82,28 @@ for entry in /storage/*
 	 fi
  done
  
-echo -e "Configuring SD Card..."
+echo -ne "Configuring SD Card..."
 sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt &> /dev/null 
 # Instaling roms folders
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-1 &> /dev/null
-echo -ne "${BOLD}OK${NONE}"
+echo -e "${BOLD}OK${NONE}"
 
 #Configure Retroarch
-echo -e "Creating RetroArch Backup..."
+echo -ne "Creating RetroArch Backup..."
 cp -r ~/storage/shared/RetroArch/config/ ~/storage/shared/RetroArch/config_bak/ &> /dev/null
-echo -ne "${BOLD}OK${NONE}"
-echo -e "Configuring Retroarch..."
+echo -e "${BOLD}OK${NONE}"
+echo -ne "Configuring Retroarch..."
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> /dev/null
-echo -ne "${BOLD}OK${NONE}"
+echo -e "${BOLD}OK${NONE}"
 
 # Install Themes for Pegasus
-echo -e "Downloading Pegasus Theme : RP Epic Noir..."
+echo -ne "Downloading Pegasus Theme : RP Epic Noir..."
 git clone https://github.com/dragoonDorise/RP-epic-noir.git ~/storage/shared/pegasus-frontend/themes/RP-epic-noir &> /dev/null
-echo -ne "${BOLD}OK${NONE}"
+echo -e "${BOLD}OK${NONE}"
 
-echo -e "Downloading Pegasus Theme : RP Switch..."
+echo -ne "Downloading Pegasus Theme : RP Switch..."
 git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themes/RP-switch &> /dev/null
-echo -ne "${BOLD}OK${NONE}"
+echo -e "${BOLD}OK${NONE}"
 
 clear
 echo -e  "${GREEN}Success!!${NONE}"
