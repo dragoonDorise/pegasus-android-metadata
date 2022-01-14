@@ -14,4 +14,3 @@ launch: am start
   --activity-clear-task
   --activity-clear-top
   --activity-no-history
-  

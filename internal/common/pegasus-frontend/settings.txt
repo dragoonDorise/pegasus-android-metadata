@@ -1,5 +1,5 @@
-general.theme: themesRP-epic-noir/
-general.verify-files: false
+general.theme: RP-epic-noir/
+general.verify-files: true
 general.input-mouse-support: true
 general.fullscreen: true
 providers.steam.enabled: true

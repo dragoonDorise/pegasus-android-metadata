@@ -15,7 +15,7 @@ clear
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
 echo -e  "The script might ask you to confirm some steps along the installation proccess, just type Y ( capital ) and press A button when asked"
-echo -e  "${BLINK}Press now Enter to start${NONE}"
+echo -e  "${BLINK}Press now the A button  to start${NONE}"
 read pausa
 pkg update -y -F && pkg upgrade -y -F
 #pkg install x11-repo build-essential qt5-qtbase -y 
@@ -89,8 +89,8 @@ rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch
 
 
 # Install Themes for Pegasus
-git clone https://github.com/dragoonDorise/RP-epic-noir.git ~/storage/shared/pegasus-frontend/themesRP-epic-noir
-git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themesRP-switch
+git clone https://github.com/dragoonDorise/RP-epic-noir.git ~/storage/shared/pegasus-frontend/themes/RP-epic-noir
+git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themes/RP-switch
 
 clear
 echo -e  "${GREEN}Success!!${NONE}"
@@ -98,20 +98,23 @@ echo -e  "We've finish the first step"
 echo -e  ""
 echo -e  "You can now remove your SD Card"
 echo -e  "Insert your SD Card on your computer and go to this folder in your SD Card: ${GREEN}/Android/data/com.termux/files${NONE}."
-echo -e  "You will see there that every system has its own folder for each set of roms, just copy your roms on every folder. ${BOLD}We recommend roms named after no-intro romsets${NONE}"
+echo -e  "You will see there that every system has its own folder for each set of roms, just copy your roms on the corresponding folder for each system."
+echo -e  "${BOLD}We recommend roms named after no-intro romsets${NONE}"
 echo -e  "Now let's install ${RED}Pegasus${NONE}"
-echo -e  "Press the A Button to install Pegasus, Remember to come back to scrap your roms artwork!"
+echo -e  "Press the A Button to install Pegasus, When Pegasus is installed clock ${BOLD}DONE${NONE} in the instalation window so you can come back to scrap your roms' artwork!"
 read pause
 
 #Launch Pegasus
 xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
 echo -e  "${GREEN}All Done, do you have you SD Card inserted with all your roms?${NONE}"
 echo -e  "${BOLD}Let's start getting all your artwork!${NONE}"
+echo -e  "Press the A Button to continue"
+read pause
 cd ~/
 bash scrap.sh
 clear
 echo -e  "${GREEN}Done!${NONE}"
-echo -e  "If you need to scrap more roms in the future, just open ${BOLD}Termus${NONE} and run this command"
+echo -e  "If you need to scrap more roms in the future, just open ${BOLD}Termux${NONE} and run this command"
 echo -e  "${UNDERLINE}bash scrap.sh${NONE}"
 echo -e  "If you need to uninstall this Pack run this command"
 echo -e  "${UNDERLINE}bash undo.sh${NONE}"

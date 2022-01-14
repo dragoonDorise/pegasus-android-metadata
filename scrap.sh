@@ -2,7 +2,7 @@
 #
 
 selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
-   --checklist "Move using yout DPAD and select your platforms with the Space" 10 80 4 \
+   --checklist "Move using your DPAD and select your platforms with the Space" 10 80 4 \
 	"atari2600" "Atari - 2600" OFF \
 	"atarilynx" "Atari - Lynx" OFF \
 	"doom" "DOOM" OFF \
