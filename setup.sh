@@ -119,6 +119,7 @@ read pause
 
 #Launch Pegasus
 xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
+clear
 echo -e  "${GREEN}All Done${NONE}, do you have your SD Card inserted with all your roms?"
 echo -e  "${BOLD}Let's start getting all your artwork!${NONE}"
 echo -e  "Press the A Button to continue"
