@@ -11,20 +11,20 @@ UNDERLINE='\033[4m'
 
 echo -ne "Deleting Metadata..."
 rm -rf ~/dragoonDoriseTools  &> /dev/null
-echo -e "${BOLD}OK${NONE}"
+echo -e "${GREEN}OK${NONE}"
 #Restoring Pegasus
 echo -ne "Restoring Pegasus settings if existed..."
 cp ~/storage/shared/pegasus-frontend/settings.txt.bak ~/storage/shared/pegasus-frontend/settings.txt  &> /dev/null
 cp ~/storage/shared/pegasus-frontend/game_dirs.txt.bak ~/storage/shared/pegasus-frontend/settings.txt  &> /dev/null
-echo -e "${BOLD}OK${NONE}"
+echo -e "${GREEN}OK${NONE}"
 echo -ne "Deleting scripts..."
 rm -f scrap.sh  &> /dev/null
 rm -f update.sh  &> /dev/null
 rm -f undo.sh  &> /dev/null
-echo -e "${BOLD}OK${NONE}"
+echo -e "${GREEN}OK${NONE}"
 echo -ne "Deleting Pegasus apk..."
 rm -f ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk  &> /dev/null
-echo -e "${BOLD}OK${NONE}"
+echo -e "${GREEN}OK${NONE}"
 #Restoring Retroarch
 echo -ne "Restoring RetroArch config"
 FILE=~/storage/shared/RetroArch/config_bak
@@ -33,7 +33,7 @@ if [ -f "$FILE" ]; then
 	cp ~/storage/shared/RetroArch/config_bak/ ~/storage/shared/RetroArch/config/  &> /dev/null
 	rm ~/storage/shared/RetroArch/config_bak/  &> /dev/null
 fi
-echo -e "${BOLD}OK${NONE}"
+echo -e "${GREEN}OK${NONE}"
 rm -rf ~/storage  &> /dev/null
 clear
 

@@ -189,7 +189,7 @@ for device_name in ${selected_device_names[@]};
 		else 
 			echo -ne "Downloading $capture screenshot..."
 			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$capture" -P ~/storage/external-1/$system/media/screenshot/  &> /dev/null
-			echo -e "${BOLD}OK${NONE}"
+			echo -e "${GREEN}OK${NONE}"
 		fi
 		
 		FILE=~/storage/external-1/$system/media/box2dfront/$capture
@@ -198,7 +198,7 @@ for device_name in ${selected_device_names[@]};
 		else 
 			echo -ne "Downloading $capture box2dfront..."
 			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$capture" -P ~/storage/external-1/$system/media/box2dfront/  &> /dev/null
-			echo -e "${BOLD}OK${NONE}"
+			echo -e "${GREEN}OK${NONE}"
 		fi
 		
 		FILE=~/storage/external-1/$system/media/wheel/$capture
@@ -207,7 +207,7 @@ for device_name in ${selected_device_names[@]};
 		else 
 			echo -ne "Downloading $capture wheel..."
 			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Titles/$capture" -P ~/storage/external-1/$system/media/wheel/  &> /dev/null
-			echo -e "${BOLD}OK${NONE}"
+			echo -e "${GREEN}OK${NONE}"
 		fi
 				
 		
