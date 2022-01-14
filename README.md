@@ -86,12 +86,6 @@ Just follow the next steps, it should be pretty straightforward.
 
 First you'll need to enable installing APK packages, which can be done in your Android device on Settings → Security → Unknown Sources, turned on. You need this to install Pegasus, since it's not available on the Google App Store
 
-You have to options for installing this Pack:
-
-- Automatic installation - Just run and script that will do everything for you. This is needed for thr RetroArch configuration and for the on device rom artwork scraper. These option also installs some Pegasus Themes and gives you an updater script so you can install more themes or systems on the future from your Handheld. **This is the recommended installation**
-
-- Manual instalation - You'll have to copy this repository,  configure Retroarch and scrap your roms artwork on a Windows PC. **I don't recommend this option. **
-
 ## Automatic installation - Recommended
 
 Download onto your handheld the app [Termux](https://f-droid.org/repo/com.termux_117.apk) and install it, we will use this app so we can automate everything.
