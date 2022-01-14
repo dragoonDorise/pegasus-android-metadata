@@ -107,7 +107,7 @@ echo -e "${GREEN}OK${NONE}"
 sleep .5
 
 echo -e  "${GREEN}Success!!${NONE}"
-echo -e  "We've finish the first step"
+echo -e  "We've finished the first step!"
 echo -e  ""
 echo -e  "You can now remove your SD Card"
 echo -e  "Insert your SD Card on your computer and go to this folder in your SD Card: ${GREEN}/Android/data/com.termux/files${NONE}."
