@@ -35,7 +35,7 @@ if [ -f "$FILE" ]; then
 fi
 echo -e "${GREEN}OK${NONE}"
 rm -rf ~/storage  &> /dev/null
-clear
+
 
 echo -e "${GREEN}All cleaned up!${NONE}"
 echo -e  "We Hope to see you come back soon!"
