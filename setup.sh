@@ -96,17 +96,25 @@ echo "${GREEN}Success!!${NONE}"
 echo "We've finish the first step"
 echo ""
 echo "You can now remove your SD Card"
-echo "Insert your SD Card on your computer and copy your roms to this folder in your SD Card: ${GREEN}/Android/data/com.termux/files${NONE}."
-echo "You will see there that every system has its own folder for each set of roms"
+echo "Insert your SD Card on your computer and go to this folder in your SD Card: ${GREEN}/Android/data/com.termux/files${NONE}."
+echo "You will see there that every system has its own folder for each set of roms, just copy your roms on every folder. ${BOLD}We recommend roms named after no-intro romsets${NONE}"
 echo "Now let's install ${RED}Pegasus${NONE}"
-echo "If you need to update Pegasus or the themes installed by this guide just come back to Termux App and execute this command ${BOLD}bash update.sh${NONE}"
-Echo "Press the A Button to install Pegasus, this app will close then."
+Echo "Press the A Button to install Pegasus, Remember to come back to scrap your roms artwork!"
 read pause
-
-#rm -rf ~/dragoonDoriseTools/
 
 #Launch Pegasus
 xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
+echo "${GREEN}All Done, do you have you SD Card inserted with all your roms?${NONE}"
+echo "${BOLD}Let's start getting all your artwork!${NONE}"
+cd ~/
+bash scrap.sh
 clear
-echo "${GREEN}All Done, Bye!${NONE}"
+echo "${GREEN}Done!${NONE}"
+echo "If you need to scrap more roms in the future, just open ${BOLD}Termus${NONE} and run this command"
+echo "${UNDERLINE}bash scrap.sh${NONE}"
+echo "If you need to uninstall this Pack run this command"
+echo "${UNDERLINE}bash undo.sh${NONE}"
+echo "If you want to update this Pack so you get more systems and themes in the future, run this command"
+echo "${UNDERLINE}bash update.sh${NONE}"
+
 exit
