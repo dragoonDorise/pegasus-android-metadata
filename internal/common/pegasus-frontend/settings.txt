@@ -1,4 +1,4 @@
-general.theme: RP-epic-noir/
+general.theme: themes/RP-epic-noir/
 general.verify-files: true
 general.input-mouse-support: true
 general.fullscreen: true
