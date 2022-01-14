@@ -34,6 +34,7 @@ if [ -f "$FILE" ]; then
 	rm ~/storage/shared/RetroArch/config_bak/  &> /dev/null
 fi
 echo -e "${BOLD}OK${NONE}"
+rm -rf ~/storage  &> /dev/null
 clear
 
 echo -e "${GREEN}All cleaned up!${NONE}"

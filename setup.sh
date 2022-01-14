@@ -19,7 +19,7 @@ echo -e  "${BLINK}Press now the A button  to start${NONE}"
 read pausa
 clear
 echo -ne "Installing components..."
-pkg update -y -F && pkg upgrade -y -F
+pkg update -y -F &> /dev/null && pkg upgrade -y -F &> /dev/null
 #pkg install x11-repo build-essential qt5-qtbase -y 
 pkg install git wget rsync unzip whiptail -y  &> /dev/null
 termux-setup-storage &> /dev/null
