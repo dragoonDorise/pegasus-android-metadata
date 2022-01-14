@@ -18,7 +18,7 @@ echo -e  "The script might ask you to confirm some steps along the installation 
 echo -e  "${BLINK}Press now the A button  to start${NONE}"
 read pausa
 clear
-echo -ne "Installing components..."
+echo -ne "Installing components, please be patient..."
 pkg update -y -F &> /dev/null && pkg upgrade -y -F &> /dev/null
 #pkg install x11-repo build-essential qt5-qtbase -y 
 pkg install git wget rsync unzip whiptail -y  &> /dev/null
@@ -27,14 +27,14 @@ mkdir ~/dragoonDoriseTools &> /dev/null
 cd dragoonDoriseTools &> /dev/null
 echo -e "${GREEN}OK${NONE}"
 
-echo -ne "Downloading Metadata..."
+echo -ne "Downloading Metadata, please be patient..."
 #Download Pegasus Metadata files
 git clone https://github.com/dragoonDorise/pegasus-android-metadata.git pegasus-android-metadata/ &> /dev/null
 #git clone https://github.com/muldjord/skyscraper.git skyscraper
 echo -e "${GREEN}OK${NONE}"
 
 #Download Pegasus
-echo -ne "Downloading Pegasus..."
+echo -ne "Downloading Pegasus, please be patient..."
 wget https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w40/pegasus-fe_alpha15-85-gfff1a5b2_android.apk &> /dev/null
 echo -e "${GREEN}OK${NONE}"
 
@@ -104,8 +104,8 @@ echo -e "${GREEN}OK${NONE}"
 echo -ne "Downloading Pegasus Theme : RP Switch..."
 git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themes/RP-switch &> /dev/null
 echo -e "${GREEN}OK${NONE}"
+sleep .5
 
-clear
 echo -e  "${GREEN}Success!!${NONE}"
 echo -e  "We've finish the first step"
 echo -e  ""
