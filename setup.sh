@@ -1,8 +1,19 @@
 #!/bin/sh
 
-echo "Hi! We're gonna start configuring your Android Device"
-echo "Make sure your SD Card is inserted"
-echo "The script might ask you to confirm installation, just type Y (capital) and press Enter"
+NONE='\033[00m'
+RED='\033[01;31m'
+GREEN='\033[01;32m'
+YELLOW='\033[01;33m'
+PURPLE='\033[01;35m'
+CYAN='\033[01;36m'
+WHITE='\033[01;37m'
+BOLD='\033[1m'
+UNDERLINE='\033[4m'
+
+clear
+echo "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
+echo "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
+echo "The script might ask you to confirm some steps of the installation, just type Y ( capital ) and press A button when asked"
 echo "Press now Enter to start"
 read pausa
 pkg update -y -F && pkg upgrade -y -F
@@ -80,16 +91,22 @@ rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch
 git clone https://github.com/dragoonDorise/RP-epic-noir.git ~/storage/shared/pegasus-frontend/themesRP-epic-noir
 git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themesRP-switch
 
-
+clear
+echo "${GREEN}Success!!${NONE}"
+echo "We've finish the first step"
+echo ""
 echo "You can now remove your SD Card"
-echo "Insert your SD Card on your computer and copy your roms to the /Android/data/com.termux/files folder you will see there, every system has it's own folder for each set of roms"
-echo "Meanwhile press Enter, we will install Pegasus"
-echo "If you need to update Pegasus or the themes presents on this guide just come back to Termux and execute update.sh and follow the instructions"
+echo "Insert your SD Card on your computer and copy your roms to this folder in your SD Card: ${GREEN}/Android/data/com.termux/files${NONE}."
+echo "You will see there that every system has its own folder for each set of roms"
+echo "Now let's install ${RED}Pegasus${NONE}"
+echo "If you need to update Pegasus or the themes installed by this guide just come back to Termux App and execute this command ${BOLD}bash update.sh${NONE}"
+Echo "Press the A Button to install Pegasus, this app will close then."
 read pause
 
 #rm -rf ~/dragoonDoriseTools/
 
 #Launch Pegasus
 xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
-
-echo "All Done! You can now close Termux"
+clear
+echo "${GREEN}All Done, Bye!${NONE}"
+exit
