@@ -32,8 +32,8 @@ fi
 
 clear
 
-echo "${GREEN}All cleaned up!${NONE}"
-echo "We Hope to see you come back soon!"
-echo "NOTE: Termux and Pegasus have to be uninstalled like any other Android app. Pegasus themes are not deleted either"
+echo -e "${GREEN}All cleaned up!${NONE}"
+echo -e  "We Hope to see you come back soon!"
+echo -e  "${BOLD}NOTE:${NONE} Termux and Pegasus have to be uninstalled like any other Android app. Pegasus themes are not deleted either"
 
 exit
