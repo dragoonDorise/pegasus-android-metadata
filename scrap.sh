@@ -1,6 +1,17 @@
 #!/bin/sh
 #
 
+NONE='\033[00m'
+RED='\033[01;31m'
+GREEN='\033[01;32m'
+YELLOW='\033[01;33m'
+PURPLE='\033[01;35m'
+CYAN='\033[01;36m'
+WHITE='\033[01;37m'
+BOLD='\033[1m'
+UNDERLINE='\033[4m'
+BLINK='\x1b[5m'
+
 selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
    --checklist "Move using your DPAD and select your platforms with the Space" 10 80 4 \
 	"atari2600" "Atari - 2600" OFF \
@@ -174,23 +185,29 @@ for device_name in ${selected_device_names[@]};
 				
 		FILE=~/storage/external-1/$system/media/screenshot/$capture
 		if [ -f "$FILE" ]; then
-			echo "$FILE exists, ignoring"
+			echo "Image already exists, ${YELLOW}ignoring${NONE}"
 		else 
-			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$capture" -P ~/storage/external-1/$system/media/screenshot/
+			echo -e "Downloading $capture screenshot..."
+			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$capture" -P ~/storage/external-1/$system/media/screenshot/  &> /dev/null
+			echo -ne "${BOLD}OK${NONE}"
 		fi
 		
 		FILE=~/storage/external-1/$system/media/box2dfront/$capture
 		if [ -f "$FILE" ]; then
-			echo "$FILE exists, ignoring"
+			echo "Image already exists, ${YELLOW}ignoring${NONE}"
 		else 
-			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$capture" -P ~/storage/external-1/$system/media/box2dfront/
+			echo -e "Downloading $capture box2dfront..."
+			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$capture" -P ~/storage/external-1/$system/media/box2dfront/  &> /dev/null
+			echo -ne "${BOLD}OK${NONE}"
 		fi
 		
 		FILE=~/storage/external-1/$system/media/wheel/$capture
 		if [ -f "$FILE" ]; then
-			echo "$FILE exists, ignoring"
+			echo "Image already exists, ${YELLOW}ignoring${NONE}"
 		else 
-			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Titles/$capture" -P ~/storage/external-1/$system/media/wheel/
+			echo -e "Downloading $capture wheel..."
+			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Titles/$capture" -P ~/storage/external-1/$system/media/wheel/  &> /dev/null
+			echo -ne "${BOLD}OK${NONE}"
 		fi
 				
 		

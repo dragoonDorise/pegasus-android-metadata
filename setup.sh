@@ -17,20 +17,26 @@ echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
 echo -e  "The script might ask you to confirm some steps along the installation proccess, just type Y ( capital ) and press A button when asked"
 echo -e  "${BLINK}Press now the A button  to start${NONE}"
 read pausa
+clear
+echo -e "Installing components..."
 pkg update -y -F && pkg upgrade -y -F
 #pkg install x11-repo build-essential qt5-qtbase -y 
-pkg install git wget rsync unzip whiptail -y
-termux-setup-storage
-mkdir ~/dragoonDoriseTools
-cd dragoonDoriseTools
+pkg install git wget rsync unzip whiptail -y  &> /dev/null
+termux-setup-storage &> /dev/null
+mkdir ~/dragoonDoriseTools &> /dev/null
+cd dragoonDoriseTools &> /dev/null
+echo -ne "${BOLD}OK${NONE}"
 
-
+echo -e "Downloading Metadata..."
 #Download Pegasus Metadata files
-git clone https://github.com/dragoonDorise/pegasus-android-metadata.git pegasus-android-metadata/ 
+git clone https://github.com/dragoonDorise/pegasus-android-metadata.git pegasus-android-metadata/ &> /dev/null
 #git clone https://github.com/muldjord/skyscraper.git skyscraper
+echo -ne "${BOLD}OK${NONE}"
 
 #Download Pegasus
-wget https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w40/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
+echo -e "Downloading Pegasus..."
+wget https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w40/pegasus-fe_alpha15-85-gfff1a5b2_android.apk &> /dev/null
+echo -ne "${BOLD}OK${NONE}"
 
 #Install Skyscraper
 #cd skyscraper
@@ -42,23 +48,27 @@ wget https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w4
 #cd ..
 
 #Configure Pegasus
-mkdir ~/storage/shared/pegasus-frontend
-mkdir ~/storage/shared/pegasus-frontend/themes
+echo -e "Configuring Pegasus..."
+mkdir ~/storage/shared/pegasus-frontend &> /dev/null
+mkdir ~/storage/shared/pegasus-frontend/themes &> /dev/null
+echo -ne "${BOLD}OK${NONE}"
 
 #Backup
-cp ~/storage/shared/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend/settings.txt.bak
-cp ~/storage/shared/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend/settings.txt.bak
+echo -e "Creating Backups of everything..."
+cp ~/storage/shared/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend/settings.txt.bak &> /dev/null
+cp ~/storage/shared/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend/settings.txt.bak &> /dev/null
+cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend &> /dev/null
+cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend &> /dev/null
+echo -ne "${BOLD}OK${NONE}"
 
-cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend
-cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend
-
-cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/update.sh
-chmod a+rwx ~/update.sh
-cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/scrap.sh
-chmod a+rwx ~/scrap.sh
-cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh
-chmod a+rwx ~/undo.sh
-
+echo -e "Installing Scrap, Update & Undo Scripts..."
+cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/update.sh &> /dev/null
+chmod a+rwx ~/update.sh &> /dev/null
+cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/scrap.sh &> /dev/null
+chmod a+rwx ~/scrap.sh &> /dev/null
+cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh &> /dev/null
+chmod a+rwx ~/undo.sh &> /dev/null
+echo -ne "${BOLD}OK${NONE}"
 
 #We get the SD Card Volume name
 for entry in /storage/*
@@ -72,25 +82,28 @@ for entry in /storage/*
 	 fi
  done
  
-
-sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt 
-
+echo -e "Configuring SD Card..."
+sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt &> /dev/null 
 # Instaling roms folders
-
-rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-1
-#git clone https://github.com/dragoonDorise/pegasus-artwork.git ~/dragoonDoriseTools/
-#unzip ~/dragoonDoriseTools/art.zip
-#rm ~/dragoonDoriseTools/art.zip
-#rsync -r ~/dragoonDoriseTools/art/ ~/storage/external-1
+rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-1 &> /dev/null
+echo -ne "${BOLD}OK${NONE}"
 
 #Configure Retroarch
-cp ~/storage/shared/RetroArch/config/ ~/storage/shared/RetroArch/config_bak/
-rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/ ~/storage/shared/RetroArch/config/
-
+echo -e "Creating RetroArch Backup..."
+cp -r ~/storage/shared/RetroArch/config/ ~/storage/shared/RetroArch/config_bak/ &> /dev/null
+echo -ne "${BOLD}OK${NONE}"
+echo -e "Configuring Retroarch..."
+rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> /dev/null
+echo -ne "${BOLD}OK${NONE}"
 
 # Install Themes for Pegasus
-git clone https://github.com/dragoonDorise/RP-epic-noir.git ~/storage/shared/pegasus-frontend/themes/RP-epic-noir
-git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themes/RP-switch
+echo -e "Downloading Pegasus Theme : RP Epic Noir..."
+git clone https://github.com/dragoonDorise/RP-epic-noir.git ~/storage/shared/pegasus-frontend/themes/RP-epic-noir &> /dev/null
+echo -ne "${BOLD}OK${NONE}"
+
+echo -e "Downloading Pegasus Theme : RP Switch..."
+git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themes/RP-switch &> /dev/null
+echo -ne "${BOLD}OK${NONE}"
 
 clear
 echo -e  "${GREEN}Success!!${NONE}"
@@ -106,7 +119,7 @@ read pause
 
 #Launch Pegasus
 xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
-echo -e  "${GREEN}All Done, do you have you SD Card inserted with all your roms?${NONE}"
+echo -e  "${GREEN}All Done${NONE}, do you have your SD Card inserted with all your roms?"
 echo -e  "${BOLD}Let's start getting all your artwork!${NONE}"
 echo -e  "Press the A Button to continue"
 read pause

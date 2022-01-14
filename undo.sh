@@ -9,27 +9,31 @@ WHITE='\033[01;37m'
 BOLD='\033[1m'
 UNDERLINE='\033[4m'
 
-rm -rf ~/dragoonDoriseTools
-
+echo -e "Deleting Metadata..."
+rm -rf ~/dragoonDoriseTools  &> /dev/null
+echo -ne "${BOLD}OK${NONE}"
 #Restoring Pegasus
-cp ~/storage/shared/pegasus-frontend/settings.txt.bak ~/storage/shared/pegasus-frontend/settings.txt
-cp ~/storage/shared/pegasus-frontend/game_dirs.txt.bak ~/storage/shared/pegasus-frontend/settings.txt
-
-#Restoring Pegasus
-rm -f scrap.sh
-rm -f update.sh
-rm -f undo.sh
-
-rm -f ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
-
+echo -e "Restoring Pegasus settings if existed..."
+cp ~/storage/shared/pegasus-frontend/settings.txt.bak ~/storage/shared/pegasus-frontend/settings.txt  &> /dev/null
+cp ~/storage/shared/pegasus-frontend/game_dirs.txt.bak ~/storage/shared/pegasus-frontend/settings.txt  &> /dev/null
+echo -ne "${BOLD}OK${NONE}"
+echo -e "Deleting scripts..."
+rm -f scrap.sh  &> /dev/null
+rm -f update.sh  &> /dev/null
+rm -f undo.sh  &> /dev/null
+echo -ne "${BOLD}OK${NONE}"
+echo -e "Deleting Pegasus apk..."
+rm -f ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk  &> /dev/null
+echo -ne "${BOLD}OK${NONE}"
 #Restoring Retroarch
+echo -e "Restoring RetroArch config"
 FILE=~/storage/shared/RetroArch/config_bak
 if [ -f "$FILE" ]; then
-	rm -rf ~/storage/shared/RetroArch/config/
-	cp ~/storage/shared/RetroArch/config_bak/ ~/storage/shared/RetroArch/config/
-	rm ~/storage/shared/RetroArch/config_bak/
+	rm -rf ~/storage/shared/RetroArch/config/  &> /dev/null
+	cp ~/storage/shared/RetroArch/config_bak/ ~/storage/shared/RetroArch/config/  &> /dev/null
+	rm ~/storage/shared/RetroArch/config_bak/  &> /dev/null
 fi
-
+echo -ne "${BOLD}OK${NONE}"
 clear
 
 echo -e "${GREEN}All cleaned up!${NONE}"
