@@ -114,7 +114,7 @@ echo -e  "Insert your SD Card on your computer and go to this folder in your SD 
 echo -e  "You will see there that every system has its own folder for each set of roms, just copy your roms on the corresponding folder for each system."
 echo -e  "${BOLD}We recommend roms named after no-intro romsets${NONE}"
 echo -e  "Now let's install ${RED}Pegasus${NONE}"
-echo -e  "Press the A Button to install Pegasus, When Pegasus is installed clock ${BOLD}DONE${NONE} in the instalation window so you can come back to scrap your roms' artwork!"
+echo -e  "Press the A Button to install Pegasus, when Pegasus is installed click ${BOLD}DONE${NONE} in the instalation window so you can come back to scrap your roms' artwork!"
 read pause
 
 #Launch Pegasus
