@@ -9,12 +9,13 @@ CYAN='\033[01;36m'
 WHITE='\033[01;37m'
 BOLD='\033[1m'
 UNDERLINE='\033[4m'
+BLINK='\x1b[5m'
 
 clear
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
-echo -e  "The script might ask you to confirm some steps of the installation, just type Y ( capital ) and press A button when asked"
-echo -e  "Press now Enter to start"
+echo -e  "The script might ask you to confirm some steps along the installation proccess, just type Y ( capital ) and press A button when asked"
+echo -e  "${BLINK}Press now Enter to start${NONE}"
 read pausa
 pkg update -y -F && pkg upgrade -y -F
 #pkg install x11-repo build-essential qt5-qtbase -y 
