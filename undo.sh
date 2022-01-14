@@ -27,8 +27,10 @@ rm -f ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk  &> /dev/
 echo -e "${GREEN}OK${NONE}"
 #Restoring Retroarch
 echo -ne "Restoring RetroArch config"
+cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> /dev/null
 FILE=~/storage/shared/RetroArch/config_bak
 if [ -f "$FILE" ]; then
+	rm -rf ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg  &> /dev/null
 	rm -rf ~/storage/shared/RetroArch/config/  &> /dev/null
 	cp ~/storage/shared/RetroArch/config_bak/ ~/storage/shared/RetroArch/config/  &> /dev/null
 	rm ~/storage/shared/RetroArch/config_bak/  &> /dev/null
