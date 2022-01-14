@@ -1,5 +1,5 @@
 #!/bin/sh
-echo 'Lets update your themes, shall we? Press Enter if you agree ;)'
+echo -e  'Lets update your themes, shall we? Press Enter if you agree ;)'
 read pause
 cd ~/storage/shared/pegasus-frontend/themesRP-epic-noir
 git pull
@@ -8,9 +8,9 @@ cd ~/storage/shared/pegasus-frontend/themesRP-switch
 git pull
 
 
-echo 'Done! If you want to update the metadata pack press Enter, close Termux otherwise.'
-echo 'DISCLAIMER: This will remove any changes you could have made to Pegasus metadata files or RetroArch core overrides'
-echo "This won't delete any roms"
+echo -e  'Done! If you want to update the metadata pack press Enter, close Termux otherwise.'
+echo -e  'DISCLAIMER: This will remove any changes you could have made to Pegasus metadata files or RetroArch core overrides'
+echo -e  "This won't delete any roms"
 read pause
 
 #RetroArch Update
@@ -32,4 +32,4 @@ chmod a+rwx ~/dragoonDoriseTools/undo.sh
 
 #rm -rf ~/dragoonDoriseTools/
 
-echo "All done, you can now close Termux. See you!"
+echo -e  "All done, you can now close Termux. See you!"

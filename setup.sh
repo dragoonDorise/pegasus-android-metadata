@@ -11,10 +11,10 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 
 clear
-echo "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
-echo "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
-echo "The script might ask you to confirm some steps of the installation, just type Y ( capital ) and press A button when asked"
-echo "Press now Enter to start"
+echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
+echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
+echo -e  "The script might ask you to confirm some steps of the installation, just type Y ( capital ) and press A button when asked"
+echo -e  "Press now Enter to start"
 read pausa
 pkg update -y -F && pkg upgrade -y -F
 #pkg install x11-repo build-essential qt5-qtbase -y 
@@ -92,29 +92,29 @@ git clone https://github.com/dragoonDorise/RP-epic-noir.git ~/storage/shared/peg
 git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themesRP-switch
 
 clear
-echo "${GREEN}Success!!${NONE}"
-echo "We've finish the first step"
-echo ""
-echo "You can now remove your SD Card"
-echo "Insert your SD Card on your computer and go to this folder in your SD Card: ${GREEN}/Android/data/com.termux/files${NONE}."
-echo "You will see there that every system has its own folder for each set of roms, just copy your roms on every folder. ${BOLD}We recommend roms named after no-intro romsets${NONE}"
-echo "Now let's install ${RED}Pegasus${NONE}"
-Echo "Press the A Button to install Pegasus, Remember to come back to scrap your roms artwork!"
+echo -e  "${GREEN}Success!!${NONE}"
+echo -e  "We've finish the first step"
+echo -e  ""
+echo -e  "You can now remove your SD Card"
+echo -e  "Insert your SD Card on your computer and go to this folder in your SD Card: ${GREEN}/Android/data/com.termux/files${NONE}."
+echo -e  "You will see there that every system has its own folder for each set of roms, just copy your roms on every folder. ${BOLD}We recommend roms named after no-intro romsets${NONE}"
+echo -e  "Now let's install ${RED}Pegasus${NONE}"
+echo -e  "Press the A Button to install Pegasus, Remember to come back to scrap your roms artwork!"
 read pause
 
 #Launch Pegasus
 xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
-echo "${GREEN}All Done, do you have you SD Card inserted with all your roms?${NONE}"
-echo "${BOLD}Let's start getting all your artwork!${NONE}"
+echo -e  "${GREEN}All Done, do you have you SD Card inserted with all your roms?${NONE}"
+echo -e  "${BOLD}Let's start getting all your artwork!${NONE}"
 cd ~/
 bash scrap.sh
 clear
-echo "${GREEN}Done!${NONE}"
-echo "If you need to scrap more roms in the future, just open ${BOLD}Termus${NONE} and run this command"
-echo "${UNDERLINE}bash scrap.sh${NONE}"
-echo "If you need to uninstall this Pack run this command"
-echo "${UNDERLINE}bash undo.sh${NONE}"
-echo "If you want to update this Pack so you get more systems and themes in the future, run this command"
-echo "${UNDERLINE}bash update.sh${NONE}"
+echo -e  "${GREEN}Done!${NONE}"
+echo -e  "If you need to scrap more roms in the future, just open ${BOLD}Termus${NONE} and run this command"
+echo -e  "${UNDERLINE}bash scrap.sh${NONE}"
+echo -e  "If you need to uninstall this Pack run this command"
+echo -e  "${UNDERLINE}bash undo.sh${NONE}"
+echo -e  "If you want to update this Pack so you get more systems and themes in the future, run this command"
+echo -e  "${UNDERLINE}bash update.sh${NONE}"
 
 exit
