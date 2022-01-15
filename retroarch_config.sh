@@ -5,6 +5,12 @@ if [ -f "$FILE" ]; then
 	handheldModel="RG552"
 fi
 
+snesMode="43"
+FILE=~/dragoonDoriseTools/.snes87
+if [ -f "$FILE" ]; then
+	snesMode="87"
+fi
+
 mkdir ~/storage/shared/RetroArch/overlays/ &> /dev/null
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> /dev/null
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/overlays/ ~/storage/shared/RetroArch/overlays/ &> /dev/null
@@ -32,27 +38,29 @@ sed -i 's/input_state_slot_increase_btn = "nul"/input_state_slot_increase_btn = 
 sed -i 's/input_toggle_fast_forward_btn = "nul"/input_toggle_fast_forward_btn = "105"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> /dev/null 
 sed -i 's/menu_driver = "glui"/menu_driver = "ozone"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> /dev/null 
 
+#Snes configuration
+/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/snes_config.sh
+
 if [ $handheldModel == "RG552" ]
 then
 	
-	cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes9x.cfg ~/storage/shared/RetroArch/config/Snes9x &> /dev/null
+	#cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes.cfg ~/storage/shared/RetroArch/config/Snes9x &> /dev/null
 
 	#Overlay Fixes for 5:3 screens
-	sed -i 's/1.000/1.150000/g' ~/storage/shared/RetroArch/config/genesis.cfg &> /dev/null 
-	sed -i 's/1.000/1.150000/g' ~/storage/shared/RetroArch/config/mame.cfg &> /dev/null 
-	sed -i 's/1.000/1.150000/g' ~/storage/shared/RetroArch/config/ngp.cfg &> /dev/null 
-	sed -i 's/1.000/1.150000/g' ~/storage/shared/RetroArch/config/ngpc.cfg &> /dev/null 
-	sed -i 's/1.000/1.150000/g' ~/storage/shared/RetroArch/config/wswan.cfg &> /dev/null 
-	sed -i 's/1.000/1.150000/g' ~/storage/shared/RetroArch/config/wswanc.cfg &> /dev/null 
-	sed -i 's/1.000/1.150000/g' ~/storage/shared/RetroArch/config/lynx.cfg &> /dev/null 
-	sed -i 's/1.000/1.150000/g' ~/storage/shared/RetroArch/config/ngp.cfg &> /dev/null 
-	sed -i 's/1.000/1.150000/g' ~/storage/shared/RetroArch/config/ngpc.cfg &> /dev/null 
-	sed -i 's/1.000/1.150000/g' ~/storage/shared/RetroArch/config/gb.cfg &> /dev/null 
-	sed -i 's/1.000/1.150000/g' ~/storage/shared/RetroArch/config/gbc.cfg &> /dev/null 
-	sed -i 's/1.000/1.150000/g' ~/storage/shared/RetroArch/config/gamegear.cfg &> /dev/null 
-	sed -i 's/1.000/1.150000/g' ~/storage/shared/RetroArch/config/nes.cfg &> /dev/null 
-	sed -i 's/1.000/1.150000/g' ~/storage/shared/RetroArch/config/gba.cfg &> /dev/null 
-	sed -i 's/1.000/1.150000/g' ~/storage/shared/RetroArch/config/snes.cfg &> /dev/null 
+	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Genesis Plus GX/genesis.cfg &> /dev/null 
+	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/MAME 2003-Plus/mame.cfg &> /dev/null 
+	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Beetle NeoPop/ngp.cfg &> /dev/null 
+	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Beetle NeoPop/ngpc.cfg &> /dev/null 
+	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Beetle Cygne/wswan.cfg &> /dev/null 
+	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Beetle Cygne/wswanc.cfg &> /dev/null 
+	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/lynx.cfg &> /dev/null 
+	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Gambatte/gb.cfg &> /dev/null 
+	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Gambatte/gbc.cfg &> /dev/null 
+	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Genesis Plus GX/gamegear.cfg &> /dev/null 
+	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Nestopia/nes.cfg &> /dev/null 
+	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/mGBA/gba.cfg &> /dev/null 
+	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> /dev/null 
+
 
 fi
 #sed -i 's/A/B/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> /dev/null 
