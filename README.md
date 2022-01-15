@@ -312,3 +312,9 @@ When it's finished you will have a media folder inside of every of your rom syst
 Example: The path the media folder in your SD Card for Super Nintendo should be:
 
     /snes/media
+
+Thanks to:
+
+Duimon for the [Reatroarch Overlays](https://github.com/Duimon/Retroarch-Overlays)
+ÁlvaroMG for [Reatroarch Overlays](https://forums.launchbox-app.com/files/file/1180-handhelds-overlays-designed-by-álvaromg/)
+Retro Game Corps [RG552 Linux Setup](https://retrogamecorps.com/2021/12/27/anbernic-rg552-linux-setup-guide/)

@@ -47,10 +47,19 @@ echo -ne  "Updating Metadata..."
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-1
 
 echo -e "${GREEN}OK${NONE}"
+
+#Handheld detector
+handheldModel="169"
+
+FILE=~/dragoonDoriseTools/.is53
+if [ -f "$FILE" ]; then
+	handheldModel="53"
+fi
+
 #RetroArch Update
 echo -ne  "Updating Retroarch Config..."
 #RetroArch Configs
-/bin/bash ~/dragoonDoriseTools/retroarch_config.sh &> /dev/null
+/bin/bash ~/dragoonDoriseTools/retroarch_config.sh $handheldModel
 echo -e "${GREEN}OK${NONE}"
 
 newVersion=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/version.md)

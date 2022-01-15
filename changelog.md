@@ -22,3 +22,8 @@
 - Added 3DO
 - snes Fixed
 - Logo Fixed
+
+  1.0.5
+
+- Added Bezels
+- Changes to RG552 detection

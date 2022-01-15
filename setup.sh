@@ -97,29 +97,33 @@ cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg ~/storage/sha
 echo -e "${GREEN}OK${NONE}"
 
 echo -e "Do you have an Anbernic RG552? Some extra Snes configuration will be done for you :) "
-echo -e "Type Y if you do and press the button A."
-read handheldModel
+echo -e "Type Y if you do, don't type anything if you don't and press the button A."
+read handheldQuestion
 
 
 echo -ne "Configuring Retroarch..."
-rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> /dev/null
 
+handheldModel="169"
 
-if [ $handheldModel == "y" ]
+if [ $handheldQuestion == "y" ]
 then
-	mkdir ~/storage/shared/RetroArch/config/Snes9x &> /dev/null
-	cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes9x.cfg ~/storage/shared/RetroArch/config/Snes9x &> /dev/null
+	handheldModel="53"
 fi
 
-
-if [ $handheldModel == "Y" ]
+if [ $handheldQuestion == "Y" ]
 then
-	mkdir ~/storage/shared/RetroArch/config/Snes9x &> /dev/null
-	cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes9x.cfg ~/storage/shared/RetroArch/config/Snes9x &> /dev/null
+	handheldModel="53"
 fi
+
+# 5:3 Detection flag
+if [ $handheldModel == "53" ]
+then
+	touch ~/dragoonDoriseTools/.is53
+fi
+
 
 #RetroArch Configs
-/bin/bash retroarch_config.sh &> /dev/null
+/bin/bash retroarch_config.sh $handheldModel &> /dev/null
 
 echo -e "${GREEN}OK${NONE}"
 
