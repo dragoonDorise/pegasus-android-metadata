@@ -1,0 +1,7 @@
+collection: Scripts
+shortname: scripts
+extensions: sh
+launch: am start
+  -n com.termux.app.termuxActivity
+  -a android.intent.action.VIEW
+  -d "{file.path}"
