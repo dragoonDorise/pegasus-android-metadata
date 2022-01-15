@@ -10,8 +10,8 @@ WHITE='\033[01;37m'
 BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
-
-version=cat ~/dragoonDoriseTools/pegasus-android-metadata/changelog.md
+clear
+version=cat ~/dragoonDoriseTools/pegasus-android-metadata/version.md
 echo -e  "Lets update your themes, shall we?"
 echo -e  "${BOLD}Press the A button if you agree ;)${NONE}"
 read pause
