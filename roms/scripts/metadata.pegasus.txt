@@ -3,5 +3,5 @@ shortname: scripts
 extensions: sh
 launch: am start
   -n com.termux.app.termuxActivity
-  -a android.intent.action.VIEW
+  -a android.intent.action.RUN_COMMAND
   -d "{file.path}"
