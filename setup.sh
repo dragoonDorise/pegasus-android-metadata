@@ -13,8 +13,6 @@ BLINK='\x1b[5m'
 
 clear
 
-cat logo.ans
-
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
 echo -e  "The script might ask you to confirm some steps along the installation proccess, just type Y ( capital ) and press A button when asked"
@@ -35,7 +33,8 @@ echo -ne "Downloading Metadata, please be patient..."
 git clone https://github.com/dragoonDorise/pegasus-android-metadata.git pegasus-android-metadata/ &> /dev/null
 #git clone https://github.com/muldjord/skyscraper.git skyscraper
 echo -e "${GREEN}OK${NONE}"
-
+clear
+cat logo.ans
 #Download Pegasus
 echo -ne "Downloading Pegasus, please be patient..."
 wget https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w40/pegasus-fe_alpha15-85-gfff1a5b2_android.apk &> /dev/null

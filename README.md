@@ -90,7 +90,7 @@ Download onto your handheld the app [Termux](https://f-droid.org/repo/com.termux
 
 Open Termux on your handheld, give it write permissions when it asks for them and just copy and paste the following command.
 
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/dragoonDorise/pegasus-android-metadata/main/setup.sh)"
+    /bin/bash -c "$(curl -fsSL https://bit.ly/3ntlzL8)"
 
 Press Enter and follow the steps the script will show you, when it's finished you'll have everything installed and you'll only need to copy your roms to the specific folders created in the SD Card.
 
