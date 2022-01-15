@@ -12,11 +12,24 @@ UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
 version=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/version.md)
-echo -e  "Lets update your themes, shall we?"
-echo -e  "${BOLD}Press the A button if you agree ;)${NONE}"
+echo -e  "Lets start updating your Pegasus Metadata Pack & Themes"
+echo -e  "${BOLD}Press the A button to continue${NONE}"
 read pause
 
-echo -ne  "Updating Themes..."
+#update scripts
+echo -ne  "Updating Scripts..."
+cd ~/dragoonDoriseTools/pegasus-android-metadata/ &> /dev/null 
+git reset --hard &> /dev/null 
+git pull &> /dev/null 
+cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/update.sh
+chmod a+rwx ~/update.sh
+cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/scrap.sh
+chmod a+rwx ~/scrap.sh
+cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh
+chmod a+rwx ~/undo.sh
+echo -e "${GREEN}OK${NONE}"
+
+echo -ne  "Updating Bundled Themes (won't affect any other themes)..."
 cd ~/storage/shared/pegasus-frontend/themes/RP-epic-noir
 git reset --hard &> /dev/null 
 git pull &> /dev/null 
@@ -26,39 +39,21 @@ git reset --hard &> /dev/null
 git pull &> /dev/null 
 echo -e "${GREEN}OK${NONE}"
 clear
-echo -e  "${GREEN}Done!${NONE}If you want to update the metadata pack press the A Button, ${BOLD}close Termux otherwise.${NONE}"
-echo -e  "${RED}DISCLAIMER:${NONE} This will remove any changes you could have made to Pegasus metadata files or RetroArch core overrides"
-echo -e  "${BOLD}This won't delete any roms${NONE}"
-read pause
-
-#RetroArch Update
-echo -ne  "Updating Retroarch Configs..."
-cd ~/dragoonDoriseTools/pegasus-android-metadata/ &> /dev/null 
-git reset --hard &> /dev/null 
-git pull &> /dev/null 
-
-#RetroArch Configs
-/bin/bash retroarch_config.sh &> /dev/null
-
-
-echo -e "${GREEN}OK${NONE}"
-cd ~/dragoonDoriseTools/
+echo -e  "Updating Pegasus metadata files..."
 #Metadata update
 echo -ne  "Updating Metadata..."
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-1
+
+echo -e "${GREEN}OK${NONE}"
+#RetroArch Update
+echo -ne  "Updating Retroarch Config..."
+#RetroArch Configs
+/bin/bash ~/dragoonDoriseTools/retroarch_config.sh &> /dev/null
 echo -e "${GREEN}OK${NONE}"
 
-#update scripts
-echo -ne  "Updating Scripts..."
-cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/update.sh
-chmod a+rwx ~/update.sh
-cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/scrap.sh
-chmod a+rwx ~/scrap.sh
-cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh
-chmod a+rwx ~/undo.sh
-echo -e "${GREEN}OK${NONE}"
+
 echo ""
-echo -e  "${GREEN}Update Complete${NONE}"
+echo -e  "${GREEN}Update Completed${NONE}"
 echo ""
 echo -e  "${YELLOW}Changelog${NONE}"
 echo -e  "Your version was${PURPLE}$version${NONE}"
