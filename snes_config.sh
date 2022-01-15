@@ -51,10 +51,13 @@ then
 fi
 
 if [ $snesMode == "8:7" ]
-then
-	
-	cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes87.cfg ~/storage/shared/RetroArch/config/Snes9x/snes87.cfg &> /dev/null
-	
+then	
+	cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes87.cfg ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> /dev/null	
+fi
+
+if [ $snesMode == "4:3" ]
+then	
+	cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes.cfg ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> /dev/null	
 fi
 
 
