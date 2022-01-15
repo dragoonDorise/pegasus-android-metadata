@@ -26,7 +26,7 @@ echo -ne "Deleting Pegasus apk..."
 rm -f ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk  &> /dev/null
 echo -e "${GREEN}OK${NONE}"
 #Restoring Retroarch
-echo -ne "Restoring RetroArch config"
+echo -ne "Restoring RetroArch config..."
 cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> /dev/null
 FILE=~/storage/shared/RetroArch/config_bak
 if [ -f "$FILE" ]; then
@@ -40,7 +40,7 @@ rm -rf ~/storage  &> /dev/null
 
 
 echo -e "${GREEN}All cleaned up!${NONE}"
-echo -e  "We Hope to see you come back soon!"
+echo -e  "We hope to see you come back soon!"
 echo -e  "${BOLD}NOTE:${NONE} Termux and Pegasus have to be uninstalled like any other Android app. Pegasus themes are not deleted either"
 
 exit
