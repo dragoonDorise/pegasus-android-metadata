@@ -94,7 +94,8 @@ cp -r ~/storage/shared/RetroArch/config/ ~/storage/shared/RetroArch/config_bak/ 
 cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg &> /dev/null
 echo -e "${GREEN}OK${NONE}"
 
-echo -e "Do you have an Anbernic RG552? Type Y if you do. Some extra Snes configuration will be done for you :)"
+echo -e "Do you have an Anbernic RG552? Some extra Snes configuration will be done for you :) "
+echo -e "Type Y if you do and press the button A."
 read handheldModel
 
 
