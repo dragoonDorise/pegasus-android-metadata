@@ -38,7 +38,7 @@ cd ~/storage/shared/pegasus-frontend/themes/RP-switch
 git reset --hard &> /dev/null 
 git pull &> /dev/null 
 echo -e "${GREEN}OK${NONE}"
-clear
+
 echo -e  "Updating Pegasus metadata files..."
 #Metadata update
 echo -ne  "Updating Metadata..."
@@ -59,5 +59,5 @@ echo -e  "${YELLOW}Changelog${NONE}"
 cat ~/dragoonDoriseTools/pegasus-android-metadata/changelog.md
 echo -e  "Your version was${PURPLE}$version${NONE}"
 echo -ne  "Installed version is now: ${GREEN}$newVersion${NONE}"
-
+echo -n""
 
