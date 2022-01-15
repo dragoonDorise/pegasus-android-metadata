@@ -94,7 +94,7 @@ cp -r ~/storage/shared/RetroArch/config/ ~/storage/shared/RetroArch/config_bak/ 
 cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg &> /dev/null
 echo -e "${GREEN}OK${NONE}"
 
-echo -ne "Do you have an Anbernic RG552? Press Y if you do. Some extra Snes configuration will be done for you :)"
+echo -e "Do you have an Anbernic RG552? Type Y if you do. Some extra Snes configuration will be done for you :)"
 read handheldModel
 
 
@@ -102,14 +102,14 @@ echo -ne "Configuring Retroarch..."
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> /dev/null
 
 
-if [ $handheldModel -eq "y" ]
+if [ $handheldModel == "y" ]
 then
 	mkdir ~/storage/shared/RetroArch/config/Snes9x &> /dev/null
 	cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes9x.cfg ~/storage/shared/RetroArch/config/Snes9x &> /dev/null
 fi
 
 
-if [ $handheldModel -eq "Y" ]
+if [ $handheldModel == "Y" ]
 then
 	mkdir ~/storage/shared/RetroArch/config/Snes9x &> /dev/null
 	cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes9x.cfg ~/storage/shared/RetroArch/config/Snes9x &> /dev/null
