@@ -31,7 +31,7 @@ This pack offers support for the following systems with their respective emulato
 | Dreamcast                 | Reddream                             |
 | Final Burn Alpha          | Retroarch 1.9 Fba 2020 core          |
 | Final Burn Neo            | Retroarch 1.9 Fbn core               |
-| Mame 2010 ( 0.139 )       | Retroarch 1.9 Mame 2010 core         |
+| Mame 2003 Plus            | Retroarch 1.9 Mame 2003 Plus core    |
 | Master System             | Retroarch 1.9 Genesis Plus GX core   |
 | Neo Geo                   | Retroarch 1.9 Fba 2020 Neo Geo core  |
 | Neo Geo CD                | Retroarch 1.9 Fbn core               |
@@ -100,7 +100,7 @@ Press Enter and follow the steps the script will show you, when it's finished yo
 
 When you have copied your roms in the SD Card, open Termux again and type this command:
 
-    bash scrap.sh    
+    bash scrap.sh
 
 Press Enter, this will show a dialog screen where you need to choose the platforms you want to scrap, any rom already scrapped will be ignored, use the DPAD to move in the menu and press the Space in the Android Virtual Keyboard and Press A when ready.
 
@@ -110,8 +110,7 @@ Right now the script uses Retroarch Thumbnail repository, so not all roms are av
 
 I plan to provide updates to this Metadata Pack so more systems / themes are available and any possible bug is fixed, you can do this by opening Termux again and typing this command:
 
-    bash update.sh    
-
+    bash update.sh
 
 ### Undoing everything
 
@@ -135,7 +134,6 @@ Open RetroArch on your Handheld, if you don't have it installed just download it
     self
 
 Anotate the XXXX-XXXX number, it will be some random number like ECA-11EF, we will need it later.
-
 
 ## 2 - Download Pegasus
 
