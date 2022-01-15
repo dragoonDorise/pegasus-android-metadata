@@ -13,8 +13,9 @@ BLINK='\x1b[5m'
 clear
 cat logo.ans
 version=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/version.md)
-echo -e  "Lets start updating your Pegasus Metadata Pack & Themes"
-echo -e  "${BOLD}Press the A button to continue${NONE}"
+echo ""
+echo -e "Lets start updating your Pegasus Metadata Pack & Themes"
+echo -e "${BOLD}Press the A button to continue${NONE}"
 read pause
 
 #update scripts
