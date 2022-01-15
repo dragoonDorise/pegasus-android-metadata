@@ -51,13 +51,13 @@ echo -e "${GREEN}OK${NONE}"
 #Handheld detector
 handheldModel="169"
 
-FILE=~/dragoonDoriseTools/.is53
+FILE=~/dragoonDoriseTools/.isRG552
 if [ -f "$FILE" ]; then
-	handheldModel="53"
+	handheldModel="RG552"
 fi
 
 #RetroArch Update
-echo -ne  "Updating Retroarch Config..."
+echo -ne  "Updating Retroarch Config for $handheldModel..."
 #RetroArch Configs
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/retroarch_config.sh $handheldModel
 echo -e "${GREEN}OK${NONE}"

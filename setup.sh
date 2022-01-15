@@ -107,18 +107,18 @@ handheldModel="169"
 
 if [ $handheldQuestion == "y" ]
 then
-	handheldModel="53"
+	handheldModel="RG552"
 fi
 
 if [ $handheldQuestion == "Y" ]
 then
-	handheldModel="53"
+	handheldModel="RG552"
 fi
 
 # 5:3 Detection flag
-if [ $handheldModel == "53" ]
+if [ $handheldModel == "RG552" ]
 then
-	touch ~/dragoonDoriseTools/.is53
+	touch ~/dragoonDoriseTools/.isRG552
 fi
 
 
