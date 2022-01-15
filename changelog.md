@@ -27,3 +27,8 @@
 
 - Added Bezels
 - Changes to RG552 detection
+
+  1.0.6
+
+- Fixes Shaders Handhelds
+- SNES 8:7 and 4:3 options
