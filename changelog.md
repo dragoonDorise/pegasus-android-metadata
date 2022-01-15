@@ -20,3 +20,4 @@
   1.0.4
 
 - Added 3DO
+- snes Fixed
