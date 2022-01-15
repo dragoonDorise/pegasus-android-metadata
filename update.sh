@@ -57,7 +57,7 @@ if [ -f "$FILE" ]; then
 fi
 
 #RetroArch Update
-echo -ne  "Updating Retroarch Config for $handheldModel..."
+echo -ne  "Updating Retroarch Config..."
 #RetroArch Configs
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/retroarch_config.sh $handheldModel
 echo -e "${GREEN}OK${NONE}"
