@@ -11,7 +11,7 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
-version=cat ~/dragoonDoriseTools/pegasus-android-metadata/version.md
+version=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/version.md)
 echo -e  "Lets update your themes, shall we?"
 echo -e  "${BOLD}Press the A button if you agree ;)${NONE}"
 read pause
@@ -62,7 +62,7 @@ echo -e  "${GREEN}Update Complete${NONE}"
 echo ""
 echo -e  "${YELLOW}Changelog${NONE}"
 echo -e  "Your version was${PURPLE}$version${NONE}"
-echo -ne  "Now it is: "
+echo -ne  "Installed version is: "
 cat ~/dragoonDoriseTools/pegasus-android-metadata/version.md
 echo -e  "${GREEN}Changelog:${NONE}"
 cat ~/dragoonDoriseTools/pegasus-android-metadata/changelog.md
