@@ -9,3 +9,4 @@
   1.0.2
 
 - DRY RetroArch Configs
+- RetroArch Ozone GUI set as default
