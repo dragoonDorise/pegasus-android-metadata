@@ -51,13 +51,13 @@ echo -ne  "Updating Retroarch Config..."
 /bin/bash ~/dragoonDoriseTools/retroarch_config.sh &> /dev/null
 echo -e "${GREEN}OK${NONE}"
 
-
+newVersion=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/version.md)
 echo ""
 echo -e  "${GREEN}Update Completed${NONE}"
 echo ""
 echo -e  "${YELLOW}Changelog${NONE}"
-echo -e  "Your version was${PURPLE}$version${NONE}"
-echo -ne  "Installed version is: "
-cat ~/dragoonDoriseTools/pegasus-android-metadata/version.md
-echo -e  "${GREEN}Changelog:${NONE}"
 cat ~/dragoonDoriseTools/pegasus-android-metadata/changelog.md
+echo -e  "Your version was${PURPLE}$version${NONE}"
+echo -ne  "Installed version is now: ${GREEN}$newVersion${NONE}"
+
+
