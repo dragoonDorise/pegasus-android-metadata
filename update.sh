@@ -26,8 +26,8 @@ git reset --hard &> /dev/null
 git pull &> /dev/null 
 echo -e "${GREEN}OK${NONE}"
 clear
-echo -e  "${GREEN}Done!${BOLD}If you want to update the metadata pack press the A Button, ${BOLD}close Termux otherwise.${NONE}"
-echo -e  "${RED}DISCLAIMER:${BOLD} This will remove any changes you could have made to Pegasus metadata files or RetroArch core overrides"
+echo -e  "${GREEN}Done!${NONE}If you want to update the metadata pack press the A Button, ${BOLD}close Termux otherwise.${NONE}"
+echo -e  "${RED}DISCLAIMER:${NONE} This will remove any changes you could have made to Pegasus metadata files or RetroArch core overrides"
 echo -e  "${BOLD}This won't delete any roms${NONE}"
 read pause
 
