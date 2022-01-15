@@ -8,7 +8,7 @@ CYAN='\033[01;36m'
 WHITE='\033[01;37m'
 BOLD='\033[1m'
 UNDERLINE='\033[4m'
-
+cat logo.ans
 echo -ne "Deleting Metadata..."
 rm -rf ~/dragoonDoriseTools  &> /dev/null
 echo -e "${GREEN}OK${NONE}"

@@ -15,3 +15,4 @@
   1.0.3
 
 - Improvements in the update script
+- Added logo

@@ -12,6 +12,9 @@ UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 
 clear
+
+cat logo.ans
+
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
 echo -e  "The script might ask you to confirm some steps along the installation proccess, just type Y ( capital ) and press A button when asked"
