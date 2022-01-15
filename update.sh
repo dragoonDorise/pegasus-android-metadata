@@ -62,7 +62,7 @@ echo -e  "${GREEN}Update Complete${NONE}"
 echo ""
 echo -e  "${YELLOW}Changelog${NONE}"
 echo -e  "Your version was${PURPLE}$version${NONE}"
-echo -ne  "Now it is:"
+echo -ne  "Now it is: "
 cat ~/dragoonDoriseTools/pegasus-android-metadata/version.md
 echo -e  "${GREEN}Changelog:${NONE}"
 cat ~/dragoonDoriseTools/pegasus-android-metadata/changelog.md
