@@ -1,17 +1,16 @@
 collection: Super Nintendo
 shortname: snes
 extensions: 7z, bin, fig, mgd, sfc, smc, swc, zip
-launch: am start
---user 0
+launch: am start --user 0
 -n com.retroarch/.browser.retroactivity.RetroActivityFuture
 -e ROM {file.path}
 -e LIBRETRO /data/data/com.retroarch/cores/snes9x_libretro_android.so
 -e CONFIGFILE /storage/emulated/0/Android/data/com.retroarch/files/retroarch.cfg
--e IME com.android.inputmethod.latin/.LatinIME
--e DATADIR /data/data/com.retroarch
--e APK /data/app/com.retroarch-1/base.apk
--e SDCARD /storage/emulated/0
--e DOWNLOADS /storage/emulated/0/Download
--e SCREENSHOTS /storage/emulated/0/Pictures
--e EXTERNAL /storage/emulated/0/Android/data/com.retroarch/files
---activity-clear-top
+  -e IME com.android.inputmethod.latin/.LatinIME
+  -e DATADIR /data/data/com.retroarch
+  -e APK /data/app/com.retroarch-1/base.apk
+  -e SDCARD /storage/emulated/0
+  -e DOWNLOADS /storage/emulated/0/Download
+  -e SCREENSHOTS /storage/emulated/0/Pictures
+  -e EXTERNAL /storage/emulated/0/Android/data/com.retroarch/files
+  --activity-clear-top

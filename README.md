@@ -22,12 +22,11 @@ This pack offers support for the following systems with their respective emulato
 | 3DO                       | Retroarch 1.9 Opera core             |
 | Atari 2600                | Retroarch 1.9 Stella core            |
 | Atari Lynx                | Retroarch 1.9 Beetle Lynx core       |
-| Doom                      | Retroarch 1.9 PrBoom core            |
+| DooM                      | Retroarch 1.9 PrBoom core            |
 | GameBoy                   | Retroarch 1.9 Gambatte core          |
 | GameBoy Color             | Retroarch 1.9 Gambatte core          |
 | GameBoy Advance           | Retroarch 1.5 mGBA core              |
 | Gamecube                  | Dolphin                              |
-| DooM                      | Retroarch 1.9 Doom core              |
 | Dos                       | Retroarch 1.9 DOSBox core            |
 | Dreamcast                 | Reddream                             |
 | Final Burn Alpha          | Retroarch 1.9 Fba 2020 core          |
@@ -83,7 +82,9 @@ Just follow the next steps, it should be pretty straightforward.
 
 ## Step 0 - Enable APK installation and other preparations
 
-First you'll need to enable installing APK packages, which can be done in your Android device on Settings → Security → Unknown Sources, turned on. You need this to install Pegasus, since it's not available on the Google App Store
+First you'll need to enable installing APK packages, which can be done in your Android device on Settings → Security → Unknown Sources, turned on. You need this to install Pegasus, since it's not available on the Google App Store.
+
+Make sure you have the following RetroArch Cores installed:
 
 ## Automatic installation - Recommended
 
