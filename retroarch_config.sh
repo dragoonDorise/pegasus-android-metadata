@@ -1,5 +1,9 @@
 #!/bin/sh
 
+FILE=~/dragoonDoriseTools/.isRG552
+if [ -f "$FILE" ]; then
+	handheldModel="RG552"
+fi
 
 mkdir ~/storage/shared/RetroArch/overlays/ &> /dev/null
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> /dev/null
@@ -28,7 +32,7 @@ sed -i 's/input_state_slot_increase_btn = "nul"/input_state_slot_increase_btn = 
 sed -i 's/input_toggle_fast_forward_btn = "nul"/input_toggle_fast_forward_btn = "105"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> /dev/null 
 sed -i 's/menu_driver = "glui"/menu_driver = "ozone"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> /dev/null 
 
-if [ $1 == "RG552" ]
+if [ handheldModel == "RG552" ]
 then
 	
 	cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes9x.cfg ~/storage/shared/RetroArch/config/Snes9x &> /dev/null
