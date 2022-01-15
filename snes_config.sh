@@ -39,6 +39,8 @@ read ar
 
 if [ $ar == "1" ]
 then
+	rm ~/dragoonDoriseTools/.snes43
+	rm ~/dragoonDoriseTools/.snes87
 	touch ~/dragoonDoriseTools/.snes43
 	snesMode="4:3"
 	
@@ -46,6 +48,8 @@ fi
 
 if [ $ar == "2" ]
 then
+	rm ~/dragoonDoriseTools/.snes43
+	rm ~/dragoonDoriseTools/.snes87
 	touch ~/dragoonDoriseTools/.snes87
 	snesMode="8:7"
 fi
