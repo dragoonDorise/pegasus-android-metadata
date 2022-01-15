@@ -11,7 +11,7 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
-cat logo.ans
+cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 version=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/version.md)
 echo ""
 echo -e "Lets start updating your Pegasus Metadata Pack & Themes"

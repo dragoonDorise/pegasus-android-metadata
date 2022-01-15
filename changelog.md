@@ -21,3 +21,4 @@
 
 - Added 3DO
 - snes Fixed
+- Logo Fixed
