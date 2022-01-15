@@ -123,7 +123,7 @@ fi
 
 
 #RetroArch Configs
-/bin/bash retroarch_config.sh $handheldModel &> /dev/null
+/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/retroarch_config.sh $handheldModel &> /dev/null
 
 echo -e "${GREEN}OK${NONE}"
 

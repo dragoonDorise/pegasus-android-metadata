@@ -59,7 +59,7 @@ fi
 #RetroArch Update
 echo -ne  "Updating Retroarch Config..."
 #RetroArch Configs
-/bin/bash ~/dragoonDoriseTools/retroarch_config.sh $handheldModel
+/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/retroarch_config.sh $handheldModel
 echo -e "${GREEN}OK${NONE}"
 
 newVersion=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/version.md)
