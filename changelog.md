@@ -10,3 +10,4 @@
 
 - DRY RetroArch Configs
 - RetroArch Ozone GUI set as default
+- Fix update script

@@ -50,11 +50,11 @@ echo -e "${GREEN}OK${NONE}"
 
 #update scripts
 echo -ne  "Updating Scripts..."
-cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/dragoonDoriseTools/update.sh
+cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/update.sh
 chmod a+rwx ~/dragoonDoriseTools/update.sh
-cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/dragoonDoriseTools/scrap.sh
+cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/scrap.sh
 chmod a+rwx ~/dragoonDoriseTools/scrap.sh
-cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/dragoonDoriseTools/undo.sh
+cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh
 chmod a+rwx ~/dragoonDoriseTools/undo.sh
 echo -e "${GREEN}OK${NONE}"
 echo ""
