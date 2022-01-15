@@ -70,11 +70,9 @@ We're also including a Retroarch configuration preset that will do the following
 - Set the right aspect ratio (1:1) for Handhelds & Mame Systems
 - Set the right aspect ratio (4:3 )for SNES and NES
 - Install LCD3 Shader for all Handhelds
-- Hide the load content splash screen \*
-- AutoSave and AutoLoad State \*
-- Activate Integer Scale for all systems \*
-
-\* Only available on Automatic Installations
+- Hide the load content splash screen
+- AutoSave and AutoLoad State
+- 351Elec Hotkeys [Cheatsheet](https://ia802301.us.archive.org/17/items/351-elec-shortcuts-cheatsheet_20210809/351ELEC%20shortcuts%20cheatsheet.pdf)
 
 This configuration is based on [RGC RG552 Linux Setup](https://retrogamecorps.com/2021/12/27/anbernic-rg552-linux-setup-guide/)
 

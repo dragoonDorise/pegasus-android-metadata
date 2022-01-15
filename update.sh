@@ -11,7 +11,7 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 
-
+version=cat ~/dragoonDoriseTools/pegasus-android-metadata/changelog.md
 echo -e  "Lets update your themes, shall we?"
 echo -e  "${BOLD}Press the A button if you agree ;)${NONE}"
 read pause
@@ -70,3 +70,8 @@ chmod a+rwx ~/dragoonDoriseTools/undo.sh
 echo -e "${GREEN}OK${NONE}"
 echo ""
 echo -e  "${GREEN}Update Complete${NONE}"
+echo ""
+echo -e  "${YELLOW}Changelog${NONE}"
+echo -e  "Your version was${PURPLE}$version${NONE}"
+echo -ne  "Now it is:"
+cat ~/dragoonDoriseTools/pegasus-android-metadata/changelog.md
