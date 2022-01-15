@@ -34,7 +34,7 @@ git clone https://github.com/dragoonDorise/pegasus-android-metadata.git pegasus-
 #git clone https://github.com/muldjord/skyscraper.git skyscraper
 echo -e "${GREEN}OK${NONE}"
 clear
-cat logo.ans
+cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 #Download Pegasus
 echo -ne "Downloading Pegasus, please be patient..."
 wget https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w40/pegasus-fe_alpha15-85-gfff1a5b2_android.apk &> /dev/null

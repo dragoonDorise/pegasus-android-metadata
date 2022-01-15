@@ -19,6 +19,7 @@ This pack offers support for the following systems with their respective emulato
 
 | System                    | Emulator                             |
 | ------------------------- | ------------------------------------ |
+| 3DO                       | Retroarch 1.9 Opera core             |
 | Atari 2600                | Retroarch 1.9 Stella core            |
 | Atari Lynx                | Retroarch 1.9 Beetle Lynx core       |
 | Doom                      | Retroarch 1.9 PrBoom core            |

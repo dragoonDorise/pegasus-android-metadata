@@ -16,3 +16,7 @@
 
 - Improvements in the update script
 - Added logo
+
+  1.0.4
+
+- Added 3DO
