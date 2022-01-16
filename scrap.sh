@@ -63,10 +63,10 @@ for device_name in ${selected_device_names[@]};
 	 message=$device_name
 	  system="${message//'"'/}"            
 	 #ls ~/storage/external-1/$system
-	 mkdir ~/storage/external-1/$system/media &> /dev/nul
-	 mkdir ~/storage/external-1/$system/media/screenshot &> /dev/nul
-	 mkdir ~/storage/external-1/$system/media/box2dfront &> /dev/nul
-	 mkdir ~/storage/external-1/$system/media/wheel &> /dev/nul
+	 mkdir ~/storage/external-1/$system/media &> /dev/null
+	 mkdir ~/storage/external-1/$system/media/screenshot &> /dev/null
+	 mkdir ~/storage/external-1/$system/media/box2dfront &> /dev/null
+	 mkdir ~/storage/external-1/$system/media/wheel &> /dev/null
 	 for entry in ~/storage/external-1/$system/*
 	 do
 	 
