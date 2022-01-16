@@ -166,4 +166,8 @@ echo -e  "${UNDERLINE}bash undo.sh${NONE}"
 echo -e  "If you want to update this Pack so you get more systems and themes in the future, run this command"
 echo -e  "${UNDERLINE}bash update.sh${NONE}"
 
+echo -e "${RED}HOW TO INSTALL CORES${NONE} Remember to go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
+echo -e "And then select the core you want to install"
+
+
 exit

@@ -1,4 +1,16 @@
 #!/bin/sh
+
+NONE='\033[00m'
+RED='\033[01;31m'
+GREEN='\033[01;32m'
+YELLOW='\033[01;33m'
+PURPLE='\033[01;35m'
+CYAN='\033[01;36m'
+WHITE='\033[01;37m'
+BOLD='\033[1m'
+UNDERLINE='\033[4m'
+BLINK='\x1b[5m'
+
 handheldModel=""
 FILE=~/dragoonDoriseTools/.isRG552
 if [ -f "$FILE" ]; then
@@ -66,53 +78,108 @@ then
 fi
 #Cores https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/
 
-# Do this in a better way!
-echo -e "Downloading Retroarch Cores"
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fbneo_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mame2010_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mame2003_plus_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/stella_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_lynx_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_wswan_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/prboom_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/dosbox_pure_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_pce_fast_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mgba_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/nestopia_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/pokemini_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/bsnes_hd_beta_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/snes9x_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/genesis_plus_gx_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/genesis_plus_gx_wide_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/picodrive_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/neocd_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_ngp_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/pcsx_rearmed_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
-wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/opera_libretro_android.so.zip ~/storage/shared/RetroArch/downloads
+echo -e "Do you want to download all the required RetroArch Cores?"
+echo -e "Type Y if you want to, don't type anything if you don't and press the button A."
+read cores
+installCores="false"
+if [ cores == "y" ]
+then
+	installCores="true"
+fi
 
-unzip ~/storage/shared/RetroArch/downloads/fbneo_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/mame2010_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/mame2003_plus_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/stella_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/mednafen_lynx_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/mednafen_wswan_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/prboom_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/dosbox_pure_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/mednafen_pce_fast_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/mgba_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/nestopia_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/pokemini_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/bsnes_hd_beta_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/snes9x_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/genesis_plus_gx_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/genesis_plus_gx_wide_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/picodrive_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/neocd_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/mednafen_ngp_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/pcsx_rearmed_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
-unzip ~/storage/shared/RetroArch/downloads/opera_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+if [ cores == "Y" ]
+then
+	installCores="true"
+fi
 
+if [ installCores == "true" ]
+then
+	
+	# Do this in a better way!
+	cd ~/storage/shared/RetroArch/downloads
+	echo -ne "Downloading Final Burn Neo..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fbneo_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading Mame 2010..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mame2010_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading Mame 2003 Plus..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mame2003_plus_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading Atari 2600..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/stella_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading Atari Lynx..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_lynx_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading WonderSwan..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_wswan_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading DooM..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/prboom_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading DOS..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/dosbox_pure_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading PC Engine..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_pce_fast_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading GameBoy Advance..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mgba_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading NES..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/nestopia_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading SNES Widescreen HD..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/bsnes_hd_beta_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading SNES..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/snes9x_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading Genesis & GameGear & Master System..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/genesis_plus_gx_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading Genesis Widescreen HD..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/genesis_plus_gx_wide_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading Sega32x..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/picodrive_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading Neo Geo..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/neocd_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading Neo Geo Pocket..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_ngp_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading PSX..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/pcsx_rearmed_libretro_android.so.zip  &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	
+	echo -ne "${BOLD}Unzipping${NONE} cores..."
+	unzip ~/storage/shared/RetroArch/downloads/fbneo_libretro_android.so.zip &> /dev/null
+	unzip ~/storage/shared/RetroArch/downloads/mame2010_libretro_android.so.zip &> /dev/null
+	unzip ~/storage/shared/RetroArch/downloads/mame2003_plus_libretro_android.so.zip &> /dev/null
+	unzip ~/storage/shared/RetroArch/downloads/stella_libretro_android.so.zip &> /dev/null
+	unzip ~/storage/shared/RetroArch/downloads/mednafen_lynx_libretro_android.so.zip &> /dev/null
+	unzip ~/storage/shared/RetroArch/downloads/mednafen_wswan_libretro_android.so.zip &> /dev/null
+	unzip ~/storage/shared/RetroArch/downloads/prboom_libretro_android.so.zip &> /dev/null
+	unzip ~/storage/shared/RetroArch/downloads/dosbox_pure_libretro_android.so.zip &> /dev/null
+	unzip ~/storage/shared/RetroArch/downloads/mednafen_pce_fast_libretro_android.so.zip &> /dev/null
+	unzip ~/storage/shared/RetroArch/downloads/mgba_libretro_android.so.zip &> /dev/null
+	unzip ~/storage/shared/RetroArch/downloads/nestopia_libretro_android.so.zip &> /dev/null
+	unzip ~/storage/shared/RetroArch/downloads/bsnes_hd_beta_libretro_android.so.zip &> /dev/null
+	unzip ~/storage/shared/RetroArch/downloads/snes9x_libretro_android.so.zip &> /dev/null
+	unzip ~/storage/shared/RetroArch/downloads/genesis_plus_gx_libretro_android.so.zip &> /dev/null
+	unzip ~/storage/shared/RetroArch/downloads/genesis_plus_gx_wide_libretro_android.so.zip &> /dev/null
+	unzip ~/storage/shared/RetroArch/downloads/picodrive_libretro_android.so.zip &> /dev/null
+	unzip ~/storage/shared/RetroArch/downloads/neocd_libretro_android.so.zip &> /dev/null
+	unzip ~/storage/shared/RetroArch/downloads/mednafen_ngp_libretro_android.so.zip &> /dev/null
+	unzip ~/storage/shared/RetroArch/downloads/pcsx_rearmed_libretro_android.so.zip &> /dev/null
+	echo -e "${GREEN}OK${NONE}"
+	
+	cd ~/dragoonDoriseTools
 
+fi
 
 
 #sed -i 's/A/B/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> /dev/null 
