@@ -85,7 +85,7 @@ cat ~/dragoonDoriseTools/pegasus-android-metadata/changelog.md
 echo ""
 echo -e  "Your version was: ${PURPLE}$version${NONE}"
 echo -ne  "Installed version is now: ${GREEN}$newVersion${NONE}"
-echo -n""
+echo -e""
 
 echo -e "${RED}REMEMBER TO INSTALL CORES${NONE} If you downloaded new cores.. Go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
 echo -e "And just select the core you want to install"

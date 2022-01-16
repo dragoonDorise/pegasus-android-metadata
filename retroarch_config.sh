@@ -82,12 +82,12 @@ echo -e "Do you want to download all the required RetroArch Cores?"
 echo -e "Type Y if you want to, don't type anything if you don't and press the button A."
 read cores
 installCores="false"
-if [ cores == "y" ]
+if [ $cores == "y" ]
 then
 	installCores="true"
 fi
 
-if [ cores == "Y" ]
+if [ $cores == "Y" ]
 then
 	installCores="true"
 fi
