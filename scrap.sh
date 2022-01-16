@@ -226,5 +226,8 @@ for device_name in ${selected_device_names[@]};
 	 
    #rsync -r ~/pegasus-artwork/$system/ ~/storage/external-1/$system/
  done
+ echo -e  "Press the A Button to finish"
+ read pause
  
+ exit
  #rm -rf pegasus-artwork

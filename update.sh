@@ -29,6 +29,9 @@ cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/scrap.sh
 chmod a+rwx ~/scrap.sh
 cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh
 chmod a+rwx ~/undo.sh
+cp ~/dragoonDoriseTools/pegasus-android-metadata/startup.sh  ~/startup.sh &> /dev/null
+chmod a+rwx ~/startup.sh &> /dev/null
+echo "/bin/bash ~/startup.sh" > ~/.bashrc
 echo -e "${GREEN}OK${NONE}"
 
 echo -ne  "Updating Bundled Themes (won't affect any other themes)..."
@@ -88,5 +91,7 @@ echo -e""
 
 echo -e "${RED}REMEMBER TO INSTALL CORES${NONE} If you downloaded new cores.. Go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
 echo -e "And just select the core you want to install"
+echo -e  "Press the A Button to finish"
+read pause
 
-
+exit

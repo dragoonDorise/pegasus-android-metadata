@@ -70,6 +70,8 @@ cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/scrap.sh &> /dev/nu
 chmod a+rwx ~/scrap.sh &> /dev/null
 cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh &> /dev/null
 chmod a+rwx ~/undo.sh &> /dev/null
+cp ~/dragoonDoriseTools/pegasus-android-metadata/startup.sh  ~/startup.sh &> /dev/null
+chmod a+rwx ~/startup.sh &> /dev/null
 echo -e "${GREEN}OK${NONE}"
 
 #We get the SD Card Volume name
@@ -135,6 +137,8 @@ echo -e "${GREEN}OK${NONE}"
 echo -ne "Downloading Pegasus Theme : RP Switch..."
 git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themes/RP-switch &> /dev/null
 echo -e "${GREEN}OK${NONE}"
+
+echo "/bin/bash ~/startup.sh" > ~/.bashrc
 sleep .5
 
 echo -e  "${GREEN}Success!!${NONE}"
@@ -159,15 +163,15 @@ cd ~/
 bash scrap.sh
 clear
 echo -e  "${GREEN}Done!${NONE}"
-echo -e  "If you need to scrap more roms in the future, just open ${BOLD}Termux${NONE} and run this command"
-echo -e  "${UNDERLINE}bash scrap.sh${NONE}"
-echo -e  "If you need to uninstall this Pack run this command"
-echo -e  "${UNDERLINE}bash undo.sh${NONE}"
-echo -e  "If you want to update this Pack so you get more systems and themes in the future, run this command"
-echo -e  "${UNDERLINE}bash update.sh${NONE}"
+
+echo -e  "If yoyu open ${BOLD}Termux${NONE} again, a Menu will appear with several options:"
+echo -e  "${UNDERLINE}Uninstall Pegasus Installer${NONE}"
+echo -e  "${UNDERLINE}Update Pegasus Installer${NONE}"
+echo -e  "${UNDERLINE}Scrap Roms${NONE}"
 
 echo -e "${RED}HOW TO INSTALL CORES${NONE} Remember to go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
 echo -e "And then select the core you want to install"
-
+echo -e  "Press the A Button to finish"
+read pause
 
 exit

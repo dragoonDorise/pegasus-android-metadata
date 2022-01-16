@@ -11,13 +11,25 @@ WHITE='\033[01;37m'
 BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
-
+clear
 selected_option=$(whiptail --title "Pegasus Installer Menu" --radiolist "Move using your DPAD and select your option with the Space. Press the A button when ready." 20 40 15 \
-"1" "Reinstall Pegasus Metadata" OF \
-"2" "Update Pegasus Metadata & Themes" OFF \
-"3" "Scrap your Roms" OFF \
-"4" "Open Termux CLI" OFF \
-"5" "Exit" OFF \
+"1" "Update Pegasus Metadata & Themes" OFF \
+"2" "Scrap your Roms" OFF \
+"3" "Open Termux CLI" OFF \
 3>&1 1>&2 2>&3)
 
-echo $selected_option
+if [ $selected_option == "1" ]
+then
+	/bin/bash ~/update.sh
+fi
+
+if [ $selected_option == "2" ]
+then
+	/bin/bash ~/scrap.sh
+fi
+
+if [ $selected_option == "3" ]
+then
+	clear
+fi
+
