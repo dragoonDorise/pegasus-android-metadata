@@ -19,7 +19,8 @@ echo -e  "${BLINK}Press now the A button  to start${NONE}"
 read pausa
 clear
 echo -ne "Installing components, please be patient..."
-termux-setup-storage &> /dev/null
+termux-setup-storage
+read pause
 rm ~/storage/shared/pegasus_installer_error.log &> /dev/null
 touch ~/storage/shared/pegasus_installer_error.log &> /dev/null
 
