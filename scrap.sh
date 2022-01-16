@@ -13,7 +13,7 @@ UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 
 selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
-   --checklist "Move using your DPAD and select your platforms with the Space" 10 80 4 \
+   --checklist "Move using your DPAD and select your platforms with the Space. Press the A button when ready." 10 80 4 \
 	"atari2600" "Atari - 2600" OFF \
 	"atarilynx" "Atari - Lynx" OFF \
 	"doom" "DOOM" OFF \
