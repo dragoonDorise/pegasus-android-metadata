@@ -11,7 +11,49 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
-
+#Detect installed emulators
+hasRetroArch=false
+hasRedDream=false
+hasYaba=false
+hasMupen=false
+hasPPSSPP=false
+hasDuckstation=false
+hasDrastic=false
+#Retroarch?
+FOLDER=~/storage/shared/Android/data/com.retroarcha
+if [ -d "$FOLDER" ]; then
+	hasRetroArch=true
+fi
+#RedDream?
+FOLDER=~/storage/shared/Android/data/io.recompiled.redream
+if [ -d "$FOLDER" ]; then
+	hasRedDream=true
+fi
+#YabaSanshioro?
+FOLDER=~/storage/shared/Android/data/org.devmiyax.yabasanshioro2.pro
+if [ -d "$FOLDER" ]; then
+	hasYaba=true
+fi
+#Mupen64
+FOLDER=~/storage/shared/Android/data/org.mupen64plusae.v3.fzurita.pro
+if [ -d "$FOLDER" ]; then
+	hasMupen=true
+fi
+#PPSSPP
+FOLDER=~/storage/shared/Android/data/org.ppsspp.ppsspp
+if [ -d "$FOLDER" ]; then
+	hasPPSSPP=true
+fi
+#duckstation
+FOLDER=~/storage/shared/duckstation
+if [ -d "$FOLDER" ]; then
+	hasDuckstation=true
+fi
+#Drastic
+FOLDER=~/storage/shared/DraStic
+if [ -d "$FOLDER" ]; then
+	hasDrastic=true
+fi
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
 echo -e  "${BLINK}Press now the A button  to start${NONE}"
@@ -43,14 +85,6 @@ echo -ne "Downloading Pegasus, please be patient..."
 wget https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w40/pegasus-fe_alpha15-85-gfff1a5b2_android.apk &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 
-#Install Skyscraper
-#cd skyscraper
-#qmake
-#make
-#chmod a+rwx Skyscraper
-#cp Skyscraper /data/data/com.termux/files/usr/bin
-#cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/artwork.xml /data/data/com.termux/files/usr/bin
-#cd ..
 
 #Configure Pegasus
 echo -ne "Configuring Pegasus..."
@@ -95,6 +129,18 @@ sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/stora
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-1 &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 
+
+if [ $hasRetroArch == false ]; then
+	echo -ne "You don't have RetroArch, downloading it..."
+	wget https://buildbot.libretro.com/stable/1.9.14/android/RetroArch_ra32.apk &> ~/storage/shared/pegasus_installer_log.log
+	echo -e "${GREEN}OK${NONE}"
+	echo -e "We need to install RetroArch before we continue..."
+	echo -e  "Press the A Button to install RetroArch, when RetroArch is installed click ${BOLD}DONE${NONE} in the instalation window so you can come back to scrap your roms' artwork!"
+	read pause
+	xdg-open ~/dragoonDoriseTools/RetroArch_ra32.apk
+fi
+
+
 #Configure Retroarch
 echo -ne "Creating RetroArch Backup..."
 cp -r ~/storage/shared/RetroArch/config/ ~/storage/shared/RetroArch/config_bak/ &> ~/storage/shared/pegasus_installer_log.log
@@ -125,6 +171,8 @@ if [ $handheldModel == "RG552" ]
 then
 	touch ~/dragoonDoriseTools/.isRG552
 fi
+
+
 
 
 #RetroArch Configs
@@ -158,6 +206,46 @@ read pause
 #Launch Pegasus
 xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
 clear
+
+echo -e "Checking installed emulators.."
+echo -e ""
+echo -ne "Dreamcast - RedDream..."
+if [ hasRedDream==true ]; then
+	echo -e  "${GREEN}Installed${NONE}"
+else
+	echo -e  "${RED}Not installed${NONE}"
+fi
+echo -ne "Saturn - Yaba Sanshioro 2..."
+if [ hasYaba==true ]; then
+	echo -e  "${GREEN}Installed${NONE}"
+else
+	echo -e  "${RED}Not installed${NONE}"
+fi
+echo -ne "Nintendo 64 - Mupen 64 Plus..."
+if [ hasMupen==true ]; then
+	echo -e  "${GREEN}Installed${NONE}"
+else
+	echo -e  "${RED}Not installed${NONE}"
+fi
+echo -ne "PSP - PPSSPP..."
+if [ hasPPSSPP==true ]; then
+	echo -e  "${GREEN}Installed${NONE}"
+else
+	echo -e  "${RED}Not installed${NONE}"
+fi
+echo -ne "Playstation - Duckstation..."
+if [ hasDuckstation==true ]; then
+	echo -e  "${GREEN}Installed${NONE}"
+else
+	echo -e  "${RED}Not installed${NONE}"
+fi
+echo -ne "Nintendo DS - Drastic..."
+if [ hasDrastic==true ]; then
+	echo -e  "${GREEN}Installed${NONE}"
+else
+	echo -e  "${RED}Not installed${NONE}"
+fi
+
 echo -e  "${GREEN}All Done${NONE}, do you have your SD Card inserted with all your roms?"
 echo -e  "${BOLD}Let's start getting all your artwork!${NONE}"
 echo -e  "Press the A Button to continue"
