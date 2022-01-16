@@ -129,7 +129,7 @@ fi
 
 
 #RetroArch Configs
-/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/retroarch_config.sh $handheldModel &> ~/storage/shared/pegasus_installer_error.log
+/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/retroarch_config.sh $handheldModel
 
 echo -e "${GREEN}OK${NONE}"
 
