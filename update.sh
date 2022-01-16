@@ -20,35 +20,35 @@ read pause
 
 #update scripts
 echo -ne  "Updating Scripts..."
-cd ~/dragoonDoriseTools/pegasus-android-metadata/ &> /dev/null 
-git reset --hard &> /dev/null 
-git pull &> /dev/null 
+cd ~/dragoonDoriseTools/pegasus-android-metadata/ &> ~/storage/shared/pegasus_installer_error.log 
+git reset --hard &> ~/storage/shared/pegasus_installer_error.log 
+git pull &> ~/storage/shared/pegasus_installer_error.log 
 cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/update.sh
 chmod a+rwx ~/update.sh
 cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/scrap.sh
 chmod a+rwx ~/scrap.sh
 cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh
 chmod a+rwx ~/undo.sh
-cp ~/dragoonDoriseTools/pegasus-android-metadata/startup.sh  ~/startup.sh &> /dev/null
-chmod a+rwx ~/startup.sh &> /dev/null
+cp ~/dragoonDoriseTools/pegasus-android-metadata/startup.sh  ~/startup.sh &> ~/storage/shared/pegasus_installer_error.log
+chmod a+rwx ~/startup.sh &> ~/storage/shared/pegasus_installer_error.log
 echo "/bin/bash ~/startup.sh" > ~/.bashrc
 echo -e "${GREEN}OK${NONE}"
 
 echo -ne  "Updating Bundled Themes (won't affect any other themes)..."
 cd ~/storage/shared/pegasus-frontend/themes/RP-epic-noir
-git reset --hard &> /dev/null 
-git pull &> /dev/null 
+git reset --hard &> ~/storage/shared/pegasus_installer_error.log 
+git pull &> ~/storage/shared/pegasus_installer_error.log 
 
 cd ~/storage/shared/pegasus-frontend/themes/RP-switch
-git reset --hard &> /dev/null 
-git pull &> /dev/null 
+git reset --hard &> ~/storage/shared/pegasus_installer_error.log 
+git pull &> ~/storage/shared/pegasus_installer_error.log 
 echo -e "${GREEN}OK${NONE}"
 
 #Metadata update
 echo -ne  "Updating Metadata..."
-rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-1 &> /dev/null
-cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend &> /dev/null
-cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend &> /dev/null
+rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-1 &> ~/storage/shared/pegasus_installer_error.log
+cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend &> ~/storage/shared/pegasus_installer_error.log
+cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend &> ~/storage/shared/pegasus_installer_error.log
 #We get the SD Card Volume name
 for entry in /storage/*
  do
@@ -61,7 +61,7 @@ for entry in /storage/*
 	 fi
  done
 
-sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt &> /dev/null 
+sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt &> ~/storage/shared/pegasus_installer_error.log 
 
 echo -e "${GREEN}OK${NONE}"
 

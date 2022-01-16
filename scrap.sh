@@ -188,7 +188,7 @@ for device_name in ${selected_device_names[@]};
 			echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
 		else 
 			echo -ne "Downloading $capture screenshot..."
-			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$capture" -P ~/storage/external-1/$system/media/screenshot/  &> /dev/null
+			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$capture" -P ~/storage/external-1/$system/media/screenshot/  &> ~/storage/shared/pegasus_installer_error.log
 			echo -e "${GREEN}OK${NONE}"
 		fi
 		
@@ -197,7 +197,7 @@ for device_name in ${selected_device_names[@]};
 			echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
 		else 
 			echo -ne "Downloading $capture box2dfront..."
-			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$capture" -P ~/storage/external-1/$system/media/box2dfront/  &> /dev/null
+			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$capture" -P ~/storage/external-1/$system/media/box2dfront/  &> ~/storage/shared/pegasus_installer_error.log
 			echo -e "${GREEN}OK${NONE}"
 		fi
 		
@@ -206,7 +206,7 @@ for device_name in ${selected_device_names[@]};
 			echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
 		else 
 			echo -ne "Downloading $capture wheel..."
-			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Titles/$capture" -P ~/storage/external-1/$system/media/wheel/  &> /dev/null
+			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Titles/$capture" -P ~/storage/external-1/$system/media/wheel/  &> ~/storage/shared/pegasus_installer_error.log
 			echo -e "${GREEN}OK${NONE}"
 		fi
 				
