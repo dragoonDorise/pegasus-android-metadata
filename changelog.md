@@ -32,3 +32,8 @@
 
 - Fixes Shaders Handhelds
 - SNES 8:7 and 4:3 options
+
+  1.0.7
+
+- Core download
+- New Systems: SNES Widescreen & Genesis Widescreen
