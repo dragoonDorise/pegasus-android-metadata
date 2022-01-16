@@ -51,7 +51,7 @@ selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
 	"3do" "The 3DO Company - 3DO" OFF \
    3>&1 1<&2 2>&3)
 echo $selected_device_descriptions
-if [$selected_device_descriptions == "ALL"]; then
+if [ $selected_device_descriptions == "ALL" ]; then
 	selected_device_descriptions_all ="atari2600 atarilynx doom dos fbneo pcengine pcenginecd gb gba gbc gc 3ds n64 nds nes pokemini snes wii neogeo neogeocd ngp ngpc scummvm sega32x dreamcast gamegear mastersystem genesis segacd saturn psx ps2 psp 3do"
 	mapfile -t selected_device_names <<< $selected_device_descriptions_all
 else
