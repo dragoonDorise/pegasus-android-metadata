@@ -22,7 +22,7 @@ clear
 echo -ne "Installing components, please be patient..."
 rm ~/storage/shared/pegasus_installer_error.log &> /dev/null
 touch ~/storage/shared/pegasus_installer_error.log &> /dev/null
-wait .5
+sleep .5
 pkg update -y -F &> ~/storage/shared/pegasus_installer_error.log && pkg upgrade -y -F &> ~/storage/shared/pegasus_installer_error.log
 #pkg install x11-repo build-essential qt5-qtbase -y 
 pkg install git wget rsync unzip whiptail -y  &> ~/storage/shared/pegasus_installer_error.log
