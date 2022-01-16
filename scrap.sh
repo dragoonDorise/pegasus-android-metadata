@@ -188,14 +188,21 @@ for device_name in ${selected_device_names[@]};
 			echo -n "unknown"
 			;;
 		esac		 
-		 startcapture=true
+		
+		startcapture=true
 		 
-		 #.txt validation
-		 STR=$capture
-		 SUB='.txt'
-		 if grep -q "$SUB" <<< "$STR"; then
-		 	startcapture=false
-		 fi
+		#.txt validation
+ 		STR=$capture
+ 		SUB='.txt'
+ 		if grep -q "$SUB" <<< "$STR"; then
+	 		startcapture=false
+ 		fi
+		#.sav validation
+ 		STR=$capture
+ 		SUB='.sav'
+ 		if grep -q "$SUB" <<< "$STR"; then
+	 		startcapture=false
+ 		fi
 		#Directory Validation
 		DIR=~/storage/external-1/$system/$capture
 		if [ -d "$DIR" ]; then
