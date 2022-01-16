@@ -10,7 +10,7 @@ WHITE='\033[01;37m'
 BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
-clear
+
 
 snesMode="4:3"
 snesConfigured="false"
@@ -29,10 +29,10 @@ echo -e "Please choose your Super Nintedo resolution"
 echo -e "Type 1 for 4:3 Aspect Ratio (Classic TV Resolution)"
 echo -e "Type 2 for 8:7 Aspect Ratio (Real internal Resolution)"
 if [ $snesConfigured == false ]; then
-	echo -e "${BOLD}And then press the A button to continue${NONE}"
+	echo -e "And then press the ${BOLD}A button${NONE} to continue"
 fi
 if [ $snesConfigured == true ]; then
-	echo -e "${BOLD}Or just press the A button to keep the $snesMode you selected on installation${NONE}"
+	echo -e "Or just press the ${BOLD}A button${NONE} to keep the $snesMode you selected on installation"
 fi
 
 read ar

@@ -20,7 +20,7 @@ hasPPSSPP=false
 hasDuckstation=false
 hasDrastic=false
 #Retroarch?
-FOLDER=~/storage/shared/Android/data/com.retroarcha
+FOLDER=~/storage/shared/Android/data/com.retroarch
 if [ -d "$FOLDER" ]; then
 	hasRetroArch=true
 fi
@@ -56,7 +56,7 @@ if [ -d "$FOLDER" ]; then
 fi
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
-echo -e  "${BLINK}Press now the A button  to start${NONE}"
+echo -e  "Press now the ${BOLD}A button${NONE} to start"
 termux-setup-storage
 read pausa
 clear
@@ -73,7 +73,7 @@ cd dragoonDoriseTools &> ~/storage/shared/pegasus_installer_log.log
 
 echo -e "${GREEN}OK${NONE}"
 
-echo -ne "Downloading Metadata, please be patient..."
+echo -ne "Downloading Metadata Pack for Android, please be patient..."
 #Download Pegasus Metadata files
 git clone https://github.com/dragoonDorise/pegasus-android-metadata.git pegasus-android-metadata/ &> ~/storage/shared/pegasus_installer_log.log
 #git clone https://github.com/muldjord/skyscraper.git skyscraper
@@ -135,12 +135,15 @@ if [ $hasRetroArch == false ]; then
 	wget https://buildbot.libretro.com/stable/1.9.14/android/RetroArch_ra32.apk &> ~/storage/shared/pegasus_installer_log.log
 	echo -e "${GREEN}OK${NONE}"
 	echo -e "We need to install RetroArch before we continue..."
-	echo -e  "Press the A Button to install RetroArch, when RetroArch is installed click ${BOLD}DONE${NONE} in the instalation window so you can come back to scrap your roms' artwork!"
+	echo -e  "Press the ${BOLD}A button${NONE} to install RetroArch, when RetroArch is installed click ${BOLD}DONE${NONE} in the instalation window so you can come back and finish here"
 	read pause
 	xdg-open ~/dragoonDoriseTools/RetroArch_ra32.apk
+	echo -ne "RetroArch installed..."
+	echo -e "${GREEN}OK${NONE}"
 fi
 
-
+echo -e  "Press the ${BOLD}A button${NONE} to continue"
+read pause
 #Configure Retroarch
 echo -ne "Creating RetroArch Backup..."
 cp -r ~/storage/shared/RetroArch/config/ ~/storage/shared/RetroArch/config_bak/ &> ~/storage/shared/pegasus_installer_log.log
@@ -178,8 +181,6 @@ fi
 #RetroArch Configs
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/retroarch_config.sh $handheldModel
 
-echo -e "${GREEN}OK${NONE}"
-
 # Install Themes for Pegasus
 echo -ne "Downloading Pegasus Theme : RP Epic Noir..."
 git clone https://github.com/dragoonDorise/RP-epic-noir.git ~/storage/shared/pegasus-frontend/themes/RP-epic-noir &> ~/storage/shared/pegasus_installer_log.log
@@ -191,23 +192,27 @@ echo -e "${GREEN}OK${NONE}"
 
 echo "/bin/bash ~/startup.sh" > ~/.bashrc
 sleep .5
-
+echo -e ""
+echo -e ""
 echo -e  "${GREEN}Success!!${NONE}"
+echo -e ""
 echo -e  "We've finished the first step!"
 echo -e  ""
 echo -e  "You can now remove your SD Card"
-echo -e  "Insert your SD Card on your computer and go to this folder in your SD Card: ${GREEN}/Android/data/com.termux/files${NONE}."
-echo -e  "You will see there that every system has its own folder for each set of roms, just copy your roms on the corresponding folder for each system."
+echo -e  "Insert your SD Card on your computer and go to this folder in your SD Card: ${GREEN}/Android/data/com.termux/files/${NONE}"
+echo -e  "You will see there that every system has its own folder, just copy your roms on the corresponding folder."
 echo -e  "${BOLD}We recommend roms named after no-intro romsets${NONE}"
+echo -e ""
 echo -e  "Now let's install ${RED}Pegasus${NONE}"
-echo -e  "Press the A Button to install Pegasus, when Pegasus is installed click ${BOLD}DONE${NONE} in the instalation window so you can come back to scrap your roms' artwork!"
+echo -e  "Press the ${BOLD}A button${NONE} to install Pegasus, when Pegasus is installed click ${BOLD}DONE${NONE} in the instalation window so you can come back to scrap your roms' artwork!"
 read pause
 
+echo -ne  "Installing ${RED}Pegasus${NONE}..."
 #Launch Pegasus
 xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
-clear
+echo -e  "${GREEN}OK${NONE}"
 
-echo -e "Checking installed emulators.."
+echo -e "Checking installed emulators..."
 echo -e ""
 echo -ne "Dreamcast - RedDream..."
 if [ hasRedDream==true ]; then
@@ -246,9 +251,12 @@ else
 	echo -e  "${RED}Not installed${NONE}"
 fi
 
+echo -e "${BOLD}Remember to install those emulators if you want to play those systems${NONE}"
+
+echo -e  "";
 echo -e  "${GREEN}All Done${NONE}, do you have your SD Card inserted with all your roms?"
 echo -e  "${BOLD}Let's start getting all your artwork!${NONE}"
-echo -e  "Press the A Button to continue"
+echo -e  "Press the ${BOLD}A button${NONE} to continue"
 read pause
 cd ~/
 bash scrap.sh
@@ -262,7 +270,7 @@ echo -e  "${UNDERLINE}Scrap Roms${NONE}"
 
 echo -e "${RED}HOW TO INSTALL CORES${NONE} Remember to go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
 echo -e "And then select the core you want to install"
-echo -e  "Press the A Button to finish"
+echo -e  "Press the ${BOLD}A button${NONE} to finish"
 read pause
 
 exit

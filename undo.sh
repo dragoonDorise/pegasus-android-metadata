@@ -9,7 +9,7 @@ WHITE='\033[01;37m'
 BOLD='\033[1m'
 UNDERLINE='\033[4m'
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
-echo -ne "Deleting Metadata..."
+echo -ne "Deleting Metadata Pack for Android..."
 rm -rf ~/dragoonDoriseTools  &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 #Restoring Pegasus

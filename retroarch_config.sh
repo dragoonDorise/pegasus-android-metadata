@@ -81,7 +81,7 @@ echo -e "${GREEN}OK${NONE}"
 
 fi
 #Cores https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/
-clear
+
 echo -e "Do you want to download all the required RetroArch Cores?"
 echo -e "Type Y if you want to, N if you don't and press the button A."
 read cores

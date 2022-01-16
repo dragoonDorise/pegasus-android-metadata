@@ -15,7 +15,7 @@ cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 version=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/version.md)
 echo ""
 echo -e "Lets start updating your Pegasus Metadata Pack & Themes"
-echo -e "${BOLD}Press the A button to continue${NONE}"
+echo -e "Press the ${BOLD}A button${NONE} to continue"
 read pause
 
 #update scripts
@@ -91,7 +91,7 @@ echo -e""
 
 echo -e "${RED}REMEMBER TO INSTALL CORES${NONE} If you downloaded new cores.. Go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
 echo -e "And just select the core you want to install"
-echo -e  "Press the A Button to finish"
+echo -e  "Press the ${BOLD}A button${NONE} to finish"
 read pause
 
 exit
