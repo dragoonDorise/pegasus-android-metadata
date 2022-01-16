@@ -50,17 +50,13 @@ selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
 	"psp" "Sony - PlayStation Portable" OFF \
 	"3do" "The 3DO Company - 3DO" OFF \
    3>&1 1<&2 2>&3)
-echo $selected_device_descriptions
+
 if [ $selected_device_descriptions == "ALL" ]; then
 	selected_device_descriptions_all="atari2600 atarilynx doom dos fbneo pcengine pcenginecd gb gba gbc gc 3ds n64 nds nes pokemini snes wii neogeo neogeocd ngp ngpc scummvm sega32x dreamcast gamegear mastersystem genesis segacd saturn psx ps2 psp 3do"
 	mapfile -t selected_device_names <<< $selected_device_descriptions_all
 else
 	mapfile -t selected_device_names <<< $selected_device_descriptions
 fi
-
-echo $selected_device_names
-
-exit
 
 for device_name in ${selected_device_names[@]};
  do
@@ -198,7 +194,7 @@ for device_name in ${selected_device_names[@]};
 			echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
 		else 
 			echo -ne "Downloading $capture screenshot..."
-			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$capture" -P ~/storage/external-1/$system/media/screenshot/  &> ~/storage/shared/pegasus_installer_log.log
+			wget  --spider "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$capture" -P ~/storage/external-1/$system/media/screenshot/  &> ~/storage/shared/pegasus_installer_log.log
 			echo -e "${GREEN}OK${NONE}"
 		fi
 		
@@ -207,7 +203,7 @@ for device_name in ${selected_device_names[@]};
 			echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
 		else 
 			echo -ne "Downloading $capture box2dfront..."
-			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$capture" -P ~/storage/external-1/$system/media/box2dfront/  &> ~/storage/shared/pegasus_installer_log.log
+			wget  --spider "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$capture" -P ~/storage/external-1/$system/media/box2dfront/  &> ~/storage/shared/pegasus_installer_log.log
 			echo -e "${GREEN}OK${NONE}"
 		fi
 		
@@ -216,7 +212,7 @@ for device_name in ${selected_device_names[@]};
 			echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
 		else 
 			echo -ne "Downloading $capture wheel..."
-			wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Titles/$capture" -P ~/storage/external-1/$system/media/wheel/  &> ~/storage/shared/pegasus_installer_log.log
+			wget --spider "http://thumbnails.libretro.com/$remoteSystem/Named_Titles/$capture" -P ~/storage/external-1/$system/media/wheel/  &> ~/storage/shared/pegasus_installer_log.log
 			echo -e "${GREEN}OK${NONE}"
 		fi
 				
