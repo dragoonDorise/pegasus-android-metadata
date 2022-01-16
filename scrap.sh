@@ -58,7 +58,7 @@ else
 	mapfile -t selected_device_names <<< $selected_device_descriptions
 fi
 
-echo selected_device_names
+echo $selected_device_names
 
 exit
 
