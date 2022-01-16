@@ -10,8 +10,6 @@ WHITE='\033[01;37m'
 BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
-rm ~/storage/shared/pegasus_installer_error.log
-touch ~/storage/shared/pegasus_installer_error.log
 clear
 
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
@@ -21,12 +19,17 @@ echo -e  "${BLINK}Press now the A button  to start${NONE}"
 read pausa
 clear
 echo -ne "Installing components, please be patient..."
+termux-setup-storage &> /dev/null
+rm ~/storage/shared/pegasus_installer_error.log &> /dev/null
+touch ~/storage/shared/pegasus_installer_error.log &> /dev/null
+
 pkg update -y -F &> ~/storage/shared/pegasus_installer_error.log && pkg upgrade -y -F &> ~/storage/shared/pegasus_installer_error.log
 #pkg install x11-repo build-essential qt5-qtbase -y 
 pkg install git wget rsync unzip whiptail -y  &> ~/storage/shared/pegasus_installer_error.log
-termux-setup-storage &> ~/storage/shared/pegasus_installer_error.log
+
 mkdir ~/dragoonDoriseTools &> ~/storage/shared/pegasus_installer_error.log
 cd dragoonDoriseTools &> ~/storage/shared/pegasus_installer_error.log
+
 echo -e "${GREEN}OK${NONE}"
 
 echo -ne "Downloading Metadata, please be patient..."
