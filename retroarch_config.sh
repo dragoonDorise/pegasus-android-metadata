@@ -97,8 +97,9 @@ then
 	
 	# Do this in a better way!
 	cd ~/storage/shared/RetroArch/downloads
+	find . -name "*.so" -type f -delete
 	echo -ne "Downloading Final Burn Neo..."
-	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fbneo_libretro_android.so.zip
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fbneo_libretro_android.so.zip  &> /dev/null
 	echo -e "${GREEN}OK${NONE}"
 	echo -ne "Downloading Mame 2010..."
 	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mame2010_libretro_android.so.zip  &> /dev/null
@@ -175,6 +176,7 @@ then
 	unzip ~/storage/shared/RetroArch/downloads/neocd_libretro_android.so.zip &> /dev/null
 	unzip ~/storage/shared/RetroArch/downloads/mednafen_ngp_libretro_android.so.zip &> /dev/null
 	unzip ~/storage/shared/RetroArch/downloads/pcsx_rearmed_libretro_android.so.zip &> /dev/null
+	find . -name "*.zip" -type f -delete
 	echo -e "${GREEN}OK${NONE}"
 	
 	cd ~/dragoonDoriseTools
