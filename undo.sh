@@ -10,35 +10,35 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 echo -ne "Deleting Metadata..."
-rm -rf ~/dragoonDoriseTools  &> ~/storage/shared/pegasus_installer_error.log
+rm -rf ~/dragoonDoriseTools  &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 #Restoring Pegasus
 echo -ne "Restoring Pegasus settings if existed..."
-cp ~/storage/shared/pegasus-frontend/settings.txt.bak ~/storage/shared/pegasus-frontend/settings.txt  &> ~/storage/shared/pegasus_installer_error.log
-cp ~/storage/shared/pegasus-frontend/game_dirs.txt.bak ~/storage/shared/pegasus-frontend/settings.txt  &> ~/storage/shared/pegasus_installer_error.log
+cp ~/storage/shared/pegasus-frontend/settings.txt.bak ~/storage/shared/pegasus-frontend/settings.txt  &> ~/storage/shared/pegasus_installer_log.log
+cp ~/storage/shared/pegasus-frontend/game_dirs.txt.bak ~/storage/shared/pegasus-frontend/settings.txt  &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 echo -ne "Deleting scripts..."
-rm -f scrap.sh  &> ~/storage/shared/pegasus_installer_error.log
-rm -f update.sh  &> ~/storage/shared/pegasus_installer_error.log
-rm -f undo.sh  &> ~/storage/shared/pegasus_installer_error.log
-rm -f startup.sh  &> ~/storage/shared/pegasus_installer_error.log
+rm -f scrap.sh  &> ~/storage/shared/pegasus_installer_log.log
+rm -f update.sh  &> ~/storage/shared/pegasus_installer_log.log
+rm -f undo.sh  &> ~/storage/shared/pegasus_installer_log.log
+rm -f startup.sh  &> ~/storage/shared/pegasus_installer_log.log
 echo "" > ~/.bashrc
 echo -e "${GREEN}OK${NONE}"
 echo -ne "Deleting Pegasus apk..."
-rm -f ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk  &> ~/storage/shared/pegasus_installer_error.log
+rm -f ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk  &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 #Restoring Retroarch
 echo -ne "Restoring RetroArch config..."
-cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_error.log
+cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log
 FILE=~/storage/shared/RetroArch/config_bak
 if [ -f "$FILE" ]; then
-	rm -rf ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg  &> ~/storage/shared/pegasus_installer_error.log
-	rm -rf ~/storage/shared/RetroArch/config/  &> ~/storage/shared/pegasus_installer_error.log
-	cp ~/storage/shared/RetroArch/config_bak/ ~/storage/shared/RetroArch/config/  &> ~/storage/shared/pegasus_installer_error.log
-	rm ~/storage/shared/RetroArch/config_bak/  &> ~/storage/shared/pegasus_installer_error.log
+	rm -rf ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg  &> ~/storage/shared/pegasus_installer_log.log
+	rm -rf ~/storage/shared/RetroArch/config/  &> ~/storage/shared/pegasus_installer_log.log
+	cp ~/storage/shared/RetroArch/config_bak/ ~/storage/shared/RetroArch/config/  &> ~/storage/shared/pegasus_installer_log.log
+	rm ~/storage/shared/RetroArch/config_bak/  &> ~/storage/shared/pegasus_installer_log.log
 fi
 echo -e "${GREEN}OK${NONE}"
-rm -rf ~/storage  &> ~/storage/shared/pegasus_installer_error.log
+rm -rf ~/storage  &> ~/storage/shared/pegasus_installer_log.log
 
 
 echo -e "${GREEN}All cleaned up!${NONE}"

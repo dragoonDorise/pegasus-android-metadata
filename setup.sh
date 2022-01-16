@@ -14,34 +14,33 @@ clear
 
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
-echo -e  "The script might ask you to confirm some steps along the installation proccess, just type Y ( capital ) and press A button when asked"
 echo -e  "${BLINK}Press now the A button  to start${NONE}"
 termux-setup-storage
 read pausa
 clear
 echo -ne "Installing components, please be patient..."
-rm ~/storage/shared/pegasus_installer_error.log &> /dev/null
-touch ~/storage/shared/pegasus_installer_error.log &> /dev/null
+rm ~/storage/shared/pegasus_installer_log.log &> /dev/null
+touch ~/storage/shared/pegasus_installer_log.log &> /dev/null
 sleep .5
-pkg update -y -F &> ~/storage/shared/pegasus_installer_error.log && pkg upgrade -y -F &> ~/storage/shared/pegasus_installer_error.log
+pkg update -y -F &> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y -F &> ~/storage/shared/pegasus_installer_log.log
 #pkg install x11-repo build-essential qt5-qtbase -y 
-pkg install git wget rsync unzip whiptail -y  &> ~/storage/shared/pegasus_installer_error.log
+pkg install git wget rsync unzip whiptail -y  &> ~/storage/shared/pegasus_installer_log.log
 
-mkdir ~/dragoonDoriseTools &> ~/storage/shared/pegasus_installer_error.log
-cd dragoonDoriseTools &> ~/storage/shared/pegasus_installer_error.log
+mkdir ~/dragoonDoriseTools &> ~/storage/shared/pegasus_installer_log.log
+cd dragoonDoriseTools &> ~/storage/shared/pegasus_installer_log.log
 
 echo -e "${GREEN}OK${NONE}"
 
 echo -ne "Downloading Metadata, please be patient..."
 #Download Pegasus Metadata files
-git clone https://github.com/dragoonDorise/pegasus-android-metadata.git pegasus-android-metadata/ &> ~/storage/shared/pegasus_installer_error.log
+git clone https://github.com/dragoonDorise/pegasus-android-metadata.git pegasus-android-metadata/ &> ~/storage/shared/pegasus_installer_log.log
 #git clone https://github.com/muldjord/skyscraper.git skyscraper
 echo -e "${GREEN}OK${NONE}"
 clear
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 #Download Pegasus
 echo -ne "Downloading Pegasus, please be patient..."
-wget https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w40/pegasus-fe_alpha15-85-gfff1a5b2_android.apk &> ~/storage/shared/pegasus_installer_error.log
+wget https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w40/pegasus-fe_alpha15-85-gfff1a5b2_android.apk &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 
 #Install Skyscraper
@@ -55,27 +54,27 @@ echo -e "${GREEN}OK${NONE}"
 
 #Configure Pegasus
 echo -ne "Configuring Pegasus..."
-mkdir ~/storage/shared/pegasus-frontend &> ~/storage/shared/pegasus_installer_error.log
-mkdir ~/storage/shared/pegasus-frontend/themes &> ~/storage/shared/pegasus_installer_error.log
+mkdir ~/storage/shared/pegasus-frontend &> ~/storage/shared/pegasus_installer_log.log
+mkdir ~/storage/shared/pegasus-frontend/themes &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 
 #Backup
 echo -ne "Creating Backups of everything..."
-cp ~/storage/shared/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend/settings.txt.bak &> ~/storage/shared/pegasus_installer_error.log
-cp ~/storage/shared/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend/settings.txt.bak &> ~/storage/shared/pegasus_installer_error.log
-cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend &> ~/storage/shared/pegasus_installer_error.log
-cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend &> ~/storage/shared/pegasus_installer_error.log
+cp ~/storage/shared/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend/settings.txt.bak &> ~/storage/shared/pegasus_installer_log.log
+cp ~/storage/shared/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend/settings.txt.bak &> ~/storage/shared/pegasus_installer_log.log
+cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend &> ~/storage/shared/pegasus_installer_log.log
+cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 
 echo -ne "Installing Scrap, Update & Undo Scripts..."
-cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/update.sh &> ~/storage/shared/pegasus_installer_error.log
-chmod a+rwx ~/update.sh &> ~/storage/shared/pegasus_installer_error.log
-cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/scrap.sh &> ~/storage/shared/pegasus_installer_error.log
-chmod a+rwx ~/scrap.sh &> ~/storage/shared/pegasus_installer_error.log
-cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh &> ~/storage/shared/pegasus_installer_error.log
-chmod a+rwx ~/undo.sh &> ~/storage/shared/pegasus_installer_error.log
-cp ~/dragoonDoriseTools/pegasus-android-metadata/startup.sh  ~/startup.sh &> ~/storage/shared/pegasus_installer_error.log
-chmod a+rwx ~/startup.sh &> ~/storage/shared/pegasus_installer_error.log
+cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/update.sh &> ~/storage/shared/pegasus_installer_log.log
+chmod a+rwx ~/update.sh &> ~/storage/shared/pegasus_installer_log.log
+cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/scrap.sh &> ~/storage/shared/pegasus_installer_log.log
+chmod a+rwx ~/scrap.sh &> ~/storage/shared/pegasus_installer_log.log
+cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh &> ~/storage/shared/pegasus_installer_log.log
+chmod a+rwx ~/undo.sh &> ~/storage/shared/pegasus_installer_log.log
+cp ~/dragoonDoriseTools/pegasus-android-metadata/startup.sh  ~/startup.sh &> ~/storage/shared/pegasus_installer_log.log
+chmod a+rwx ~/startup.sh &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 
 #We get the SD Card Volume name
@@ -91,19 +90,19 @@ for entry in /storage/*
  done
  
 echo -ne "Configuring SD Card..."
-sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt &> ~/storage/shared/pegasus_installer_error.log 
+sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt &> ~/storage/shared/pegasus_installer_log.log 
 # Instaling roms folders
-rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-1 &> ~/storage/shared/pegasus_installer_error.log
+rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-1 &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 
 #Configure Retroarch
 echo -ne "Creating RetroArch Backup..."
-cp -r ~/storage/shared/RetroArch/config/ ~/storage/shared/RetroArch/config_bak/ &> ~/storage/shared/pegasus_installer_error.log
-cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg &> ~/storage/shared/pegasus_installer_error.log
+cp -r ~/storage/shared/RetroArch/config/ ~/storage/shared/RetroArch/config_bak/ &> ~/storage/shared/pegasus_installer_log.log
+cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 
 echo -e "Do you have an Anbernic RG552? Some extra configuration will be done for your system :) "
-echo -e "Type Y if you do, don't type anything if you don't and press the button A."
+echo -e "Type Y if you do, type N if you don't and press the button A."
 read handheldQuestion
 
 
@@ -135,11 +134,11 @@ echo -e "${GREEN}OK${NONE}"
 
 # Install Themes for Pegasus
 echo -ne "Downloading Pegasus Theme : RP Epic Noir..."
-git clone https://github.com/dragoonDorise/RP-epic-noir.git ~/storage/shared/pegasus-frontend/themes/RP-epic-noir &> ~/storage/shared/pegasus_installer_error.log
+git clone https://github.com/dragoonDorise/RP-epic-noir.git ~/storage/shared/pegasus-frontend/themes/RP-epic-noir &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 
 echo -ne "Downloading Pegasus Theme : RP Switch..."
-git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themes/RP-switch &> ~/storage/shared/pegasus_installer_error.log
+git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themes/RP-switch &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 
 echo "/bin/bash ~/startup.sh" > ~/.bashrc
