@@ -167,7 +167,7 @@ bash scrap.sh
 clear
 echo -e  "${GREEN}Done!${NONE}"
 
-echo -e  "If yoyu open ${BOLD}Termux${NONE} again, a Menu will appear with several options:"
+echo -e  "If you open ${BOLD}Termux${NONE} again, a Menu will appear with several options:"
 echo -e  "${UNDERLINE}Uninstall Pegasus Installer${NONE}"
 echo -e  "${UNDERLINE}Update Pegasus Installer${NONE}"
 echo -e  "${UNDERLINE}Scrap Roms${NONE}"
