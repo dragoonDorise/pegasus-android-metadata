@@ -57,6 +57,7 @@ then
 	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Gambatte/gb.cfg &> /dev/null 
 	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Gambatte/gbc.cfg &> /dev/null 
 	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Genesis Plus GX/gamegear.cfg &> /dev/null 
+	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Genesis Plus GX/genesis.cfg &> /dev/null 
 	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Nestopia/nes.cfg &> /dev/null 
 	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/mGBA/gba.cfg &> /dev/null 
 	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> /dev/null 
