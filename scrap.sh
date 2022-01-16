@@ -14,6 +14,7 @@ BLINK='\x1b[5m'
 
 selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
    --checklist "Move using your DPAD and select your platforms with the Space. Press the A button when ready." 10 80 4 \
+	"ALL" "This option will look for all systems on your SD Card" OFF \
 	"atari2600" "Atari - 2600" OFF \
 	"atarilynx" "Atari - Lynx" OFF \
 	"doom" "DOOM" OFF \
@@ -51,6 +52,8 @@ selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
    3>&1 1<&2 2>&3)
 
 mapfile -t selected_device_names <<< $selected_device_descriptions
+echo $selected_device_descriptions
+exit
 
 for device_name in ${selected_device_names[@]};
  do
