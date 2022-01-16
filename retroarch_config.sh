@@ -22,11 +22,14 @@ FILE=~/dragoonDoriseTools/.snes87
 if [ -f "$FILE" ]; then
 	snesMode="87"
 fi
-
+echo -ne "Creating config files & backup old ones..."
 mkdir ~/storage/shared/RetroArch/overlays/ &> ~/storage/shared/pegasus_installer_error.log
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> ~/storage/shared/pegasus_installer_error.log
+echo -e "${GREEN}OK${NONE}"
+echo -ne "Installing overlays..."
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/overlays/ ~/storage/shared/RetroArch/overlays/ &> ~/storage/shared/pegasus_installer_error.log
-
+echo -e "${GREEN}OK${NONE}"
+echo -ne "Applying hotkeys..."
 sed -i 's/config_save_on_exit = "true"/config_save_on_exit = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_error.log 
 sed -i 's/input_overlay_enable = "true"/input_overlay_enable = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_error.log 
 sed -i 's/menu_show_load_content_animation = "true"/menu_show_load_content_animation = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_error.log 
@@ -49,13 +52,14 @@ sed -i 's/input_state_slot_decrease_btn = "nul"/input_state_slot_decrease_btn = 
 sed -i 's/input_state_slot_increase_btn = "nul"/input_state_slot_increase_btn = "h0up"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_error.log 
 sed -i 's/input_toggle_fast_forward_btn = "nul"/input_toggle_fast_forward_btn = "105"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_error.log 
 sed -i 's/menu_driver = "glui"/menu_driver = "ozone"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_error.log 
-
+echo -e "${GREEN}OK${NONE}"
 #Snes configuration
+echo -ne "Applying SNES configuration..."
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/snes_config.sh
-
+echo -e "${GREEN}OK${NONE}"
 if [ $handheldModel == "RG552" ]
 then
-	
+	echo -ne "RG552 Special condfiguration..."
 	#cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes.cfg ~/storage/shared/RetroArch/config/Snes9x &> ~/storage/shared/pegasus_installer_error.log
 
 	#Overlay Fixes for 5:3 screens
@@ -73,7 +77,7 @@ then
 	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Nestopia/nes.cfg &> ~/storage/shared/pegasus_installer_error.log 
 	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/mGBA/gba.cfg &> ~/storage/shared/pegasus_installer_error.log 
 	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_error.log 
-
+echo -e "${GREEN}OK${NONE}"
 
 fi
 #Cores https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/

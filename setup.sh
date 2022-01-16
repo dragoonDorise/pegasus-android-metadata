@@ -16,14 +16,13 @@ echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android D
 echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
 echo -e  "The script might ask you to confirm some steps along the installation proccess, just type Y ( capital ) and press A button when asked"
 echo -e  "${BLINK}Press now the A button  to start${NONE}"
+termux-setup-storage
 read pausa
 clear
 echo -ne "Installing components, please be patient..."
-termux-setup-storage
-read pause
 rm ~/storage/shared/pegasus_installer_error.log &> /dev/null
 touch ~/storage/shared/pegasus_installer_error.log &> /dev/null
-
+wait .5
 pkg update -y -F &> ~/storage/shared/pegasus_installer_error.log && pkg upgrade -y -F &> ~/storage/shared/pegasus_installer_error.log
 #pkg install x11-repo build-essential qt5-qtbase -y 
 pkg install git wget rsync unzip whiptail -y  &> ~/storage/shared/pegasus_installer_error.log

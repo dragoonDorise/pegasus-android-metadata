@@ -21,6 +21,8 @@ echo -ne "Deleting scripts..."
 rm -f scrap.sh  &> ~/storage/shared/pegasus_installer_error.log
 rm -f update.sh  &> ~/storage/shared/pegasus_installer_error.log
 rm -f undo.sh  &> ~/storage/shared/pegasus_installer_error.log
+rm -f startup.sh  &> ~/storage/shared/pegasus_installer_error.log
+echo "" > ~/.bashrc
 echo -e "${GREEN}OK${NONE}"
 echo -ne "Deleting Pegasus apk..."
 rm -f ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk  &> ~/storage/shared/pegasus_installer_error.log
