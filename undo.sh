@@ -30,7 +30,7 @@ echo -e "${GREEN}OK${NONE}"
 #Restoring Retroarch
 echo -ne "Restoring RetroArch config..."
 cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log
-FILE=~/storage/shared/RetroArch/config_bak
+FILE=~/storage/shared/RetroArch/config_bak/config/Gambatte/gb.cfg
 if [ -f "$FILE" ]; then
 	rm -rf ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg  &> ~/storage/shared/pegasus_installer_log.log
 	rm -rf ~/storage/shared/RetroArch/config/  &> ~/storage/shared/pegasus_installer_log.log
