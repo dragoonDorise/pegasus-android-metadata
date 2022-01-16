@@ -63,10 +63,10 @@ for device_name in ${selected_device_names[@]};
 	 message=$device_name
 	  system="${message//'"'/}"            
 	 #ls ~/storage/external-1/$system
-	 mkdir ~/storage/external-1/$system/media
-	 mkdir ~/storage/external-1/$system/media/screenshot
-	 mkdir ~/storage/external-1/$system/media/box2dfront
-	 mkdir ~/storage/external-1/$system/media/wheel
+	 mkdir ~/storage/external-1/$system/media &> /dev/nul
+	 mkdir ~/storage/external-1/$system/media/screenshot &> /dev/nul
+	 mkdir ~/storage/external-1/$system/media/box2dfront &> /dev/nul
+	 mkdir ~/storage/external-1/$system/media/wheel &> /dev/nul
 	 for entry in ~/storage/external-1/$system/*
 	 do
 	 
@@ -188,13 +188,13 @@ for device_name in ${selected_device_names[@]};
 			echo -n "unknown"
 			;;
 		esac		 
-		 startcapture=false
+		 startcapture=true
 		 
 		 #.txt validation
 		 STR=$capture
 		 SUB='.txt'
-		 if ! grep -q "$SUB" <<< "$STR"; then
-		 	startcapture=true
+		 if grep -q "$SUB" <<< "$STR"; then
+		 	startcapture=false
 		 fi
 		#Directory Validation
 		DIR=~/storage/external-1/$system/$capture
