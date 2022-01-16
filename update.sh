@@ -41,7 +41,6 @@ git reset --hard &> /dev/null
 git pull &> /dev/null 
 echo -e "${GREEN}OK${NONE}"
 
-echo -e  "Updating Pegasus metadata files..."
 #Metadata update
 echo -ne  "Updating Metadata..."
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-1
