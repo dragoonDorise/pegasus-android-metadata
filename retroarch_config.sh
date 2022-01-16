@@ -77,7 +77,7 @@ then
 
 fi
 #Cores https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/
-
+clear
 echo -e "Do you want to download all the required RetroArch Cores?"
 echo -e "Type Y if you want to, don't type anything if you don't and press the button A."
 read cores
@@ -98,7 +98,7 @@ then
 	# Do this in a better way!
 	cd ~/storage/shared/RetroArch/downloads
 	echo -ne "Downloading Final Burn Neo..."
-	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fbneo_libretro_android.so.zip  &> /dev/null
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fbneo_libretro_android.so.zip
 	echo -e "${GREEN}OK${NONE}"
 	echo -ne "Downloading Mame 2010..."
 	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mame2010_libretro_android.so.zip  &> /dev/null
