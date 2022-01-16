@@ -92,7 +92,7 @@ then
 	installCores="true"
 fi
 
-if [ installCores == "true" ]
+if [ $installCores == "true" ]
 then
 	
 	# Do this in a better way!
