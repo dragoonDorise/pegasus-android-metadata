@@ -64,6 +64,56 @@ then
 
 
 fi
+#Cores https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/
+
+# Do this in a better way!
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fbneo_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mame2010_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mame2003_plus_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/stella_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_lynx_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_wswan_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/prboom_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/dosbox_pure_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_pce_fast_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mgba_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/nestopia_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/pokemini_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/bsnes_hd_beta_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/snes9x_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/genesis_plus_gx_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/genesis_plus_gx_wide_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/picodrive_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/neocd_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_ngp_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/pcsx_rearmed_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/opera_libretro_android.so.zip ~/storage/shared/RetroArch/downloads &> /dev/null
+
+unzip ~/storage/shared/RetroArch/downloads/fbneo_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/mame2010_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/mame2003_plus_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/stella_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/mednafen_lynx_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/mednafen_wswan_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/prboom_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/dosbox_pure_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/mednafen_pce_fast_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/mgba_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/nestopia_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/pokemini_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/bsnes_hd_beta_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/snes9x_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/genesis_plus_gx_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/genesis_plus_gx_wide_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/picodrive_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/neocd_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/mednafen_ngp_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/pcsx_rearmed_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+unzip ~/storage/shared/RetroArch/downloads/opera_libretro_android.so.zip -d ~/storage/shared/RetroArch/downloads &> /dev/null
+
+
+
+
 #sed -i 's/A/B/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> /dev/null 
 #sed -i 's/A/B/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> /dev/null 
 #sed -i 's/A/B/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> /dev/null 

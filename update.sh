@@ -43,7 +43,22 @@ echo -e "${GREEN}OK${NONE}"
 
 #Metadata update
 echo -ne  "Updating Metadata..."
-rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-1
+rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-1 &> /dev/null
+cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend &> /dev/null
+cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend &> /dev/null
+#We get the SD Card Volume name
+for entry in /storage/*
+ do
+	 STR=$entry
+	 SUB='-'
+	 if grep -q "$SUB" <<< "$STR"; then
+		 firstString=$entry
+			 secondString=""
+		  sdcardID="${firstString/"/storage/"/"$secondString"}"   
+	 fi
+ done
+
+sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt &> /dev/null 
 
 echo -e "${GREEN}OK${NONE}"
 

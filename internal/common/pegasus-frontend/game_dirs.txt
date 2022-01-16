@@ -84,6 +84,7 @@
 /storage/0000-0000/segacd
 /storage/0000-0000/sg1000
 /storage/0000-0000/snes
+/storage/0000-0000/sneshd
 /storage/0000-0000/sufami
 /storage/0000-0000/supergrafx
 /storage/0000-0000/thomson
