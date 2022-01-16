@@ -188,46 +188,51 @@ for device_name in ${selected_device_names[@]};
 			echo -n "unknown"
 			;;
 		esac		 
-				
-		FILE=~/storage/external-1/$system/media/screenshot/$capture
-		if [ -f "$FILE" ]; then
-			echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
-		else 
-			echo -ne "Downloading $capture screenshot..."
-			wget  --spider "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$capture" -P ~/storage/external-1/$system/media/screenshot/  &> ~/storage/shared/pegasus_installer_log.log
-			echo -e "${GREEN}OK${NONE}"
+		 startcapture=false
+		 
+		 #.txt validation
+		 STR=$capture
+		 SUB='.txt'
+		 if ! grep -q "$SUB" <<< "$STR"; then
+		 	startcapture=true
+		 fi
+		#Directory Validation
+		DIR=~/storage/external-1/$system/$capture
+		if [ -d "$DIR" ]; then
+			startcapture=false
 		fi
 		
-		FILE=~/storage/external-1/$system/media/box2dfront/$capture
-		if [ -f "$FILE" ]; then
-			echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
-		else 
-			echo -ne "Downloading $capture box2dfront..."
-			wget  --spider "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$capture" -P ~/storage/external-1/$system/media/box2dfront/  &> ~/storage/shared/pegasus_installer_log.log
-			echo -e "${GREEN}OK${NONE}"
+		if [ $startcapture == true ]; then
+							
+			FILE=~/storage/external-1/$system/media/screenshot/$capture
+			if [ -f "$FILE" ]; then
+				echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
+			else 
+				echo -ne "Downloading $capture screenshot..."
+				wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$capture" -P ~/storage/external-1/$system/media/screenshot/  &> ~/storage/shared/pegasus_installer_log.log
+				echo -e "${GREEN}OK${NONE}"
+			fi
+			
+			FILE=~/storage/external-1/$system/media/box2dfront/$capture
+			if [ -f "$FILE" ]; then
+				echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
+			else 
+				echo -ne "Downloading $capture box2dfront..."
+				wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$capture" -P ~/storage/external-1/$system/media/box2dfront/  &> ~/storage/shared/pegasus_installer_log.log
+				echo -e "${GREEN}OK${NONE}"
+			fi
+			
+			FILE=~/storage/external-1/$system/media/wheel/$capture
+			if [ -f "$FILE" ]; then
+				echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
+			else 
+				echo -ne "Downloading $capture wheel..."
+				wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Titles/$capture" -P ~/storage/external-1/$system/media/wheel/  &> ~/storage/shared/pegasus_installer_log.log
+				echo -e "${GREEN}OK${NONE}"
+			fi
+		
 		fi
-		
-		FILE=~/storage/external-1/$system/media/wheel/$capture
-		if [ -f "$FILE" ]; then
-			echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
-		else 
-			echo -ne "Downloading $capture wheel..."
-			wget --spider "http://thumbnails.libretro.com/$remoteSystem/Named_Titles/$capture" -P ~/storage/external-1/$system/media/wheel/  &> ~/storage/shared/pegasus_installer_log.log
-			echo -e "${GREEN}OK${NONE}"
-		fi
-				
-		
-		
-		#for rom in $entry
-		#do
-		#	firstString=$rom
-		 #	secondString=".png"
-		 #	echo capture="${firstString/.7z/"$secondString"}"             
-		#
-		#done
-	 #	
-	 
-	  # wget http://thumbnails.libretro.com/$system/Named_Snaps/$capture
+
 	 done
 	 
    #rsync -r ~/pegasus-artwork/$system/ ~/storage/external-1/$system/
