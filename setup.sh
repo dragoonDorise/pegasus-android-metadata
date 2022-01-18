@@ -11,6 +11,11 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
+
+echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
+echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
+echo -e  "Press now the ${BOLD}A button${NONE} to start"
+read clear
 #Detect installed emulators
 hasRetroArch=false
 hasRedDream=false
@@ -54,10 +59,7 @@ FOLDER=~/storage/shared/DraStic
 if [ -d "$FOLDER" ]; then
 	hasDrastic=true
 fi
-echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
-echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
-echo -e  "Press now the ${BOLD}A button${NONE} to start"
-rm -rf storage
+rm -rf storage &> /dev/null
 termux-setup-storage
 clear
 echo -ne "Installing components, please be patient..."
