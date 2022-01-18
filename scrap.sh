@@ -71,10 +71,27 @@ for device_name in ${selected_device_names[@]};
 	 do
 	 
 	 #	echo $entry;
-		 firstString=$entry
-		 secondString=".png"
-		 capture="${firstString/.7z/"$secondString"}"   
-		 
+ 		firstString=$entry
+ 		secondString=".png"
+ 		capture="${firstString/.7z/"$secondString"}"   
+ 		
+ 		firstString=$capture
+ 		secondString=".png"
+ 		capture="${firstString/.zip/"$secondString"}"   
+ 		
+ 		firstString=$capture
+  		secondString=".png"
+  		capture="${firstString/.iso/"$secondString"}"   
+  		
+		firstString=$capture
+  		secondString=".png"
+  		capture="${firstString/.chd/"$secondString"}"   
+  		
+		firstString=$capture
+  		secondString=".png"
+  		capture="${firstString/.rvz/"$secondString"}"   
+  
+ 		
 		 firstString=$capture
 		 secondString=""
 		 capture="${firstString/"/data/data/com.termux/files/home/storage/external-1/$system/"/"$secondString"}"   
@@ -160,7 +177,7 @@ for device_name in ${selected_device_names[@]};
 				remoteSystem="Sega - Game Gear"
 				;;
 			mastersystem)
-				remoteSystem="Sega - Master System"
+				remoteSystem="Sega - Master System - Mark III"
 				;;
 			genesis)
 				remoteSystem="Sega - Mega Drive - Genesis"
@@ -216,8 +233,8 @@ for device_name in ${selected_device_names[@]};
 				echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
 			else 
 				echo -ne "Downloading $capture screenshot..."
-				wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$capture" -P ~/storage/external-1/$system/media/screenshot/  &> ~/storage/shared/pegasus_installer_log.log
-				echo -e "${GREEN}OK${NONE}"
+				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$capture" -P ~/storage/external-1/$system/media/screenshot/
+			
 			fi
 			
 			FILE=~/storage/external-1/$system/media/box2dfront/$capture
@@ -225,8 +242,8 @@ for device_name in ${selected_device_names[@]};
 				echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
 			else 
 				echo -ne "Downloading $capture box2dfront..."
-				wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$capture" -P ~/storage/external-1/$system/media/box2dfront/  &> ~/storage/shared/pegasus_installer_log.log
-				echo -e "${GREEN}OK${NONE}"
+				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$capture" -P ~/storage/external-1/$system/media/box2dfront/
+				
 			fi
 			
 			FILE=~/storage/external-1/$system/media/wheel/$capture
@@ -234,8 +251,7 @@ for device_name in ${selected_device_names[@]};
 				echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
 			else 
 				echo -ne "Downloading $capture wheel..."
-				wget  "http://thumbnails.libretro.com/$remoteSystem/Named_Titles/$capture" -P ~/storage/external-1/$system/media/wheel/  &> ~/storage/shared/pegasus_installer_log.log
-				echo -e "${GREEN}OK${NONE}"
+				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Titles/$capture" -P ~/storage/external-1/$system/media/wheel/
 			fi
 		
 		fi
