@@ -232,7 +232,7 @@ for device_name in ${selected_device_names[@]};
 			if [ -f "$FILE" ]; then
 				echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
 			else 
-				echo -ne "Downloading $capture screenshot..."
+				echo -e "Downloading $capture screenshot..."
 				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$capture" -P ~/storage/external-1/$system/media/screenshot/
 			
 			fi
@@ -241,7 +241,7 @@ for device_name in ${selected_device_names[@]};
 			if [ -f "$FILE" ]; then
 				echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
 			else 
-				echo -ne "Downloading $capture box2dfront..."
+				echo -e "Downloading $capture box2dfront..."
 				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$capture" -P ~/storage/external-1/$system/media/box2dfront/
 				
 			fi
@@ -250,7 +250,7 @@ for device_name in ${selected_device_names[@]};
 			if [ -f "$FILE" ]; then
 				echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
 			else 
-				echo -ne "Downloading $capture wheel..."
+				echo -e "Downloading $capture wheel..."
 				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Titles/$capture" -P ~/storage/external-1/$system/media/wheel/
 			fi
 		
