@@ -95,7 +95,7 @@ cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 #Download Pegasus
 echo -e "Downloading Pegasus, please be patient..."
 wget   -q --show-progress https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w40/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
-echo -e "Pegasus..."
+echo -ne "Pegasus..."
 echo -e "${GREEN}OK${NONE}"
 
 
@@ -146,13 +146,13 @@ echo -e "${GREEN}OK${NONE}"
 if [ $hasRetroArch == false ]; then
 	echo -ne "You don't have RetroArch, downloading it..."
 	echo ""
-	wget  -q --show-progress https://buildbot.libretro.com/stable/1.9.14/android/RetroArch_ra32.apk ~/dragoonDoriseTools/
+	wget  -q --show-progress https://buildbot.libretro.com/stable/1.9.14/android/RetroArch.apk ~/dragoonDoriseTools/
 	echo -ne "RetroArch..."
 	echo -e "${GREEN}OK${NONE}"
 	echo -e "We need to install RetroArch before we continue..."
-	echo -e  "Press the ${BOLD}A button${NONE} to install RetroArch, when RetroArch is installed click ${BOLD}DONE${NONE} in the instalation window so you can come back and finish here"
+	echo -e  "Press the ${BOLD}A button${NONE} to install RetroArch, when RetroArch is installed click ${BOLD}OPEN${NONE} in the instalation window so RetroArch files are created, then come back here."
 	read pause
-	xdg-open ~/dragoonDoriseTools/RetroArch_ra32.apk
+	xdg-open ~/dragoonDoriseTools/RetroArch.apk
 	echo -ne "RetroArch installed..."
 	echo -e "${GREEN}OK${NONE}"
 fi
