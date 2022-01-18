@@ -11,13 +11,14 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
-#Detect installed emulators
-
+touch .isInstalling
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
-echo -e  "Wait for Termux to ask for permissions and accept them"
-echo -e  "Then press the ${BOLD}A button${NONE} to start"
-read pausa
+echo -e  "Press now the ${BOLD}A button${NONE} to start"
+rm -rf storage &>> /dev/null
+termux-setup-storage
+read clear
+#Detect installed emulators
 hasRetroArch=false
 hasRedDream=false
 hasYaba=false
@@ -60,14 +61,14 @@ FOLDER=~/storage/shared/DraStic
 if [ -d "$FOLDER" ]; then
 	hasDrastic=true
 fi
-termux-setup-storage
-
 clear
 echo -ne "Installing components, please be patient..."
 rm ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 touch ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 sleep .5
 pkg update -y -F &>> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y -F &>> ~/storage/shared/pegasus_installer_log.log
+
+
 #pkg install x11-repo build-essential qt5-qtbase -y 
 pkg install git wget rsync unzip whiptail -y  &>> ~/storage/shared/pegasus_installer_log.log
 
@@ -78,9 +79,17 @@ echo -e "${GREEN}OK${NONE}"
 
 echo -ne "Downloading Metadata Pack for Android, please be patient..."
 #Download Pegasus Metadata files
-git clone https://github.com/dragoonDorise/pegasus-android-metadata.git pegasus-android-metadata/ &>> ~/storage/shared/pegasus_installer_log.log
-#git clone https://github.com/muldjord/skyscraper.git skyscraper
-echo -e "${GREEN}OK${NONE}"
+git clone https://github.com/dragoonDorise/pegasus-android-metadata.git ~/dragoonDoriseTools/pegasus-android-metadata/ &>> ~/storage/shared/pegasus_installer_log.log
+#Validamos
+FOLDER=~/dragoonDoriseTools/pegasus-android-metadata/
+if [ -d "$FOLDER" ]; then
+	echo -e "${GREEN}OK${NONE}"
+else
+	echo -e "${RED}ERROR${NONE}"
+	exit
+fi
+
+
 clear
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 #Download Pegasus
