@@ -127,7 +127,7 @@ then
 	echo -ne "Downloading PC Engine..."
 	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_pce_fast_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
 	echo -e "${GREEN}OK${NONE}"
-	echo -ne "Gambatte..."
+	echo -ne "Downloading Gambatte..."
 	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/gambatte_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
 	echo -e "${GREEN}OK${NONE}"	
 	echo -ne "Downloading GameBoy Advance..."
@@ -160,8 +160,14 @@ then
 	echo -ne "Downloading PSX..."
 	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/pcsx_rearmed_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
 	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading ScummVM..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/scummvm_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+	echo -e "${GREEN}OK${NONE}"
 	
 	echo -ne "${BOLD}Unzipping${NONE} cores..."
+	
+	unzip ~/storage/shared/RetroArch/downloads/gambatte_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
+	unzip ~/storage/shared/RetroArch/downloads/scummvm_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
 	unzip ~/storage/shared/RetroArch/downloads/fbneo_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
 	unzip ~/storage/shared/RetroArch/downloads/mame2010_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
 	unzip ~/storage/shared/RetroArch/downloads/mame2003_plus_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
