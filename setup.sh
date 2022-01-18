@@ -11,12 +11,12 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
-touch .isInstalling
+rm -rf storage &>> /dev/null
+termux-setup-storage
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
 echo -e  "Press now the ${BOLD}A button${NONE} to start"
-rm -rf storage &>> /dev/null
-termux-setup-storage
+
 read clear
 #Detect installed emulators
 hasRetroArch=false
