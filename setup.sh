@@ -65,6 +65,8 @@ rm ~/storage/shared/pegasus_installer_log.log &> /dev/null
 touch ~/storage/shared/pegasus_installer_log.log &> /dev/null
 sleep .5
 pkg update -y -F &> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y -F &> ~/storage/shared/pegasus_installer_log.log
+echo "update done"
+read pause
 #pkg install x11-repo build-essential qt5-qtbase -y 
 pkg install git wget rsync unzip whiptail -y  &> ~/storage/shared/pegasus_installer_log.log
 
@@ -75,7 +77,7 @@ echo -e "${GREEN}OK${NONE}"
 
 echo -ne "Downloading Metadata Pack for Android, please be patient..."
 #Download Pegasus Metadata files
-git clone https://github.com/dragoonDorise/pegasus-android-metadata.git pegasus-android-metadata/ &> ~/storage/shared/pegasus_installer_log.log
+git clone https://github.com/dragoonDorise/pegasus-android-metadata.git ~/dragoonDoriseTools/pegasus-android-metadata/ &> ~/storage/shared/pegasus_installer_log.log
 #git clone https://github.com/muldjord/skyscraper.git skyscraper
 echo -e "${GREEN}OK${NONE}"
 clear
