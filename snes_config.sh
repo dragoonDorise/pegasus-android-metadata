@@ -39,18 +39,18 @@ read ar
 
 if [ $ar == "1" ]
 then
-	rm ~/dragoonDoriseTools/.snes43
-	rm ~/dragoonDoriseTools/.snes87
-	touch ~/dragoonDoriseTools/.snes43
+	rm ~/dragoonDoriseTools/.snes43 &>> ~/storage/shared/pegasus_installer_log.log
+	rm ~/dragoonDoriseTools/.snes87 &>> ~/storage/shared/pegasus_installer_log.log
+	touch ~/dragoonDoriseTools/.snes43 &>> ~/storage/shared/pegasus_installer_log.log
 	snesMode="4:3"
 	
 fi
 
 if [ $ar == "2" ]
 then
-	rm ~/dragoonDoriseTools/.snes43
-	rm ~/dragoonDoriseTools/.snes87
-	touch ~/dragoonDoriseTools/.snes87
+	rm ~/dragoonDoriseTools/.snes43 &>> ~/storage/shared/pegasus_installer_log.log
+	rm ~/dragoonDoriseTools/.snes87 &>> ~/storage/shared/pegasus_installer_log.log
+	touch ~/dragoonDoriseTools/.snes87 &>> ~/storage/shared/pegasus_installer_log.log
 	snesMode="8:7"
 fi
 
