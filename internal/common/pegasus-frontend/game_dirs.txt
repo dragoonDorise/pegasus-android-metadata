@@ -98,3 +98,4 @@
 /storage/0000-0000/x68000
 /storage/0000-0000/zx81
 /storage/0000-0000/zxspectrum
+/storage/0000-0000/wii
