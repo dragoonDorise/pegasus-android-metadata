@@ -21,3 +21,8 @@
 
 - Uninstaller fixes
 - Menu Selector on Termux boot
+
+  1.1.1
+
+- Retroarch installation detector
+- Termux repository selector if servers are down

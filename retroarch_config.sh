@@ -54,9 +54,7 @@ sed -i 's/input_toggle_fast_forward_btn = "nul"/input_toggle_fast_forward_btn = 
 sed -i 's/menu_driver = "glui"/menu_driver = "ozone"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
 echo -e "${GREEN}OK${NONE}"
 #Snes configuration
-echo -ne "Applying SNES configuration..."
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/snes_config.sh
-echo -e "${GREEN}OK${NONE}"
 if [ $handheldModel == "RG552" ]
 then
 	echo -ne "RG552 Special condfiguration..."
@@ -81,7 +79,7 @@ echo -e "${GREEN}OK${NONE}"
 
 fi
 #Cores https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/
-
+echo -e ""
 echo -e "Do you want to download all the required RetroArch Cores?"
 echo -e "Type Y if you want to, N if you don't and press the button A."
 read cores

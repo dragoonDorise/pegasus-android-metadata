@@ -13,6 +13,7 @@ BLINK='\x1b[5m'
 clear
 rm -rf storage &>> /dev/null
 termux-setup-storage
+echo -ne "Pegasus installer 1.1.1"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
 echo -e  "Press now the ${BOLD}A button${NONE} to start"
@@ -67,9 +68,6 @@ rm ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 touch ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 sleep .5
 pkg update -y -F &>> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y -F &>> ~/storage/shared/pegasus_installer_log.log
-
-
-#pkg install x11-repo build-essential qt5-qtbase -y 
 pkg install git wget rsync unzip whiptail -y  &>> ~/storage/shared/pegasus_installer_log.log
 
 mkdir ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
@@ -86,7 +84,15 @@ if [ -d "$FOLDER" ]; then
 	echo -e "${GREEN}OK${NONE}"
 else
 	echo -e "${RED}ERROR${NONE}"
-	exit
+	echo -e "It seems Termux repositories are down. Lets fix it"
+	echo -e "When you press the A Button selector will open. In the first screen ${BOLD}select all three options with the Y button and Then Accept using the A Button${NONE}"
+	echo -e "Then, in the next screen select the first option and press the A Button"
+	read pause
+	termux-change-repo
+	pkg update -y -F &>> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y -F &>> ~/storage/shared/pegasus_installer_log.log
+	pkg install git wget rsync unzip whiptail -y  &>> ~/storage/shared/pegasus_installer_log.log
+	
+	
 fi
 
 
@@ -147,14 +153,11 @@ if [ $hasRetroArch == false ]; then
 	echo -ne "You don't have RetroArch, downloading it..."
 	echo ""
 	wget  -q --show-progress https://buildbot.libretro.com/stable/1.9.14/android/RetroArch.apk ~/dragoonDoriseTools/
-	echo -ne "RetroArch..."
-	echo -e "${GREEN}OK${NONE}"
-	echo -e "We need to install RetroArch before we continue..."
-	echo -e  "Press the ${BOLD}A button${NONE} to install RetroArch, when RetroArch is installed click ${BOLD}OPEN${NONE} in the instalation window so RetroArch files are created, then come back here."
+	echo ""
+	echo -e "We need to install RetroArch before we can continue..."
+	echo -e  "Press the ${BOLD}A button${NONE} to install RetroArch, when RetroArch is installed click ${BOLD}OPEN${NONE} in the instalation window so RetroArch is opened. Wait for Retriarch files to be are downloades, then quit Retroarch and come back here."
 	read pause
 	xdg-open ~/dragoonDoriseTools/RetroArch.apk
-	echo -ne "RetroArch installed..."
-	echo -e "${GREEN}OK${NONE}"
 fi
 
 echo -e  "Press the ${BOLD}A button${NONE} to continue"
@@ -164,7 +167,7 @@ echo -ne "Creating RetroArch Backup..."
 cp -r ~/storage/shared/RetroArch/config/ ~/storage/shared/RetroArch/config_bak/ &>> ~/storage/shared/pegasus_installer_log.log
 cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
-
+echo -e ""
 echo -e "Do you have an Anbernic RG552? Some extra configuration will be done for your system :) "
 echo -e "Type Y if you do, type N if you don't and press the button A."
 read handheldQuestion
@@ -195,7 +198,6 @@ fi
 
 #RetroArch Configs
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/retroarch_config.sh $handheldModel
-
 # Install Themes for Pegasus
 echo -ne "Downloading Pegasus Theme : RP Epic Noir..."
 git clone https://github.com/dragoonDorise/RP-epic-noir.git ~/storage/shared/pegasus-frontend/themes/RP-epic-noir &>> ~/storage/shared/pegasus_installer_log.log
@@ -226,7 +228,7 @@ echo -ne  "Installing ${RED}Pegasus${NONE}..."
 #Launch Pegasus
 xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
 echo -e  "${GREEN}OK${NONE}"
-
+echo -e ""
 echo -e "Checking installed emulators..."
 echo -e ""
 echo -ne "Dreamcast - RedDream..."
@@ -283,9 +285,9 @@ echo -e  "${UNDERLINE}Uninstall Pegasus Installer${NONE}"
 echo -e  "${UNDERLINE}Update Pegasus Installer${NONE}"
 echo -e  "${UNDERLINE}Scrap Roms${NONE}"
 
-echo -e "${RED}HOW TO INSTALL CORES${NONE} Remember to go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
+echo -e "${RED}INSTALL CORES${NONE} Remember to go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
 echo -e "And then select the core you want to install"
-echo -e  "Press the ${BOLD}A button${NONE} to finish"
+echo -e "Press the ${BOLD}A button${NONE} to finish"
 read pause
 
 exit
