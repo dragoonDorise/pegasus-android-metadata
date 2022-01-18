@@ -75,13 +75,13 @@ cd dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
 
 echo -e "${GREEN}OK${NONE}"
 
-echo -ne "Downloading Metadata Pack for Android, please be patient..."
+echo -e "Downloading Metadata Pack for Android, please be patient..."
 #Download Pegasus Metadata files
 git clone https://github.com/dragoonDorise/pegasus-android-metadata.git ~/dragoonDoriseTools/pegasus-android-metadata
 #Validamos
 FOLDER=~/dragoonDoriseTools/pegasus-android-metadata/
 if [ -d "$FOLDER" ]; then
-	echo -e "${GREEN}OK${NONE}"
+	echo -e "${GREEN}Download OK${NONE}"
 else
 	echo -e "${RED}ERROR${NONE}"
 	echo -e "It seems Termux repositories are down. Lets fix it"
