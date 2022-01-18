@@ -230,27 +230,27 @@ for device_name in ${selected_device_names[@]};
 							
 			FILE=~/storage/external-1/$system/media/screenshot/$capture
 			if [ -f "$FILE" ]; then
-				echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
+				echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 			else 
-				echo -ne "Downloading $capture screenshot..."
+				echo -ne "Game not found: $capture screenshot..."
 				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$capture" -P ~/storage/external-1/$system/media/screenshot/
 				echo -e ""
 			fi
 			
 			FILE=~/storage/external-1/$system/media/box2dfront/$capture
 			if [ -f "$FILE" ]; then
-				echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
+				echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 			else 
-				echo -ne "Downloading $capture box2dfront..."
+				echo -ne "Game not found: $capture box2dfront..."
 				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$capture" -P ~/storage/external-1/$system/media/box2dfront/
 				echo -e ""
 			fi
 			
 			FILE=~/storage/external-1/$system/media/wheel/$capture
 			if [ -f "$FILE" ]; then
-				echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
+				echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 			else 
-				echo -ne "Downloading $capture wheel..."
+				echo -ne "Game not found: $capture wheel..."
 				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Titles/$capture" -P ~/storage/external-1/$system/media/wheel/
 				echo -e ""
 			fi
