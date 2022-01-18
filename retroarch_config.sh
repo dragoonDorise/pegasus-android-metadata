@@ -127,6 +127,9 @@ then
 	echo -ne "Downloading PC Engine..."
 	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_pce_fast_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
 	echo -e "${GREEN}OK${NONE}"
+	echo -ne "Gambatte..."
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/gambatte_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+	echo -e "${GREEN}OK${NONE}"	
 	echo -ne "Downloading GameBoy Advance..."
 	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mgba_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
 	echo -e "${GREEN}OK${NONE}"
