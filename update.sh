@@ -78,6 +78,8 @@ echo -ne  "Updating Retroarch Config..."
 #RetroArch Configs
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/retroarch_config.sh $handheldModel
 
+/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/emu_check.sh
+
 newVersion=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/version.md)
 echo ""
 echo -e  "${GREEN}Update Completed${NONE}"
