@@ -57,16 +57,14 @@ fi
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
 echo -e  "Press now the ${BOLD}A button${NONE} to start"
+rm -rf storage
 termux-setup-storage
-read pausa
 clear
 echo -ne "Installing components, please be patient..."
 rm ~/storage/shared/pegasus_installer_log.log &> /dev/null
 touch ~/storage/shared/pegasus_installer_log.log &> /dev/null
 sleep .5
-pkg update -y -F &> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y -F &> ~/storage/shared/pegasus_installer_log.log
-echo "update done"
-read pause
+pkg update -y -F && pkg upgrade -y -F
 #pkg install x11-repo build-essential qt5-qtbase -y 
 pkg install git wget rsync unzip whiptail -y  &> ~/storage/shared/pegasus_installer_log.log
 
