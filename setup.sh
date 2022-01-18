@@ -13,7 +13,7 @@ BLINK='\x1b[5m'
 clear
 rm -rf storage &>> /dev/null
 termux-setup-storage
-echo -e "Pegasus installer 1.1.1"
+echo -e "Pegasus installer 1.1.1b"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
 echo -e  "Press now the ${BOLD}A button${NONE} to start"
@@ -77,7 +77,7 @@ echo -e "${GREEN}OK${NONE}"
 
 echo -ne "Downloading Metadata Pack for Android, please be patient..."
 #Download Pegasus Metadata files
-git clone https://github.com/dragoonDorise/pegasus-android-metadata.git ~/dragoonDoriseTools/pegasus-android-metadata/ &>> ~/storage/shared/pegasus_installer_log.log
+git clone https://github.com/dragoonDorise/pegasus-android-metadata.git ~/dragoonDoriseTools/pegasus-android-metadata
 #Validamos
 FOLDER=~/dragoonDoriseTools/pegasus-android-metadata/
 if [ -d "$FOLDER" ]; then
