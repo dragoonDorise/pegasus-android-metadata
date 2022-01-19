@@ -62,7 +62,7 @@ if [ hasRedDream==true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
 	echo -e  "${RED}Not installed${NONE}"
-	echo "Type Y and press the A Button if you want to install it. A link to the Play Store will open"
+	echo "Type Y and press the ${YELLOW}A button${NONE} if you want to install it. A link to the Play Store will open"
 	read pause
 	termux-open "https://play.google.com/store/apps/details?id=io.recompiled.redream"
 fi
@@ -71,7 +71,7 @@ if [ hasYaba==true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 	else
 	echo -e  "${RED}Not installed${NONE}"
-	echo "Type Y and press the A Button if you want to install it. A link to the Play Store will open"
+	echo "Type Y and press the ${YELLOW}A button${NONE} if you want to install it. A link to the Play Store will open"
 	read pause
 	termux-open "https://play.google.com/store/apps/details?id=org.devmiyax.yabasanshioro2"
 fi
@@ -80,7 +80,7 @@ if [ hasMupen==true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 	else
 	echo -e  "${RED}Not installed${NONE}"
-	echo "Type Y and press the A Button if you want to install it. A link to the Play Store will open"
+	echo "Type Y and press the ${YELLOW}A button${NONE} if you want to install it. A link to the Play Store will open"
 	read pause
 	termux-open "https://play.google.com/store/apps/details?id=org.mupen64plusae.v3.fzurita"
 fi
@@ -89,7 +89,7 @@ if [ hasPPSSPP==true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 	else
 	echo -e  "${RED}Not installed${NONE}"
-	echo "Type Y and press the A Button if you want to install it. A link to the Play Store will open"
+	echo "Type Y and press the ${YELLOW}A button${NONE} if you want to install it. A link to the Play Store will open"
 	read pause
 	termux-open "https://play.google.com/store/apps/details?id=org.ppsspp.ppsspp"
 fi
@@ -98,7 +98,7 @@ if [ hasDuckstation==true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 	else
 	echo -e  "${RED}Not installed${NONE}"
-	echo "Type Y and press the A Button if you want to install it. A link to the Play Store will open"
+	echo "Type Y and press the ${YELLOW}A button${NONE} if you want to install it. A link to the Play Store will open"
 	read pause
 	termux-open "https://play.google.com/store/apps/details?id=com.github.stenzek.duckstation"
 fi
@@ -107,7 +107,7 @@ if [ hasDrastic==true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
 	echo -e  "${RED}Not installed${NONE}"
-	echo "Type Y and press the A Button if you want to install it. A link to the Play Store will open"
+	echo "Type Y and press the ${YELLOW}A button${NONE} if you want to install it. A link to the Play Store will open"
 	read pause
 	termux-open "https://play.google.com/store/apps/details?id=com.dsemu.drastic"
 fi
@@ -117,7 +117,7 @@ if [ hasDrastic==true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
 	echo -e  "${RED}Not installed${NONE}"
-	echo "Type Y and press the A Button if you want to install it."
+	echo "Type Y and press the ${YELLOW}A button${NONE} if you want to install it."
 	read pause
 	wget  -q --show-progress https://github.com/Bankaimaster999/Dolphin-MMJR/releases/download/1.0-11460/Dolphin.MMJR.v11460.apk ~/dragoonDoriseTools/
 	xdg-open ~/dragoonDoriseTools/Dolphin.MMJR.v11460.apk

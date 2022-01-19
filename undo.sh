@@ -48,5 +48,6 @@ echo -e "${RED}IMPORTANT${NONE}"
 echo -e "Be aware that if you delete the Termux app, if you do Android will ${RED}DELETE${NONE} all the roms on your SD Card"
 echo -e "${RED}IMPORTANT${NONE}"
 
-echo -e  "Type ${BOLD}exit${NONE} and press the A button to finish"
-exit && kill -25 $PPID
+echo -e  "Press the ${YELLOW}A button${NONE} to finish"
+read pause
+am startservice -a com.termux.service_stop com.termux/.app.TermuxService

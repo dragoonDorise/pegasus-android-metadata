@@ -16,7 +16,7 @@ termux-setup-storage
 echo -e "Pegasus installer 1.1.1b"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
-echo -e  "Press now the ${BOLD}A button${NONE} to start"
+echo -e  "Press now the ${YELLOW}A button${NONE} to start"
 
 read clear
 #Detect installed emulators
@@ -50,8 +50,8 @@ if [ -d "$FOLDER" ]; then
 else
 	echo -e "${RED}ERROR${NONE}"
 	echo -e "It seems Termux repositories are down. Lets fix it"
-	echo -e "When you press the A Button selector will open. In the first screen ${BOLD}select all three options with the Y button and Then Accept using the A Button${NONE}"
-	echo -e "Then, in the next screen select the first option and press the A Button"
+	echo -e "When you press the ${YELLOW}A button${NONE} selector will open. In the first screen ${BOLD}select all three options with the Y button and Then Accept using the ${YELLOW}A button${NONE}${NONE}"
+	echo -e "Then, in the next screen select the first option and press the ${YELLOW}A button${NONE}"
 	read pause
 	termux-change-repo
 	pkg update -y -F &>> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y -F &>> ~/storage/shared/pegasus_installer_log.log
@@ -120,12 +120,12 @@ if [ $hasRetroArch == false ]; then
 	wget  -q --show-progress https://buildbot.libretro.com/stable/1.9.14/android/RetroArch.apk ~/dragoonDoriseTools/
 	echo ""
 	echo -e "We need to install RetroArch before we can continue..."
-	echo -e  "Press the ${BOLD}A button${NONE} to install RetroArch, when RetroArch is installed click ${BOLD}OPEN${NONE} in the instalation window so RetroArch is opened. Wait for Retriarch files to be are downloades, then quit Retroarch and come back here."
+	echo -e  "Press the ${YELLOW}A button${NONE} to install RetroArch, when RetroArch is installed click ${BOLD}OPEN${NONE} in the instalation window so RetroArch is opened. Wait for Retriarch files to be are downloades, then quit Retroarch and come back here."
 	read pause
 	xdg-open ~/dragoonDoriseTools/RetroArch.apk
 fi
 
-echo -e  "Press the ${BOLD}A button${NONE} to continue"
+echo -e  "Press the ${YELLOW}A button${NONE} to continue"
 read pause
 #Configure Retroarch
 echo -ne "Creating RetroArch Backup..."
@@ -188,7 +188,7 @@ echo -e  "You will see there that every system has its own folder, just copy you
 echo -e  "${BOLD}We recommend roms named after no-intro romsets${NONE}"
 echo -e ""
 echo -e  "Now let's install ${RED}Pegasus${NONE}"
-echo -e  "Press the ${BOLD}A button${NONE} to install Pegasus, when Pegasus is installed click ${BOLD}DONE${NONE} in the instalation window so you can come back to scrap your roms' artwork!"
+echo -e  "Press the ${YELLOW}A button${NONE} to install Pegasus, when Pegasus is installed click ${BOLD}DONE${NONE} in the instalation window so you can come back to scrap your roms' artwork!"
 read pause
 
 echo -ne  "Installing ${RED}Pegasus${NONE}..."
@@ -201,7 +201,7 @@ echo -e  "${GREEN}OK${NONE}"
 echo -e  "";
 echo -e  "${GREEN}All Done${NONE}, do you have your SD Card inserted with all your roms?"
 echo -e  "${BOLD}Let's start getting all your artwork!${NONE}"
-echo -e  "Press the ${BOLD}A button${NONE} to continue"
+echo -e  "Press the ${YELLOW}A button${NONE} to continue"
 read pause
 cd ~/
 bash scrap.sh
@@ -218,5 +218,6 @@ echo -e ""
 echo -e "${RED}IMPORTANT${NONE}"
 echo -e "Be aware that if you delete the Termux app, if you do Android will ${RED}DELETE${NONE} all the roms on your SD Card"
 echo -e "${RED}IMPORTANT${NONE}"
-echo -e  "Type ${BOLD}exit${NONE} and press the A button to finish"
-exit && kill -25 $PPID
+echo -e  "Press the ${YELLOW}A button${NONE} to finish"
+read pause
+am startservice -a com.termux.service_stop com.termux/.app.TermuxService
