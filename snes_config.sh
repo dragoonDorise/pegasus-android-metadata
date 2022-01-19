@@ -37,7 +37,7 @@ fi
 
 read ar
 
-if [ $ar == "1" ]
+if [[ $ar == "1" ]]
 then
 	rm ~/dragoonDoriseTools/.snes43 &>> ~/storage/shared/pegasus_installer_log.log
 	rm ~/dragoonDoriseTools/.snes87 &>> ~/storage/shared/pegasus_installer_log.log
@@ -46,7 +46,7 @@ then
 	
 fi
 
-if [ $ar == "2" ]
+if [[ $ar == "2" ]]
 then
 	rm ~/dragoonDoriseTools/.snes43 &>> ~/storage/shared/pegasus_installer_log.log
 	rm ~/dragoonDoriseTools/.snes87 &>> ~/storage/shared/pegasus_installer_log.log
