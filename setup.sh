@@ -169,6 +169,8 @@ git clone https://github.com/dragoonDorise/RP-epic-noir.git ~/storage/shared/peg
 echo -e "${GREEN}OK${NONE}"
 
 echo -ne "Downloading Pegasus Theme : RP Switch..."
+#We delete the theme, for previous users
+rm -rf ~/storage/shared/pegasus-frontend/themes/RP-switch &>> ~/storage/shared/pegasus_installer_log.log
 git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themes/RP-switch &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 
