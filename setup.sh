@@ -216,7 +216,9 @@ echo -e "${RED}INSTALL EMULATORS${NONE} Remember to go to Retroarch's Main Menu 
 echo -e "And then select the core you want to install"
 echo -e ""
 echo -e "${RED}IMPORTANT${NONE}"
-echo -e "Be aware that if you delete the Termux app, if you do Android will ${RED}DELETE${NONE} all the roms on your SD Card"
+echo -e "Be aware that if you delete the Termux app Android will ${RED}DELETE${NONE} the Termux folder on your SD Card"
+echo -e "The roms on ${GREEN}/Android/data/com.termux/files/${NONE} will be deleted"
+echo -e "No toher files on the SD Card will be affected"
 echo -e "${RED}IMPORTANT${NONE}"
 echo -e  "Press the ${RED}A button${NONE} to finish"
 read pause
