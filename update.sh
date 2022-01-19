@@ -95,5 +95,5 @@ echo -e "${RED}REMEMBER TO INSTALL CORES${NONE} If you downloaded new cores.. Go
 echo -e "And just select the core you want to install"
 echo -e  "Press the ${BOLD}A button${NONE} to finish"
 read pause
-
+exit
 kill -25 $PPID
