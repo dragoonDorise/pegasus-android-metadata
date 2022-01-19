@@ -19,22 +19,27 @@ selected_option=$(whiptail --title "Pegasus Installer Menu" --radiolist "Move us
 "4" "Open Termux CLI" OFF \
 3>&1 1>&2 2>&3)
 
-if [ $selected_option == "1" ]
+if [[ $selected_option == "1" ]]
 then
 	/bin/bash ~/update.sh
 fi
 
-if [ $selected_option == "2" ]
+if [[ $selected_option == "2" ]]
 then
 	/bin/bash ~/scrap.sh
 fi
 
-if [ $selected_option == "3" ]
+if [[ $selected_option == "3" ]]
 then
 	/bin/bash ~/undo.sh
 fi
 
-if [ $selected_option == "4" ]
+if [[ $selected_option == "4" ]]
 then
 	clear
+fi
+
+if [[ $selected_option == "" ]]
+then
+	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 fi
