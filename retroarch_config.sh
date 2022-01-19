@@ -83,15 +83,15 @@ fi
 #Cores https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/
 echo -e ""
 echo -e "Do you want to download all the required RetroArch Cores?"
-echo -e "Type Y if you want to, N if you don't and press the button A."
+echo -e "Type Y if you want and press the button A or jus press button A to ignore"
 read cores
 installCores="false"
-if [ $cores == "y" ]
+if [[ $cores == "y" ]]
 then
 	installCores="true"
 fi
 
-if [ $cores == "Y" ]
+if [[ $cores == "Y" ]]
 then
 	installCores="true"
 fi

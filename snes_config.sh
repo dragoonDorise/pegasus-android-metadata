@@ -34,6 +34,8 @@ fi
 if [ $snesConfigured == true ]; then
 	echo -e "Or just press the ${BOLD}A button${NONE} to keep the $snesMode you selected on installation"
 fi
+echo -ne "SNES configuration seleted..."
+echo -e "${GREEN}$snesMode${NONE}"
 
 read ar
 
