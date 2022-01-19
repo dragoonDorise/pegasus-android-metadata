@@ -13,7 +13,7 @@ UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 
 selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
-   --checklist "Move using your DPAD and select your platforms with the Y button. Press the ${YELLOW}A button${NONE} to select." 10 80 4 \
+   --checklist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
 	"ALL" "This option will look for all systems on your SD Card" OFF \
 	"atari2600" "Atari - 2600" OFF \
 	"atarilynx" "Atari - Lynx" OFF \
@@ -261,6 +261,6 @@ for device_name in ${selected_device_names[@]};
 	 
    #rsync -r ~/pegasus-artwork/$system/ ~/storage/external-1/$system/
  done
- echo -e  "Press the ${YELLOW}A button${NONE} to finish"
+ echo -e  "Press the ${RED}A button${NONE} to finish"
  read pause
  am startservice -a com.termux.service_stop com.termux/.app.TermuxService
