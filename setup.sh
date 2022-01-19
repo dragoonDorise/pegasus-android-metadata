@@ -134,7 +134,7 @@ cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg ~/storage/sha
 echo -e "${GREEN}OK${NONE}"
 echo -e ""
 echo -e "Do you have an Anbernic RG552? Some extra configuration will be done for your system :) "
-echo -e "Type Y if you do, type N if you don't and press the button A."
+echo -e "Type Y if you do, type N if you don't and press the ${RED}A button${NONE}."
 read handheldQuestion
 
 
