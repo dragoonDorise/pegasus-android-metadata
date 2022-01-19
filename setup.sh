@@ -218,7 +218,5 @@ echo -e ""
 echo -e "${RED}IMPORTANT${NONE}"
 echo -e "Be aware that if you delete the Termux app, if you do Android will ${RED}DELETE${NONE} all the roms on your SD Card"
 echo -e "${RED}IMPORTANT${NONE}"
-echo -e "Press the ${BOLD}A button${NONE} to finish"
-read pause
-
-kill -25 $PPID
+echo -e  "Type ${BOLD}exit${NONE} and the A button to finish"
+exit

@@ -261,7 +261,6 @@ for device_name in ${selected_device_names[@]};
 	 
    #rsync -r ~/pegasus-artwork/$system/ ~/storage/external-1/$system/
  done
- echo -e  "Press the ${BOLD}A button${NONE} to finish"
- read pause
+ echo -e  "Type ${BOLD}exit${NONE} and the A button to finish"
+ exit
  
- kill -25 $PPID

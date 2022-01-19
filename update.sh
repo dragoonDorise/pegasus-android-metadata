@@ -93,7 +93,5 @@ echo -e""
 
 echo -e "${RED}REMEMBER TO INSTALL CORES${NONE} If you downloaded new cores.. Go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
 echo -e "And just select the core you want to install"
-echo -e  "Press the ${BOLD}A button${NONE} to finish"
-read pause
-exit
-kill -25 $PPID
+echo -e  "Type ${BOLD}exit${NONE} and the A button to finish"
+exit && kill -25 $PPID

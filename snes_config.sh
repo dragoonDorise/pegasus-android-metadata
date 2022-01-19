@@ -25,7 +25,7 @@ if [ -f "$FILE" ]; then
 	snesConfigured="true"
 fi
 echo -e ""
-echo -e "Please choose your Super Nintendo resolution"
+echo -e "${BOLD}Please choose your Super Nintendo resolution${NONE}"
 echo -e "Type 1 for 4:3 Aspect Ratio (Classic TV Resolution)"
 echo -e "Type 2 for 8:7 Aspect Ratio (Real internal Resolution)"
 if [ $snesConfigured == false ]; then
@@ -36,8 +36,6 @@ if [ $snesConfigured == true ]; then
 fi
 echo -ne "SNES configuration seleted..."
 echo -e "${GREEN}$snesMode${NONE}"
-
-read ar
 
 if [[ $ar == "1" ]]
 then
