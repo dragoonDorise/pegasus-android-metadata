@@ -264,5 +264,4 @@ for device_name in ${selected_device_names[@]};
  echo -e  "Press the ${BOLD}A button${NONE} to finish"
  read pause
  
- exit
- #rm -rf pegasus-artwork
+ kill -25 $PPID

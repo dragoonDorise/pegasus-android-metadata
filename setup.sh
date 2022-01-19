@@ -208,14 +208,17 @@ bash scrap.sh
 clear
 echo -e  "${GREEN}Done!${NONE}"
 
-echo -e  "If you open ${BOLD}Termux${NONE} again, a Menu will appear with several options:"
-echo -e  "${UNDERLINE}Uninstall Pegasus Installer${NONE}"
-echo -e  "${UNDERLINE}Update Pegasus Installer${NONE}"
-echo -e  "${UNDERLINE}Scrap Roms${NONE}"
+echo -e  "${STRONG}If you want to scrap more roms, update or uninstall Pegasus Installer:${NONE}"
+echo -e  "In Pegasus go to the Android Collection and look for Rom Scraper"
 
-echo -e "${RED}INSTALL CORES${NONE} Remember to go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
+
+echo -e "${RED}INSTALL EMULATORS${NONE} Remember to go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
 echo -e "And then select the core you want to install"
+echo -e ""
+echo -e "${RED}IMPORTANT${NONE}"
+echo -e "Be aware that if you delete the Termux app, if you do Android will ${RED}DELETE${NONE} all the roms on your SD Card"
+echo -e "${RED}IMPORTANT${NONE}"
 echo -e "Press the ${BOLD}A button${NONE} to finish"
 read pause
 
-exit
+kill -25 $PPID
