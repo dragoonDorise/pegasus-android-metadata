@@ -263,4 +263,4 @@ for device_name in ${selected_device_names[@]};
  done
  echo -e  "Press the ${RED}A button${NONE} to finish"
  read pause
- am startservice -a com.termux.service_stop com.termux/.app.TermuxService
+ am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null

@@ -220,4 +220,4 @@ echo -e "Be aware that if you delete the Termux app, if you do Android will ${RE
 echo -e "${RED}IMPORTANT${NONE}"
 echo -e  "Press the ${RED}A button${NONE} to finish"
 read pause
-am startservice -a com.termux.service_stop com.termux/.app.TermuxService
+am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
