@@ -246,14 +246,14 @@ for device_name in ${selected_device_names[@]};
 				echo -e ""
 			fi
 			
-		//	FILE=~/storage/external-1/$system/media/wheel/$capture
-		//	if [ -f "$FILE" ]; then
-		//		echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
-		//	else 
-		//		echo -ne "Game not found: $capture wheel..."
-		//		wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Titles/$capture" -P ~/storage/external-1/$system/media/wheel/
-		//		echo -e ""
-		//	fi
+		#	FILE=~/storage/external-1/$system/media/wheel/$capture
+		#	if [ -f "$FILE" ]; then
+		#		echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
+		#	else 
+		#		echo -ne "Game not found: $capture wheel..."
+		#		wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Titles/$capture" -P ~/storage/external-1/$system/media/wheel/
+		#		echo -e ""
+		#	fi
 		
 		fi
 
