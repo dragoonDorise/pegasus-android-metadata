@@ -82,7 +82,7 @@ echo -e "${GREEN}OK${NONE}"
 fi
 #Cores https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/
 echo -e ""
-echo -e "${BOLD}Do you want to download all the required RetroArch Cores?${NONE}"
+echo -e "${BOLD}Do you want to download all the recommended RetroArch Cores?${NONE}"
 echo -e "Type Y if you want and press the button A or just press button A to ignore"
 read cores
 installCores="false"

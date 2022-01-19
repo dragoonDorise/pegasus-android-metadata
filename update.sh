@@ -13,10 +13,6 @@ BLINK='\x1b[5m'
 clear
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 version=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/version.md)
-echo ""
-echo -e "Lets start updating your Pegasus Metadata Pack & Themes"
-echo -e "Press the ${BOLD}A button${NONE} to continue"
-read pause
 
 #update scripts
 echo -ne  "Updating Scripts..."
@@ -93,5 +89,6 @@ echo -e""
 
 echo -e "${RED}REMEMBER TO INSTALL CORES${NONE} If you downloaded new cores.. Go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
 echo -e "And just select the core you want to install"
-echo -e  "Type ${BOLD}exit${NONE} and the A button to finish"
-exit && kill -25 $PPID
+echo -e  "Type ${BOLD}exit${NONE} and press the A button to finish"
+read pause
+am startservice -a com.termux.service_stop com.termux/.app.TermuxService
