@@ -9,7 +9,7 @@
 /storage/0000-0000/atari2600
 /storage/0000-0000/atari5200
 /storage/0000-0000/atari7800
-/storage/0000-0000/atarilynx
+/storage/0000-0000/lynx
 /storage/0000-0000/atarist
 /storage/0000-0000/atomiswave
 /storage/0000-0000/c20

@@ -29,11 +29,12 @@ echo -e "${BOLD}Please choose your Super Nintendo resolution${NONE}"
 echo -e "Type 1 for 4:3 Aspect Ratio (Classic TV Resolution)"
 echo -e "Type 2 for 8:7 Aspect Ratio (Real internal Resolution)"
 if [ $snesConfigured == false ]; then
-	echo -e "And then press the ${BOLD}A button${NONE} to continue"
+	echo -e "And then press the ${RED}A button${NONE} to continue"
 fi
 if [ $snesConfigured == true ]; then
-	echo -e "Or just press the ${BOLD}A button${NONE} to keep the $snesMode you selected on installation"
+	echo -e "Or just press the ${RED}A button${NONE} to keep the $snesMode you selected on installation"
 fi
+read ar
 echo -ne "SNES configuration seleted..."
 echo -e "${GREEN}$snesMode${NONE}"
 

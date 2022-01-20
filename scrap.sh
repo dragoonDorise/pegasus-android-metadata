@@ -245,15 +245,7 @@ for device_name in ${selected_device_names[@]};
 				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$capture" -P ~/storage/external-1/$system/media/box2dfront/
 				echo -e ""
 			fi
-			
-			FILE=~/storage/external-1/$system/media/wheel/$capture
-			if [ -f "$FILE" ]; then
-				echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
-			else 
-				echo -ne "Game not found: $capture wheel..."
-				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Titles/$capture" -P ~/storage/external-1/$system/media/wheel/
-				echo -e ""
-			fi
+
 		
 		fi
 
@@ -261,5 +253,6 @@ for device_name in ${selected_device_names[@]};
 	 
    #rsync -r ~/pegasus-artwork/$system/ ~/storage/external-1/$system/
  done
- echo -e  "Type ${BOLD}exit${NONE} and press the A button to finish"
- exit && kill -25 $PPID
+ echo -e  "Press the ${RED}A button${NONE} to finish"
+ read pause
+ am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
