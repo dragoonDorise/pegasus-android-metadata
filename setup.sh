@@ -193,7 +193,7 @@ read pause
 
 echo -ne  "Installing ${RED}Pegasus${NONE}..."
 #Launch Pegasus
-xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
+xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-98-gf3dcfab5_android.apk
 echo -e  "${GREEN}OK${NONE}"
 
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/emu_check.sh
