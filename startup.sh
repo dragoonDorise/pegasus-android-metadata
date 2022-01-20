@@ -13,28 +13,33 @@ UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
 selected_option=$(whiptail --title "Pegasus Installer Menu" --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 20 40 15 \
-"1" "Update Pegasus Metadata & Themes" OFF \
+"1" "Update & Configure Pegasus Installer" OFF \
 "2" "Scrap your Roms" OFF \
-"3" "Uninstall Pegasus Metadata" OFF \
+"3" "Uninstall Pegasus Installer" OFF \
 "4" "Open Termux CLI" OFF \
 3>&1 1>&2 2>&3)
 
-if [ $selected_option == "1" ]
+if [[ $selected_option == "1" ]]
 then
 	/bin/bash ~/update.sh
 fi
 
-if [ $selected_option == "2" ]
+if [[ $selected_option == "2" ]]
 then
 	/bin/bash ~/scrap.sh
 fi
 
-if [ $selected_option == "3" ]
+if [[ $selected_option == "3" ]]
 then
 	/bin/bash ~/undo.sh
 fi
 
-if [ $selected_option == "4" ]
+if [[ $selected_option == "4" ]]
 then
 	clear
+fi
+
+if [[ $selected_option == "" ]]
+then
+	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 fi
