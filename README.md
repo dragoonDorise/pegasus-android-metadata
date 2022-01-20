@@ -35,7 +35,7 @@ This pack offers support for the following systems with their respective emulato
 | Nintendo 3DS              | Citra                                |
 | Nintendo NES              | Retroarch 1.9 Nestopia core          |
 | Nintendo 64               | Mupen64plus FZ                       |
-| Nintendo Gamecube         | Mupen64plus FZ                       |
+| Nintendo Gamecube         | Dolphin                              |
 | PC engine                 | Retroarch 1.9 Mednafen pce fast core |
 | Playstation               | Retroarch 1.9 PCSX Rearmed core      |
 | Playstation 2             | Aether SX2                           |
