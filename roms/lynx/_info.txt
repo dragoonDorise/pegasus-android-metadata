@@ -1,5 +1,0 @@
-## SYSTEM ATARI LYNX ##
--------------------------------------------------------------------------------
-ROM files extensions accepted: ".lnx .zip .7z"
--------------------------------------------------------------------------------
-Extensions des fichiers ROMs permises: ".lnx .zip .7z"
