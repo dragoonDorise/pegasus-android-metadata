@@ -21,7 +21,7 @@ This pack offers support for the following systems with their respective emulato
 | GameBoy                   | Retroarch 1.9 Gambatte core          |
 | GameBoy Color             | Retroarch 1.9 Gambatte core          |
 | GameBoy Advance           | Retroarch 1.5 mGBA core              |
-| Gamecube                  | Dolphin                              |
+| GameCube                  | Dolphin                              |
 | Dos                       | Retroarch 1.9 DOSBox core            |
 | Dreamcast                 | Reddream                             |
 | Final Burn Alpha          | Retroarch 1.9 Fba 2020 core          |
@@ -35,7 +35,7 @@ This pack offers support for the following systems with their respective emulato
 | Nintendo 3DS              | Citra                                |
 | Nintendo NES              | Retroarch 1.9 Nestopia core          |
 | Nintendo 64               | Mupen64plus FZ                       |
-| Nintendo Gamecube         | Dolphin                              |
+| Nintendo Wii              | Dolphin                              |
 | PC engine                 | Retroarch 1.9 Mednafen pce fast core |
 | Playstation               | Retroarch 1.9 PCSX Rearmed core      |
 | Playstation 2             | Aether SX2                           |
