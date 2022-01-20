@@ -70,7 +70,7 @@ clear
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 #Download Pegasus
 echo -e "Downloading Pegasus, please be patient..."
-wget   -q --show-progress https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w40/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
+wget   -q --show-progress https://github.com/mmatyas/pegasus-frontend/releases/download/continuous/pegasus-fe_alpha15-98-gf3dcfab5_android.apk
 echo -ne "Pegasus..."
 echo -e "${GREEN}OK${NONE}"
 
@@ -202,7 +202,7 @@ read pause
 
 echo -ne  "Installing ${RED}Pegasus${NONE}..."
 #Launch Pegasus
-xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
+xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-98-gf3dcfab5_android.apk
 echo -e  "${GREEN}OK${NONE}"
 
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/emu_check.sh
