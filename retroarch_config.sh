@@ -57,7 +57,7 @@ echo -e "${GREEN}OK${NONE}"
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/snes_config.sh
 if [ $handheldModel == "RG552" ]
 then
-	echo -ne "RG552 Special condfiguration..."
+	echo -ne "RG552 Special configuration..."
 	#cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes.cfg ~/storage/shared/RetroArch/config/Snes9x &> ~/storage/shared/pegasus_installer_log.log
 
 	#Overlay Fixes for 5:3 screens

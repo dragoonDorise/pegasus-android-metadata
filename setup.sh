@@ -21,12 +21,18 @@ echo -e  "Press now the ${RED}A button${NONE} to start"
 read clear
 #Detect installed emulators
 hasRetroArch=false
-
+hasRetroArch64=false
 #Retroarch?
 FOLDER=~/storage/shared/Android/data/com.retroarch
+FOLDER64=~/storage/shared/Android/data/com.retroarch.aarch64
 if [ -d "$FOLDER" ]; then
 	hasRetroArch=true
+elif [ -d "$FOLDER64" ]; then
+	hasRetroArch=true
+	hasRetroArch64=true
+	FOLDER=$FOLDER64
 fi
+
 clear
 echo -ne "Installing components, please be patient..."
 rm ~/storage/shared/pegasus_installer_log.log &>> /dev/null
@@ -43,7 +49,7 @@ echo -e "${GREEN}OK${NONE}"
 echo -e "Downloading Metadata Pack for Android, please be patient..."
 #Download Pegasus Metadata files
 git clone https://github.com/dragoonDorise/pegasus-android-metadata.git ~/dragoonDoriseTools/pegasus-android-metadata
-#Validamos
+#Validate
 FOLDER=~/dragoonDoriseTools/pegasus-android-metadata/
 if [ -d "$FOLDER" ]; then
 	echo -e "${GREEN}Download OK${NONE}"
@@ -59,7 +65,6 @@ else
 	
 	
 fi
-
 
 clear
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
@@ -111,6 +116,10 @@ echo -ne "Configuring SD Card..."
 sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt &>> ~/storage/shared/pegasus_installer_log.log 
 # Instaling roms folders
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-1 &>> ~/storage/shared/pegasus_installer_log.log
+#Retroarch64 support
+if[[$hasRetroArch64 == true]]; then
+	find ~/storage/external-1 -type f -name "*.txt" -exec sed -i -e 's/com.retroarch/com.retroarch.aarch64/g' {} \;
+fi
 echo -e "${GREEN}OK${NONE}"
 
 
@@ -120,7 +129,7 @@ if [ $hasRetroArch == false ]; then
 	wget  -q --show-progress https://buildbot.libretro.com/stable/1.9.14/android/RetroArch.apk ~/dragoonDoriseTools/
 	echo ""
 	echo -e "We need to install RetroArch before we can continue..."
-	echo -e  "Press the ${RED}A button${NONE} to install RetroArch, when RetroArch is installed click ${BOLD}OPEN${NONE} in the instalation window so RetroArch is opened. Wait for Retriarch files to be are downloades, then quit Retroarch and come back here."
+	echo -e  "Press the ${RED}A button${NONE} to install RetroArch, when RetroArch is installed click ${BOLD}OPEN${NONE} in the instalation window so RetroArch is opened. Wait for Retroarch files to be downloaded, then quit Retroarch and come back here."
 	read pause
 	xdg-open ~/dragoonDoriseTools/RetroArch.apk
 fi
