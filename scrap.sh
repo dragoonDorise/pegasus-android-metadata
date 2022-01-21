@@ -550,7 +550,7 @@ for device_name in ${selected_device_names[@]};
  done
 
 echo -e "First Loop...${GREEN}completed${NONE}" 
-echo -e "This second loop will take longer, make sure your handheld is connecter to a power source"
+echo -e "This second loop will take longer, make sure your handheld is connected to a power source"
 echo -e "Press the ${RED}A Button${NONE} to start the Second Loop"
 #We check for existing credentials
 userStored=false
@@ -578,7 +578,7 @@ if [ $userStored == false ]; then
 	echo -e "What is your ScreenScraper user? Type it and press the ${RED}A button${NONE}"
 	read user
 	echo $user > ~/dragoonDoriseTools/.screenScraperUser
-	echo -e "What is your ScreenScraper password? Type it an press the ${RED}A button${NONE}"
+	echo -e "What is your ScreenScraper password? Type it and press the ${RED}A button${NONE}"
 	read pass
 	echo $pass > ~/dragoonDoriseTools/.screenScraperPass
 	

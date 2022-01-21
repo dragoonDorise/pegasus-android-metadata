@@ -13,7 +13,7 @@ echo -ne "Deleting Metadata Pack for Android..."
 rm -rf ~/dragoonDoriseTools  &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 #Restoring Pegasus
-echo -ne "Restoring Pegasus settings if existed..."
+echo -ne "Restoring Pegasus settings if they exist..."
 cp ~/storage/shared/pegasus-frontend/settings.txt.bak ~/storage/shared/pegasus-frontend/settings.txt  &> ~/storage/shared/pegasus_installer_log.log
 cp ~/storage/shared/pegasus-frontend/game_dirs.txt.bak ~/storage/shared/pegasus-frontend/settings.txt  &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
@@ -45,7 +45,7 @@ echo -e "${GREEN}All cleaned up!${NONE}"
 echo -e  "We hope to see you come back soon!"
 echo -e  "${BOLD}NOTE:${NONE} Termux and Pegasus have to be uninstalled like any other Android app. Pegasus themes are not deleted either"
 echo -e "${RED}IMPORTANT${NONE}"
-echo -e "Be aware that if you delete the Termux app, if you do Android will ${RED}DELETE${NONE} all the roms on your SD Card"
+echo -e "Be aware that if you delete the Termux app Android will ${RED}DELETE${NONE} all the roms on your SD Card"
 echo -e "${RED}IMPORTANT${NONE}"
 
 echo -e  "Press the ${RED}A button${NONE} to finish"

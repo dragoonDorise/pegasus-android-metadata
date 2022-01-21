@@ -16,7 +16,7 @@ termux-setup-storage
 echo -e "Pegasus installer 1.2.1"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
-echo -e  "Press now the ${RED}A button${NONE} to start"
+echo -e  "Press the ${RED}A button${NONE} to start"
 
 read clear
 #Detect installed emulators
@@ -55,9 +55,9 @@ if [ -d "$FOLDER" ]; then
 	echo -e "${GREEN}Download OK${NONE}"
 else
 	echo -e "${RED}ERROR${NONE}"
-	echo -e "It seems Termux repositories are down. Lets fix it"
-	echo -e "When you press the ${RED}A button${NONE} selector will open. In the first screen ${BOLD}select all three options with the ${GREEN}Y button${NONE} and Then Accept using the ${RED}A button${NONE}${NONE}"
-	echo -e "Then, in the next screen select the first option and press the ${RED}A button${NONE}"
+	echo -e "It seems Termux repositories are down. Let's fix it"
+	echo -e "When you press the ${RED}A button${NONE} selector will open. In the first screen ${BOLD}select all three options with the ${GREEN}Y button${NONE} and then Accept using the ${RED}A button${NONE}${NONE}"
+	echo -e "Then in the next screen select the first option and press the ${RED}A button${NONE}"
 	read pause
 	termux-change-repo
 	pkg update -y -F &>> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y -F &>> ~/storage/shared/pegasus_installer_log.log
@@ -159,7 +159,7 @@ if [ $hasRetroArch == false ]; then
 	wget  -q --show-progress https://buildbot.libretro.com/stable/1.9.14/android/RetroArch.apk ~/dragoonDoriseTools/
 	echo ""
 	echo -e "We need to install RetroArch before we can continue..."
-	echo -e  "Press the ${RED}A button${NONE} to install RetroArch, when RetroArch is installed click ${BOLD}OPEN${NONE} in the instalation window so RetroArch is opened. Wait for Retroarch files to be downloaded, then quit Retroarch and come back here."
+	echo -e  "Press the ${RED}A button${NONE} to install RetroArch, when RetroArch is installed click ${BOLD}OPEN${NONE} in the installation window so RetroArch is opened. Wait for Retroarch files to be downloaded, then quit Retroarch and come back here."
 	read pause
 	xdg-open ~/dragoonDoriseTools/RetroArch.apk
 fi
@@ -221,14 +221,14 @@ echo -e  "${GREEN}Success!!${NONE}"
 echo -e ""
 echo -e  "We've finished the first step!"
 echo -e  ""
-echo -e  "You can now remove your SD Card and start copying yur roms"
-echo -e  "Insert your SD Card on your computer and go to this folder in your SD Card: ${GREEN}/Android/data/com.termux/files/${NONE}"
+echo -e  "You can now remove your SD Card and start copying your roms"
+echo -e  "Insert your SD Card in your computer and go to this folder in your SD Card: ${GREEN}/Android/data/com.termux/files/${NONE}"
 echo -e  "Because of Android Restrictions you need to have your roms there, ${BOLD}they cannot be on another folder${NONE}"
-echo -e  "You will see there that every system has its own folder, just copy your roms on the corresponding folder."
+echo -e  "You will see that every system has its own folder, just copy your roms to the corresponding folder."
 echo -e  "${BOLD}We recommend roms named after no-intro romsets${NONE}"
 echo -e ""
 echo -e  "Now let's install ${RED}Pegasus${NONE}"
-echo -e  "Press the ${RED}A button${NONE} to install Pegasus, when Pegasus is installed click ${BOLD}DONE${NONE} in the instalation window so you can come back to scrap your roms' artwork!"
+echo -e  "Press the ${RED}A button${NONE} to install Pegasus, when Pegasus is installed click ${BOLD}DONE${NONE} in the installation window so you can come back to scrape your roms' artwork!"
 read pause
 
 echo -ne  "Installing ${RED}Pegasus${NONE}..."
@@ -248,7 +248,7 @@ bash scrap.sh
 clear
 echo -e  "${GREEN}Done!${NONE}"
 
-echo -e  "${STRONG}If you want to scrap more roms, update or uninstall Pegasus Installer:${NONE}"
+echo -e  "${STRONG}If you want to scrape more roms, update or uninstall Pegasus Installer:${NONE}"
 echo -e  "In Pegasus go to the Android Collection and look for Rom Scraper"
 
 
@@ -258,7 +258,7 @@ echo -e ""
 echo -e "${RED}IMPORTANT${NONE}"
 echo -e "Be aware that if you delete the Termux app Android will ${RED}DELETE${NONE} the Termux folder on your SD Card"
 echo -e "The roms on ${GREEN}/Android/data/com.termux/files/${NONE} will be deleted"
-echo -e "No toher files on the SD Card will be affected"
+echo -e "No other files on the SD Card will be affected"
 echo -e "${RED}IMPORTANT${NONE}"
 echo -e  "Press the ${RED}A button${NONE} to finish"
 read pause
