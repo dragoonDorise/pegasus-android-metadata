@@ -696,7 +696,7 @@ read pause
 				if [ -f "$FILE" ]; then
 					echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 				else 
-					scrap_rom "$urlMediaWheelHD" "$wheelSavePath" "Wheel"
+					scrap_rom "$urlMediaWheelHD" "$wheelSavePath" "Wheel HD"
 				fi
 				
 				
