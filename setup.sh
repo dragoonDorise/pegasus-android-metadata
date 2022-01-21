@@ -97,7 +97,7 @@ chmod a+rwx ~/startup.sh &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 echo ""
 echo -e "Do you want to store your roms in your SD Card or in your internal Storage?"
-echo -e "Press the ${RED}A Button${NONE} if you want to use the SD Card"
+echo -e "Press the ${RED}A Button${NONE} if you want to use the SD Card. Make sure it's ${UNDERLINE}inserted${NONE}"
 echo -e "Type ${GREEN}i${NONE} and then the ${RED}A Button${NONE} if you want to use your internal storage"
 read storageOption
 
