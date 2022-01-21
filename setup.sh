@@ -13,7 +13,7 @@ BLINK='\x1b[5m'
 clear
 rm -rf ~/storage &>> /dev/null
 termux-setup-storage
-echo -e "Pegasus installer 1.2"
+echo -e "Pegasus installer 1.2.1"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
 echo -e  "Press now the ${RED}A button${NONE} to start"
