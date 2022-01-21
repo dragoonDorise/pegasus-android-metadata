@@ -22,6 +22,7 @@ if [ -d "$FOLDER64" ]; then
 fi
 #update scripts
 echo -ne  "Updating Scripts..."
+pkg install git wget rsync unzip whiptail -y  &>> ~/storage/shared/pegasus_installer_log.log
 cd ~/dragoonDoriseTools/pegasus-android-metadata/ &> ~/storage/shared/pegasus_installer_log.log 
 git reset --hard &> ~/storage/shared/pegasus_installer_log.log 
 git pull &> ~/storage/shared/pegasus_installer_log.log 
