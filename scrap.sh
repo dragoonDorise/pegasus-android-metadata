@@ -435,7 +435,7 @@ fi
 clear
 echo -e "The Roms are scrapped in two loops."
 echo -e "${BOLD}First loop${NONE} - Uses Retroarch Thumbnails. It's fast but doesn't have all the systems and roms"	
-echo -e "${BOLD}Second loop${NONE} - Uses ScreenScraper. It's slow but will found the images that the first loop didn't get"
+echo -e "${BOLD}Second loop${NONE} - Uses ScreenScraper. It's slow but will find the images that the first loop didn't get"
 echo -e "Press the ${RED}A Button${NONE} to start the First Loop"
 read pause	
 #System loop
@@ -552,8 +552,8 @@ fi
 
 if [ $userStored == false ]; then
 	echo -e "You need to have an accpunt on ${BOLD}https://www.screenscraper.fr${NONE} for scraping your roms"	
-	echo -e "Press the${RED}A Button${NONE} if you already have an account"
-	echo -e "Type y and press the ${RED}A Button${NONE} and I'll open ScreenScraper on your browser, remember to come back when you are registed"
+	echo -e "Press the ${RED}A Button${NONE} if you already have an account"
+	echo -e "Type y and press the ${RED}A Button${NONE} and I'll open ScreenScraper on your browser, remember to come back when you are registered"
 	read account
 	if [[ $account == "y" ]]; then
 		termux-open "https://www.screenscraper.fr"
@@ -564,14 +564,14 @@ if [ $userStored == false ]; then
 	fi
 
 	echo -e "Now I'm going to ask for your user and password. Both will be stored on your device, ${BOLD}I won't send them or read them${NONE}"
-	echo -e "What is your ScreenScraper user? Type it an press the ${RED}A button${NONE}"
+	echo -e "What is your ScreenScraper user? Type it and press the ${RED}A button${NONE}"
 	read user
 	echo $user > ~/dragoonDoriseTools/.screenScraperUser
 	echo -e "What is your ScreenScraper password? Type it an press the ${RED}A button${NONE}"
 	read pass
 	echo $pass > ~/dragoonDoriseTools/.screenScraperPass
 	
-	echo -e "${GREEN}Thanks!${NONE}. Press the ${RED}A Button${NONE} to start scraping your roms"
+	echo -e "${GREEN}Thanks!${NONE} Press the ${RED}A Button${NONE} to start scraping your roms"
 	read pause
 fi
 
