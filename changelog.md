@@ -26,3 +26,8 @@
 
 - Retroarch installation detector
 - Termux repository selector if servers are down
+
+  1.2.0
+
+- screenscraper.fr support for better scraping
+- RetroArch64 support
