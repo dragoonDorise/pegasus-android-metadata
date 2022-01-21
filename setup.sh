@@ -38,7 +38,7 @@ rm ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 touch ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 sleep .5
 pkg update -y -F &>> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y -F &>> ~/storage/shared/pegasus_installer_log.log
-pkg install git wget rsync unzip whiptail -y  &>> ~/storage/shared/pegasus_installer_log.log
+pkg install git wget jq rsync unzip whiptail -y  &>> ~/storage/shared/pegasus_installer_log.log
 
 mkdir ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
 cd ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
