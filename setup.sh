@@ -11,7 +11,7 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
-rm -rf storage &>> /dev/null
+rm -rf ~/storage &>> /dev/null
 termux-setup-storage
 echo -e "Pegasus installer 1.2"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
