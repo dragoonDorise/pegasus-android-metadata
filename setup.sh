@@ -117,7 +117,7 @@ sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/stora
 # Instaling roms folders
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-1 &>> ~/storage/shared/pegasus_installer_log.log
 #Retroarch64 support
-if[[$hasRetroArch64 == true]]; then
+if [[ $hasRetroArch64 == true ]]; then
 	find ~/storage/external-1 -type f -name "*.txt" -exec sed -i -e 's/com.retroarch/com.retroarch.aarch64/g' {} \;
 fi
 echo -e "${GREEN}OK${NONE}"
