@@ -37,7 +37,7 @@ rm -f startup.sh  &> ~/storage/shared/pegasus_installer_log.log
 echo "" > ~/.bashrc
 echo -e "${GREEN}OK${NONE}"
 echo -ne "Deleting Pegasus apk..."
-rm -f ~/dragoonDoriseTools/pegasus-fe_alpha15-98-gf3dcfab5_android.apk  &> ~/storage/shared/pegasus_installer_log.log
+rm -f ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk  &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 #Restoring Retroarch
 echo -ne "Restoring RetroArch config..."
