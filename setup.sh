@@ -139,7 +139,7 @@ echo -ne "Configuring Rom Storage..."
 if [ $useInternalStorage == false ]; then
 	sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt &>> ~/storage/shared/pegasus_installer_log.log 
 else
-	sed -i "s/0000-0000/emulated\/0\/roms\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt &>> ~/storage/shared/pegasus_installer_log.log 
+	sed -i "s/0000-0000/emulated\/0\/roms/g" ~/storage/shared/pegasus-frontend/game_dirs.txt &>> ~/storage/shared/pegasus_installer_log.log 
 fi
 
 
@@ -168,9 +168,18 @@ echo -e  "Press the ${RED}A button${NONE} to continue"
 read pause
 #Configure Retroarch
 echo -ne "Creating RetroArch Backup..."
-cp -r ~/storage/shared/RetroArch/config/ ~/storage/shared/RetroArch/config_bak/ &>> ~/storage/shared/pegasus_installer_log.log
-cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg &>> ~/storage/shared/pegasus_installer_log.log
-echo -e "${GREEN}OK${NONE}"
+#We create the backup only if we don't have one, to prevent erasing the original backup if the user reinstalls
+FOLDER=~/storage/shared/RetroArch/config_bak/
+if [ -d "$FOLDER" ]; then
+	echo -e "${GREEN}OK${NONE}"
+elif [ -d "$FOLDER64" ]; then
+	cp -r ~/storage/shared/RetroArch/config/ ~/storage/shared/RetroArch/config_bak/ &>> ~/storage/shared/pegasus_installer_log.log
+	cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg &>> ~/storage/shared/pegasus_installer_log.log
+	echo -e "${GREEN}OK${NONE}"
+fi
+
+
+
 echo -e ""
 echo -e "Do you have an Anbernic RG552? Some extra configuration will be done for your system :) "
 echo -e "Type Y if you do, type N if you don't and press the ${RED}A button${NONE}."

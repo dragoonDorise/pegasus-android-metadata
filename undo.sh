@@ -30,8 +30,9 @@ echo -e "${GREEN}OK${NONE}"
 #Restoring Retroarch
 echo -ne "Restoring RetroArch config..."
 cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log
-FILE=~/storage/shared/RetroArch/config_bak/config/Gambatte/gb.cfg
-if [ -f "$FILE" ]; then
+#We check there is a config_bak folder so we can safely delete the config folder
+FOLDER=~/storage/shared/RetroArch/config_bak/
+if [ -d "$FOLDER" ]; then
 	rm -rf ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg  &> ~/storage/shared/pegasus_installer_log.log
 	rm -rf ~/storage/shared/RetroArch/config/  &> ~/storage/shared/pegasus_installer_log.log
 	cp ~/storage/shared/RetroArch/config_bak/ ~/storage/shared/RetroArch/config/  &> ~/storage/shared/pegasus_installer_log.log
