@@ -14,7 +14,7 @@ BLINK='\x1b[5m'
 clear
 selected_option=$(whiptail --title "Pegasus Installer Menu" --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 20 40 15 \
 "1" "Update & Configure Pegasus Installer" OFF \
-"2" "Scrap your Roms" OFF \
+"2" "Scrape your Roms" OFF \
 "3" "Uninstall Pegasus Installer" OFF \
 "4" "Open Termux CLI" OFF \
 3>&1 1>&2 2>&3)
