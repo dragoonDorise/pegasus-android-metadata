@@ -37,7 +37,7 @@
 /storage/0000-0000/gbc
 /storage/0000-0000/gbc2players
 /storage/0000-0000/gc
-/storage/0000-0000/genesis
+/storage/0000-0000/genesiswide
 /storage/0000-0000/gx4000
 /storage/0000-0000/inputtest
 /storage/0000-0000/intellivision
@@ -84,7 +84,7 @@
 /storage/0000-0000/segacd
 /storage/0000-0000/sg1000
 /storage/0000-0000/snes
-/storage/0000-0000/sneshd
+/storage/0000-0000/sneswide
 /storage/0000-0000/sufami
 /storage/0000-0000/supergrafx
 /storage/0000-0000/thomson

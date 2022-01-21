@@ -17,6 +17,8 @@ get_sc_id(){
 		
 		genesis)
 		ssID="1";;
+		genesiswide)
+		ssID="1";;
 		mastersystem)
 		ssID="2";;
 		nes)
@@ -175,6 +177,8 @@ get_sc_id(){
 		ssID="172";;						
 		snes)
 		ssID="202";;
+		sneswide)
+		ssID="202";;
 		megadrive)
 		ssID="203";;
 		ti994a)
@@ -312,6 +316,10 @@ get_ra_alias(){
 		genesis)
 			remoteSystem="Sega - Mega Drive - Genesis"
 			;;
+		genesiswide)
+			remoteSystem="Sega - Mega Drive - Genesis"
+			;;
+			
 		segacd)
 			remoteSystem="Sega - Mega-CD - Sega CD"
 			;;
@@ -418,6 +426,7 @@ selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
 	"nes" "Nintendo - Nintendo Entertainment System" OFF \
 	"pokemini" "Nintendo - Pokemon Mini" OFF \
 	"snes" "Nintendo - Super Nintendo Entertainment System" OFF \
+	"sneswide" "Super Nes Wide Hack" OFF \	
 	"wii" "Nintendo - Wii" OFF \
 	"neogeo" "SNK - Neo Geo" OFF \
 	"neogeocd" "SNK - Neo Geo CD" OFF \
@@ -429,6 +438,7 @@ selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
 	"gamegear" "Sega - Game Gear" OFF \
 	"mastersystem" "Sega - Master System" OFF \
 	"genesis" "Sega - Mega Drive - Genesis" OFF \
+	"genesiswide" "Genesis Wide Hack" OFF \	
 	"segacd" "Sega - Mega-CD - Sega CD" OFF \
 	"saturn" "Sega - Saturn" OFF \
 	"psx" "Sony - PlayStation" OFF \
@@ -438,7 +448,7 @@ selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
    3>&1 1<&2 2>&3)
 
 if [[ $selected_device_descriptions == "ALL" ]]; then
-	selected_device_descriptions_all="atari2600 atarilynx doom dos fbneo pcengine pcenginecd gb gba gbc gc 3ds n64 nds nes pokemini snes wii neogeo neogeocd ngp ngpc scummvm sega32x dreamcast gamegear mastersystem genesis segacd saturn psx ps2 psp 3do"
+	selected_device_descriptions_all="atari2600 atarilynx doom dos fbneo pcengine pcenginecd gb gba gbc gc 3ds n64 nds nes pokemini snes sneswide wii neogeo neogeocd ngp ngpc scummvm sega32x dreamcast gamegear mastersystem genesis genesiswide segacd saturn psx ps2 psp 3do"
 	mapfile -t selected_device_names <<< $selected_device_descriptions_all
 else
 	mapfile -t selected_device_names <<< $selected_device_descriptions

@@ -35,3 +35,6 @@
 1.2.1
 - Support for internal storage for systems with no SD Card
 - Minor text changes
+
+1.2.2
+- Proper support for SNES and Genesis Wide hacks
