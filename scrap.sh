@@ -417,7 +417,7 @@ selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
 	"dreamcast" "Sega - Dreamcast" OFF \
 	"gamegear" "Sega - Game Gear" OFF \
 	"mastersystem" "Sega - Master System" OFF \
-	"genesis" "Sega - Mega Drive - Genesis" ON \
+	"genesis" "Sega - Mega Drive - Genesis" OFF \
 	"segacd" "Sega - Mega-CD - Sega CD" OFF \
 	"saturn" "Sega - Saturn" OFF \
 	"psx" "Sony - PlayStation" OFF \
