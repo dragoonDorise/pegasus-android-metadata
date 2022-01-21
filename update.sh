@@ -67,19 +67,30 @@ if [[ $hasRetroArch64 == true ]]; then
 fi
 #cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend &> ~/storage/shared/pegasus_installer_log.log
 cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend &> ~/storage/shared/pegasus_installer_log.log
-#We get the SD Card Volume name
-for entry in /storage/*
- do
-	 STR=$entry
-	 SUB='-'
-	 if grep -q "$SUB" <<< "$STR"; then
-		 firstString=$entry
-			 secondString=""
-		  sdcardID="${firstString/"/storage/"/"$secondString"}"   
-	 fi
- done
 
-sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt &> ~/storage/shared/pegasus_installer_log.log 
+
+if [ $useInternalStorage == false ]; then
+
+	#We get the SD Card Volume name
+	for entry in /storage/*
+ 	do
+	 	STR=$entry
+	 	SUB='-'
+	 	if grep -q "$SUB" <<< "$STR"; then
+		 	firstString=$entry
+			 	secondString=""
+		  	sdcardID="${firstString/"/storage/"/"$secondString"}"   
+	 	fi
+ 	done
+
+ 	sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt &> ~/storage/shared/pegasus_installer_log.log 
+
+else
+
+	sed -i "s/0000-0000/emulated\/0\/roms\//g" 
+	~/storage/shared/pegasus-frontend/game_dirs.txt &>> ~/storage/shared/pegasus_installer_log.log
+
+fi
 
 echo -e "${GREEN}OK${NONE}"
 
