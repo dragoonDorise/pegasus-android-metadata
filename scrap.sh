@@ -675,7 +675,8 @@ read pause
 				 gameIDSS=$( jq -r  '.response.jeu.id' <<< "${content}" ) 
 							 
 				 
-				 urlMediaWheel="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel(wor)"			 
+				urlMediaWheel="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel(wor)"			 
+				urlMediaWheelHD="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel-hd(wor)"			 
 				 urlMediaSs="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=ss(wor)"
 				 urlMediaBox="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=box-2D(wor)"		
 				 wheelSavePath="./storage/external-1/$system/media/wheel/$romNameNoExtension.png"
@@ -685,19 +686,28 @@ read pause
 				 echo -e "Downloading Images for $romNameNoExtension"		
 				 
 				if [ $hasWheel == true ]; then
-					echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
+					echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 				else 
 					scrap_rom "$urlMediaWheel" "$wheelSavePath" "Wheel"
 				fi
 				
+				#Wheel HD just in case
+				FILE=~/storage/external-1/$system/media/wheel/$romNameNoExtension.png
+				if [ -f "$FILE" ]; then
+					echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
+				else 
+					scrap_rom "$urlMediaWheelHD" "$wheelSavePath" "Wheel"
+				fi
+				
+				
 				if [ $hasSs == true ]; then
-					echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
+					echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 				else 
 					scrap_rom "$urlMediaSs" "$ssSavePath" "Screenshot"
 				fi
 				
 				if [ $hasBox == true ]; then
-					echo -e "Image already exists, ${YELLOW}ignoring${NONE}"
+					echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 				else 
 					scrap_rom "$urlMediaBox" "$box2dfrontSavePath" "2D Box"
 				fi
