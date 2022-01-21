@@ -15,7 +15,6 @@ rm -rf ~/storage &>> /dev/null
 termux-setup-storage
 echo -e "Pegasus installer 1.2.1"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
-echo -e  "Make sure your SD Card is ${UNDERLINE}inserted${NONE}"
 echo -e  "Press the ${RED}A button${NONE} to start"
 
 read clear
@@ -70,7 +69,7 @@ clear
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 #Download Pegasus
 echo -e "Downloading Pegasus, please be patient..."
-wget   -q --show-progress https://github.com/mmatyas/pegasus-frontend/releases/download/continuous/pegasus-fe_alpha15-98-gf3dcfab5_android.apk
+wget   -q --show-progress https://github.com/mmatyas/pegasus-frontend/releases/download/continuous/pegasus-fe_alpha15-98-gf3dcfab5_android.apk ~/dragoonDoriseTools
 
 #Configure Pegasus
 echo -ne "Configuring Pegasus..."
@@ -159,11 +158,13 @@ if [ $hasRetroArch == false ]; then
 	wget  -q --show-progress https://buildbot.libretro.com/stable/1.9.14/android/RetroArch.apk ~/dragoonDoriseTools/
 	echo ""
 	echo -e "We need to install RetroArch before we can continue..."
-	echo -e  "Press the ${RED}A button${NONE} to install RetroArch, when RetroArch is installed click ${BOLD}OPEN${NONE} in the installation window so RetroArch is opened. Wait for Retroarch files to be downloaded, then quit Retroarch and come back here."
+	echo -e  "Press the ${RED}A button${NONE} to install RetroArch, when RetroArch is installed click ${BOLD}OPEN${NONE} in the installation window so RetroArch is opened."
+	echo -e  "Wait for Retroarch files to be downloaded, then quit Retroarch and come back here."
 	read pause
 	xdg-open ~/dragoonDoriseTools/RetroArch.apk
 fi
-
+clear
+echo -e  "Welcome back!"
 echo -e  "Press the ${RED}A button${NONE} to continue"
 read pause
 #Configure Retroarch
@@ -230,10 +231,15 @@ echo -e  "${GREEN}Success!!${NONE}"
 echo -e ""
 echo -e  "We've finished the first step!"
 echo -e  ""
-echo -e  "You can now remove your SD Card and start copying your roms"
-echo -e  "Insert your SD Card in your computer and go to this folder in your SD Card: ${GREEN}/Android/data/com.termux/files/${NONE}"
-echo -e  "Because of Android Restrictions you need to have your roms there, ${BOLD}they cannot be on another folder${NONE}"
-echo -e  "You will see that every system has its own folder, just copy your roms to the corresponding folder."
+if [ $useInternalStorage == false ]; then
+	echo -e  "You can now remove your SD Card and start copying your roms"
+	echo -e  "Insert your SD Card in your computer and go to this folder in your SD Card: ${GREEN}/Android/data/com.termux/files/${NONE}"
+	echo -e  "Because of Android Restrictions you need to have your roms there, ${BOLD}they cannot be on another folder${NONE}"
+	echo -e  "You will see that every system has its own folder, just copy your roms to the corresponding folder."
+else
+	echo -e  "You can now copy your roms in the ${BOLD}roms${NONE} directory in the Internal Storage of your device"
+	echo -e  "You will see that every system has its own folder, just copy your roms to the corresponding folder."
+fi
 echo -e  "${BOLD}We recommend roms named after no-intro romsets${NONE}"
 echo -e ""
 echo -e  "Now let's install ${RED}Pegasus${NONE}"
