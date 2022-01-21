@@ -60,9 +60,9 @@ echo -e "${GREEN}OK${NONE}"
 #Metadata update
 echo -ne  "Updating Metadata..."
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/$storageLocation &> ~/storage/shared/pegasus_installer_log.log
-
+echo -e "${GREEN}OK${NONE}"
 #Retroarch64 support
-if [ $hasRetroArch64 == true ]; then
+if [ $hasRetroArch64 == true ]; then	
 	find ~/storage/$storageLocation -type f -name "*.txt" -exec sed -i -e 's/com.retroarch/com.retroarch.aarch64/g' {} \;
 fi
 #cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend &> ~/storage/shared/pegasus_installer_log.log
@@ -92,7 +92,7 @@ else
 
 fi
 
-echo -e "${GREEN}OK${NONE}"
+
 
 #Handheld detector
 handheldModel="169"
