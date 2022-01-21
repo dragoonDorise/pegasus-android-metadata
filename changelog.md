@@ -31,3 +31,7 @@
 
 - screenscraper.fr support for better scraping
 - RetroArch64 support
+
+1.2.1
+- Support for internal storage for systems with no SD Card
+- Minor text changes
