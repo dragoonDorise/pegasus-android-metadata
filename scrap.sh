@@ -569,7 +569,7 @@ if [ $userStored == false ]; then
 	echo -e "Type y and press the ${RED}A Button${NONE} and I'll open ScreenScraper on your browser, remember to come back when you are registered"
 	read account
 	if [[ $account == "y" ]]; then
-		termux-open "https://www.screenscraper.fr"
+		termux-open "https://www.screenscraper.fr/membreinscription.php"
 	fi
 	
 	if [[ $account == "Y" ]]; then
