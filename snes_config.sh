@@ -36,8 +36,6 @@ if [ $snesConfigured == true ]; then
 fi
 read ar
 echo -ne "SNES configuration seleted..."
-echo -e "${GREEN}$snesMode${NONE}"
-
 if [[ $ar == "1" ]]
 then
 	rm ~/dragoonDoriseTools/.snes43 &>> ~/storage/shared/pegasus_installer_log.log
@@ -54,7 +52,7 @@ then
 	touch ~/dragoonDoriseTools/.snes87 &>> ~/storage/shared/pegasus_installer_log.log
 	snesMode="8:7"
 fi
-
+echo -e "${GREEN}$snesMode${NONE}"
 if [ $snesMode == "8:7" ]
 then	
 	cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/Snes9x/snes87.cfg ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_log.log	
