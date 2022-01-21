@@ -1,5 +1,16 @@
 #!/bin/sh
 #
+useInternalStorage=false
+FILE=~/dragoonDoriseTools/.storageInternal
+if [ -f "$FILE" ]; then
+	useInternalStorage=true
+	storageLocation="shared/roms"
+else
+	useInternalStorage=false
+	storageLocation="external-1"
+	
+fi
+
 get_sc_id(){
 	#SS ID systems
 	case $1 in
@@ -443,22 +454,22 @@ for device_name in ${selected_device_names[@]};
  do
 	 message=$device_name
 	 system="${message//'"'/}"            
-	 #ls ~/storage/external-1/$system
-	 mkdir ~/storage/external-1/$system/media &> /dev/null
-	 mkdir ~/storage/external-1/$system/media/screenshot &> /dev/null
-	 mkdir ~/storage/external-1/$system/media/box2dfront &> /dev/null
-	 mkdir ~/storage/external-1/$system/media/wheel &> /dev/null
+	 #ls ~/storage/$storageLocation/$system
+	 mkdir ~/storage/$storageLocation/$system/media &> /dev/null
+	 mkdir ~/storage/$storageLocation/$system/media/screenshot &> /dev/null
+	 mkdir ~/storage/$storageLocation/$system/media/box2dfront &> /dev/null
+	 mkdir ~/storage/$storageLocation/$system/media/wheel &> /dev/null
 	 
 	 #Retroarch system folder name
 	 get_ra_alias $system
 	
 	 #Roms loop
-	 for entry in ~/storage/external-1/$system/*
+	 for entry in ~/storage/$storageLocation/$system/*
 	 do
 		 #Cleaning up names
 		firstString=$entry
 		secondString=""
-		romName="${firstString/"/data/data/com.termux/files/home/storage/external-1/$system/"/"$secondString"}"   		
+		romName="${firstString/"/data/data/com.termux/files/home/storage/$storageLocation/$system/"/"$secondString"}"   		
 		romNameNoExtension=${romName%.*}		
 		
 		startcapture=true
@@ -476,7 +487,7 @@ for device_name in ${selected_device_names[@]};
 			 startcapture=false
 		 fi
 		#Directory Validation
-		DIR=~/storage/external-1/$system/$romName
+		DIR=~/storage/$storageLocation/$system/$romName
 		if [ -d "$DIR" ]; then
 			startcapture=false
 		fi
@@ -511,21 +522,21 @@ for device_name in ${selected_device_names[@]};
 		if [ $startcapture == true ]; then
 				
 			#First Scan: Retroarch				
-			FILE=~/storage/external-1/$system/media/screenshot/$romNameNoExtension.png
+			FILE=~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png
 			if [ -f "$FILE" ]; then
 				echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 			else 
 				echo -ne "Image not found: $romNameNoExtension screenshot..."
-				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$romNameNoExtension.png" -P ~/storage/external-1/$system/media/screenshot/
+				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/screenshot/
 				echo -e ""
 			fi
 			
-			FILE=~/storage/external-1/$system/media/box2dfront/$romNameNoExtension.png
+			FILE=~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png
 			if [ -f "$FILE" ]; then
 				echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 			else 
 				echo -ne "Image not found: $romNameNoExtension box2dfront..."
-				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$romNameNoExtension.png" -P ~/storage/external-1/$system/media/box2dfront/
+				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/box2dfront/
 				echo -e ""
 			fi
 			
@@ -535,7 +546,7 @@ for device_name in ${selected_device_names[@]};
 
 	 done
 	 
-   #rsync -r ~/pegasus-artwork/$system/ ~/storage/external-1/$system/
+   #rsync -r ~/pegasus-artwork/$system/ ~/storage/$storageLocation/$system/
  done
 
 echo -e "First Loop...${GREEN}completed${NONE}" 
@@ -588,12 +599,12 @@ read pause
 	  get_sc_id $system
 	  
 	  #Roms loop
-	  for entry in ~/storage/external-1/$system/*
+	  for entry in ~/storage/$storageLocation/$system/*
 	  do
 		  #Cleaning up names
 		 firstString=$entry
 		 secondString=""
-		 romName="${firstString/"/data/data/com.termux/files/home/storage/external-1/$system/"/"$secondString"}"   		
+		 romName="${firstString/"/data/data/com.termux/files/home/storage/$storageLocation/$system/"/"$secondString"}"   		
 		 romNameNoExtension=${romName%.*}		
 		 
 		 startcapture=true
@@ -611,7 +622,7 @@ read pause
 			  startcapture=false
 		  fi
 		 #Directory Validation
-		 DIR=~/storage/external-1/$system/$romName
+		 DIR=~/storage/$storageLocation/$system/$romName
 		 if [ -d "$DIR" ]; then
 			 startcapture=false
 		 fi
@@ -649,17 +660,17 @@ read pause
 			 hasSs=false
 			 hasBox=false
 			 
-			FILE=~/storage/external-1/$system/media/wheel/$romNameNoExtension.png
+			FILE=~/storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png
 			if [ -f "$FILE" ]; then
 				 hasWheel=true
 			fi
 				
-			FILE=~/storage/external-1/$system/media/screenshot/$romNameNoExtension.png
+			FILE=~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png
 			if [ -f "$FILE" ]; then
 				 hasSs=true
 			fi
 				
-			FILE=~/storage/external-1/$system/media/box2dfront/$romNameNoExtension.png
+			FILE=~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png
 			if [ -f "$FILE" ]; then
 				 hasBox=true
 			fi
@@ -679,9 +690,9 @@ read pause
 				urlMediaWheelHD="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel-hd(wor)"			 
 				 urlMediaSs="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=ss(wor)"
 				 urlMediaBox="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=box-2D(wor)"		
-				 wheelSavePath="./storage/external-1/$system/media/wheel/$romNameNoExtension.png"
-				 ssSavePath="./storage/external-1/$system/media/screenshot/$romNameNoExtension.png"
-				 box2dfrontSavePath="./storage/external-1/$system/media/box2dfront/$romNameNoExtension.png"
+				 wheelSavePath="./storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png"
+				 ssSavePath="./storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png"
+				 box2dfrontSavePath="./storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png"
 										 
 				 echo -e "Downloading Images for $romNameNoExtension"		
 				 
@@ -692,7 +703,7 @@ read pause
 				fi
 				
 				#Wheel HD just in case
-				FILE=~/storage/external-1/$system/media/wheel/$romNameNoExtension.png
+				FILE=~/storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png
 				if [ -f "$FILE" ]; then
 					echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 				else 
@@ -721,7 +732,7 @@ read pause
  
 	  done
 	  
-	#rsync -r ~/pegasus-artwork/$system/ ~/storage/external-1/$system/
+	#rsync -r ~/pegasus-artwork/$system/ ~/storage/$storageLocation/$system/
   done
  
  echo -e "Second Loop...${GREEN}completed${NONE}" 

@@ -11,6 +11,16 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
+useInternalStorage=false
+FILE=~/dragoonDoriseTools/.storageInternal
+if [ -f "$FILE" ]; then
+	useInternalStorage=true
+	storageLocation="shared/roms"
+else
+	useInternalStorage=false
+	storageLocation="external-1"
+	
+fi
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 version=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/version.md)
 #Detect installed emulators
@@ -49,11 +59,11 @@ echo -e "${GREEN}OK${NONE}"
 
 #Metadata update
 echo -ne  "Updating Metadata..."
-rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-1 &> ~/storage/shared/pegasus_installer_log.log
+rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/$storageLocation &> ~/storage/shared/pegasus_installer_log.log
 
 #Retroarch64 support
 if [[ $hasRetroArch64 == true ]]; then
-	find ~/storage/external-1 -type f -name "*.txt" -exec sed -i -e 's/com.retroarch/com.retroarch.aarch64/g' {} \;
+	find ~/storage/$storageLocation -type f -name "*.txt" -exec sed -i -e 's/com.retroarch/com.retroarch.aarch64/g' {} \;
 fi
 #cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend &> ~/storage/shared/pegasus_installer_log.log
 cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend &> ~/storage/shared/pegasus_installer_log.log

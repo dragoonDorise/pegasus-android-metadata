@@ -100,25 +100,55 @@ cp ~/dragoonDoriseTools/pegasus-android-metadata/startup.sh  ~/startup.sh &>> ~/
 chmod a+rwx ~/startup.sh &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 
-#We get the SD Card Volume name
-for entry in /storage/*
- do
-	 STR=$entry
-	 SUB='-'
-	 if grep -q "$SUB" <<< "$STR"; then
-		 firstString=$entry
-			 secondString=""
-		  sdcardID="${firstString/"/storage/"/"$secondString"}"   
-	 fi
- done
+echo -e "Do you want to store your roms in your SD Card or in your internal Storage?"
+echo -e "Press the ${RED}A Button${NONE} if you want to use the SD Card"
+echo -e "Press the ${GREEN}Y Button${NONE} and then the ${RED}A Button${NONE} if you want to use your internal storage"
+read storageOption
+
+if [$storageOption == ' ']; then
+	touch ~/dragoonDoriseTools/.storageInternal
+	storageLocation="shared/roms"
+else
+	touch ~/dragoonDoriseTools/.storageSD
+	storageLocation="external-1"
+	#We get the SD Card Volume name
+	for entry in /storage/*
+ 	do
+	 	STR=$entry
+	 	SUB='-'
+	 	if grep -q "$SUB" <<< "$STR"; then
+		 	firstString=$entry
+			 	secondString=""
+		  	sdcardID="${firstString/"/storage/"/"$secondString"}"   
+	 	fi
+ 	done	
+	mkdir ~/storage/shared/roms
+fi
+
+useInternalStorage=false
+FILE=~/dragoonDoriseTools/.storageInternal
+if [ -f "$FILE" ]; then
+	useInternalStorage=true
+fi
+
+
  
-echo -ne "Configuring SD Card..."
-sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt &>> ~/storage/shared/pegasus_installer_log.log 
+echo -ne "Configuring Rom Storage..."
+if [ $useInternalStorage == false ]; then
+	sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" 
+	~/storage/shared/pegasus-frontend/game_dirs.txt &>> ~/storage/shared/pegasus_installer_log.log 
+else
+	sed -i "s/0000-0000/emulated\/0\/roms\//g" 
+~/storage/shared/pegasus-frontend/game_dirs.txt &>> ~/storage/shared/pegasus_installer_log.log 
+fi
+
+
+
 # Instaling roms folders
-rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/external-1 &>> ~/storage/shared/pegasus_installer_log.log
+rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/$storageLocation &>> ~/storage/shared/pegasus_installer_log.log
 #Retroarch64 support
 if [[ $hasRetroArch64 == true ]]; then
-	find ~/storage/external-1 -type f -name "*.txt" -exec sed -i -e 's/com.retroarch/com.retroarch.aarch64/g' {} \;
+	find ~/storage/$storageLocation -type f -name "*.txt" -exec sed -i -e 's/com.retroarch/com.retroarch.aarch64/g' {} \;
 fi
 echo -e "${GREEN}OK${NONE}"
 
