@@ -162,9 +162,11 @@ if [ $hasRetroArch == false ]; then
 	echo -e  "Wait for Retroarch files to be downloaded, then quit Retroarch and come back here."
 	read pause
 	xdg-open ~/dragoonDoriseTools/RetroArch.apk
+	clear
+	echo -e  "Welcome back!"	
 fi
-clear
-echo -e  "Welcome back!"
+
+
 echo -e  "Press the ${RED}A button${NONE} to continue"
 read pause
 #Configure Retroarch
