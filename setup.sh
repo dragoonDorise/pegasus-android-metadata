@@ -99,32 +99,35 @@ chmod a+rwx ~/undo.sh &>> ~/storage/shared/pegasus_installer_log.log
 cp ~/dragoonDoriseTools/pegasus-android-metadata/startup.sh  ~/startup.sh &>> ~/storage/shared/pegasus_installer_log.log
 chmod a+rwx ~/startup.sh &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
-
+echo ""
 echo -e "Do you want to store your roms in your SD Card or in your internal Storage?"
 echo -e "Press the ${RED}A Button${NONE} if you want to use the SD Card"
-echo -e "Press the ${GREEN}Y Button${NONE} and then the ${RED}A Button${NONE} if you want to use your internal storage"
+echo -e "Type ${GREEN}i${NONE} and then the ${RED}A Button${NONE} if you want to use your internal storage"
 read storageOption
 
-if [ $storageOption == ' ' ]; then
-	touch ~/dragoonDoriseTools/.storageInternal
+rm ~/dragoonDoriseTools/.storageInternal &> /dev/null
+rm ~/dragoonDoriseTools/.storageSD &> /dev/null
+echo -ne "Storage Selected..."
+if [[ $storageOption == 'i' ]]; then
+	touch ~/dragoonDoriseTools/.storageInternal &> /dev/null
 	storageLocation="shared/roms"
-	echo -e "Internal Storage Selected"
+	echo -e "${GREEN}Internal${NONE}"
 else
-	touch ~/dragoonDoriseTools/.storageSD
+	touch ~/dragoonDoriseTools/.storageSD &> /dev/null
 	storageLocation="external-1"
 	#We get the SD Card Volume name
 	for entry in /storage/*
- 	do
-	 	STR=$entry
-	 	SUB='-'
-	 	if grep -q "$SUB" <<< "$STR"; then
-		 	firstString=$entry
-			 	secondString=""
-		  	sdcardID="${firstString/"/storage/"/"$secondString"}"   
-	 	fi
- 	done	
-	mkdir ~/storage/shared/roms
-	echo -e "SD Card Selected"
+	 do
+		 STR=$entry
+		 SUB='-'
+		 if grep -q "$SUB" <<< "$STR"; then
+			 firstString=$entry
+				 secondString=""
+			  sdcardID="${firstString/"/storage/"/"$secondString"}"   
+		 fi
+	 done	
+	mkdir ~/storage/shared/roms &> /dev/null
+	echo -e "${GREEN}SD Card${NONE}"
 fi
 
 useInternalStorage=false
