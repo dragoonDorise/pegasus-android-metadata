@@ -8,6 +8,18 @@ CYAN='\033[01;36m'
 WHITE='\033[01;37m'
 BOLD='\033[1m'
 UNDERLINE='\033[4m'
+
+useInternalStorage=false
+FILE=~/dragoonDoriseTools/.storageInternal
+if [ -f "$FILE" ]; then
+	useInternalStorage=true
+	storageLocation="shared/roms"
+else
+	useInternalStorage=false
+	storageLocation="external-1"
+	
+fi
+
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 echo -ne "Deleting Metadata Pack for Android..."
 rm -rf ~/dragoonDoriseTools  &> ~/storage/shared/pegasus_installer_log.log
@@ -25,7 +37,7 @@ rm -f startup.sh  &> ~/storage/shared/pegasus_installer_log.log
 echo "" > ~/.bashrc
 echo -e "${GREEN}OK${NONE}"
 echo -ne "Deleting Pegasus apk..."
-rm -f ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk  &> ~/storage/shared/pegasus_installer_log.log
+rm -f ~/dragoonDoriseTools/pegasus-fe_alpha15-98-gf3dcfab5_android.apk  &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 #Restoring Retroarch
 echo -ne "Restoring RetroArch config..."
@@ -45,10 +57,11 @@ rm -rf ~/storage  &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}All cleaned up!${NONE}"
 echo -e  "We hope to see you come back soon!"
 echo -e  "${BOLD}NOTE:${NONE} Termux and Pegasus have to be uninstalled like any other Android app. Pegasus themes are not deleted either"
-echo -e "${RED}IMPORTANT${NONE}"
-echo -e "Be aware that if you delete the Termux app Android will ${RED}DELETE${NONE} all the roms on your SD Card"
-echo -e "${RED}IMPORTANT${NONE}"
-
+if [ $useInternalStorage == false ]; then
+	echo -e "${RED}IMPORTANT${NONE}"
+	echo -e "Be aware that if you delete the Termux app Android will ${RED}DELETE${NONE} all the roms on your SD Card"
+	echo -e "${RED}IMPORTANT${NONE}"
+fi
 echo -e  "Press the ${RED}A button${NONE} to finish"
 read pause
 am startservice -a com.termux.service_stop com.termux/.app.TermuxService
