@@ -108,6 +108,7 @@ read storageOption
 if [ $storageOption == ' ' ]; then
 	touch ~/dragoonDoriseTools/.storageInternal
 	storageLocation="shared/roms"
+	echo -e "Internal Storage Selected"
 else
 	touch ~/dragoonDoriseTools/.storageSD
 	storageLocation="external-1"
@@ -123,6 +124,7 @@ else
 	 	fi
  	done	
 	mkdir ~/storage/shared/roms
+	echo -e "SD Card Selected"
 fi
 
 useInternalStorage=false
