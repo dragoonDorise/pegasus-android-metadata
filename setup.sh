@@ -105,7 +105,7 @@ echo -e "Press the ${RED}A Button${NONE} if you want to use the SD Card"
 echo -e "Press the ${GREEN}Y Button${NONE} and then the ${RED}A Button${NONE} if you want to use your internal storage"
 read storageOption
 
-if [$storageOption == ' ']; then
+if [ $storageOption == ' ' ]; then
 	touch ~/dragoonDoriseTools/.storageInternal
 	storageLocation="shared/roms"
 else
