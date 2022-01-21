@@ -256,7 +256,7 @@ echo -e  "${GREEN}OK${NONE}"
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/emu_check.sh
 
 echo -e  "";
-echo -e  "${GREEN}All Done${NONE}, do you have your SD Card inserted with all your roms?"
+echo -e  "${GREEN}All Done${NONE}, do you have your roms ready?"
 echo -e  "${BOLD}Let's start getting all your artwork!${NONE}"
 echo -e  "Press the ${RED}A button${NONE} to continue"
 read pause
