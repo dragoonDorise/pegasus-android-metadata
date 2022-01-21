@@ -552,6 +552,8 @@ for device_name in ${selected_device_names[@]};
 echo -e "First Loop...${GREEN}completed${NONE}" 
 echo -e "This second loop will take longer, make sure your handheld is connected to a power source"
 echo -e "Press the ${RED}A Button${NONE} to start the Second Loop"
+read pause	
+
 #We check for existing credentials
 userStored=false
 FILE=~/dragoonDoriseTools/.screenScraperUser
@@ -586,7 +588,6 @@ if [ $userStored == false ]; then
 	read pause
 fi
 
-read pause	
  
  #ScreenScraper loop
  for device_name in ${selected_device_names[@]};
