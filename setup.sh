@@ -42,7 +42,7 @@ pkg update -y -F &>> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -
 pkg install git wget rsync unzip whiptail -y  &>> ~/storage/shared/pegasus_installer_log.log
 
 mkdir ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
-cd dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
+cd ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
 
 echo -e "${GREEN}OK${NONE}"
 
@@ -71,9 +71,6 @@ cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 #Download Pegasus
 echo -e "Downloading Pegasus, please be patient..."
 wget   -q --show-progress https://github.com/mmatyas/pegasus-frontend/releases/download/continuous/pegasus-fe_alpha15-98-gf3dcfab5_android.apk
-echo -ne "Pegasus..."
-echo -e "${GREEN}OK${NONE}"
-
 
 #Configure Pegasus
 echo -ne "Configuring Pegasus..."
