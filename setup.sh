@@ -137,11 +137,9 @@ fi
  
 echo -ne "Configuring Rom Storage..."
 if [ $useInternalStorage == false ]; then
-	sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" 
-	~/storage/shared/pegasus-frontend/game_dirs.txt &>> ~/storage/shared/pegasus_installer_log.log 
+	sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt &>> ~/storage/shared/pegasus_installer_log.log 
 else
-	sed -i "s/0000-0000/emulated\/0\/roms\//g" 
-~/storage/shared/pegasus-frontend/game_dirs.txt &>> ~/storage/shared/pegasus_installer_log.log 
+	sed -i "s/0000-0000/emulated\/0\/roms\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt &>> ~/storage/shared/pegasus_installer_log.log 
 fi
 
 
