@@ -38,3 +38,6 @@
 
 1.2.2
 - Proper support for SNES and Genesis Wide hacks
+
+1.2.3
+- External HD Support - Experimental
