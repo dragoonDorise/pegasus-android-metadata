@@ -104,7 +104,7 @@ while true; do
 	"SDCard" "The roms will be stored in your SD Card" ON \
 	"Internal" "The roms will be stored in your Internal Storage " OFF \
    3>&1 1<&2 2>&3)
-	case storageOption in
+	case $storageOption in
 		[SDCard]* ) break;;
 		[Internal]* ) break;;
 		* ) echo "Please answer yes or no.";;
