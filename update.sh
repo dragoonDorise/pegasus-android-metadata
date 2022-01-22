@@ -38,6 +38,8 @@ git reset --hard &> ~/storage/shared/pegasus_installer_log.log
 git pull &> ~/storage/shared/pegasus_installer_log.log 
 cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/update.sh
 chmod a+rwx ~/update.sh
+cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/run_update.sh
+chmod a+rwx ~/run_update.sh
 cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/scrap.sh
 chmod a+rwx ~/scrap.sh
 cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh
