@@ -95,16 +95,26 @@ chmod a+rwx ~/undo.sh &>> ~/storage/shared/pegasus_installer_log.log
 cp ~/dragoonDoriseTools/pegasus-android-metadata/startup.sh  ~/startup.sh &>> ~/storage/shared/pegasus_installer_log.log
 chmod a+rwx ~/startup.sh &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
-echo ""
-echo -e "Do you want to store your roms in your SD Card or in your internal Storage?"
-echo -e "Press the ${RED}A Button${NONE} if you want to use the SD Card. Make sure it's ${UNDERLINE}inserted${NONE}"
-echo -e "Type ${GREEN}i${NONE} and then the ${RED}A Button${NONE} if you want to use your internal storage"
-read storageOption
+clear
+while true; do
+	storageOption=$(whiptail --title "Where do you want to store your roms?" \
+   --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
+	"SDCard" "The roms will be stored in your SD Card" ON \
+	"Internal" "The roms will be stored in your Internal Storage " OFF \
+   3>&1 1<&2 2>&3)
+	case storageOption in
+		[SDCard]* ) break;;
+		[Internal]* ) break;;
+		* ) echo "Please answer yes or no.";;
+	esac
+   
+ done
+ echo $storageOption
 
 rm ~/dragoonDoriseTools/.storageInternal &> /dev/null
 rm ~/dragoonDoriseTools/.storageSD &> /dev/null
 echo -ne "Storage Selected..."
-if [[ $storageOption == 'i' ]]; then
+if [[ $storageOption == 'Internal' ]]; then
 	touch ~/dragoonDoriseTools/.storageInternal &> /dev/null
 	storageLocation="shared/roms"
 	echo -e "${GREEN}Internal${NONE}"
@@ -182,26 +192,22 @@ elif [ -d "$FOLDER64" ]; then
 fi
 
 
-
-echo -e ""
-echo -e "Do you have an Anbernic RG552? Some extra configuration will be done for your system :) "
-echo -e "Type Y if you do, type N if you don't and press the ${RED}A button${NONE}."
-read handheldQuestion
+while true; do
+	handheldModel=$(whiptail --title "What Android Device do you have" \
+   --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
+	"ANDROID" "A regular Android Device" ON \
+	"RG552" "A Anbernic RG552 " OFF \
+   3>&1 1<&2 2>&3)
+	case $handheldModel in
+		[ANDROID]* ) break;;
+		[RG552]* ) break;;
+		* ) echo "Please answer yes or no.";;
+	esac
+   
+ done
 
 
 echo -ne "Configuring Retroarch..."
-
-handheldModel="169"
-
-if [ $handheldQuestion == "y" ]
-then
-	handheldModel="RG552"
-fi
-
-if [ $handheldQuestion == "Y" ]
-then
-	handheldModel="RG552"
-fi
 
 # 5:3 Detection flag
 if [ $handheldModel == "RG552" ]

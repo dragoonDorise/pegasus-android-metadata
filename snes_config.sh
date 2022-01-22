@@ -12,55 +12,44 @@ UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 
 
-snesMode="4:3"
+snesMode="CLASSIC"
 snesConfigured="false"
 FILE=~/dragoonDoriseTools/.snes87
 if [ -f "$FILE" ]; then
-	snesMode="8:7"
+	snesMode="INTERNAL"
 	snesConfigured="true"
 fi
 FILE=~/dragoonDoriseTools/.snes43
 if [ -f "$FILE" ]; then
-	snesMode="4:3"
+	snesMode="CLASSIC"
 	snesConfigured="true"
 fi
-echo -e ""
-echo -e "${BOLD}Please choose your Super Nintendo resolution${NONE}"
-echo -e "Type 1 for 4:3 Aspect Ratio (Classic TV Resolution)"
-echo -e "Type 2 for 8:7 Aspect Ratio (Real internal Resolution)"
-if [ $snesConfigured == false ]; then
-	echo -e "And then press the ${RED}A button${NONE} to continue"
-fi
-if [ $snesConfigured == true ]; then
-	echo -e "Or just press the ${RED}A button${NONE} to keep the $snesMode you selected on installation"
-fi
-read ar
-echo -ne "SNES configuration seleted..."
-if [[ $ar == "1" ]]
-then
+
+while true; do
+	snesMode=$(whiptail --title "Please choose your Super Nintendo Aspect Ratio" \
+   --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
+	"CLASSIC" "4:3 Aspect Ratio (Classic TV Resolution)" ON \
+	"INTERNAL" "8:7 Aspect Ratio (Real internal Resolution)" OFF \
+   3>&1 1<&2 2>&3)
+	case $snesMode in
+		[CLASSIC]* ) break;;
+		[INTERNAL]* ) break;;
+		* ) echo "Please choose";;
+	esac
+   
+ done
+
+if [[ $snesMode == "CLASSIC" ]]; then
 	rm ~/dragoonDoriseTools/.snes43 &>> ~/storage/shared/pegasus_installer_log.log
 	rm ~/dragoonDoriseTools/.snes87 &>> ~/storage/shared/pegasus_installer_log.log
 	touch ~/dragoonDoriseTools/.snes43 &>> ~/storage/shared/pegasus_installer_log.log
-	snesMode="4:3"
+cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/Snes9x/snes.cfg ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_log.log	
 	
-fi
-
-if [[ $ar == "2" ]]
-then
+else
 	rm ~/dragoonDoriseTools/.snes43 &>> ~/storage/shared/pegasus_installer_log.log
 	rm ~/dragoonDoriseTools/.snes87 &>> ~/storage/shared/pegasus_installer_log.log
 	touch ~/dragoonDoriseTools/.snes87 &>> ~/storage/shared/pegasus_installer_log.log
-	snesMode="8:7"
-fi
-echo -e "${GREEN}$snesMode${NONE}"
-if [ $snesMode == "8:7" ]
-then	
 	cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/Snes9x/snes87.cfg ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_log.log	
-fi
-
-if [ $snesMode == "4:3" ]
-then	
-	cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/Snes9x/snes.cfg ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_log.log	
 fi
 
 
