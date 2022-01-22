@@ -111,7 +111,6 @@ while true; do
 	esac
    
  done
- echo $storageOption
 
 rm ~/dragoonDoriseTools/.storageInternal &> /dev/null
 rm ~/dragoonDoriseTools/.storageSD &> /dev/null
