@@ -101,7 +101,7 @@ clear
 while true; do
 	storageOption=$(whiptail --title "Where do you want to store your roms?" \
    --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
-	"SDCard" "The roms will be stored in your SD Card" ON \
+	"SDCard" "The roms will be stored in your SD Card or external HD" ON \
 	"Internal" "The roms will be stored in your Internal Storage " OFF \
    3>&1 1<&2 2>&3)
 	case $storageOption in
@@ -123,6 +123,7 @@ else
 	touch ~/dragoonDoriseTools/.storageSD &> /dev/null
 	storageLocation="external-1"
 	#We get the SD Card Volume name
+	sdcardID=false
 	for entry in /storage/*
 	 do
 		 STR=$entry
@@ -133,6 +134,31 @@ else
 			  sdcardID="${firstString/"/storage/"/"$secondString"}"   
 		 fi
 	 done	
+
+	 if [ $sdcardID == false ]; then
+	 
+		 echo -e "We couldn't find your SD Card name"
+		echo -e "Maybe you are using an extenal HD Drive" 
+		echo -e "Please type the name of the right storage."
+		echo -e "${BOLD}This is case sensitive${NONE}."
+		echo ""			
+			for entry in /storage/*
+			 do
+				 
+				 #echo $entry
+				 if [ $entry != '/storage/emulated' ] && [ $entry != '/storage/self' ]; then
+					 firstString=$entry
+					 secondString=""
+					 path="${firstString/"/storage/"/"$secondString"}"   
+					 echo $path 
+				 fi
+			 done			
+		echo ""
+		echo -e "Then press the ${RED}A button${NONE}" 		
+		read sdcardID
+		 
+	 fi
+	 
 	mkdir ~/storage/shared/roms &> /dev/null
 	echo -e "${GREEN}SD Card${NONE}"
 fi
