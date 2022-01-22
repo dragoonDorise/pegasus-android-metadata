@@ -426,7 +426,7 @@ selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
 	"nes" "Nintendo - Nintendo Entertainment System" OFF \
 	"pokemini" "Nintendo - Pokemon Mini" OFF \
 	"snes" "Nintendo - Super Nintendo Entertainment System" OFF \
-	"sneswide" "Super Nes Wide Hack" OFF \	
+	"sneswide" "Super Nes Wide Hack" OFF \
 	"wii" "Nintendo - Wii" OFF \
 	"neogeo" "SNK - Neo Geo" OFF \
 	"neogeocd" "SNK - Neo Geo CD" OFF \
@@ -438,7 +438,7 @@ selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
 	"gamegear" "Sega - Game Gear" OFF \
 	"mastersystem" "Sega - Master System" OFF \
 	"genesis" "Sega - Mega Drive - Genesis" OFF \
-	"genesiswide" "Genesis Wide Hack" OFF \	
+	"genesiswide" "Genesis Wide Hack" OFF \
 	"segacd" "Sega - Mega-CD - Sega CD" OFF \
 	"saturn" "Sega - Saturn" OFF \
 	"psx" "Sony - PlayStation" OFF \

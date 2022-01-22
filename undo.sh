@@ -32,6 +32,7 @@ echo -e "${GREEN}OK${NONE}"
 echo -ne "Deleting scripts..."
 rm -f scrap.sh  &> ~/storage/shared/pegasus_installer_log.log
 rm -f update.sh  &> ~/storage/shared/pegasus_installer_log.log
+rm -f run_update.sh  &> ~/storage/shared/pegasus_installer_log.log
 rm -f undo.sh  &> ~/storage/shared/pegasus_installer_log.log
 rm -f startup.sh  &> ~/storage/shared/pegasus_installer_log.log
 echo "" > ~/.bashrc

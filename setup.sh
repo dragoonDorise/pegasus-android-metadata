@@ -88,6 +88,8 @@ echo -e "${GREEN}OK${NONE}"
 echo -ne "Installing Scrap, Update & Undo Scripts..."
 cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/update.sh &>> ~/storage/shared/pegasus_installer_log.log
 chmod a+rwx ~/update.sh &>> ~/storage/shared/pegasus_installer_log.log
+cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/run_update.sh &>> ~/storage/shared/pegasus_installer_log.log
+chmod a+rwx ~/run_update.sh &>> ~/storage/shared/pegasus_installer_log.log
 cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/scrap.sh &>> ~/storage/shared/pegasus_installer_log.log
 chmod a+rwx ~/scrap.sh &>> ~/storage/shared/pegasus_installer_log.log
 cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh &>> ~/storage/shared/pegasus_installer_log.log
