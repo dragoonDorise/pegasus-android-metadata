@@ -176,11 +176,12 @@ if [ $hasRetroArch == false ]; then
 	xdg-open ~/dragoonDoriseTools/RetroArch.apk
 	clear
 	echo -e  "Welcome back!"	
+	echo -e  "Press the ${RED}A button${NONE} to continue"
+	read pause
+	
 fi
 
 
-echo -e  "Press the ${RED}A button${NONE} to continue"
-read pause
 #Configure Retroarch
 echo -ne "Creating RetroArch Backup..."
 #We create the backup only if we don't have one, to prevent erasing the original backup if the user reinstalls
@@ -198,7 +199,7 @@ while true; do
 	handheldModel=$(whiptail --title "What Android Device do you have" \
    --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
 	"ANDROID" "A regular Android Device" ON \
-	"RG552" "A Anbernic RG552 " OFF \
+	"RG552" "An Anbernic RG552 " OFF \
    3>&1 1<&2 2>&3)
 	case $handheldModel in
 		[ANDROID]* ) break;;

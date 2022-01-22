@@ -574,7 +574,7 @@ if [ -f "$FILE" ]; then
 fi
 
 if [ $userStored == false ]; then
-	echo -e "You need to have an accpunt on ${BOLD}https://www.screenscraper.fr${NONE} for scraping your roms"	
+	echo -e "You need to have an account on ${BOLD}https://www.screenscraper.fr${NONE} for scraping your roms"	
 	echo -e "Press the ${RED}A Button${NONE} if you already have an account"
 	echo -e "Type y and press the ${RED}A Button${NONE} and I'll open ScreenScraper on your browser, remember to come back when you are registered"
 	read account
