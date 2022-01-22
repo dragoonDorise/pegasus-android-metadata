@@ -95,7 +95,7 @@ if [ $installCores == "true" ]; then
 	cd ~/storage/shared/RetroArch/downloads
 	find . -name "*.so" -type f -delete
 	echo -ne "Downloading Final Burn Neo..."
-	FILE=~/storage/shared/RetroArch/downloads/xxxx
+	FILE=~/storage/shared/RetroArch/downloads/fbneo_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else
@@ -103,7 +103,7 @@ if [ $installCores == "true" ]; then
 		echo -e "${GREEN}OK${NONE}"	
 	fi
 	echo -ne "Downloading Mame 2010..."
-	FILE=~/storage/shared/RetroArch/downloads/xxxx
+	FILE=~/storage/shared/RetroArch/downloads/mame2010_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -111,6 +111,7 @@ if [ $installCores == "true" ]; then
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	echo -ne "Downloading Mame 2003 Plus..."
+	FILE=~/storage/shared/RetroArch/downloads/mame2003_plus_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -119,6 +120,7 @@ if [ $installCores == "true" ]; then
 	fi
 
 	echo -ne "Downloading Atari 2600..."
+	FILE=~/storage/shared/RetroArch/downloads/stella_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -127,6 +129,7 @@ if [ $installCores == "true" ]; then
 	fi
 		
 	echo -ne "Downloading Atari Lynx..."
+	FILE=~/storage/shared/RetroArch/downloads/mednafen_lynx_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -135,6 +138,7 @@ if [ $installCores == "true" ]; then
 	fi
 	
 	echo -ne "Downloading WonderSwan..."
+	FILE=~/storage/shared/RetroArch/downloads/mednafen_wswan_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -143,6 +147,7 @@ if [ $installCores == "true" ]; then
 	fi
 	
 	echo -ne "Downloading DooM..."
+	FILE=~/storage/shared/RetroArch/downloads/prboom_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -151,6 +156,7 @@ if [ $installCores == "true" ]; then
 	fi
 	
 	echo -ne "Downloading DOS..."
+	FILE=~/storage/shared/RetroArch/downloads/dosbox_pure_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -158,6 +164,7 @@ if [ $installCores == "true" ]; then
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	echo -ne "Downloading PC Engine..."
+	FILE=~/storage/shared/RetroArch/downloads/mednafen_pce_fast_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -166,6 +173,7 @@ if [ $installCores == "true" ]; then
 	fi
 	
 	echo -ne "Downloading GameBoy..."
+	FILE=~/storage/shared/RetroArch/downloads/gambatte_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -174,6 +182,7 @@ if [ $installCores == "true" ]; then
 	fi
 	
 	echo -ne "Downloading GameBoy Advance..."
+	FILE=~/storage/shared/RetroArch/downloads/mgba_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -182,6 +191,7 @@ if [ $installCores == "true" ]; then
 	fi
 	
 	echo -ne "Downloading NES..."
+	FILE=~/storage/shared/RetroArch/downloads/nestopia_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -190,6 +200,7 @@ if [ $installCores == "true" ]; then
 	fi
 	
 	echo -ne "Downloading SNES Widescreen..."
+	FILE=~/storage/shared/RetroArch/downloads/bsnes_hd_beta_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -197,6 +208,7 @@ if [ $installCores == "true" ]; then
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	echo -ne "Downloading SNES..."
+	FILE=~/storage/shared/RetroArch/downloads/snes9x_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -205,6 +217,7 @@ if [ $installCores == "true" ]; then
 	fi
 	
 	echo -ne "Downloading Genesis & Sega CD & GameGear & Master System..."
+	FILE=~/storage/shared/RetroArch/downloads/genesis_plus_gx_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -213,6 +226,7 @@ if [ $installCores == "true" ]; then
 	fi
 	
 	echo -ne "Downloading Genesis Widescreen..."
+	FILE=~/storage/shared/RetroArch/downloads/genesis_plus_gx_wide_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -221,6 +235,7 @@ if [ $installCores == "true" ]; then
 	fi
 	
 	echo -ne "Downloading Sega32x..."
+	FILE=~/storage/shared/RetroArch/downloads/picodrive_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -229,6 +244,7 @@ if [ $installCores == "true" ]; then
 	fi
 	
 	echo -ne "Downloading Neo Geo..."
+	FILE=~/storage/shared/RetroArch/downloads/neocd_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -238,6 +254,7 @@ if [ $installCores == "true" ]; then
 	
 
 	echo -ne "Downloading Neo Geo Pocket..."
+	FILE=~/storage/shared/RetroArch/downloads/mednafen_ngp_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -246,6 +263,7 @@ if [ $installCores == "true" ]; then
 	fi
 
 	echo -ne "Downloading PSX..."
+	FILE=~/storage/shared/RetroArch/downloads/pcsx_rearmed_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
@@ -254,6 +272,7 @@ if [ $installCores == "true" ]; then
 	fi	
 
 	echo -ne "Downloading ScummVM..."
+	FILE=~/storage/shared/RetroArch/downloads/scummvm_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else	
