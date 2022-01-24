@@ -84,7 +84,7 @@ clear
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 #Download Pegasus
 echo -e "Downloading Pegasus, please be patient..."
-wget   -q --show-progress https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w40/pegasus-fe_alpha15-85-gfff1a5b2_android.apk ~/dragoonDoriseTools
+wget   -q --show-progress https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w40/pegasus-fe_alpha15-85-gfff1a5b2_android.apk -P ~/dragoonDoriseTools
 
 #Configure Pegasus
 echo -ne "Configuring Pegasus..."

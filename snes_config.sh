@@ -53,7 +53,7 @@ else
 fi
 
 
-
+clear
 echo ""
 echo -ne  "Snes configuration..."
 echo -e  "${GREEN}OK${NONE}"
