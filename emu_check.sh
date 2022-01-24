@@ -141,9 +141,10 @@ else
 	echo -e  "${RED}Not installed${NONE}"
 fi
 echo ""
+
 echo -e  "Press the ${RED}A button${NONE} to install the missing emulators"
 read pause
-
+clear
 	emulators_names=$(whiptail --title "Install missing emulators" \
    --checklist "Move using your DPAD and select your optiones with the Y button. Press the A button to select." 10 80 4 \
 	"DREAMCAST" "Dreamcast" ON \
@@ -156,65 +157,66 @@ read pause
 	"3DS" "Nintendo 3DS" ON \
    3>&1 1<&2 2>&3)
 
+
+
+clear
 mapfile -t emulators <<< $emulators_names
 
-for emulators in ${emulators[@]};
+for emulator in ${emulators[@]};
  do
  
-	if [ $emulators == "DREAMCAST" ]; then
+	if [ $emulator == "DREAMCAST" ]; then
+		echo -e "Dreamcast - Redream..."	
 		termux-open "https://play.google.com/store/apps/details?id=io.recompiled.redream"
 		echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
 		read pause
 	fi
-	echo -ne "Nintendo Wii & GameCube - Dolphin MMJR..."
-	if [ $emulators == true ]; then
+	if [ $emulator == "GC" ]; then
+		echo -e "Nintendo Wii & GameCube - Dolphin MMJR..."
 		wget  -q --show-progress https://github.com/Bankaimaster999/Dolphin-MMJR/releases/download/1.0-11460/Dolphin.MMJR.v11460.apk ~/dragoonDoriseTools/
+		echo -e  "Press the ${RED}A button${NONE} to install Dolphin"
+		read pause		
 		xdg-open ~/dragoonDoriseTools/Dolphin.MMJR.v11460.apk
-echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
-	read pause
-fi
-	if [ $emulators == true ]; then
-		termux-open "https://play.google.com/store/apps/details?id=io.recompiled.redream"
-echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
-	read pause
-fi
-	echo -ne "Saturn - Yaba Sanshioro 2..."
-	if [ $emulators == true ]; then
+		echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
+		read pause
+	fi
+	if [ $emulator == "SATURN" ]; then
+		echo -e "Saturn - Yaba Sanshioro 2..."
 		termux-open "https://play.google.com/store/apps/details?id=org.devmiyax.yabasanshioro2"
-echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
-	read pause
-fi
-	echo -ne "Nintendo 64 - Mupen 64 Plus..."
-	if [ $emulators == true ]; then
+		echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
+		read pause
+	fi
+	if [ $emulator == "N64" ]; then
+		echo -e "Nintendo 64 - Mupen 64 Plus..."
 		termux-open "https://play.google.com/store/apps/details?id=org.mupen64plusae.v3.fzurita"
-echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
-	read pause
-fi
-	echo -ne "PSP - PPSSPP..."
-	if [ $emulators == true ]; then
+		echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
+		read pause
+	fi
+	if [ $emulator == "PSP" ]; then
+		echo -e "PSP - PPSSPP..."
 		termux-open "https://play.google.com/store/apps/details?id=org.ppsspp.ppsspp"
-echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
-	read pause
-fi
-	echo -ne "Playstation - Duckstation..."
-	if [ $emulators == true ]; then
+		echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
+		read pause
+	fi
+	if [ $emulator == "PSX" ]; then
+		echo -e "Playstation - Duckstation..."	
 		termux-open "https://play.google.com/store/apps/details?id=com.github.stenzek.duckstation"
-echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
-	read pause
-fi
-	echo -ne "Nintendo DS - Drastic..."
-	if [ $emulators == true ]; then
+		echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
+		read pause
+	fi
+	if [ $emulator == "DS" ]; then
+		echo -e "Nintendo DS - Drastic..."
 		termux-open "https://play.google.com/store/apps/details?id=com.dsemu.drastic"
-echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
-	read pause
-fi
-	if [ $emulators == "3DS" ]; then
+		echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
+		read pause
+	fi
+	if [ $emulator == "3DS" ]; then
+		echo -e "Nintendo 3DS - Citra MMJ..."		
 		wget  -q --show-progress https://github.com/weihuoya/citra/releases/download/20220120/Citra_MMJ_20220120.apk ~/dragoonDoriseTools/
+		echo -e  "Press the ${RED}A button${NONE} to install Citra MMJ"
+		read pause				
 		xdg-open ~/dragoonDoriseTools/Citra_MMJ_20220120.apk
 	fi
 		
  
  done
- 
-
-echo -e "${BOLD}If you chose to not install some emulators, remember that you need them if you want to play those systems${NONE}"
