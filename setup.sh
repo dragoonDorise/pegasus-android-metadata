@@ -15,8 +15,7 @@ rm -rf ~/storage &>> /dev/null
 termux-setup-storage
 echo -e "Pegasus installer 1.2.3"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
-echo -e  "We recommend you disable the virtual keyboard so you can properly"
-echo -e  "see all the selection menu."
+echo -e  "We recommend you to hide the virtual keyboard by swiping from the left of the screen."
 echo -e  "Press the ${RED}A button${NONE} to start"
 
 read clear
@@ -27,14 +26,14 @@ root=,red
 roottext=yellow,red"
 	handheldModel=$(whiptail --title "What Android Device do you have" \
    --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
-	"ANDROID" "A regular Android Device" ON \
 	"RG552" "Anbernic RG552" OFF \
 	"ODIN" "AYN Odin" OFF \
+	"ANDROID" "A regular Android Device" ON \	
    3>&1 1<&2 2>&3)
 	case $handheldModel in
-		[ANDROID]* ) break;;
 		[RG552]* ) break;;
-		[ODIN]* ) break;;
+		[ODIN]* ) break;;	
+		[ANDROID]* ) break;;
 		* ) echo "Please answer yes or no.";;
 	esac
    
@@ -233,13 +232,6 @@ echo -ne "Downloading Pegasus Theme : RP Switch..."
 rm -rf ~/storage/shared/pegasus-frontend/themes/RP-switch &>> ~/storage/shared/pegasus_installer_log.log
 git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themes/RP-switch &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
-
-echo -ne "Downloading Pegasus Theme : game OS..."
-#We delete the theme, for previous users
-rm -rf ~/storage/shared/pegasus-frontend/themes/gameOSch &>> ~/storage/shared/pegasus_installer_log.log
-git clone https://github.com/PlayingKarrde/gameOS/ ~/storage/shared/pegasus-frontend/themes/gameOS &>> ~/storage/shared/pegasus_installer_log.log
-echo -e "${GREEN}OK${NONE}"
-
 
 
 echo "/bin/bash ~/startup.sh" > ~/.bashrc

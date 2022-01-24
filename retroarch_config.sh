@@ -80,22 +80,6 @@ if [[ $handheldModel == "RG552" ]]; then
 	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/mGBA/gba.cfg &> ~/storage/shared/pegasus_installer_log.log 
 	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_log.log 
 	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Genesis\sPlus\sGX/mastersystem.cfg &> ~/storage/shared/pegasus_installer_log.log 
-		
-	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Genesis Plus GX/genesis.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/MAME 2003-Plus/mame.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Beetle NeoPop/ngp.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Beetle NeoPop/ngpc.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Beetle Cygne/wswan.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Beetle Cygne/wswanc.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/lynx.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Gambatte/gb.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Gambatte/gbc.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Genesis\sPlus\sGX/gamegear.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Genesis\sPlus\sGX/genesis.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Nestopia/nes.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/mGBA/gba.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Genesis\sPlus\sGX/mastersystem.cfg &> ~/storage/shared/pegasus_installer_log.log 
 	
 	
 echo -e "${GREEN}OK${NONE}"
