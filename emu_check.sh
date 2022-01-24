@@ -146,10 +146,6 @@ else
 	echo -e  "${RED}Not installed${NONE}"
 fi
 read pause
-while true; do
-export NEWT_COLORS="
-root=,red
-roottext=yellow,red"
 	emulators_names=$(whiptail --title "Install missing emulators" \
    --radiolist "Move using your DPAD and select your optiones with the Y button. Press the A button to select." 10 80 4 \
 	"DREAMCAST" "Dreamcast" ON \
@@ -162,13 +158,17 @@ roottext=yellow,red"
 	"3DS" "Nintendo 3DS" ON \
    3>&1 1<&2 2>&3)
 	case $emulators_names in
+		[DREAMCAST]* ) break;;
+		[GC]* ) break;;	
+		[SATURN]* ) break;;
+		[N64]* ) break;;
+		[PSP]* ) break;;	
+		[PSX]* ) break;;
+		[DREAMCAST]* ) break;;
+		[DS]* ) break;;	
 		[3DS]* ) break;;
-		[ODIN]* ) break;;	
-		[ANDROID]* ) break;;
 		* ) echo "Please answer yes or no.";;
 	esac
-   
- done
 
 mapfile -t emulators <<< $emulators_names
 
