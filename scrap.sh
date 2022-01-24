@@ -457,7 +457,7 @@ clear
 
 
 while true; do
-	scrapers_names=$(whiptail --title "Install missing emulators - We recomend to choose both" \
+	scrapers_names=$(whiptail --title "Chose your Scrap Engine - We recomend to choose both" \
 	   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
 		"RETROARCH" "Retroarch Thumbs - Fast but only works on No Intro Romsets" ON \
 		"SCREENSRAPER" "ScreenScraper - Really slow but more reliable, needs a free user account" ON \
@@ -577,9 +577,8 @@ for scraper in ${scrapers[@]};
    		#rsync -r ~/pegasus-artwork/$system/ ~/storage/$storageLocation/$system/
  		done
 		
-		echo -e "First Loop...${GREEN}completed${NONE}" 
-		echo -e "This second loop will take longer, make sure your handheld is connected to a power source"
-		echo -e "Press the ${RED}A Button${NONE} to start the Second Loop"
+		echo -e "${GREEN}completed${NONE}" 	
+		echo -e "Press the ${RED}A Button${NONE} to finish. We recomend to do a second loop with ScreenScraper if you didn't do it already"
 		read pause	
 		
 		#We check for existing credentials
