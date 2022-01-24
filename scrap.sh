@@ -551,21 +551,36 @@ for scraper in ${scrapers[@]};
 						
 					#First Scan: Retroarch				
 					FILE=~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png
-					if [ -f "$FILE" ]; then
+					FILEI=~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.ignore
+					if [ -f "$FILEI" ] ||  [ -f "$FILEI" ]; then
 						echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
-					else 
-						echo -ne "Image not found: $romNameNoExtension screenshot..."
-						wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/screenshot/
-						echo -e ""
+					else
+							
+						StatusString=$(wget --spider "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$romNameNoExtension.png" 2>&1)
+						if [[ $StatusString == *"image/png"* ]]; then
+							wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/screenshot/
+						else
+							echo -ne "Image not found: $romNameNoExtension screenshot..."
+							touch ~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.ignore
+						fi
+						
 					fi
 					
 					FILE=~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png
-					if [ -f "$FILE" ]; then
+					FILEI=~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.ignore
+					if [ -f "$FILEI" ] ||  [ -f "$FILEI" ]; then
 						echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
-					else 
-						echo -ne "Image not found: $romNameNoExtension box2dfront..."
-						wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/box2dfront/
-						echo -e ""
+					else
+					
+						StatusString=$(wget --spider "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$romNameNoExtension.png" 2>&1)
+						if [[ $StatusString == *"image/png"* ]]; then
+							wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/box2dfront/
+							echo -e ""
+						else
+							echo -ne "Image not found: $romNameNoExtension screenshot..."
+							touch ~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.ignore
+								
+						fi
 					fi
 					
 					#exit
