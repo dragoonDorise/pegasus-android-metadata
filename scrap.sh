@@ -345,7 +345,7 @@ get_ra_alias(){
 	esac			
 }
 
-scrap_rom () {
+scrap_ss () {
 	urlMedia=$1
 	urlSave=$2		
 	media=$3
@@ -454,299 +454,328 @@ else
 	mapfile -t selected_device_names <<< $selected_device_descriptions
 fi
 clear
-echo -e "The Roms are scrapped in two loops."
-echo -e "${BOLD}First loop${NONE} - Uses Retroarch Thumbnails. It's fast but doesn't have all the systems and roms"	
-echo -e "${BOLD}Second loop${NONE} - Uses ScreenScraper. It's slow but will find the images that the first loop didn't get"
-echo -e "Press the ${RED}A Button${NONE} to start the First Loop"
-read pause	
-#System loop
-for device_name in ${selected_device_names[@]};
- do
-	 message=$device_name
-	 system="${message//'"'/}"            
-	 #ls ~/storage/$storageLocation/$system
-	 mkdir ~/storage/$storageLocation/$system/media &> /dev/null
-	 mkdir ~/storage/$storageLocation/$system/media/screenshot &> /dev/null
-	 mkdir ~/storage/$storageLocation/$system/media/box2dfront &> /dev/null
-	 mkdir ~/storage/$storageLocation/$system/media/wheel &> /dev/null
-	 
-	 #Retroarch system folder name
-	 get_ra_alias $system
-	
-	 #Roms loop
-	 for entry in ~/storage/$storageLocation/$system/*
-	 do
-		 #Cleaning up names
-		firstString=$entry
-		secondString=""
-		romName="${firstString/"/data/data/com.termux/files/home/storage/$storageLocation/$system/"/"$secondString"}"   		
-		romNameNoExtension=${romName%.*}		
-		
-		startcapture=true
-		 
-		#.txt validation
-		 STR=$romName
-		 SUB='.txt'
-		 if grep -q "$SUB" <<< "$STR"; then
-			 startcapture=false
-		 fi
-		#.sav validation
-		 STR=$romName
-		 SUB='.sav'
-		 if grep -q "$SUB" <<< "$STR"; then
-			 startcapture=false
-		 fi
-		#Directory Validation
-		DIR=~/storage/$storageLocation/$system/$romName
-		if [ -d "$DIR" ]; then
-			startcapture=false
-		fi
-		
-		#Blanks cleaning up, TODO: DRY
-		firstString=$romNameNoExtension
-		secondString="%20"
-		romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
-		firstString=$romNameNoExtensionNoSpace
-		secondString="%20"
-		romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
-		firstString=$romNameNoExtensionNoSpace
-		secondString="%20"
-		romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
-		firstString=$romNameNoExtensionNoSpace
-		secondString="%20"
-		romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
-		firstString=$romNameNoExtensionNoSpace
-		secondString="%20"
-		romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
-		firstString=$romNameNoExtensionNoSpace
-		secondString="%20"
-		romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
-		firstString=$romNameNoExtensionNoSpace
-		secondString="%20"
-		romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
-		firstString=$romNameNoExtensionNoSpace
-		secondString="%20"
-		romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"    						
-			
-		
-		if [ $startcapture == true ]; then
-				
-			#First Scan: Retroarch				
-			FILE=~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png
-			if [ -f "$FILE" ]; then
-				echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
-			else 
-				echo -ne "Image not found: $romNameNoExtension screenshot..."
-				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/screenshot/
-				echo -e ""
-			fi
-			
-			FILE=~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png
-			if [ -f "$FILE" ]; then
-				echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
-			else 
-				echo -ne "Image not found: $romNameNoExtension box2dfront..."
-				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/box2dfront/
-				echo -e ""
-			fi
-			
-			#exit
-		
-		fi
 
-	 done
-	 
-   #rsync -r ~/pegasus-artwork/$system/ ~/storage/$storageLocation/$system/
+
+while true; do
+	scrapers_names=$(whiptail --title "Install missing emulators - We recomend to choose both" \
+	   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
+		"RETROARCH" "Retroarch Thumbs - Fast but only works on No Intro Romsets" ON \
+		"SCREENSRAPER" "ScreenScraper - Really slow but more reliable, needs a free user account" ON \
+	   3>&1 1<&2 2>&3)
+	case $scrapers_names in
+		[RETROARCH]* ) break;;
+		[SCREENSRAPER]* ) break;;
+		* ) echo "Please choose";;
+	esac
  done
 
-echo -e "First Loop...${GREEN}completed${NONE}" 
-echo -e "This second loop will take longer, make sure your handheld is connected to a power source"
-echo -e "Press the ${RED}A Button${NONE} to start the Second Loop"
-read pause	
 
-#We check for existing credentials
-userStored=false
-FILE=~/dragoonDoriseTools/.screenScraperUser
-if [ -f "$FILE" ]; then
-	userStored=true
-	userSS=$(cat ~/dragoonDoriseTools/.screenScraperUser)
-	passSS=$(cat ~/dragoonDoriseTools/.screenScraperPass)
-fi
+clear
+mapfile -t scrapers <<< $scrapers_names
 
-if [ $userStored == false ]; then
-	echo -e "You need to have an account on ${BOLD}https://www.screenscraper.fr${NONE} for scraping your roms"	
-	echo -e "Press the ${RED}A Button${NONE} if you already have an account"
-	echo -e "Type y and press the ${RED}A Button${NONE} and I'll open ScreenScraper on your browser, remember to come back when you are registered"
-	read account
-	if [[ $account == "y" ]]; then
-		termux-open "https://www.screenscraper.fr/membreinscription.php"
-	fi
-	
-	if [[ $account == "Y" ]]; then
-		termux-open "https://www.screenscraper.fr"
-	fi
-
-	echo -e "Now I'm going to ask for your user and password. Both will be stored on your device, ${BOLD}I won't send them or read them${NONE}"
-	echo -e "What is your ScreenScraper user? Type it and press the ${RED}A button${NONE}"
-	read user
-	echo $user > ~/dragoonDoriseTools/.screenScraperUser
-	echo -e "What is your ScreenScraper password? Type it and press the ${RED}A button${NONE}"
-	read pass
-	echo $pass > ~/dragoonDoriseTools/.screenScraperPass
-	
-	echo -e "${GREEN}Thanks!${NONE} Press the ${RED}A Button${NONE} to start scraping your roms"
-	read pause
-fi
-
+for scraper in ${scrapers[@]};
+ do
  
- #ScreenScraper loop
- for device_name in ${selected_device_names[@]};
-  do
+	if [ $scraper == "RETROARCH" ]; then
+		echo -e "Using Retroarch Thumbnails..."	
+		for device_name in ${selected_device_names[@]};
+ 		do
+	 		message=$device_name
+	 		system="${message//'"'/}"            
+	 		#ls ~/storage/$storageLocation/$system
+	 		mkdir ~/storage/$storageLocation/$system/media &> /dev/null
+	 		mkdir ~/storage/$storageLocation/$system/media/screenshot &> /dev/null
+	 		mkdir ~/storage/$storageLocation/$system/media/box2dfront &> /dev/null
+	 		mkdir ~/storage/$storageLocation/$system/media/wheel &> /dev/null
+	 		
+	 		#Retroarch system folder name
+	 		get_ra_alias $system
 			
-	  message=$device_name
-	  system="${message//'"'/}"            
-		   
-	  #ScreenScraper system ID
-	  get_sc_id $system
-	  
-	  #Roms loop
-	  for entry in ~/storage/$storageLocation/$system/*
-	  do
-		  #Cleaning up names
-		 firstString=$entry
-		 secondString=""
-		 romName="${firstString/"/data/data/com.termux/files/home/storage/$storageLocation/$system/"/"$secondString"}"   		
-		 romNameNoExtension=${romName%.*}		
-		 
-		 startcapture=true
-		  
-		 #.txt validation
-		  STR=$romName
-		  SUB='.txt'
-		  if grep -q "$SUB" <<< "$STR"; then
-			  startcapture=false
-		  fi
-		 #.sav validation
-		  STR=$romName
-		  SUB='.sav'
-		  if grep -q "$SUB" <<< "$STR"; then
-			  startcapture=false
-		  fi
-		 #Directory Validation
-		 DIR=~/storage/$storageLocation/$system/$romName
-		 if [ -d "$DIR" ]; then
-			 startcapture=false
-		 fi
-		 
-		 #Blanks cleaning up, TODO: DRY
-		 firstString=$romNameNoExtension
-		 secondString="%20"
-		 romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
-		 firstString=$romNameNoExtensionNoSpace
-		 secondString="%20"
-		 romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
-		 firstString=$romNameNoExtensionNoSpace
-		 secondString="%20"
-		 romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
-		 firstString=$romNameNoExtensionNoSpace
-		 secondString="%20"
-		 romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
-		 firstString=$romNameNoExtensionNoSpace
-		 secondString="%20"
-		 romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
-		 firstString=$romNameNoExtensionNoSpace
-		 secondString="%20"
-		 romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
-		 firstString=$romNameNoExtensionNoSpace
-		 secondString="%20"
-		 romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
-		 firstString=$romNameNoExtensionNoSpace
-		 secondString="%20"
-		 romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"    						
-			 
-		 
-		 if [ $startcapture == true ]; then
-			 
-			 hasWheel=false
-			 hasSs=false
-			 hasBox=false
-			 
-			FILE=~/storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png
-			if [ -f "$FILE" ]; then
-				 hasWheel=true
-			fi
+	 		#Roms loop
+	 		for entry in ~/storage/$storageLocation/$system/*
+	 		do
+		 		#Cleaning up names
+				firstString=$entry
+				secondString=""
+				romName="${firstString/"/data/data/com.termux/files/home/storage/$storageLocation/$system/"/"$secondString"}"   		
+				romNameNoExtension=${romName%.*}		
 				
-			FILE=~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png
-			if [ -f "$FILE" ]; then
-				 hasSs=true
-			fi
-				
-			FILE=~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png
-			if [ -f "$FILE" ]; then
-				 hasBox=true
-			fi
-								 
- 
-			 #We only search games with no art
-			 if [ $hasWheel == false ] || [ $hasSs == false ] || [ $hasBox == false ]; then
-				#Second Scan: Screenscraper		
-				 url="https://www.screenscraper.fr/api2/jeuInfos.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&output=json&ssid=${userSS}&sspassword=${passSS}&crc=&systemeid=${ssID}&romtype=rom&romnom=${romNameNoExtensionNoSpace}.zip"
-				
-				 #ID Game
-				 content=$(curl "$url") 
-				 gameIDSS=$( jq -r  '.response.jeu.id' <<< "${content}" ) 
-							 
-				 
-				urlMediaWheel="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel(wor)"			 
-				urlMediaWheelHD="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel-hd(wor)"			 
-				 urlMediaSs="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=ss(wor)"
-				 urlMediaBox="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=box-2D(wor)"		
-				 wheelSavePath="./storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png"
-				 ssSavePath="./storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png"
-				 box2dfrontSavePath="./storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png"
-										 
-				 echo -e "Downloading Images for $romNameNoExtension"		
-				 
-				if [ $hasWheel == true ]; then
-					echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
-				else 
-					scrap_rom "$urlMediaWheel" "$wheelSavePath" "Wheel"
+				startcapture=true
+		 		
+				#.txt validation
+		 		STR=$romName
+		 		SUB='.txt'
+		 		if grep -q "$SUB" <<< "$STR"; then
+			 		startcapture=false
+		 		fi
+				#.sav validation
+		 		STR=$romName
+		 		SUB='.sav'
+		 		if grep -q "$SUB" <<< "$STR"; then
+			 		startcapture=false
+		 		fi
+				#Directory Validation
+				DIR=~/storage/$storageLocation/$system/$romName
+				if [ -d "$DIR" ]; then
+					startcapture=false
 				fi
 				
-				#Wheel HD just in case
-				FILE=~/storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png
-				if [ -f "$FILE" ]; then
-					echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
-				else 
-					scrap_rom "$urlMediaWheelHD" "$wheelSavePath" "Wheel HD"
-				fi
+				#Blanks cleaning up, TODO: DRY
+				firstString=$romNameNoExtension
+				secondString="%20"
+				romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
+				firstString=$romNameNoExtensionNoSpace
+				secondString="%20"
+				romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
+				firstString=$romNameNoExtensionNoSpace
+				secondString="%20"
+				romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
+				firstString=$romNameNoExtensionNoSpace
+				secondString="%20"
+				romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
+				firstString=$romNameNoExtensionNoSpace
+				secondString="%20"
+				romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
+				firstString=$romNameNoExtensionNoSpace
+				secondString="%20"
+				romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
+				firstString=$romNameNoExtensionNoSpace
+				secondString="%20"
+				romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
+				firstString=$romNameNoExtensionNoSpace
+				secondString="%20"
+				romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"    						
+					
 				
+				if [ $startcapture == true ]; then
+						
+					#First Scan: Retroarch				
+					FILE=~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png
+					if [ -f "$FILE" ]; then
+						echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
+					else 
+						echo -ne "Image not found: $romNameNoExtension screenshot..."
+						wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/screenshot/
+						echo -e ""
+					fi
+					
+					FILE=~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png
+					if [ -f "$FILE" ]; then
+						echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
+					else 
+						echo -ne "Image not found: $romNameNoExtension box2dfront..."
+						wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/box2dfront/
+						echo -e ""
+					fi
+					
+					#exit
 				
-				if [ $hasSs == true ]; then
-					echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
-				else 
-					scrap_rom "$urlMediaSs" "$ssSavePath" "Screenshot"
 				fi
-				
-				if [ $hasBox == true ]; then
-					echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
-				else 
-					scrap_rom "$urlMediaBox" "$box2dfrontSavePath" "2D Box"
-				fi
-			else
-				echo -e "Game already scraped" &> /dev/null
+		
+	 		done
+	 		
+   		#rsync -r ~/pegasus-artwork/$system/ ~/storage/$storageLocation/$system/
+ 		done
+		
+		echo -e "First Loop...${GREEN}completed${NONE}" 
+		echo -e "This second loop will take longer, make sure your handheld is connected to a power source"
+		echo -e "Press the ${RED}A Button${NONE} to start the Second Loop"
+		read pause	
+		
+		#We check for existing credentials
+		userStored=false
+		FILE=~/dragoonDoriseTools/.screenScraperUser
+		if [ -f "$FILE" ]; then
+			userStored=true
+			userSS=$(cat ~/dragoonDoriseTools/.screenScraperUser)
+			passSS=$(cat ~/dragoonDoriseTools/.screenScraperPass)
+		fi
+		
+		if [ $userStored == false ]; then
+			echo -e "You need to have an account on ${BOLD}https://www.screenscraper.fr${NONE} for scraping your roms"	
+			echo -e "Press the ${RED}A Button${NONE} if you already have an account"
+			echo -e "Type y and press the ${RED}A Button${NONE} and I'll open ScreenScraper on your browser, remember to come back when you are registered"
+			read account
+			if [[ $account == "y" ]]; then
+				termux-open "https://www.screenscraper.fr/membreinscription.php"
 			fi
-			 
 			
-		 
-		 fi
- 
-	  done
-	  
-	#rsync -r ~/pegasus-artwork/$system/ ~/storage/$storageLocation/$system/
-  done
- 
- echo -e "Second Loop...${GREEN}completed${NONE}" 
+			if [[ $account == "Y" ]]; then
+				termux-open "https://www.screenscraper.fr"
+			fi
+		
+			echo -e "Now I'm going to ask for your user and password. Both will be stored on your device, ${BOLD}I won't send them or read them${NONE}"
+			echo -e "What is your ScreenScraper user? Type it and press the ${RED}A button${NONE}"
+			read user
+			echo $user > ~/dragoonDoriseTools/.screenScraperUser
+			echo -e "What is your ScreenScraper password? Type it and press the ${RED}A button${NONE}"
+			read pass
+			echo $pass > ~/dragoonDoriseTools/.screenScraperPass
+			
+			echo -e "${GREEN}Thanks!${NONE} Press the ${RED}A Button${NONE} to start scraping your roms"
+			read pause
+		fi
+
+
+	fi
+
+	if [ $scraper == "SCREENSRAPER" ]; then
+		echo -e "Useing ScreenScraper..."		
+		
+ 		#ScreenScraper loop
+ 		for device_name in ${selected_device_names[@]};
+  		do
+					
+	  		message=$device_name
+	  		system="${message//'"'/}"            
+		   		
+	  		#ScreenScraper system ID
+	  		get_sc_id $system
+	  		
+	  		#Roms loop
+	  		for entry in ~/storage/$storageLocation/$system/*
+	  		do
+		  		#Cleaning up names
+		 		firstString=$entry
+		 		secondString=""
+		 		romName="${firstString/"/data/data/com.termux/files/home/storage/$storageLocation/$system/"/"$secondString"}"   		
+		 		romNameNoExtension=${romName%.*}		
+		 		
+		 		startcapture=true
+		  		
+		 		#.txt validation
+		  		STR=$romName
+		  		SUB='.txt'
+		  		if grep -q "$SUB" <<< "$STR"; then
+			  		startcapture=false
+		  		fi
+		 		#.sav validation
+		  		STR=$romName
+		  		SUB='.sav'
+		  		if grep -q "$SUB" <<< "$STR"; then
+			  		startcapture=false
+		  		fi
+		 		#Directory Validation
+		 		DIR=~/storage/$storageLocation/$system/$romName
+		 		if [ -d "$DIR" ]; then
+			 		startcapture=false
+		 		fi
+		 		
+		 		#Blanks cleaning up, TODO: DRY
+		 		firstString=$romNameNoExtension
+		 		secondString="%20"
+		 		romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
+		 		firstString=$romNameNoExtensionNoSpace
+		 		secondString="%20"
+		 		romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
+		 		firstString=$romNameNoExtensionNoSpace
+		 		secondString="%20"
+		 		romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
+		 		firstString=$romNameNoExtensionNoSpace
+		 		secondString="%20"
+		 		romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
+		 		firstString=$romNameNoExtensionNoSpace
+		 		secondString="%20"
+		 		romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
+		 		firstString=$romNameNoExtensionNoSpace
+		 		secondString="%20"
+		 		romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
+		 		firstString=$romNameNoExtensionNoSpace
+		 		secondString="%20"
+		 		romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
+		 		firstString=$romNameNoExtensionNoSpace
+		 		secondString="%20"
+		 		romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"    						
+			 		
+		 		
+		 		if [ $startcapture == true ]; then
+			 		
+			 		hasWheel=false
+			 		hasSs=false
+			 		hasBox=false
+			 		
+					FILE=~/storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png
+					if [ -f "$FILE" ]; then
+				 		hasWheel=true
+					fi
+						
+					FILE=~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png
+					if [ -f "$FILE" ]; then
+				 		hasSs=true
+					fi
+						
+					FILE=~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png
+					if [ -f "$FILE" ]; then
+				 		hasBox=true
+					fi
+								 		
+ 		
+			 		#We only search games with no art
+			 		if [ $hasWheel == false ] || [ $hasSs == false ] || [ $hasBox == false ]; then
+						#Second Scan: Screenscraper		
+				 		url="https://www.screenscraper.fr/api2/jeuInfos.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&output=json&ssid=${userSS}&sspassword=${passSS}&crc=&systemeid=${ssID}&romtype=rom&romnom=${romNameNoExtensionNoSpace}.zip"
+						
+				 		#ID Game
+				 		content=$(curl "$url") 
+				 		gameIDSS=$( jq -r  '.response.jeu.id' <<< "${content}" ) 
+							 		
+				 		
+						urlMediaWheel="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel(wor)"			 
+						urlMediaWheelHD="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel-hd(wor)"			 
+				 		urlMediaSs="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=ss(wor)"
+				 		urlMediaBox="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=box-2D(wor)"		
+				 		wheelSavePath="./storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png"
+				 		ssSavePath="./storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png"
+				 		box2dfrontSavePath="./storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png"
+										 		
+				 		echo -e "Downloading Images for $romNameNoExtension"		
+				 		
+						if [ $hasWheel == true ]; then
+							echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
+						else 
+							scrap_ss "$urlMediaWheel" "$wheelSavePath" "Wheel"
+						fi
+						
+						#Wheel HD just in case
+						FILE=~/storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png
+						if [ -f "$FILE" ]; then
+							echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
+						else 
+							scrap_ss "$urlMediaWheelHD" "$wheelSavePath" "Wheel HD"
+						fi
+						
+						
+						if [ $hasSs == true ]; then
+							echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
+						else 
+							scrap_ss "$urlMediaSs" "$ssSavePath" "Screenshot"
+						fi
+						
+						if [ $hasBox == true ]; then
+							echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
+						else 
+							scrap_ss "$urlMediaBox" "$box2dfrontSavePath" "2D Box"
+						fi
+					else
+						echo -e "Game already scraped" &> /dev/null
+					fi
+			 		
+					
+		 		
+		 		fi
+ 		
+	  		done
+	  		
+			#rsync -r ~/pegasus-artwork/$system/ ~/storage/$storageLocation/$system/
+  		done
+
+	fi
+
+
+
+ done
+
+
  echo -e "Remember to restart Pegasus to see the new artwork" 
  echo -e  "Press the ${RED}A button${NONE} to finish"
  read pause
