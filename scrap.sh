@@ -460,11 +460,11 @@ while true; do
 	scrapers_names=$(whiptail --title "Chose your Scrap Engine - We recomend to choose both" \
 	   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
 		"RETROARCH" "Retroarch Thumbs - Fast but only works on No Intro Romsets" ON \
-		"SCREENSRAPER" "ScreenScraper - Really slow but more reliable, needs a free user account" ON \
+		"SCREENSCRAPER" "ScreenScraper - Really slow but more reliable, needs a free user account" ON \
 	   3>&1 1<&2 2>&3)
 	case $scrapers_names in
 		[RETROARCH]* ) break;;
-		[SCREENSRAPER]* ) break;;
+		[SCREENSCRAPER]* ) break;;
 		* ) echo "Please choose";;
 	esac
  done
