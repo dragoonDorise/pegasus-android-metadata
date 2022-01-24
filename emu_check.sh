@@ -99,18 +99,19 @@ echo -ne "3DS - Citra..."
 if [ $hasCitra == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
-	#TODO Whiptail
 	echo -e  "${RED}Not installed${NONE}"
 fi
 echo -ne "Dreamcast - RedDream..."
 if [ $hasRedDream == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
+	echo -e  "${RED}Not installed${NONE}"
 fi
 echo -ne "Saturn - Yaba Sanshioro 2..."
 if [ $hasYaba == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
+	echo -e  "${RED}Not installed${NONE}"
 fi
 echo -ne "Nintendo 64 - Mupen 64 Plus..."
 if [ $hasMupen == true ]; then
@@ -127,7 +128,7 @@ fi
 echo -ne "Playstation - Duckstation..."
 if [ $hasDuckstation == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
-	else
+else
 	echo -e  "${RED}Not installed${NONE}"
 fi
 echo -ne "Nintendo DS - Drastic..."
