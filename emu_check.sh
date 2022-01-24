@@ -20,6 +20,7 @@ hasDolphin=false
 hasRetroArch=false
 hasRetroArch64=false
 hasCitra=false
+hasAether=false
 
 #Retroarch?
 FOLDER=~/storage/shared/Android/data/com.retroarch
@@ -45,8 +46,11 @@ if [ $hasRetroArch == false ]; then
 	xdg-open ~/dragoonDoriseTools/RetroArch.apk
 	clear
 fi
-
-
+#Aether?
+FOLDER=~/storage/shared/Android/data/xyz.aethersx2.android
+if [ -d "$FOLDER" ]; then
+	hasAether=true
+fi
 #Citra?
 FOLDER=~/storage/shared/citra-emu
 if [ -d "$FOLDER" ]; then
@@ -96,6 +100,13 @@ clear
 echo -e ""
 echo -e "Checking installed emulators..."
 echo -e ""
+echo -ne "PS2 - AetherSX2..."
+if [ $hasCitra == true ]; then
+	echo -e  "${GREEN}Installed${NONE}"
+else
+	echo -e  "${RED}Not installed${NONE}"
+fi
+
 echo -ne "3DS - Citra..."
 if [ $hasCitra == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
@@ -150,13 +161,14 @@ echo -e  "Press the ${RED}A button${NONE} to install the missing emulators"
 read pause
 clear
 	emulators_names=$(whiptail --title "Install missing emulators" \
-   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
+   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \   	
 	"DREAMCAST" "Dreamcast" ON \
 	"GC" "GameCube & Wii" ON \
 	"SATURN" "Sega Saturn" ON \
 	"N64" "Nintendo 64" ON \
 	"PSP" "Sony PSP" ON \
 	"PSX" "Sony Playstation" ON \
+	"PS2" "Playstation 2" ON \
 	"DS" "Nintendo DS - Paid Emulator" ON \
 	"3DS" "Nintendo 3DS" ON \
    3>&1 1<&2 2>&3)
@@ -205,6 +217,12 @@ for emulator in ${emulators[@]};
 	if [ $emulator == "PSX" ]; then
 		echo -e "Playstation - Duckstation..."	
 		termux-open "https://play.google.com/store/apps/details?id=com.github.stenzek.duckstation"
+		echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
+		read pause
+	fi
+	if [ $emulator == "PS2" ]; then
+		echo -e "Playstation2 - AetherSX2..."	
+		termux-open "https://play.google.com/store/apps/details?id=xyz.aethersx2.android"
 		echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
 		read pause
 	fi
