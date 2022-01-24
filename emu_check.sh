@@ -140,12 +140,12 @@ if [ $hasDolphin == true ]; then
 else
 	echo -e  "${RED}Not installed${NONE}"
 fi
-
+echo ""
 echo -e  "Press the ${RED}A button${NONE} to install the missing emulators"
 read pause
 
 	emulators_names=$(whiptail --title "Install missing emulators" \
-   --radiolist "Move using your DPAD and select your optiones with the Y button. Press the A button to select." 10 80 4 \
+   --checklist "Move using your DPAD and select your optiones with the Y button. Press the A button to select." 10 80 4 \
 	"DREAMCAST" "Dreamcast" ON \
 	"GC" "GameCube & Wii" ON \
 	"SATURN" "Sega Saturn" ON \
