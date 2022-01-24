@@ -552,7 +552,7 @@ for scraper in ${scrapers[@]};
 					#First Scan: Retroarch				
 					FILE=~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png
 					FILEI=~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.ignore
-					if [ -f "$FILEI" ] ||  [ -f "$FILEI" ]; then
+					if [ -f "$FILE" ] ||  [ -f "$FILEI" ]; then
 						echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 					else
 							
@@ -568,7 +568,7 @@ for scraper in ${scrapers[@]};
 					
 					FILE=~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png
 					FILEI=~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.ignore
-					if [ -f "$FILEI" ] ||  [ -f "$FILEI" ]; then
+					if [ -f "$FILE" ] ||  [ -f "$FILEI" ]; then
 						echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 					else
 					
