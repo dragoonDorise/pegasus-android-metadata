@@ -12,12 +12,22 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
-selected_option=$(whiptail --title "Pegasus Installer Menu" --radiolist "Move using your DPAD and select your options with the Y button. Press the A button to select." 20 40 15 \
-"1" "Update & Configure Pegasus Installer" ON \
-"2" "Scrap your Roms" OFF \
-"3" "Uninstall Pegasus Installer" OFF \
-"4" "Open Termux CLI" OFF \
-3>&1 1>&2 2>&3)
+while true; do
+	selected_option=$(whiptail --title "Pegasus Installer Menu" --radiolist "Move using your DPAD and select your options with the Y button. Press the A button to select." 20 40 15 \
+	"1" "Update & Configure Pegasus Installer" ON \
+	"2" "Scrap your Roms" OFF \
+	"3" "Uninstall Pegasus Installer" OFF \
+	"4" "Open Termux CLI" OFF \
+	3>&1 1>&2 2>&3)
+	case $selected_option in
+		[1]* ) break;;
+		[2]* ) break;;
+		[3]* ) break;;
+		[4]* ) break;;
+		* ) echo "Please choose";;
+	esac
+ done
+
 
 if [[ $selected_option == "1" ]]
 then
