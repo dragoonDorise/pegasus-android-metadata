@@ -175,35 +175,51 @@ for emulators in ${emulators[@]};
  
 	if [ $emulators == "DREAMCAST" ]; then
 		termux-open "https://play.google.com/store/apps/details?id=io.recompiled.redream"
+		echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
+		read pause
 	fi
 	echo -ne "Nintendo Wii & GameCube - Dolphin MMJR..."
 	if [ $emulators == true ]; then
 		wget  -q --show-progress https://github.com/Bankaimaster999/Dolphin-MMJR/releases/download/1.0-11460/Dolphin.MMJR.v11460.apk ~/dragoonDoriseTools/
 		xdg-open ~/dragoonDoriseTools/Dolphin.MMJR.v11460.apk
-	fi	
+echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
+	read pause
+fi
 	if [ $emulators == true ]; then
 		termux-open "https://play.google.com/store/apps/details?id=io.recompiled.redream"
-	fi
+echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
+	read pause
+fi
 	echo -ne "Saturn - Yaba Sanshioro 2..."
 	if [ $emulators == true ]; then
 		termux-open "https://play.google.com/store/apps/details?id=org.devmiyax.yabasanshioro2"
-	fi
+echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
+	read pause
+fi
 	echo -ne "Nintendo 64 - Mupen 64 Plus..."
 	if [ $emulators == true ]; then
 		termux-open "https://play.google.com/store/apps/details?id=org.mupen64plusae.v3.fzurita"
-	fi
+echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
+	read pause
+fi
 	echo -ne "PSP - PPSSPP..."
 	if [ $emulators == true ]; then
 		termux-open "https://play.google.com/store/apps/details?id=org.ppsspp.ppsspp"
-	fi
+echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
+	read pause
+fi
 	echo -ne "Playstation - Duckstation..."
 	if [ $emulators == true ]; then
 		termux-open "https://play.google.com/store/apps/details?id=com.github.stenzek.duckstation"
-	fi
+echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
+	read pause
+fi
 	echo -ne "Nintendo DS - Drastic..."
 	if [ $emulators == true ]; then
 		termux-open "https://play.google.com/store/apps/details?id=com.dsemu.drastic"
-	fi
+echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
+	read pause
+fi
 	if [ $emulators == "3DS" ]; then
 		wget  -q --show-progress https://github.com/weihuoya/citra/releases/download/20220120/Citra_MMJ_20220120.apk ~/dragoonDoriseTools/
 		xdg-open ~/dragoonDoriseTools/Citra_MMJ_20220120.apk
