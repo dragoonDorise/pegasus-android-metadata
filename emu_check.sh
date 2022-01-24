@@ -101,72 +101,40 @@ if [ $hasCitra == true ]; then
 else
 	#TODO Whiptail
 	echo -e  "${RED}Not installed${NONE}"
-	echo "Press the ${RED}A button${NONE} if you want to install it."
-	read pause
-	
-	wget  -q --show-progress https://github.com/weihuoya/citra/releases/download/20220120/Citra_MMJ_20220120.apk ~/dragoonDoriseTools/
-	xdg-open ~/dragoonDoriseTools/app-release.apk
-	
 fi
 echo -ne "Dreamcast - RedDream..."
 if [ $hasRedDream == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
-	#TODO Whiptail
-	echo -e  "${RED}Not installed${NONE}"
-	echo "Press the ${RED}A button${NONE} if you want to install it. A link to the Play Store will open"
-	read pause
-	termux-open "https://play.google.com/store/apps/details?id=io.recompiled.redream"
 fi
 echo -ne "Saturn - Yaba Sanshioro 2..."
 if [ $hasYaba == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
-	#TODO Whiptail
-	echo -e  "${RED}Not installed${NONE}"
-	echo "Press the ${RED}A button${NONE} if you want to install it. A link to the Play Store will open"
-	read pause
-	termux-open "https://play.google.com/store/apps/details?id=org.devmiyax.yabasanshioro2"
 fi
 echo -ne "Nintendo 64 - Mupen 64 Plus..."
 if [ $hasMupen == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
 	echo -e  "${RED}Not installed${NONE}"
-	#TODO Whiptail
-	echo "Press the ${RED}A button${NONE} if you want to install it. A link to the Play Store will open"
-	read pause
-	termux-open "https://play.google.com/store/apps/details?id=org.mupen64plusae.v3.fzurita"
 fi
 echo -ne "PSP - PPSSPP..."
 if [ $hasPPSSPP == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
 	echo -e  "${RED}Not installed${NONE}"
-	#TODO Whiptail
-	echo "Press the ${RED}A button${NONE} if you want to install it. A link to the Play Store will open"
-	read pause
-	termux-open "https://play.google.com/store/apps/details?id=org.ppsspp.ppsspp"
 fi
 echo -ne "Playstation - Duckstation..."
 if [ $hasDuckstation == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 	else
 	echo -e  "${RED}Not installed${NONE}"
-	#TODO Whiptail
-	echo "Press the ${RED}A button${NONE} if you want to install it. A link to the Play Store will open"
-	read pause
-	termux-open "https://play.google.com/store/apps/details?id=com.github.stenzek.duckstation"
 fi
 echo -ne "Nintendo DS - Drastic..."
 if [ $hasDrastic == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
 	echo -e  "${RED}Not installed${NONE}"
-	#TODO Whiptail
-	echo "Press the ${RED}A button${NONE} if you want to install it. A link to the Play Store will open"
-	read pause
-	termux-open "https://play.google.com/store/apps/details?id=com.dsemu.drastic"
 fi
 
 echo -ne "Nintendo Wii & GameCube - Dolphin MMJR..."
@@ -174,12 +142,75 @@ if [ $hasDolphin == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
 	echo -e  "${RED}Not installed${NONE}"
-	#TODO Whiptail
-	echo "Press the ${RED}A button${NONE} if you want to install it."
-	read pause
-	wget  -q --show-progress https://github.com/Bankaimaster999/Dolphin-MMJR/releases/download/1.0-11460/Dolphin.MMJR.v11460.apk ~/dragoonDoriseTools/
-	xdg-open ~/dragoonDoriseTools/Dolphin.MMJR.v11460.apk
 fi
 
+while true; do
+export NEWT_COLORS="
+root=,red
+roottext=yellow,red"
+	emulators_names=$(whiptail --title "Install missing emulators" \
+   --radiolist "Move using your DPAD and select your optiones with the Y button. Press the A button to select." 10 80 4 \
+	"DREAMCAST" "Dreamcast" ON \
+	"GC" "GameCube & Wii" ON \
+	"SATURN" "Sega Saturn" ON \
+	"N64" "Nintendo 64" ON \
+	"PSP" "Sony PSP" ON \
+	"PSX" "Sony Playstation" ON \
+	"DS" "Nintendo DS - Paid Emulator" ON \
+	"3DS" "Nintendo 3DS" ON \
+   3>&1 1<&2 2>&3)
+	case $emulators_names in
+		[3DS]* ) break;;
+		[ODIN]* ) break;;	
+		[ANDROID]* ) break;;
+		* ) echo "Please answer yes or no.";;
+	esac
+   
+ done
+
+mapfile -t emulators <<< $emulators_names
+
+for emulators in ${emulators[@]};
+ do
+ 
+	if [ $emulators == "DREAMCAST" ]; then
+		termux-open "https://play.google.com/store/apps/details?id=io.recompiled.redream"
+	fi
+	echo -ne "Nintendo Wii & GameCube - Dolphin MMJR..."
+	if [ $emulators == true ]; then
+		wget  -q --show-progress https://github.com/Bankaimaster999/Dolphin-MMJR/releases/download/1.0-11460/Dolphin.MMJR.v11460.apk ~/dragoonDoriseTools/
+		xdg-open ~/dragoonDoriseTools/Dolphin.MMJR.v11460.apk
+	fi	
+	if [ $emulators == true ]; then
+		termux-open "https://play.google.com/store/apps/details?id=io.recompiled.redream"
+	fi
+	echo -ne "Saturn - Yaba Sanshioro 2..."
+	if [ $emulators == true ]; then
+		termux-open "https://play.google.com/store/apps/details?id=org.devmiyax.yabasanshioro2"
+	fi
+	echo -ne "Nintendo 64 - Mupen 64 Plus..."
+	if [ $emulators == true ]; then
+		termux-open "https://play.google.com/store/apps/details?id=org.mupen64plusae.v3.fzurita"
+	fi
+	echo -ne "PSP - PPSSPP..."
+	if [ $emulators == true ]; then
+		termux-open "https://play.google.com/store/apps/details?id=org.ppsspp.ppsspp"
+	fi
+	echo -ne "Playstation - Duckstation..."
+	if [ $emulators == true ]; then
+		termux-open "https://play.google.com/store/apps/details?id=com.github.stenzek.duckstation"
+	fi
+	echo -ne "Nintendo DS - Drastic..."
+	if [ $emulators == true ]; then
+		termux-open "https://play.google.com/store/apps/details?id=com.dsemu.drastic"
+	fi
+	if [ $emulators == "3DS" ]; then
+		wget  -q --show-progress https://github.com/weihuoya/citra/releases/download/20220120/Citra_MMJ_20220120.apk ~/dragoonDoriseTools/
+		xdg-open ~/dragoonDoriseTools/Citra_MMJ_20220120.apk
+	fi
+		
+ 
+ done
+ 
 
 echo -e "${BOLD}If you chose to not install some emulators, remember that you need them if you want to play those systems${NONE}"
