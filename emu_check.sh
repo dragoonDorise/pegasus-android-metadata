@@ -46,9 +46,6 @@ if [ $hasRetroArch == false ]; then
 	clear
 fi
 
-echo -e  "Press the ${RED}A button${NONE} to continue"
-read pause
-
 
 #Citra?
 FOLDER=~/storage/shared/citra-emu
@@ -91,12 +88,11 @@ FOLDER=~/storage/shared/dolphin-mmj
 if [ -d "$FOLDER" ]; then
 	hasDolphin=true
 fi
-
+clear
 echo -e ""
 echo -e "Checking installed emulators..."
 echo -e ""
 echo -ne "3DS - Citra..."
-
 if [ $hasCitra == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
@@ -138,14 +134,16 @@ if [ $hasDrastic == true ]; then
 else
 	echo -e  "${RED}Not installed${NONE}"
 fi
-
 echo -ne "Nintendo Wii & GameCube - Dolphin MMJR..."
 if [ $hasDolphin == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
 	echo -e  "${RED}Not installed${NONE}"
 fi
+
+echo -e  "Press the ${RED}A button${NONE} to install the missing emulators"
 read pause
+
 	emulators_names=$(whiptail --title "Install missing emulators" \
    --radiolist "Move using your DPAD and select your optiones with the Y button. Press the A button to select." 10 80 4 \
 	"DREAMCAST" "Dreamcast" ON \
