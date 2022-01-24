@@ -60,11 +60,15 @@ if [ -d "$FOLDER" ]; then
 fi
 #YabaSanshioro?
 FOLDER=~/storage/shared/Android/data/org.devmiyax.yabasanshioro2.pro
+FOLDERPRO=~/storage/shared/Android/data/org.devmiyax.yabasanshioro2
 if [ -d "$FOLDER" ]; then
 	hasYaba=true
 fi
+if [ -d "$FOLDERPRO" ]; then
+	hasYaba=true
+fi
 #Mupen64
-FOLDER=~/storage/shared/Android/data/org.mupen64plusae.v3.fzurita.pro
+FOLDER=~/storage/shared/Android/data/org.mupen64plusae.v3.fzurita
 if [ -d "$FOLDER" ]; then
 	hasMupen=true
 fi
