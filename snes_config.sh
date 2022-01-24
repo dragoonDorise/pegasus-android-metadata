@@ -27,7 +27,7 @@ fi
 
 while true; do
 	snesMode=$(whiptail --title "Please choose your Super Nintendo Aspect Ratio" \
-   --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
+   --radiolist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
 	"CLASSIC" "4:3 Aspect Ratio (Classic TV Resolution)" ON \
 	"INTERNAL" "8:7 Aspect Ratio (Real internal Resolution)" OFF \
    3>&1 1<&2 2>&3)

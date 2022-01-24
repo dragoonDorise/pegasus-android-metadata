@@ -17,6 +17,36 @@ hasPPSSPP=false
 hasDuckstation=false
 hasDrastic=false
 hasDolphin=false
+hasRetroArch=false
+hasRetroArch64=false
+
+#Retroarch?
+FOLDER=~/storage/shared/Android/data/com.retroarch
+FOLDER64=~/storage/shared/Android/data/com.retroarch.aarch64
+if [ -d "$FOLDER" ]; then
+	hasRetroArch=true
+elif [ -d "$FOLDER64" ]; then
+	hasRetroArch=true
+	hasRetroArch64=true
+	FOLDER=$FOLDER64
+fi
+
+if [ $hasRetroArch == false ]; then
+	echo -ne "You don't have RetroArch, downloading it..."
+	echo ""
+	wget  -q --show-progress https://buildbot.libretro.com/stable/1.9.14/android/RetroArch.apk ~/dragoonDoriseTools/
+	echo ""
+	echo -e "We need to install RetroArch before we can continue..."
+	echo -e  "Press the ${RED}A button${NONE} to install RetroArch, when RetroArch is installed click ${BOLD}OPEN${NONE} in the installation window so RetroArch is opened."
+	echo -e  "Wait for Retroarch files to be downloaded, then quit Retroarch and come back here."
+	read pause
+	xdg-open ~/dragoonDoriseTools/RetroArch.apk
+	clear
+	echo -e  "Welcome back!"	
+	echo -e  "Press the ${RED}A button${NONE} to continue"
+	read pause
+	
+fi
 
 #RedDream?
 FOLDER=~/storage/shared/Android/data/io.recompiled.redream

@@ -15,22 +15,38 @@ rm -rf ~/storage &>> /dev/null
 termux-setup-storage
 echo -e "Pegasus installer 1.2.3"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
+echo -e  "We recommend you disable the virtual keyboard so you can properly"
+echo -e  "see all the selection menu."
 echo -e  "Press the ${RED}A button${NONE} to start"
 
 read clear
+
+while true; do
+export NEWT_COLORS="
+root=,red
+roottext=yellow,red"
+	handheldModel=$(whiptail --title "What Android Device do you have" \
+   --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
+	"ANDROID" "A regular Android Device" ON \
+	"RG552" "Anbernic RG552" OFF \
+	"ODIN" "AYN Odin" OFF \
+   3>&1 1<&2 2>&3)
+	case $handheldModel in
+		[ANDROID]* ) break;;
+		[RG552]* ) break;;
+		[ODIN]* ) break;;
+		* ) echo "Please answer yes or no.";;
+	esac
+   
+ done
+ 
+echo $handheldModel > ~/dragoonDoriseTools/.device
+
+
 #Detect installed emulators
-hasRetroArch=false
-hasRetroArch64=false
-#Retroarch?
-FOLDER=~/storage/shared/Android/data/com.retroarch
-FOLDER64=~/storage/shared/Android/data/com.retroarch.aarch64
-if [ -d "$FOLDER" ]; then
-	hasRetroArch=true
-elif [ -d "$FOLDER64" ]; then
-	hasRetroArch=true
-	hasRetroArch64=true
-	FOLDER=$FOLDER64
-fi
+
+/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/emu_check.sh
+
 
 clear
 echo -ne "Installing components, please be patient..."
@@ -189,24 +205,6 @@ fi
 echo -e "${GREEN}OK${NONE}"
 
 
-if [ $hasRetroArch == false ]; then
-	echo -ne "You don't have RetroArch, downloading it..."
-	echo ""
-	wget  -q --show-progress https://buildbot.libretro.com/stable/1.9.14/android/RetroArch.apk ~/dragoonDoriseTools/
-	echo ""
-	echo -e "We need to install RetroArch before we can continue..."
-	echo -e  "Press the ${RED}A button${NONE} to install RetroArch, when RetroArch is installed click ${BOLD}OPEN${NONE} in the installation window so RetroArch is opened."
-	echo -e  "Wait for Retroarch files to be downloaded, then quit Retroarch and come back here."
-	read pause
-	xdg-open ~/dragoonDoriseTools/RetroArch.apk
-	clear
-	echo -e  "Welcome back!"	
-	echo -e  "Press the ${RED}A button${NONE} to continue"
-	read pause
-	
-fi
-
-
 #Configure Retroarch
 echo -ne "Creating RetroArch Backup..."
 #We create the backup only if we don't have one, to prevent erasing the original backup if the user reinstalls
@@ -219,35 +217,12 @@ elif [ -d "$FOLDER64" ]; then
 	echo -e "${GREEN}OK${NONE}"
 fi
 
-
-while true; do
-	handheldModel=$(whiptail --title "What Android Device do you have" \
-   --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
-	"ANDROID" "A regular Android Device" ON \
-	"RG552" "An Anbernic RG552 " OFF \
-   3>&1 1<&2 2>&3)
-	case $handheldModel in
-		[ANDROID]* ) break;;
-		[RG552]* ) break;;
-		* ) echo "Please answer yes or no.";;
-	esac
-   
- done
-
-
 echo -ne "Configuring Retroarch..."
-
-# 5:3 Detection flag
-if [ $handheldModel == "RG552" ]
-then
-	touch ~/dragoonDoriseTools/.isRG552
-fi
-
-
-
 
 #RetroArch Configs
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/retroarch_config.sh $handheldModel
+
+
 # Install Themes for Pegasus
 echo -ne "Downloading Pegasus Theme : RP Epic Noir..."
 git clone https://github.com/dragoonDorise/RP-epic-noir.git ~/storage/shared/pegasus-frontend/themes/RP-epic-noir &>> ~/storage/shared/pegasus_installer_log.log
@@ -258,6 +233,14 @@ echo -ne "Downloading Pegasus Theme : RP Switch..."
 rm -rf ~/storage/shared/pegasus-frontend/themes/RP-switch &>> ~/storage/shared/pegasus_installer_log.log
 git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themes/RP-switch &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
+
+echo -ne "Downloading Pegasus Theme : game OS..."
+#We delete the theme, for previous users
+rm -rf ~/storage/shared/pegasus-frontend/themes/gameOSch &>> ~/storage/shared/pegasus_installer_log.log
+git clone https://github.com/PlayingKarrde/gameOS/ ~/storage/shared/pegasus-frontend/themes/gameOS &>> ~/storage/shared/pegasus_installer_log.log
+echo -e "${GREEN}OK${NONE}"
+
+
 
 echo "/bin/bash ~/startup.sh" > ~/.bashrc
 sleep .5
@@ -287,7 +270,7 @@ echo -ne  "Installing ${RED}Pegasus${NONE}..."
 xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
 echo -e  "${GREEN}OK${NONE}"
 
-/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/emu_check.sh
+
 
 echo -e  "";
 echo -e  "${GREEN}All Done${NONE}, do you have your roms ready?"

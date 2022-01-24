@@ -11,11 +11,7 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 
-handheldModel=""
-FILE=~/dragoonDoriseTools/.isRG552
-if [ -f "$FILE" ]; then
-	handheldModel="RG552"
-fi
+handheldModel=$(cat ~/dragoonDoriseTools/.device)
 
 snesMode="CLASSIC"
 FILE=~/dragoonDoriseTools/.snes87
@@ -27,7 +23,12 @@ mkdir ~/storage/shared/RetroArch/overlays/ &> ~/storage/shared/pegasus_installer
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 echo -ne "Installing overlays..."
-rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/overlays/ ~/storage/shared/RetroArch/overlays/ &> ~/storage/shared/pegasus_installer_log.log
+if [[ $handheldModel == "RG552" ]]; then
+	rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/overlays/ ~/storage/shared/RetroArch/overlays/ &> ~/storage/shared/pegasus_installer_log.log
+else
+	rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/overlays/ ~/storage/shared/RetroArch/overlays/ &> ~/storage/shared/pegasus_installer_log.log
+fi
+
 echo -e "${GREEN}OK${NONE}"
 echo -ne "Applying hotkeys..."
 sed -i 's/config_save_on_exit = "true"/config_save_on_exit = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
@@ -53,33 +54,57 @@ sed -i 's/input_state_slot_increase_btn = "nul"/input_state_slot_increase_btn = 
 sed -i 's/input_toggle_fast_forward_btn = "nul"/input_toggle_fast_forward_btn = "105"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
 sed -i 's/menu_driver = "glui"/menu_driver = "ozone"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
 echo -e "${GREEN}OK${NONE}"
-#Snes configuration
-/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/snes_config.sh
+
+
 if [[ $handheldModel == "RG552" ]]; then
 	echo -ne "RG552 Special configuration..."
-	#cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes.cfg ~/storage/shared/RetroArch/config/Snes9x &> ~/storage/shared/pegasus_installer_log.log
+
+	#SNES
+	cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes.cfg ~/storage/shared/RetroArch/config/Snes9x &> ~/storage/shared/pegasus_installer_log.log
+	cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes87.cfg ~/storage/shared/RetroArch/config/Snes9x &> ~/storage/shared/pegasus_installer_log.log
+
 
 	#Overlay Fixes for 5:3 screens
-	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Genesis Plus GX/genesis.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/MAME 2003-Plus/mame.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Beetle NeoPop/ngp.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Beetle NeoPop/ngpc.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Beetle Cygne/wswan.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Beetle Cygne/wswanc.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/lynx.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Gambatte/gb.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Gambatte/gbc.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Genesis\sPlus\sGX/gamegear.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Genesis\sPlus\sGX/genesis.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Nestopia/nes.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/mGBA/gba.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Genesis\sPlus\sGX/mastersystem.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Genesis Plus GX/genesis.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/MAME 2003-Plus/mame.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Beetle NeoPop/ngp.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Beetle NeoPop/ngpc.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Beetle Cygne/wswan.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Beetle Cygne/wswanc.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/lynx.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Gambatte/gb.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Gambatte/gbc.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Genesis\sPlus\sGX/gamegear.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Genesis\sPlus\sGX/genesis.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Nestopia/nes.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/mGBA/gba.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Genesis\sPlus\sGX/mastersystem.cfg &> ~/storage/shared/pegasus_installer_log.log 
+		
+	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Genesis Plus GX/genesis.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/MAME 2003-Plus/mame.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Beetle NeoPop/ngp.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Beetle NeoPop/ngpc.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Beetle Cygne/wswan.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Beetle Cygne/wswanc.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/lynx.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Gambatte/gb.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Gambatte/gbc.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Genesis\sPlus\sGX/gamegear.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Genesis\sPlus\sGX/genesis.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Nestopia/nes.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/mGBA/gba.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/batocera/HSMBezel/g' ~/storage/shared/RetroArch/config/Genesis\sPlus\sGX/mastersystem.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	
 	
 echo -e "${GREEN}OK${NONE}"
 
 fi
 #Cores https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/
+
+#Snes configuration
+/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/snes_config.sh
 
 echo -e "Downloading RetroArch Recommended Cores..."
 installCores="true"

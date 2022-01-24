@@ -407,7 +407,7 @@ clear
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 
 selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
-   --checklist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
+   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
 	"ALL" "This option will look for all systems on your SD Card" OFF \
 	"atari2600" "Atari - 2600" OFF \
 	"atarilynx" "Atari - Lynx" OFF \
