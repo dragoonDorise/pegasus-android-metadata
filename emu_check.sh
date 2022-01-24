@@ -19,6 +19,7 @@ hasDrastic=false
 hasDolphin=false
 hasRetroArch=false
 hasRetroArch64=false
+hasCitra=false
 
 #Retroarch?
 FOLDER=~/storage/shared/Android/data/com.retroarch
@@ -46,6 +47,12 @@ if [ $hasRetroArch == false ]; then
 	echo -e  "Press the ${RED}A button${NONE} to continue"
 	read pause
 	
+fi
+
+#Citra?
+FOLDER=~/storage/shared/citra-emu
+if [ -d "$FOLDER" ]; then
+	hasCitra=true
 fi
 
 #RedDream?
@@ -88,7 +95,22 @@ echo -e ""
 echo -e "Checking installed emulators..."
 echo -e ""
 echo -ne "Dreamcast - RedDream..."
-if [ hasRedDream==true ]; then
+
+
+if [ $hasCitra == true ]; then
+	echo -e  "${GREEN}Installed${NONE}"
+else
+	#TODO Whiptail
+	echo -e  "${RED}Not installed${NONE}"
+	echo "Type Y and press the ${RED}A button${NONE} if you want to install it."
+	read pause
+	
+	wget  -q --show-progress https://github.com/weihuoya/citra/releases/download/20220120/Citra_MMJ_20220120.apk ~/dragoonDoriseTools/
+	xdg-open ~/dragoonDoriseTools/app-release.apk
+	
+fi
+
+if [ $hasRedDream == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
 	#TODO Whiptail
@@ -98,7 +120,7 @@ else
 	termux-open "https://play.google.com/store/apps/details?id=io.recompiled.redream"
 fi
 echo -ne "Saturn - Yaba Sanshioro 2..."
-if [ hasYaba==true ]; then
+if [ $hasYaba == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
 	#TODO Whiptail
@@ -108,7 +130,7 @@ else
 	termux-open "https://play.google.com/store/apps/details?id=org.devmiyax.yabasanshioro2"
 fi
 echo -ne "Nintendo 64 - Mupen 64 Plus..."
-if [ hasMupen==true ]; then
+if [ $hasMupen == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
 	echo -e  "${RED}Not installed${NONE}"
@@ -118,7 +140,7 @@ else
 	termux-open "https://play.google.com/store/apps/details?id=org.mupen64plusae.v3.fzurita"
 fi
 echo -ne "PSP - PPSSPP..."
-if [ hasPPSSPP==true ]; then
+if [ $hasPPSSPP == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
 	echo -e  "${RED}Not installed${NONE}"
@@ -128,7 +150,7 @@ else
 	termux-open "https://play.google.com/store/apps/details?id=org.ppsspp.ppsspp"
 fi
 echo -ne "Playstation - Duckstation..."
-if [ hasDuckstation==true ]; then
+if [ $hasDuckstation == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 	else
 	echo -e  "${RED}Not installed${NONE}"
@@ -138,7 +160,7 @@ if [ hasDuckstation==true ]; then
 	termux-open "https://play.google.com/store/apps/details?id=com.github.stenzek.duckstation"
 fi
 echo -ne "Nintendo DS - Drastic..."
-if [ hasDrastic==true ]; then
+if [ $hasDrastic == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
 	echo -e  "${RED}Not installed${NONE}"
@@ -149,7 +171,7 @@ else
 fi
 
 echo -ne "Nintendo Wii & GameCube - Dolphin MMJR..."
-if [ hasDrastic==true ]; then
+if [ $hasDolphin == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
 	echo -e  "${RED}Not installed${NONE}"

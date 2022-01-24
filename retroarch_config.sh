@@ -103,6 +103,16 @@ if [ $installCores == "true" ]; then
 	# Do this in a better way!
 	cd ~/storage/shared/RetroArch/downloads
 	find . -name "*.so" -type f -delete
+	
+	echo -ne "Downloading Final Burn Alpha..."
+	FILE=~/storage/shared/RetroArch/downloads/fbalpha2012_neogeo_libretro_android.so
+	if [ -f "$FILE" ]; then
+		echo -e "${GREEN}Already Downloaded${NONE}"	
+	else
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fbalpha2012_neogeo_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		echo -e "${GREEN}OK${NONE}"	
+	fi
+	
 	echo -ne "Downloading Final Burn Neo..."
 	FILE=~/storage/shared/RetroArch/downloads/fbneo_libretro_android.so
 	if [ -f "$FILE" ]; then
