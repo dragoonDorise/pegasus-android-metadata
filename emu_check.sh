@@ -155,18 +155,6 @@ read pause
 	"DS" "Nintendo DS - Paid Emulator" ON \
 	"3DS" "Nintendo 3DS" ON \
    3>&1 1<&2 2>&3)
-	case $emulators_names in
-		[DREAMCAST]* ) break;;
-		[GC]* ) break;;	
-		[SATURN]* ) break;;
-		[N64]* ) break;;
-		[PSP]* ) break;;	
-		[PSX]* ) break;;
-		[DREAMCAST]* ) break;;
-		[DS]* ) break;;	
-		[3DS]* ) break;;
-		* ) echo "Please answer yes or no.";;
-	esac
 
 mapfile -t emulators <<< $emulators_names
 
