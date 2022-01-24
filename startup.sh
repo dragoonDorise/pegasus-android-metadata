@@ -24,7 +24,7 @@ while true; do
 		[2]* ) break;;
 		[3]* ) break;;
 		[4]* ) break;;
-		* ) echo "Please choose";;
+		* ) echo "Please hide your keyboard";;
 	esac
  done
 
