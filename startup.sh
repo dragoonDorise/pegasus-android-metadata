@@ -43,7 +43,7 @@ fi
 
 if [[ $selected_option == "3" ]]
 then
-	/bin/bash ~/dragoonDorise/pegasus-android-metadata/snes_config.sh
+	/bin/bash ~/snes_config.sh
 fi
 
 if [[ $selected_option == "4" ]]
