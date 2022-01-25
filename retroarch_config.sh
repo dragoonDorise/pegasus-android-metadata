@@ -73,7 +73,7 @@ sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landsc
 sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Beetle\ Lynx/lynx.cfg &> ~/storage/shared/pegasus_installer_log.log 
 sed -i 's/input_overlay_scale_landscape = "1.680000"/input_overlay_scale_landscape = "1.780000"/g' ~/storage/shared/RetroArch/config/Gambatte/gb.cfg &> ~/storage/shared/pegasus_installer_log.log 
 sed -i 's/input_overlay_scale_landscape = "1.685000"/input_overlay_scale_landscape = "1.785000"/g' ~/storage/shared/RetroArch/config/Gambatte/gbc.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/gamegear.cfg &> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_overlay_scale_landscape = "1.544999"/input_overlay_scale_landscape = "1.645000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/gamegear.cfg &> ~/storage/shared/pegasus_installer_log.log 
 sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/genesis.cfg &> ~/storage/shared/pegasus_installer_log.log 
 sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Nestopia/nes.cfg &> ~/storage/shared/pegasus_installer_log.log 
 sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_log.log 
