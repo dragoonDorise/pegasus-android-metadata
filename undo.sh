@@ -35,6 +35,7 @@ rm -f update.sh  &> ~/storage/shared/pegasus_installer_log.log
 rm -f run_update.sh  &> ~/storage/shared/pegasus_installer_log.log
 rm -f undo.sh  &> ~/storage/shared/pegasus_installer_log.log
 rm -f startup.sh  &> ~/storage/shared/pegasus_installer_log.log
+rm -f snes_config.sh  &> ~/storage/shared/pegasus_installer_log.log
 echo "" > ~/.bashrc
 echo -e "${GREEN}OK${NONE}"
 echo -ne "Deleting Pegasus apk..."
