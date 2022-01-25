@@ -13,7 +13,7 @@ BLINK='\x1b[5m'
 clear
 rm -rf ~/storage &>> /dev/null
 termux-setup-storage
-echo -e "Pegasus installer 1.2.4c"
+echo -e "Pegasus installer 1.2.4d"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "We recommend you to hide the virtual keyboard by swiping from the left of the screen."
 echo -e  "Press the ${RED}A button${NONE} to start"
