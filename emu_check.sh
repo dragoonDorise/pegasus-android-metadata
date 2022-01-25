@@ -162,15 +162,15 @@ read pause
 clear
 	emulators_names=$(whiptail --title "Install missing emulators" \
    --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \   	
-	"DREAMCAST" "Dreamcast" ON \
-	"GC" "GameCube & Wii" ON \
-	"SATURN" "Sega Saturn" ON \
-	"N64" "Nintendo 64" ON \
-	"PSP" "Sony PSP" ON \
-	"PSX" "Sony Playstation" ON \
-	"PS2" "Playstation 2" ON \
-	"DS" "Nintendo DS - Paid Emulator" ON \
-	"3DS" "Nintendo 3DS" ON \
+	"DREAMCAST" "Dreamcast" OFF \
+	"GC" "GameCube & Wii" OFF \
+	"SATURN" "Sega Saturn" OFF \
+	"N64" "Nintendo 64" OFF \
+	"PSP" "Sony PSP" OFF \
+	"PSX" "Sony Playstation" OFF \
+	"PS2" "Playstation 2" OFF \
+	"DS" "Nintendo DS - Paid Emulator" OFF \
+	"3DS" "Nintendo 3DS" OFF \
    3>&1 1<&2 2>&3)
 
 
