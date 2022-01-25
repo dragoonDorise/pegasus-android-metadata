@@ -256,12 +256,13 @@ echo -e ""
 echo -e  "Now let's install ${RED}Pegasus${NONE}"
 echo -e  "Press the ${RED}A button${NONE} to install Pegasus, when Pegasus is installed click ${BOLD}DONE${NONE} in the installation window so you can come back to scrape your roms' artwork!"
 read pause
-
+clear
 echo -ne  "Installing ${RED}Pegasus${NONE}..."
 #Launch Pegasus
 xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
 echo -e  "${GREEN}OK${NONE}"
-
+echo ""
+echo -e "${YELLOW}Retroarch Cores${NONE}"
 echo -e "Remember to go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
 echo -e "And then select the core you want to install"
 echo -e ""
@@ -274,7 +275,7 @@ echo -e "${RED}IMPORTANT${NONE}"
 echo -e "Be aware that if you delete the Termux app Android will ${RED}DELETE${NONE} the Termux folder on your SD Card"
 echo -e "The roms on ${GREEN}/Android/data/com.termux/files/${NONE} will be deleted"
 echo -e "No other files on the SD Card will be affected"
-echo -e  "Press the ${RED}A button${NONE} to continue"
+echo -e  "Press the ${RED}A button${NONE} to continue to next step"
 read pause
 
 while true; do
@@ -283,7 +284,7 @@ while true; do
 	"YES" "Scrap my roms!" OFF \
 	"NO" "You can always do the scraping later by opening Termux in any moment" OFF \
    3>&1 1<&2 2>&3)
-	case $handheldModel in
+	case $scrapNow in
 		[YES]* ) break;;
 		[NO]* ) break;;	
 		* ) echo "Please answer yes or no.";;
