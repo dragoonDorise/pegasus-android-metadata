@@ -189,10 +189,10 @@ for emulator in ${emulators[@]};
 	fi
 	if [ $emulator == "GC" ]; then
 		echo -e "Nintendo Wii & GameCube - Dolphin MMJR..."
-		wget  -q --show-progress https://github.com/Bankaimaster999/Dolphin-MMJR/releases/download/1.0-11460/Dolphin.MMJR.v11460.apk -P ~/dragoonDoriseTools/
+		wget  -q --show-progress https://github.com/Bankaimaster999/Dolphin-MMJR2/releases/download/2.0-15108/MMJR.v2.0-15108.apk -P ~/dragoonDoriseTools/
 		echo -e  "Press the ${RED}A button${NONE} to install Dolphin"
 		read pause		
-		xdg-open ~/dragoonDoriseTools/Dolphin.MMJR.v11460.apk
+		xdg-open ~/dragoonDoriseTools/MMJR.v2.0-15108.apk
 		echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
 		read pause
 	fi
