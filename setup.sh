@@ -262,30 +262,52 @@ echo -ne  "Installing ${RED}Pegasus${NONE}..."
 xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
 echo -e  "${GREEN}OK${NONE}"
 
-
-
-echo -e  "";
-echo -e  "${GREEN}All Done${NONE}, do you have your roms ready?"
-echo -e  "${BOLD}Let's start getting all your artwork!${NONE}"
-echo -e  "Press the ${RED}A button${NONE} to continue"
-read pause
-cd ~/
-bash scrap.sh
-clear
-echo -e  "${GREEN}Done!${NONE}"
-
-echo -e  "${STRONG}If you want to scrape more roms, update or uninstall Pegasus Installer:${NONE}"
-echo -e  "In Pegasus go to the Android Collection and look for Rom Scraper"
-
-
-echo -e "${RED}INSTALL EMULATORS${NONE} Remember to go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
+echo -e "Remember to go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
 echo -e "And then select the core you want to install"
+echo -e ""
+echo -e "${YELLOW}BIOS${NONE}"
+echo -e "Remember to copy your BIOS files for the following emulators:"
+echo -e "RetroArch - internal storage/RetroArch/system folder"
+echo -e "Duckstation & AetherSX2 on App Settings, BIOS section"
 echo -e ""
 echo -e "${RED}IMPORTANT${NONE}"
 echo -e "Be aware that if you delete the Termux app Android will ${RED}DELETE${NONE} the Termux folder on your SD Card"
 echo -e "The roms on ${GREEN}/Android/data/com.termux/files/${NONE} will be deleted"
 echo -e "No other files on the SD Card will be affected"
-echo -e "${RED}IMPORTANT${NONE}"
-echo -e  "Press the ${RED}A button${NONE} to finish"
+echo -e  "Press the ${RED}A button${NONE} to continue"
 read pause
-am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
+
+while true; do
+	scrapNow=$(whiptail --title "Do you want to scrap your roms now?" \
+   --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
+	"YES" "Scrap my roms!" OFF \
+	"NO" "You can always do the scraping later by opening Termux in any moment" OFF \
+   3>&1 1<&2 2>&3)
+	case $handheldModel in
+		[YES]* ) break;;
+		[NO]* ) break;;	
+		* ) echo "Please answer yes or no.";;
+	esac
+   
+ done
+
+if [ $scrapNow == "YES" ]; then
+	clear
+	echo -e  "";
+	echo -e  "Do you have your roms ready on your SD Card or Internal Storage?"
+	echo -e  "${BOLD}Let's start getting all your artwork!${NONE}"
+	echo -e  "Press the ${RED}A button${NONE} to continue"
+	read pause
+	cd ~/
+	bash ~/scrap.sh	
+else
+	clear	
+	echo -e  "${STRONG}If you want to scrap more roms, update or uninstall Pegasus Installer:${NONE}"
+	echo -e  "In Pegasus go to the Android Collection and look for Rom Scraper / Termux"
+	echo -e  "Or just start Termux from your Android apps"
+	echo -e  "Press the ${RED}A button${NONE} to exit"
+	read pause
+	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
+
+fi
+
