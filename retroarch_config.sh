@@ -105,6 +105,17 @@ if [ $installCores == "true" ]; then
 	cd ~/storage/shared/RetroArch/downloads
 	find . -name "*.so" -type f -delete
 	
+	echo -ne "Downloading Opera..."
+	FILE=~/storage/shared/RetroArch/downloads/opera_libretro_android.so
+	if [ -f "$FILE" ]; then
+		echo -e "${GREEN}Already Downloaded${NONE}"	
+	else
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/opera_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		echo -e "${GREEN}OK${NONE}"	
+	fi
+
+	
+	
 	echo -ne "Downloading Final Burn Alpha..."
 	FILE=~/storage/shared/RetroArch/downloads/fbalpha2012_neogeo_libretro_android.so
 	if [ -f "$FILE" ]; then
@@ -114,7 +125,7 @@ if [ $installCores == "true" ]; then
 		echo -e "${GREEN}OK${NONE}"	
 	fi
 	
-	echo -ne "Downloading Final Burn Neo..."
+	echo -ne "Downloading Final Burn Neo..."	
 	FILE=~/storage/shared/RetroArch/downloads/fbneo_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
@@ -254,6 +265,7 @@ if [ $installCores == "true" ]; then
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	
+	
 	echo -ne "Downloading Sega32x..."
 	FILE=~/storage/shared/RetroArch/downloads/picodrive_libretro_android.so
 	if [ -f "$FILE" ]; then
@@ -262,7 +274,17 @@ if [ $installCores == "true" ]; then
 		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/picodrive_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
+
 	
+	echo -ne "Downloading Pico8..."
+	FILE=~/storage/shared/RetroArch/downloads/retro8_libretro_android.so
+	if [ -f "$FILE" ]; then
+		echo -e "${GREEN}Already Downloaded${NONE}"	
+	else	
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/retro8_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		echo -e "${GREEN}OK${NONE}"		
+	fi
+
 	echo -ne "Downloading Neo Geo..."
 	FILE=~/storage/shared/RetroArch/downloads/neocd_libretro_android.so
 	if [ -f "$FILE" ]; then
@@ -323,6 +345,9 @@ if [ $installCores == "true" ]; then
 	unzip ~/storage/shared/RetroArch/downloads/neocd_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
 	unzip ~/storage/shared/RetroArch/downloads/mednafen_ngp_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
 	unzip ~/storage/shared/RetroArch/downloads/pcsx_rearmed_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
+	unzip ~/storage/shared/RetroArch/downloads/opera_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
+	unzip ~/storage/shared/RetroArch/downloads/retro8_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
+	
 	find . -name "*.zip" -type f -delete
 	echo -e "${GREEN}OK${NONE}"
 	
