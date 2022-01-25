@@ -1,5 +1,0 @@
-## SYSTEM POKEMON-MINI ##
--------------------------------------------------------------------------------
-ROM files extensions accepted: ".min .zip .7z"
--------------------------------------------------------------------------------
-Extensions des fichiers ROMs permises: ".min .zip .7z"

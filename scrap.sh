@@ -434,7 +434,6 @@ selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
 	"neogeocd" "SNK - Neo Geo CD" OFF \
 	"pcengine" "NEC - PC Engine - TurboGrafx 16" OFF \
 	"pcenginecd" "NEC - PC Engine CD - TurboGrafx-CD" OFF \
-	"pokemini" "Nintendo - Pokemon Mini" OFF \
 	"psx" "Sony - PlayStation" OFF \
 	"ps2" "Sony - PlayStation 2" OFF \
 	"psp" "Sony - PlayStation Portable" OFF \
