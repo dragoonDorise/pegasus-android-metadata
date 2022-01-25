@@ -92,7 +92,7 @@ if [ -d "$FOLDER" ]; then
 	hasDrastic=true
 fi
 #Dolphin
-FOLDER=~/storage/shared/dolphin-mmj
+FOLDER=~/storage/shared/mmjr-revamp
 if [ -d "$FOLDER" ]; then
 	hasDolphin=true
 fi
