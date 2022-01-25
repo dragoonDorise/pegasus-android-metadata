@@ -41,3 +41,6 @@
 
 1.2.3
 - External HD Support - Experimental
+
+1.2.4
+- AYN Odin configuration

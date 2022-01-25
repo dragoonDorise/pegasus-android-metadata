@@ -33,17 +33,6 @@ fi
 #update scripts
 echo -ne  "Updating Scripts..."
 pkg install git wget rsync unzip whiptail jq -y  &>> ~/storage/shared/pegasus_installer_log.log
-#cd ~/dragoonDoriseTools/pegasus-android-metadata/ &> ~/storage/shared/pegasus_installer_log.log 
-#git reset --hard &> ~/storage/shared/pegasus_installer_log.log 
-#git pull &> ~/storage/shared/pegasus_installer_log.log 
-#cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/update.sh
-#chmod a+rwx ~/update.sh
-#cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/scrap.sh
-#chmod a+rwx ~/scrap.sh
-#cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh
-#chmod a+rwx ~/undo.sh
-#cp ~/dragoonDoriseTools/pegasus-android-metadata/startup.sh  ~/startup.sh &> ~/storage/shared/pegasus_installer_log.log
-#chmod a+rwx ~/startup.sh &> ~/storage/shared/pegasus_installer_log.log
 echo "/bin/bash ~/startup.sh" > ~/.bashrc
 echo -e "${GREEN}OK${NONE}"
 
@@ -98,7 +87,8 @@ handheldModel="ANDROID"
 
 FILE=~/dragoonDoriseTools/.isRG552
 if [ -f "$FILE" ]; then
-	handheldModel="RG552"
+	rm ~/dragoonDoriseTools/.isRG552
+	echo 'RG552' > ~/dragoonDoriseTools/.device	
 fi
 
 #RetroArch Update
@@ -119,7 +109,8 @@ echo -e  "Your version was: ${PURPLE}$version${NONE}"
 echo -e "Installed version is now: ${GREEN}$newVersion${NONE}"
 echo -e ""
 
-echo -e "${YELLOW}REMEMBER TO INSTALL CORES${NONE} If you downloaded new cores.. Go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
+echo -e "${YELLOW}REMEMBER TO INSTALL CORES${NONE} If you downloaded new cores.."
+echo -e "Go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
 echo -e "And just select the core you want to install"
 echo -e  "Press the ${RED}A button${NONE} to finish"
 read pause
