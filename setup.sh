@@ -38,7 +38,7 @@ rm ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 touch ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 sleep .5
 pkg update -y -F &>> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y -F &>> ~/storage/shared/pegasus_installer_log.log
-pkg install git wget jq rsync unzip whiptail -y  &>> ~/storage/shared/pegasus_installer_log.log
+pkg install git wget jq rsync unzip whiptail build-essential ninja liblz4 libuv -y  &>> ~/storage/shared/pegasus_installer_log.log
 
 mkdir ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
 cd ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
@@ -85,7 +85,9 @@ cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-fronten
 cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 
-echo -ne "Installing Scrap, Update & Undo Scripts..."
+echo -ne "Installing Compress, Scrap, Update & Undo Scripts..."
+cp ~/dragoonDoriseTools/pegasus-android-metadata/compress.sh ~/compress.sh &>> ~/storage/shared/pegasus_installer_log.log
+chmod a+rwx ~/compress.sh &>> ~/storage/shared/pegasus_installer_log.log
 cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/update.sh &>> ~/storage/shared/pegasus_installer_log.log
 chmod a+rwx ~/update.sh &>> ~/storage/shared/pegasus_installer_log.log
 cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/run_update.sh &>> ~/storage/shared/pegasus_installer_log.log
@@ -182,6 +184,23 @@ fi
 
 # Instaling roms folders
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/$storageLocation &>> ~/storage/shared/pegasus_installer_log.log
+
+#Install CHDMAN
+echo -e "Downloading and installing CHDMAN..."
+git clone https://github.com/CharlesThobe/chdman.git ~/dragoonDoriseTools/chdman
+cd ~/dragoonDoriseTools/chdman
+mkdir ~/dragoonDoriseTools/chdman/build && cd ~/dragoonDoriseTools/chdman/build
+cmake -G Ninja .. && ninja
+cp chdman $PREFIX/bin/chdman && chmod +x $PREFIX/bin/chdman
+echo -e "${GREEN}CHDMAN Installed!${NONE}"
+#Install Maxcso
+echo -e "Downloading and installing Maxcso..."
+git clone https://github.com/unknownbrackets/maxcso.git ~/dragoonDoriseTools/maxcso
+cd ~/dragoonDoriseTools/maxcso
+make
+cp maxcso $PREFIX/bin/maxcso && chmod +x $PREFIX/bin/maxcso
+echo -e "${GREEN}Maxcso Installed!${NONE}"
+
 #Retroarch64 support
 if [[ $hasRetroArch64 == true ]]; then
 	find ~/storage/$storageLocation -type f -name "*.txt" -exec sed -i -e 's/com.retroarch/com.retroarch.aarch64/g' {} \;
@@ -291,6 +310,10 @@ echo -e  "${GREEN}OK${NONE}"
 
 echo -e  "";
 echo -e  "${GREEN}All Done${NONE}, do you have your roms ready?"
+echo -e "You'll be asked if you want to be able to compress your roms in the next prompt"
+echo -e  "Press the ${RED}A button${NONE} to continue"
+#Launch rom compressor script
+bash compress.sh
 echo -e  "${BOLD}Let's start getting all your artwork!${NONE}"
 echo -e  "Press the ${RED}A button${NONE} to continue"
 read pause
