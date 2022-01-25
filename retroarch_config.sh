@@ -56,10 +56,6 @@ sed -i 's/input_toggle_fast_forward_btn = "nul"/input_toggle_fast_forward_btn = 
 sed -i 's/menu_driver = "glui"/menu_driver = "ozone"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
 echo -e "${GREEN}OK${NONE}"
 
-echo "Now we are going to do special configurations for your model:"
-echo -e "${GREEN}$handheldModel${NONE}"
-echo -e  "Press the ${RED}A button${NONE} to continue"
-read pause
 
 if [[ $handheldModel == "RG552" ]]; then
 echo -n "RG552 Special configuration..."
