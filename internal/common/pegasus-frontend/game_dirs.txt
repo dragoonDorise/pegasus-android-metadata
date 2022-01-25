@@ -26,7 +26,6 @@
 /storage/0000-0000/dos
 /storage/0000-0000/dreamcast
 /storage/0000-0000/fba
-/storage/0000-0000/fbn
 /storage/0000-0000/fbneo
 /storage/0000-0000/fds
 /storage/0000-0000/gameandwatch
