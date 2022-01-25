@@ -175,7 +175,7 @@ clear
 
 
 
-clear
+
 mapfile -t emulators <<< $emulators_names
 
 for emulator in ${emulators[@]};
