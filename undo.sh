@@ -57,11 +57,10 @@ rm -rf ~/storage  &> ~/storage/shared/pegasus_installer_log.log
 
 echo -e "${GREEN}All cleaned up!${NONE}"
 echo -e  "We hope to see you come back soon!"
-echo -e  "${BOLD}NOTE:${NONE} Termux and Pegasus have to be uninstalled like any other Android app. Pegasus themes were not deleted either"
+echo -e  "${BOLD}NOTE:${NONE} Termux, Pegasus and all the emulators have to be uninstalled like any other Android app. Pegasus themes were not deleted either"
 if [ $useInternalStorage == false ]; then
 	echo -e "${RED}IMPORTANT${NONE}"
 	echo -e "Be aware that if you delete the Termux app Android will ${RED}DELETE${NONE} all the roms on your SD Card"
-	echo -e "${RED}IMPORTANT${NONE}"
 fi
 echo -e  "Press the ${RED}A button${NONE} to finish"
 read pause
