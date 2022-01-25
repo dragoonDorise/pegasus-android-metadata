@@ -44,6 +44,7 @@ fi
 if [[ $selected_option == "3" ]]
 then
 	/bin/bash ~/snes_config.sh
+	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 fi
 
 if [[ $selected_option == "4" ]]
@@ -61,4 +62,3 @@ then
 	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 fi
 
-am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
