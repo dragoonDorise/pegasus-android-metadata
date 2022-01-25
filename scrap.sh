@@ -424,7 +424,7 @@ selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
 	"gc" "Nintendo - GameCube" OFF \
 	"genesis" "Sega - Mega Drive - Genesis" OFF \
 	"genesiswide" "Genesis Wide Hack" OFF \
-	"n64" "Nintendo - Nintendo 64" OFF \	
+	"n64" "Nintendo - Nintendo 64" OFF \
 	"nds" "Nintendo - Nintendo DS" OFF \
 	"ngp" "SNK - Neo Geo Pocket" OFF \
 	"ngpc" "SNK - Neo Geo Pocket Color" OFF \
