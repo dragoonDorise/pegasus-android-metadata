@@ -561,7 +561,7 @@ for scraper in ${scrapers[@]};
 							wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/screenshot/
 						else
 							echo -ne "Image not found: $romNameNoExtension screenshot..."
-							touch "~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.ignore"
+							#touch "~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.ignore"
 						fi
 						
 					fi
@@ -578,7 +578,7 @@ for scraper in ${scrapers[@]};
 							echo -e ""
 						else
 							echo -ne "Image not found: $romNameNoExtension screenshot..."
-							touch "~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.ignore"
+							#touch "~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.ignore"
 								
 						fi
 					fi
