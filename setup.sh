@@ -32,7 +32,7 @@ roottext=yellow,red"
    3>&1 1<&2 2>&3)
 	case $handheldModel in
 		[RG552]* ) break;;
-		[ODIN]* ) break;;	
+		[ODIN]* ) break;;
 		[ANDROID]* ) break;;
 		* ) echo "Please answer yes or no.";;
 	esac
