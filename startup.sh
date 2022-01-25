@@ -60,3 +60,5 @@ if [[ $selected_option == "" ]]
 then
 	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 fi
+
+am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
