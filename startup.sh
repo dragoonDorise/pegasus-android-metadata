@@ -16,14 +16,16 @@ while true; do
 	selected_option=$(whiptail --title "Pegasus Installer Menu" --radiolist "Move using your DPAD and select your options with the Y button. Press the A button to select." 20 40 15 \
 	"1" "Update & Configure Pegasus Installer" ON \
 	"2" "Scrap your Roms" OFF \
-	"3" "Uninstall Pegasus Installer" OFF \
-	"4" "Open Termux CLI" OFF \
+	"3" "Change SNES Aspect Ratio" OFF \
+	"4" "Uninstall Pegasus Installer" OFF \
+	"5" "Open Termux CLI" OFF \
 	3>&1 1>&2 2>&3)
 	case $selected_option in
 		[1]* ) break;;
 		[2]* ) break;;
 		[3]* ) break;;
 		[4]* ) break;;
+		[5]* ) break;;
 		* ) echo "Please hide your keyboard";;
 	esac
  done
@@ -41,10 +43,15 @@ fi
 
 if [[ $selected_option == "3" ]]
 then
-	/bin/bash ~/undo.sh
+	/bin/bash ~/dragoonDorise/pegasus-android-metadata/snes_config.sh
 fi
 
 if [[ $selected_option == "4" ]]
+then
+	/bin/bash ~/undo.sh
+fi
+
+if [[ $selected_option == "5" ]]
 then
 	clear
 fi
