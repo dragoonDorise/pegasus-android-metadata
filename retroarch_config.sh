@@ -18,6 +18,7 @@ FILE=~/dragoonDoriseTools/.snes87
 if [ -f "$FILE" ]; then
 	snesMode="INTERNAL"
 fi
+echo -n "Detecing model...${GREEN}$handheldModel${NONE}"
 echo -ne "Creating config files & backup old ones..."
 mkdir ~/storage/shared/RetroArch/overlays/ &> ~/storage/shared/pegasus_installer_log.log
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> ~/storage/shared/pegasus_installer_log.log

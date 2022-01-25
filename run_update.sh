@@ -88,6 +88,7 @@ handheldModel="ANDROID"
 FILE=~/dragoonDoriseTools/.isRG552
 if [ -f "$FILE" ]; then
 	rm ~/dragoonDoriseTools/.isRG552
+	touch ~/dragoonDoriseTools/.device 
 	echo 'RG552' > ~/dragoonDoriseTools/.device	
 fi
 
