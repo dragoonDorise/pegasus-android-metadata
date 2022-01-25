@@ -633,7 +633,7 @@ for scraper in ${scrapers[@]};
 
 	fi
 
-	if [ $scraper == "SCREENSRAPER" ]; then
+	if [ $scraper == "SCREENSCRAPER" ]; then
 		echo -e "Useing ScreenScraper..."		
 		
  		#ScreenScraper loop

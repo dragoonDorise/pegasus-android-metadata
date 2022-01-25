@@ -13,7 +13,7 @@ BLINK='\x1b[5m'
 clear
 rm -rf ~/storage &>> /dev/null
 termux-setup-storage
-echo -e "Pegasus installer 1.2.4d"
+echo -e "Pegasus installer 1.2.4e"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "We recommend you to hide the virtual keyboard by swiping from the left of the screen."
 echo -e  "Press the ${RED}A button${NONE} to start"
@@ -282,7 +282,7 @@ while true; do
 	scrapNow=$(whiptail --title "Do you want to scrap your roms now?" \
    --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
 	"YES" "Scrap my roms!" OFF \
-	"NO" "You can always do the scraping later by opening Termux in any moment" OFF \
+	"NO" "You can always do the scraping later by opening Termux" OFF \
    3>&1 1<&2 2>&3)
 	case $scrapNow in
 		[YES]* ) break;;
