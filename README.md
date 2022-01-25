@@ -36,7 +36,7 @@ This pack offers support for the following systems with their respective emulato
 | Nintendo 64               | Mupen64plus FZ                           | Working     | -        |
 | Nintendo Wii              | Dolphin                                  | Working     | -        |
 | PC engine                 | Retroarch 1.9 Mednafen pce fast core     | Working     | Yes      |
-| Pico 8                    | Retroarch 1.9 Pico 8 core                | Not Working | No       |
+| Pico 8                    | Retroarch 1.9 Retro 8 core               | Not Working | No       |
 | Playstation               | Retroarch 1.9 PCSX Rearmed core          | Working     | Yes      |
 | Playstation 2             | Aether SX2                               | Working     | -        |
 | PSP                       | PPSSPP                                   | Working     | -        |
