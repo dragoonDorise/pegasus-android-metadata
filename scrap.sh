@@ -550,8 +550,7 @@ for scraper in ${scrapers[@]};
 						
 					#First Scan: Retroarch				
 					FILE=~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png
-					FILEI=~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.ignore
-					if [ -f "$FILE" ] ||  [ -f "$FILEI" ]; then
+					if [ -f "$FILE" ]; then
 						echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 					else
 							
@@ -560,14 +559,12 @@ for scraper in ${scrapers[@]};
 							wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/screenshot/
 						else
 							echo -ne "Image not found: $romNameNoExtension screenshot..."
-							#touch "~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.ignore"
 						fi
 						
 					fi
 					
 					FILE=~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png
-					FILEI=~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.ignore
-					if [ -f "$FILE" ] ||  [ -f "$FILEI" ]; then
+					if [ -f "$FILE" ]; then
 						echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 					else
 					
@@ -577,8 +574,6 @@ for scraper in ${scrapers[@]};
 							echo -e ""
 						else
 							echo -ne "Image not found: $romNameNoExtension screenshot..."
-							#touch "~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.ignore"
-								
 						fi
 					fi
 					
