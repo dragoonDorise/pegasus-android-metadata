@@ -79,6 +79,7 @@ sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landsca
 sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_log.log 
 sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/mastersystem.cfg &> ~/storage/shared/pegasus_installer_log.log 
 sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.205000"/g' ~/storage/shared/RetroArch/config/PicoDrive/sega32x.cfg &> ~/storage/shared/pegasus_installer_log.log 	
+sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.105000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/segacd.cfg &> ~/storage/shared/pegasus_installer_log.log 	
 	
 	
 	
