@@ -38,7 +38,7 @@ roottext=yellow,red"
 	esac
    
  done
- 
+touch ~/dragoonDoriseTools/.device 
 echo $handheldModel > ~/dragoonDoriseTools/.device
 
 
