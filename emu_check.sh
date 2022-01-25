@@ -161,7 +161,7 @@ echo -e  "Press the ${RED}A button${NONE} to install the missing emulators"
 read pause
 clear
 	emulators_names=$(whiptail --title "Install missing emulators" \
-   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \   	
+   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
 	"DREAMCAST" "Dreamcast" OFF \
 	"GC" "GameCube & Wii" OFF \
 	"SATURN" "Sega Saturn" OFF \
