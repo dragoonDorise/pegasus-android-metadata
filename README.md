@@ -89,7 +89,7 @@ There are some some tips that can help you manage your collection Better.
 
 ## Compressing your roms
 
-Stop using ISO format for CD systems, you can save tons of space using the CHD format (and CSO format for PSP).
+Stop using ISO format for CD systems, you can save tons of space using the CHD format (and CSO and RVZ formats for PSP and GC/Wii respectively).
 
 This program will allow you to compress your roms on your device using [CHDMAN](https://github.com/CharlesThobe/chdman) and [Maxcso](https://github.com/unknownbrackets/maxcso).
 
