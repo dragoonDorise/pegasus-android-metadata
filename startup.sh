@@ -16,7 +16,8 @@ selected_option=$(whiptail --title "Pegasus Installer Menu" --radiolist "Move us
 "1" "Update & Configure Pegasus Installer" ON \
 "2" "Scrap your Roms" OFF \
 "3" "Uninstall Pegasus Installer" OFF \
-"4" "Open Termux CLI" OFF \
+"4" "Compress your Roms" OFF \
+"5" "Open Termux CLI" OFF \
 3>&1 1>&2 2>&3)
 
 if [[ $selected_option == "1" ]]
@@ -35,6 +36,11 @@ then
 fi
 
 if [[ $selected_option == "4" ]]
+then
+	/bin/bash ~/compress.sh
+fi
+
+if [[ $selected_option == "5" ]]
 then
 	clear
 fi
