@@ -113,6 +113,10 @@ There are some some tips that can help you manage your collection Better.
 
 Stop using ISO format for CD systems, you can save tons of space using the CHD format.
 
+This program will allow you to compress your roms on your device using [CHDMAN](https://github.com/CharlesThobe/chdman) and [Maxcso](https://github.com/unknownbrackets/maxcso).
+
+You can also use a PC:
+
 1 Download [CHDMAN](https://archive.org/download/chdman/CHDMAN.zip)
 And put it into your ISO rom folder
 
@@ -121,6 +125,8 @@ And put it into your ISO rom folder
     for /r %%i in (_.cue, _.gdi, \*.iso) do chdman createcd -i "%%i" -o "%%~ni.chd"
 
 3 Execute create.bat, in some minutes/hours you'll see how your old ISO roms are now in CHD format and that they now take a lot less space.
+
+Note that for GC/Wii, you can compress the roms to the RVZ format within Dolphin itself.
 
 ## Clean up your Mame roms
 
