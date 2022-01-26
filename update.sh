@@ -25,5 +25,8 @@ cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh
 chmod a+rwx ~/undo.sh
 cp ~/dragoonDoriseTools/pegasus-android-metadata/startup.sh  ~/startup.sh &> ~/storage/shared/pegasus_installer_log.log
 chmod a+rwx ~/startup.sh &> ~/storage/shared/pegasus_installer_log.log
+cp ~/dragoonDoriseTools/pegasus-android-metadata/snes_config.sh  ~/snes_config.sh &> ~/storage/shared/pegasus_installer_log.log
+chmod a+rwx ~/snes_config.sh &> ~/storage/shared/pegasus_installer_log.log
+
 echo -e "${GREEN}OK${NONE}"
 /bin/bash ~/run_update.sh

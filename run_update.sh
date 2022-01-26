@@ -88,15 +88,17 @@ handheldModel="ANDROID"
 FILE=~/dragoonDoriseTools/.isRG552
 if [ -f "$FILE" ]; then
 	rm ~/dragoonDoriseTools/.isRG552
+	touch ~/dragoonDoriseTools/.device 
 	echo 'RG552' > ~/dragoonDoriseTools/.device	
 fi
+
+#Emulator check
+/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/emu_check.sh
 
 #RetroArch Update
 echo -ne  "Updating Retroarch Config..."
 #RetroArch Configs
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/retroarch_config.sh $handheldModel
-
-/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/emu_check.sh
 
 newVersion=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/version.md)
 echo ""

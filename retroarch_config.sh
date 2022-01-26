@@ -18,6 +18,7 @@ FILE=~/dragoonDoriseTools/.snes87
 if [ -f "$FILE" ]; then
 	snesMode="INTERNAL"
 fi
+echo -e "Detecting model...${GREEN}$handheldModel${NONE}"
 echo -ne "Creating config files & backup old ones..."
 mkdir ~/storage/shared/RetroArch/overlays/ &> ~/storage/shared/pegasus_installer_log.log
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> ~/storage/shared/pegasus_installer_log.log
@@ -57,29 +58,29 @@ echo -e "${GREEN}OK${NONE}"
 
 
 if [[ $handheldModel == "RG552" ]]; then
+echo -n "RG552 Special configuration..."
+
 	echo -ne "RG552 Special configuration..."
 
-	#SNES
-	cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes.cfg ~/storage/shared/RetroArch/config/Snes9x &> ~/storage/shared/pegasus_installer_log.log
-	cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes87.cfg ~/storage/shared/RetroArch/config/Snes9x &> ~/storage/shared/pegasus_installer_log.log
-
-
 	#Overlay Fixes for 5:3 screens
-	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Genesis Plus GX/genesis.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/MAME 2003-Plus/mame.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Beetle NeoPop/ngp.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Beetle NeoPop/ngpc.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Beetle Cygne/wswan.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Beetle Cygne/wswanc.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/lynx.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Gambatte/gb.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Gambatte/gbc.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Genesis\sPlus\sGX/gamegear.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Genesis\sPlus\sGX/genesis.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Nestopia/nes.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/mGBA/gba.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.0600000"/input_overlay_scale_landscape = "1.150000"/g' ~/storage/shared/RetroArch/config/Genesis\sPlus\sGX/mastersystem.cfg &> ~/storage/shared/pegasus_installer_log.log 
+	
+sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/genesis.cfg &> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/MAME\ 2003-Plus/mame.cfg &> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_overlay_scale_landscape = "1.625000"/input_overlay_scale_landscape = "1.735000"/g' ~/storage/shared/RetroArch/config/Beetle\ NeoPop/ngp.cfg &> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_overlay_scale_landscape = "1.625000"/input_overlay_scale_landscape = "1.735000"/g' ~/storage/shared/RetroArch/config/Beetle\ NeoPop/ngpc.cfg &> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Beetle\ Cygne/wswan.cfg &> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Beetle\ Cygne/wswanc.cfg &> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Beetle\ Lynx/lynx.cfg &> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_overlay_scale_landscape = "1.680000"/input_overlay_scale_landscape = "1.780000"/g' ~/storage/shared/RetroArch/config/Gambatte/gb.cfg &> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_overlay_scale_landscape = "1.685000"/input_overlay_scale_landscape = "1.785000"/g' ~/storage/shared/RetroArch/config/Gambatte/gbc.cfg &> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_overlay_scale_landscape = "1.544999"/input_overlay_scale_landscape = "1.645000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/gamegear.cfg &> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/genesis.cfg &> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Nestopia/nes.cfg &> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/mastersystem.cfg &> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.205000"/g' ~/storage/shared/RetroArch/config/PicoDrive/sega32x.cfg &> ~/storage/shared/pegasus_installer_log.log 	
+sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.105000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/segacd.cfg &> ~/storage/shared/pegasus_installer_log.log 	
+	
 	
 	
 echo -e "${GREEN}OK${NONE}"
@@ -104,6 +105,17 @@ if [ $installCores == "true" ]; then
 	cd ~/storage/shared/RetroArch/downloads
 	find . -name "*.so" -type f -delete
 	
+	echo -ne "Downloading Opera..."
+	FILE=~/storage/shared/RetroArch/downloads/opera_libretro_android.so
+	if [ -f "$FILE" ]; then
+		echo -e "${GREEN}Already Downloaded${NONE}"	
+	else
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/opera_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		echo -e "${GREEN}OK${NONE}"	
+	fi
+
+	
+	
 	echo -ne "Downloading Final Burn Alpha..."
 	FILE=~/storage/shared/RetroArch/downloads/fbalpha2012_neogeo_libretro_android.so
 	if [ -f "$FILE" ]; then
@@ -113,7 +125,7 @@ if [ $installCores == "true" ]; then
 		echo -e "${GREEN}OK${NONE}"	
 	fi
 	
-	echo -ne "Downloading Final Burn Neo..."
+	echo -ne "Downloading Final Burn Neo..."	
 	FILE=~/storage/shared/RetroArch/downloads/fbneo_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
@@ -253,6 +265,7 @@ if [ $installCores == "true" ]; then
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	
+	
 	echo -ne "Downloading Sega32x..."
 	FILE=~/storage/shared/RetroArch/downloads/picodrive_libretro_android.so
 	if [ -f "$FILE" ]; then
@@ -261,7 +274,17 @@ if [ $installCores == "true" ]; then
 		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/picodrive_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
+
 	
+	echo -ne "Downloading Pico8..."
+	FILE=~/storage/shared/RetroArch/downloads/retro8_libretro_android.so
+	if [ -f "$FILE" ]; then
+		echo -e "${GREEN}Already Downloaded${NONE}"	
+	else	
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/retro8_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		echo -e "${GREEN}OK${NONE}"		
+	fi
+
 	echo -ne "Downloading Neo Geo..."
 	FILE=~/storage/shared/RetroArch/downloads/neocd_libretro_android.so
 	if [ -f "$FILE" ]; then
@@ -322,6 +345,9 @@ if [ $installCores == "true" ]; then
 	unzip ~/storage/shared/RetroArch/downloads/neocd_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
 	unzip ~/storage/shared/RetroArch/downloads/mednafen_ngp_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
 	unzip ~/storage/shared/RetroArch/downloads/pcsx_rearmed_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
+	unzip ~/storage/shared/RetroArch/downloads/opera_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
+	unzip ~/storage/shared/RetroArch/downloads/retro8_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
+	
 	find . -name "*.zip" -type f -delete
 	echo -e "${GREEN}OK${NONE}"
 	

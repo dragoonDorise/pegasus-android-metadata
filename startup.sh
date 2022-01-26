@@ -12,6 +12,7 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
+<<<<<<< HEAD
 selected_option=$(whiptail --title "Pegasus Installer Menu" --radiolist "Move using your DPAD and select your options with the Y button. Press the A button to select." 20 40 15 \
 "1" "Update & Configure Pegasus Installer" ON \
 "2" "Scrap your Roms" OFF \
@@ -19,6 +20,26 @@ selected_option=$(whiptail --title "Pegasus Installer Menu" --radiolist "Move us
 "4" "Compress your Roms" OFF \
 "5" "Open Termux CLI" OFF \
 3>&1 1>&2 2>&3)
+=======
+while true; do
+	selected_option=$(whiptail --title "Pegasus Installer Menu" --radiolist "Move using your DPAD and select your options with the Y button. Press the A button to select." 20 40 15 \
+	"1" "Update & Configure Pegasus Installer" ON \
+	"2" "Scrap your Roms" OFF \
+	"3" "Change SNES Aspect Ratio" OFF \
+	"4" "Uninstall Pegasus Installer" OFF \
+	"5" "Open Termux CLI" OFF \
+	3>&1 1>&2 2>&3)
+	case $selected_option in
+		[1]* ) break;;
+		[2]* ) break;;
+		[3]* ) break;;
+		[4]* ) break;;
+		[5]* ) break;;
+		* ) echo "Please hide your keyboard";;
+	esac
+ done
+
+>>>>>>> bcd282dc1228bc72269485638e1f1065ddca9e5a
 
 if [[ $selected_option == "1" ]]
 then
@@ -32,12 +53,17 @@ fi
 
 if [[ $selected_option == "3" ]]
 then
-	/bin/bash ~/undo.sh
+	/bin/bash ~/snes_config.sh
+	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 fi
 
 if [[ $selected_option == "4" ]]
 then
+<<<<<<< HEAD
 	/bin/bash ~/compress.sh
+=======
+	/bin/bash ~/undo.sh
+>>>>>>> bcd282dc1228bc72269485638e1f1065ddca9e5a
 fi
 
 if [[ $selected_option == "5" ]]
@@ -49,3 +75,4 @@ if [[ $selected_option == "" ]]
 then
 	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 fi
+

@@ -73,7 +73,8 @@ if [ -d "$FOLDERPRO" ]; then
 fi
 #Mupen64
 FOLDER=~/storage/shared/Android/data/org.mupen64plusae.v3.fzurita
-if [ -d "$FOLDER" ]; then
+FOLDERPRO=~/storage/shared/Android/data/org.mupen64plusae.v3.fzurita.pro
+if [ -d "$FOLDER" ] || [ -d "FOLDERPRO" ]; then
 	hasMupen=true
 fi
 #PPSSPP
@@ -92,7 +93,7 @@ if [ -d "$FOLDER" ]; then
 	hasDrastic=true
 fi
 #Dolphin
-FOLDER=~/storage/shared/dolphin-mmj
+FOLDER=~/storage/shared/mmjr-revamp
 if [ -d "$FOLDER" ]; then
 	hasDolphin=true
 fi
@@ -161,21 +162,21 @@ echo -e  "Press the ${RED}A button${NONE} to install the missing emulators"
 read pause
 clear
 	emulators_names=$(whiptail --title "Install missing emulators" \
-   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \   	
-	"DREAMCAST" "Dreamcast" ON \
-	"GC" "GameCube & Wii" ON \
-	"SATURN" "Sega Saturn" ON \
-	"N64" "Nintendo 64" ON \
-	"PSP" "Sony PSP" ON \
-	"PSX" "Sony Playstation" ON \
-	"PS2" "Playstation 2" ON \
-	"DS" "Nintendo DS - Paid Emulator" ON \
-	"3DS" "Nintendo 3DS" ON \
+   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
+	"DREAMCAST" "Dreamcast" OFF \
+	"GC" "GameCube & Wii" OFF \
+	"SATURN" "Sega Saturn" OFF \
+	"N64" "Nintendo 64" OFF \
+	"PSP" "Sony PSP" OFF \
+	"PSX" "Sony Playstation" OFF \
+	"PS2" "Playstation 2" OFF \
+	"DS" "Nintendo DS - Paid Emulator" OFF \
+	"3DS" "Nintendo 3DS" OFF \
    3>&1 1<&2 2>&3)
 
 
 
-clear
+
 mapfile -t emulators <<< $emulators_names
 
 for emulator in ${emulators[@]};
@@ -189,10 +190,10 @@ for emulator in ${emulators[@]};
 	fi
 	if [ $emulator == "GC" ]; then
 		echo -e "Nintendo Wii & GameCube - Dolphin MMJR..."
-		wget  -q --show-progress https://github.com/Bankaimaster999/Dolphin-MMJR/releases/download/1.0-11460/Dolphin.MMJR.v11460.apk -P ~/dragoonDoriseTools/
+		wget  -q --show-progress https://github.com/Bankaimaster999/Dolphin-MMJR2/releases/download/2.0-15108/MMJR.v2.0-15108.apk -P ~/dragoonDoriseTools/
 		echo -e  "Press the ${RED}A button${NONE} to install Dolphin"
 		read pause		
-		xdg-open ~/dragoonDoriseTools/Dolphin.MMJR.v11460.apk
+		xdg-open ~/dragoonDoriseTools/MMJR.v2.0-15108.apk
 		echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
 		read pause
 	fi

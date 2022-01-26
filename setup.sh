@@ -13,7 +13,7 @@ BLINK='\x1b[5m'
 clear
 rm -rf ~/storage &>> /dev/null
 termux-setup-storage
-echo -e "Pegasus installer 1.2.3"
+echo -e "Pegasus installer 1.2.4e"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "We recommend you to hide the virtual keyboard by swiping from the left of the screen."
 echo -e  "Press the ${RED}A button${NONE} to start"
@@ -28,17 +28,17 @@ roottext=yellow,red"
    --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
 	"RG552" "Anbernic RG552" OFF \
 	"ODIN" "AYN Odin" OFF \
-	"ANDROID" "A regular Android Device" ON \	
+	"ANDROID" "A regular Android Device" ON \
    3>&1 1<&2 2>&3)
 	case $handheldModel in
 		[RG552]* ) break;;
-		[ODIN]* ) break;;	
+		[ODIN]* ) break;;
 		[ANDROID]* ) break;;
 		* ) echo "Please answer yes or no.";;
 	esac
    
  done
- 
+touch ~/dragoonDoriseTools/.device 
 echo $handheldModel > ~/dragoonDoriseTools/.device
 
 
@@ -113,6 +113,9 @@ cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh &>> ~/storag
 chmod a+rwx ~/undo.sh &>> ~/storage/shared/pegasus_installer_log.log
 cp ~/dragoonDoriseTools/pegasus-android-metadata/startup.sh  ~/startup.sh &>> ~/storage/shared/pegasus_installer_log.log
 chmod a+rwx ~/startup.sh &>> ~/storage/shared/pegasus_installer_log.log
+cp ~/dragoonDoriseTools/pegasus-android-metadata/snes_config.sh  ~/snes_config.sh &>> ~/storage/shared/pegasus_installer_log.log
+chmod a+rwx ~/snes_config.sh &>> ~/storage/shared/pegasus_installer_log.log
+
 echo -e "${GREEN}OK${NONE}"
 clear
 while true; do
@@ -275,11 +278,12 @@ echo -e ""
 echo -e  "Now let's install ${RED}Pegasus${NONE}"
 echo -e  "Press the ${RED}A button${NONE} to install Pegasus, when Pegasus is installed click ${BOLD}DONE${NONE} in the installation window so you can come back to scrape your roms' artwork!"
 read pause
-
+clear
 echo -ne  "Installing ${RED}Pegasus${NONE}..."
 #Launch Pegasus
 xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
 echo -e  "${GREEN}OK${NONE}"
+<<<<<<< HEAD
 
 
 
@@ -302,13 +306,56 @@ echo -e  "In Pegasus go to the Android Collection and look for Rom Scraper"
 
 
 echo -e "${RED}INSTALL EMULATORS${NONE} Remember to go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
+=======
+echo ""
+echo -e "${YELLOW}Retroarch Cores${NONE}"
+echo -e "Remember to go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
+>>>>>>> bcd282dc1228bc72269485638e1f1065ddca9e5a
 echo -e "And then select the core you want to install"
+echo -e ""
+echo -e "${YELLOW}BIOS${NONE}"
+echo -e "Remember to copy your BIOS files for the following emulators:"
+echo -e "RetroArch - internal storage/RetroArch/system folder"
+echo -e "Duckstation & AetherSX2 on App Settings, BIOS section"
 echo -e ""
 echo -e "${RED}IMPORTANT${NONE}"
 echo -e "Be aware that if you delete the Termux app Android will ${RED}DELETE${NONE} the Termux folder on your SD Card"
 echo -e "The roms on ${GREEN}/Android/data/com.termux/files/${NONE} will be deleted"
 echo -e "No other files on the SD Card will be affected"
-echo -e "${RED}IMPORTANT${NONE}"
-echo -e  "Press the ${RED}A button${NONE} to finish"
+echo -e  "Press the ${RED}A button${NONE} to continue to next step"
 read pause
-am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
+
+while true; do
+	scrapNow=$(whiptail --title "Do you want to scrap your roms now?" \
+   --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
+	"YES" "Scrap my roms!" OFF \
+	"NO" "You can always do the scraping later by opening Termux" OFF \
+   3>&1 1<&2 2>&3)
+	case $scrapNow in
+		[YES]* ) break;;
+		[NO]* ) break;;	
+		* ) echo "Please answer yes or no.";;
+	esac
+   
+ done
+
+if [ $scrapNow == "YES" ]; then
+	clear
+	echo -e  "";
+	echo -e  "Do you have your roms ready on your SD Card or Internal Storage?"
+	echo -e  "${BOLD}Let's start getting all your artwork!${NONE}"
+	echo -e  "Press the ${RED}A button${NONE} to continue"
+	read pause
+	cd ~/
+	bash ~/scrap.sh	
+else
+	clear	
+	echo -e  "${STRONG}If you want to scrap more roms, update or uninstall Pegasus Installer:${NONE}"
+	echo -e  "In Pegasus go to the Android Collection and look for Rom Scraper / Termux"
+	echo -e  "Or just start Termux from your Android apps"
+	echo -e  "Press the ${RED}A button${NONE} to exit"
+	read pause
+	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
+
+fi
+

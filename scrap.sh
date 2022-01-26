@@ -409,42 +409,41 @@ cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
    --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
 	"ALL" "This option will look for all systems on your SD Card" OFF \
+	"3do" "The 3DO Company - 3DO" OFF \
+	"3ds" "Nintendo - Nintendo 3DS" OFF \
 	"atari2600" "Atari - 2600" OFF \
 	"atarilynx" "Atari - Lynx" OFF \
 	"doom" "DOOM" OFF \
 	"dos" "DOS" OFF \
+	"dreamcast" "Sega - Dreamcast" OFF \
 	"fbneo" "FBNeo - Arcade Games" OFF \
-	"pcengine" "NEC - PC Engine - TurboGrafx 16" OFF \
-	"pcenginecd" "NEC - PC Engine CD - TurboGrafx-CD" OFF \
+	"gamegear" "Sega - Game Gear" OFF \
 	"gb" "Nintendo - Game Boy" OFF \
 	"gba" "Nintendo - Game Boy Advance" OFF \
 	"gbc" "Nintendo - Game Boy Color" OFF \
 	"gc" "Nintendo - GameCube" OFF \
-	"3ds" "Nintendo - Nintendo 3DS" OFF \
-	"n64" "Nintendo - Nintendo 64" OFF \
-	"nds" "Nintendo - Nintendo DS" OFF \
-	"nes" "Nintendo - Nintendo Entertainment System" OFF \
-	"pokemini" "Nintendo - Pokemon Mini" OFF \
-	"snes" "Nintendo - Super Nintendo Entertainment System" OFF \
-	"sneswide" "Super Nes Wide Hack" OFF \
-	"wii" "Nintendo - Wii" OFF \
-	"neogeo" "SNK - Neo Geo" OFF \
-	"neogeocd" "SNK - Neo Geo CD" OFF \
-	"ngp" "SNK - Neo Geo Pocket" OFF \
-	"ngpc" "SNK - Neo Geo Pocket Color" OFF \
-	"scummvm" "ScummVM" OFF \
-	"sega32x" "Sega - 32X" OFF \
-	"dreamcast" "Sega - Dreamcast" OFF \
-	"gamegear" "Sega - Game Gear" OFF \
-	"mastersystem" "Sega - Master System" OFF \
 	"genesis" "Sega - Mega Drive - Genesis" OFF \
 	"genesiswide" "Genesis Wide Hack" OFF \
-	"segacd" "Sega - Mega-CD - Sega CD" OFF \
-	"saturn" "Sega - Saturn" OFF \
+	"n64" "Nintendo - Nintendo 64" OFF \
+	"nds" "Nintendo - Nintendo DS" OFF \
+	"ngp" "SNK - Neo Geo Pocket" OFF \
+	"ngpc" "SNK - Neo Geo Pocket Color" OFF \
+	"mastersystem" "Sega - Master System" OFF \
+	"nes" "Nintendo - Nintendo Entertainment System" OFF \
+	"neogeo" "SNK - Neo Geo" OFF \
+	"neogeocd" "SNK - Neo Geo CD" OFF \
+	"pcengine" "NEC - PC Engine - TurboGrafx 16" OFF \
+	"pcenginecd" "NEC - PC Engine CD - TurboGrafx-CD" OFF \
 	"psx" "Sony - PlayStation" OFF \
 	"ps2" "Sony - PlayStation 2" OFF \
 	"psp" "Sony - PlayStation Portable" OFF \
-	"3do" "The 3DO Company - 3DO" OFF \
+	"saturn" "Sega - Saturn" OFF \
+	"scummvm" "ScummVM" OFF \
+	"sega32x" "Sega - 32X" OFF \
+	"segacd" "Sega - Mega-CD - Sega CD" OFF \
+	"snes" "Nintendo - Super Nintendo Entertainment System" OFF \
+	"sneswide" "Super Nes Wide Hack" OFF \
+	"wii" "Nintendo - Wii" OFF \
    3>&1 1<&2 2>&3)
 
 if [[ $selected_device_descriptions == "ALL" ]]; then
@@ -551,8 +550,7 @@ for scraper in ${scrapers[@]};
 						
 					#First Scan: Retroarch				
 					FILE=~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png
-					FILEI=~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.ignore
-					if [ -f "$FILEI" ] ||  [ -f "$FILEI" ]; then
+					if [ -f "$FILE" ]; then
 						echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 					else
 							
@@ -561,14 +559,12 @@ for scraper in ${scrapers[@]};
 							wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/screenshot/
 						else
 							echo -ne "Image not found: $romNameNoExtension screenshot..."
-							touch ~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.ignore
 						fi
 						
 					fi
 					
 					FILE=~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png
-					FILEI=~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.ignore
-					if [ -f "$FILEI" ] ||  [ -f "$FILEI" ]; then
+					if [ -f "$FILE" ]; then
 						echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 					else
 					
@@ -578,8 +574,6 @@ for scraper in ${scrapers[@]};
 							echo -e ""
 						else
 							echo -ne "Image not found: $romNameNoExtension screenshot..."
-							touch ~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.ignore
-								
 						fi
 					fi
 					
@@ -633,7 +627,7 @@ for scraper in ${scrapers[@]};
 
 	fi
 
-	if [ $scraper == "SCREENSRAPER" ]; then
+	if [ $scraper == "SCREENSCRAPER" ]; then
 		echo -e "Useing ScreenScraper..."		
 		
  		#ScreenScraper loop

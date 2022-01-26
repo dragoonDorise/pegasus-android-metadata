@@ -5,6 +5,6 @@ launch: am start
   -n com.github.stenzek.duckstation/.EmulationActivity
   -e bootPath "{file.path}"
   --ez resumeState 0
-  --activity-clear-task
-  --activity-clear-top
-  --activity-no-history
+  
+  
+  
