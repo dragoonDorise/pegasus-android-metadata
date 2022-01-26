@@ -109,7 +109,7 @@ There are some some tips that can help you manage your collection Better.
 - Clean your Mame roms
 - Scrape your own artwork
 
-## Use CHD format
+## Compressing your roms
 
 Stop using ISO format for CD systems, you can save tons of space using the CHD format.
 
