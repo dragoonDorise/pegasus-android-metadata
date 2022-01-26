@@ -64,7 +64,7 @@ if [[ $selected_option == "5" ]]
 then
 	rm ~/dragoonDoriseTools/.screenScraperUser
 	rm ~/dragoonDoriseTools/.screenScraperPass
-	
+
 	if (whiptail --title "Screen Scraper" --yesno "Do you have an account on www.screenscraper.fr? If you don't we will open your browser so you can create one. Come back later" 8 78); then
 		find ~/storage/shared/RetroArch/config/ -type f -name "*.cfg" -exec sed -i -e 's/input_overlay_enable = "false"/input_overlay_enable = "true"/g' {} \;
 	else
@@ -73,7 +73,7 @@ then
 		echo -e "Press the ${RED}A Button${NONE} if you already have your account created"
 		read pause
 	fi
-	
+
 	echo -e "Now I'm going to ask for your user and password. Both will be stored on your device, ${BOLD}I won't send them anywhere or read them${NONE}"
 	echo -e "What is your ScreenScraper user? Type it and press the ${RED}A button${NONE}"
 	read user
@@ -81,7 +81,7 @@ then
 	echo -e "What is your ScreenScraper password? Type it and press the ${RED}A button${NONE}"
 	read pass
 	echo $pass > ~/dragoonDoriseTools/.screenScraperPass
-	
+
 	echo -e "${GREEN}Thanks!${NONE} Press the ${RED}A Button${NONE} to start scraping your roms"
 	read pause
 	/bin/bash ~/scrap.sh
