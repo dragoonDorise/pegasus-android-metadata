@@ -17,12 +17,18 @@ while true; do
 	"1" "Update & Configure Pegasus Installer" ON \
 	"2" "Scrap your Roms" OFF \
 	"3" "Change SNES Aspect Ratio" OFF \
+<<<<<<< HEAD
 	"4" "Turn Bezels ON/OFF" OFF \
 	"5" "Reset Screen Scraper credentials" OFF \
 	"6" "Uninstall Pegasus Installer" OFF \
 	"7" "Open Termux CLI" OFF \
 	"8" "Reinstall Termux dependencies" OFF \
 	"9" "Exit" OFF \
+=======
+	"4" "Uninstall Pegasus Installer" OFF \
+	"5" "Compress your roms" OFF \
+	"6" "Open Termux CLI" OFF \
+>>>>>>> 95a8634 (Fix artifacts)
 	3>&1 1>&2 2>&3)
 	case $selected_option in
 		[1]* ) break;;
@@ -57,6 +63,7 @@ fi
 
 if [[ $selected_option == "4" ]]
 then
+<<<<<<< HEAD
 	/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/ra_bezels.sh
 	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 fi
@@ -92,6 +99,18 @@ then
 fi
 
 if [[ $selected_option == "7" ]]
+=======
+	/bin/bash ~/undo.sh
+fi
+
+
+if [[ $selected_option == "5" ]]
+>>>>>>> 95a8634 (Fix artifacts)
+then
+	/bin/bash ~/compress.sh
+fi
+
+if [[ $selected_option == "6" ]]
 then
 	clear
 fi
