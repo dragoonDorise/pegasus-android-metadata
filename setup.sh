@@ -53,7 +53,7 @@ rm ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 touch ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 sleep .5
 pkg update -y -F &>> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y -F &>> ~/storage/shared/pegasus_installer_log.log
-pkg install git wget jq rsync unzip whiptail build-essential ninja liblz4 libuv -y  &>> ~/storage/shared/pegasus_installer_log.log
+pkg install git wget jq rsync unzip whiptail build-essential liblz4 libuv ninja -y  &>> ~/storage/shared/pegasus_installer_log.log
 
 mkdir ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
 cd ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
@@ -100,7 +100,7 @@ cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-fronten
 cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 
-echo -ne "Installing Compress, Scrap, Update & Undo Scripts..."
+echo -ne "Installing Scrap, Update, Compress & Undo Scripts..."
 cp ~/dragoonDoriseTools/pegasus-android-metadata/compress.sh ~/compress.sh &>> ~/storage/shared/pegasus_installer_log.log
 chmod a+rwx ~/compress.sh &>> ~/storage/shared/pegasus_installer_log.log
 cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/update.sh &>> ~/storage/shared/pegasus_installer_log.log
@@ -202,23 +202,6 @@ fi
 
 # Instaling roms folders
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/$storageLocation &>> ~/storage/shared/pegasus_installer_log.log
-
-#Install CHDMAN
-echo -e "Downloading and installing CHDMAN..."
-git clone https://github.com/CharlesThobe/chdman.git ~/dragoonDoriseTools/chdman
-cd ~/dragoonDoriseTools/chdman
-mkdir ~/dragoonDoriseTools/chdman/build && cd ~/dragoonDoriseTools/chdman/build
-cmake -G Ninja .. && ninja
-cp chdman $PREFIX/bin/chdman && chmod +x $PREFIX/bin/chdman
-echo -e "${GREEN}CHDMAN Installed!${NONE}"
-#Install Maxcso
-echo -e "Downloading and installing Maxcso..."
-git clone https://github.com/unknownbrackets/maxcso.git ~/dragoonDoriseTools/maxcso
-cd ~/dragoonDoriseTools/maxcso
-make
-cp maxcso $PREFIX/bin/maxcso && chmod +x $PREFIX/bin/maxcso
-echo -e "${GREEN}Maxcso Installed!${NONE}"
-
 #Retroarch64 support
 if [[ $hasRetroArch64 == true ]]; then
 	find ~/storage/$storageLocation -type f -name "*.txt" -exec sed -i -e 's/com.retroarch/com.retroarch.aarch64/g' {} \;
@@ -283,34 +266,9 @@ echo -ne  "Installing ${RED}Pegasus${NONE}..."
 #Launch Pegasus
 xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
 echo -e  "${GREEN}OK${NONE}"
-<<<<<<< HEAD
-
-
-
-echo -e  "";
-echo -e  "${GREEN}All Done${NONE}, do you have your roms ready?"
-echo -e "You'll be asked if you want to be able to compress your roms in the next prompt"
-echo -e  "Press the ${RED}A button${NONE} to continue"
-#Launch rom compressor script
-bash compress.sh
-echo -e  "${BOLD}Let's start getting all your artwork!${NONE}"
-echo -e  "Press the ${RED}A button${NONE} to continue"
-read pause
-cd ~/
-bash scrap.sh
-clear
-echo -e  "${GREEN}Done!${NONE}"
-
-echo -e  "${STRONG}If you want to scrape more roms, update or uninstall Pegasus Installer:${NONE}"
-echo -e  "In Pegasus go to the Android Collection and look for Rom Scraper"
-
-
-echo -e "${RED}INSTALL EMULATORS${NONE} Remember to go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
-=======
 echo ""
 echo -e "${YELLOW}Retroarch Cores${NONE}"
 echo -e "Remember to go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
->>>>>>> bcd282dc1228bc72269485638e1f1065ddca9e5a
 echo -e "And then select the core you want to install"
 echo -e ""
 echo -e "${YELLOW}BIOS${NONE}"
@@ -324,6 +282,8 @@ echo -e "The roms on ${GREEN}/Android/data/com.termux/files/${NONE} will be dele
 echo -e "No other files on the SD Card will be affected"
 echo -e  "Press the ${RED}A button${NONE} to continue to next step"
 read pause
+
+bash ~/compress.sh
 
 while true; do
 	scrapNow=$(whiptail --title "Do you want to scrap your roms now?" \
@@ -358,4 +318,3 @@ else
 	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 
 fi
-
