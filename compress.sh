@@ -62,7 +62,9 @@ done
 done
 else
 echo -e "User chose not to compress roms. If you change your mind you can always run this script again \n"
-read -n 1 -r -s -p $'Press any key to continue...\n' 
+echo -e  "Press the ${RED}A button${NONE} to continue"
+read pause
+
 fi
 
 exit
