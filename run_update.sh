@@ -99,6 +99,7 @@ fi
 echo -ne  "Updating Retroarch Config..."
 #RetroArch Configs
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/retroarch_config.sh $handheldModel
+/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/emus_config.sh
 
 newVersion=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/version.md)
 echo ""
