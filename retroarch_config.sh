@@ -12,7 +12,16 @@ UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 
 handheldModel=$(cat ~/dragoonDoriseTools/.device)
-
+useInternalStorage=false
+FILE=~/dragoonDoriseTools/.storageInternal
+if [ -f "$FILE" ]; then
+	useInternalStorage=true
+	storageLocation="shared/roms"
+else
+	useInternalStorage=false
+	storageLocation="external-1"
+	
+fi
 snesMode="CLASSIC"
 FILE=~/dragoonDoriseTools/.snes87
 if [ -f "$FILE" ]; then
@@ -377,6 +386,10 @@ if [[ $handheldModel == "ODIN" ]]; then
 	#Configuration
 	rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/odin/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> ~/storage/shared/pegasus_installer_log.log
 	
+	#Pegasus metadatas
+	cp ~/dragoonDoriseTools/pegasus-android-metadata/roms/n64/metadata.pegasus.txt.odin ~/storage/$storageLocation/n64/metadata.pegasus.txt
+	
+	cp ~/dragoonDoriseTools/pegasus-android-metadata/roms/dreamcast/metadata.pegasus.txt.odin ~/storage/$storageLocation/dreamcast/metadata.pegasus.txt
 	
 fi
 
