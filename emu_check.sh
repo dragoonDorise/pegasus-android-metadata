@@ -89,7 +89,7 @@ echo -e ""
 #Common emulators
 
 echo -ne "Retroarch..."
-if [ $hasRetroArch == false ]; then
+if [ $hasRetroArch == true ]; then
 	echo -e  "${GREEN}Installed${NONE}"
 else
 	echo -e  "${RED}Not installed${NONE}"
@@ -139,8 +139,19 @@ if [[ $handheldModel == "ODIN" ]] || [[ $handheldModel == "ANDROID" ]]; then
 
 fi
 
+#Only on Rp2+
+if [[ $handheldModel == "RP2+" ]]; then
+echo -ne "Nintendo Wii & GameCube - Dolphin MMJR..."
+	if [ $hasDolphin == true ]; then
+		echo -e  "${GREEN}Installed${NONE}"
+	else
+		echo -e  "${RED}Not installed${NONE}"
+	fi
+	echo ""		
+fi
+
 #Only on RG552 or Android
-if [[ $handheldModel == "RG552" ]] || [[ $handheldModel == "ANDROID" ]]; then
+if [[ $handheldModel == "RG552" ]] || [[ $handheldModel == "ANDROID" ]]; then
 	echo -ne "Nintendo 64 - Mupen 64 Plus..."
 	if [ $hasMupen == true ]; then
 		echo -e  "${GREEN}Installed${NONE}"
@@ -170,7 +181,16 @@ clear
 
 #We prevent to download some emulators
 
-if [[ $handheldModel == "RG552" ]] || [[ $handheldModel == "ANDROID" ]]; then
+if [[ $handheldModel == "ODIN" ]]; then
+	hasRedDream=true
+	hasYaba=true
+fi
+
+if [[ $handheldModel == "RP2+" ]]; then
+	hasCitra=true
+fi
+
+if [[ $handheldModel == "RG552" ]] || [[ $handheldModel == "ANDROID" ]]; then
 	hasCitra=true
 	hasAether=true
 fi

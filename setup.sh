@@ -28,7 +28,8 @@ roottext=yellow,red"
    --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
 	"RG552" "Anbernic RG552" OFF \
 	"ODIN" "AYN Odin" OFF \
-	"ANDROID" "A regular Android Device" ON \
+	"RP2+" "Retroid Pocket 2+" OFF \
+	"ANDROID" "A regular Android Device" OFF \
    3>&1 1<&2 2>&3)
 	case $handheldModel in
 		[RG552]* ) break;;
