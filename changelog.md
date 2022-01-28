@@ -32,15 +32,20 @@
 - screenscraper.fr support for better scraping
 - RetroArch64 support
 
-1.2.1
+  1.2.1
+
 - Support for internal storage for systems with no SD Card
 - Minor text changes
 
-1.2.2
+  1.2.2
+
 - Proper support for SNES and Genesis Wide hacks
 
-1.2.3
+  1.2.3
+
 - External HD Support - Experimental
 
-1.2.4
+  1.2.5
+
 - AYN Odin configuration
+- Duckstation, Dolphin, Mupen and Flycast configuration
