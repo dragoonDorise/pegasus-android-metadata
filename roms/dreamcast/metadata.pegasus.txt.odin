@@ -1,6 +1,6 @@
 collection: Sega Dreamcast
 shortname: dreamcast
-extensions: 7z, bin, cdi, chd, cue, dat, elf, gdi, lst, m3u, zip
+extensions: 7z, bin, cdi, chd, cue, dat, elf, gdi, iso, lst, m3u, zip
 launch: am start
   -n com.retroarch/.browser.retroactivity.RetroActivityFuture
   -e ROM {file.path}

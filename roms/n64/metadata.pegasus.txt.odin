@@ -1,6 +1,6 @@
 collection: Nintendo 64
 shortname: n64
-extensions: bin, n64, u1, v64, z64
+extensions: bin, n64, u1, v64, z64, zip, 7z
 launch: am start
   -n com.retroarch/.browser.retroactivity.RetroActivityFuture
   -e ROM {file.path}
