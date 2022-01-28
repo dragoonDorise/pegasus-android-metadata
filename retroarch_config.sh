@@ -375,13 +375,16 @@ if [[ $handheldModel == "ODIN" ]]; then
 	
 	#Flycast Core	
 	echo -ne "Downloading Mupen64 Plus GLE3..."
-	FILE=~/storage/shared/RetroArch/downloads/flycast_libretro_android.so
+	FILE=~/storage/shared/RetroArch/downloads/mupen64plus_next_gles3_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${GREEN}Already Downloaded${NONE}"	
 	else
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/flycast_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mupen64plus_next_gles3_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"	
 	fi
+	
+	unzip ~/storage/shared/RetroArch/downloads/flycast_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
+	unzip ~/storage/shared/RetroArch/downloads/mupen64plus_next_gles3_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
 	
 	#Configuration
 	rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/odin/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> ~/storage/shared/pegasus_installer_log.log
