@@ -1,6 +1,6 @@
 collection: Game Boy Advance
 shortname: gba
-extensions: gb, gba, gbc zip, 7z
+extensions: gba, zip, 7z
 launch: am start
   -n com.retroarch/.browser.retroactivity.RetroActivityFuture
   -e ROM {file.path}
