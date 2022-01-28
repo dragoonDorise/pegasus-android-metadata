@@ -26,14 +26,13 @@ hasAether=false
 handheldModel=$(cat ~/dragoonDoriseTools/.device)
 
 #Retroarch?
-FOLDER=~/storage/shared/Android/data/com.retroarch
+FOLDER=~/storage/shared/RetroArch
 FOLDER64=~/storage/shared/Android/data/com.retroarch.aarch64
 if [ -d "$FOLDER" ]; then
 	hasRetroArch=true
-elif [ -d "$FOLDER64" ]; then
-	hasRetroArch=true
+fi
+if [ -d "$FOLDER64" ]; then	
 	hasRetroArch64=true
-	FOLDER=$FOLDER64
 fi
 
 #Aether?

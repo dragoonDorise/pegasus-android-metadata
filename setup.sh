@@ -200,7 +200,14 @@ fi
 
 # Instaling roms folders
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/$storageLocation &>> ~/storage/shared/pegasus_installer_log.log
-#Retroarch64 support
+
+
+#Retroarch 64? We edit the metadatafiles
+hasRetroArch64=false
+FOLDER64=~/storage/shared/Android/data/com.retroarch.aarch64
+if [ -d "$FOLDER64" ]; then
+	hasRetroArch64=true
+fi
 if [[ $hasRetroArch64 == true ]]; then
 	find ~/storage/$storageLocation -type f -name "*.txt" -exec sed -i -e 's/com.retroarch/com.retroarch.aarch64/g' {} \;
 fi
