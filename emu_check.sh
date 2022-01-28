@@ -146,7 +146,7 @@ if [ $handheldModel == "ODIN" ] || [ $handheldModel == "ANDROID" ] || ; then
 fi
 
 #Only on RG552 or Android
-if [ $handheldModel == "RG552" ] || [ $handheldModel == "ANDROID" ] || ; then
+if [ $handheldModel == "RG552" ] || [ $handheldModel == "ANDROID" ] ; then
 	echo -ne "Nintendo 64 - Mupen 64 Plus..."
 	if [ $hasMupen == true ]; then
 		echo -e  "${GREEN}Installed${NONE}"
