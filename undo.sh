@@ -56,6 +56,23 @@ echo -e "${GREEN}OK${NONE}"
 rm -rf ~/storage  &> ~/storage/shared/pegasus_installer_log.log
 
 
+FOLDER=~/storage/shared/dolphin-mmjr_bak/
+if [ -d "$FOLDER" ]; then
+	echo -ne "Restoring RetroArch config..."
+	cp ~/storage/shared/dolphin-mmjr_bak/ ~/storage/shared/dolphin-mmjr/  &> ~/storage/shared/pegasus_installer_log.log
+	rm ~/storage/shared/dolphin-mmjr_bak/  &> ~/storage/shared/pegasus_installer_log.log
+	echo -e "${GREEN}OK${NONE}"
+fi
+
+
+FOLDER=~/storage/shared/duckstation_bak/
+if [ -d "$FOLDER" ]; then
+	echo -ne "Restoring RetroArch config..."
+	cp ~/storage/shared/duckstation_bak/ ~/storage/shared/duckstation/  &> ~/storage/shared/pegasus_installer_log.log
+	rm ~/storage/shared/duckstation_bak/  &> ~/storage/shared/pegasus_installer_log.log
+	echo -e "${GREEN}OK${NONE}"
+fi
+
 echo -e "${GREEN}All cleaned up!${NONE}"
 echo -e  "We hope to see you come back soon!"
 echo -e  "${BOLD}NOTE:${NONE} Termux, Pegasus and all the emulators have to be uninstalled like any other Android app. Pegasus themes were not deleted either"
