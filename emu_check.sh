@@ -115,7 +115,7 @@ fi
 
 
 #Only ODIN & ANDROID
-if [ $handheldModel == "ODIN" ] || [ $handheldModel == "ANDROID" ] || ; then
+if [ $handheldModel == "ODIN" ] || [ $handheldModel == "ANDROID" ]; then
 
 	echo -ne "PS2 - AetherSX2..."
 	if [ $hasCitra == true ]; then
@@ -140,7 +140,7 @@ if [ $handheldModel == "ODIN" ] || [ $handheldModel == "ANDROID" ] || ; then
 fi
 
 #Only on RG552 or Android
-if [ $handheldModel == "RG552" ] || [ $handheldModel == "ANDROID" ] ; then
+if [ $handheldModel == "RG552" ] || [ $handheldModel == "ANDROID" ]; then
 	echo -ne "Nintendo 64 - Mupen 64 Plus..."
 	if [ $hasMupen == true ]; then
 		echo -e  "${GREEN}Installed${NONE}"
@@ -170,7 +170,7 @@ clear
 
 #We prevent to download some emulators
 
-if [ $handheldModel == "RG552" ] || [ $handheldModel == "ANDROID" ] || ; then
+if [ $handheldModel == "RG552" ] || [ $handheldModel == "ANDROID" ]; then
 	hasCitra=true
 	hasAether=true
 fi
