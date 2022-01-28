@@ -221,7 +221,7 @@ echo -ne "Creating RetroArch Backup..."
 FOLDER=~/storage/shared/RetroArch/config_bak/
 if [ -d "$FOLDER" ]; then
 	echo -e "${GREEN}OK${NONE}"
-elif [ -d "$FOLDER64" ]; then
+else
 	cp -r ~/storage/shared/RetroArch/config/ ~/storage/shared/RetroArch/config_bak/ &>> ~/storage/shared/pegasus_installer_log.log
 	cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg &>> ~/storage/shared/pegasus_installer_log.log
 	echo -e "${GREEN}OK${NONE}"
