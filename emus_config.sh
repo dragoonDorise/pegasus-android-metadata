@@ -55,6 +55,10 @@ if [$handheldModel == "ODIN"]; then
 		echo -e "${GREEN}OK${NONE}"
 	fi
 	
+#Pegasus metadatas
+	cp ~/dragoonDoriseTools/pegasus-android-metadata/roms/gc/metadata.pegasus.txt.odin ~/storage/$storageLocation/gc/metadata.pegasus.txt
+
+	cp ~/dragoonDoriseTools/pegasus-android-metadata/roms/wii/metadata.pegasus.txt.odin ~/storage/$storageLocation/wii/metadata.pegasus.txt
 
 fi
 	
