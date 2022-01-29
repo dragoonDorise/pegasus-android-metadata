@@ -15,7 +15,7 @@ handheldModel=$(cat ~/dragoonDoriseTools/.device)
 
 
 
-if [$handheldModel == "ODIN"]; then
+if [ $handheldModel == "ODIN" ]; then
 
 	hasDuckstation=false
 	hasDolphin=false
