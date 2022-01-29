@@ -17,6 +17,7 @@ hasPPSSPP=false
 hasDuckstation=false
 hasDrastic=false
 hasDolphin=false
+hasDolphinMMJ=false
 hasRetroArch=false
 hasCitra=false
 hasAether=false
@@ -76,8 +77,13 @@ FOLDER=~/storage/shared/DraStic
 if [ -d "$FOLDER" ]; then
 	hasDrastic=true
 fi
-#Dolphin
+#DolphinMMJ
 FOLDER=~/storage/shared/dolphin-mmjr
+if [ -d "$FOLDER" ]; then
+	hasDolphinMMJ=true
+fi
+#Dolphin
+FOLDER=~/storage/shared/Android/data/org.dolphinemu.dolphinemu
 if [ -d "$FOLDER" ]; then
 	hasDolphin=true
 fi
@@ -184,15 +190,18 @@ clear
 if [[ $handheldModel == "ODIN" ]]; then
 	hasRedDream=true
 	hasYaba=true
+	hasDolphinMMJ=true
 fi
 
 if [[ $handheldModel == "RP2+" ]]; then
 	hasCitra=true
+	hasDolphin=true
 fi
 
 if [[ $handheldModel == "RG552" ]] || [[ $handheldModel == "ANDROID" ]]; then
 	hasCitra=true
 	hasAether=true
+	hasDolphin=true
 fi
 
 if [ $hasRetroArch == false ]; then
@@ -216,7 +225,7 @@ if [ $hasRedDream == false ]; then
 	echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
 	
 fi
-if [ $hasDolphin == false ]; then
+if [ $hasDolphinMMJ == false ]; then
 	echo -e "Nintendo Wii & GameCube - Dolphin MMJR..."
 	wget  -q --show-progress https://github.com/Bankaimaster999/Dolphin-MMJR/releases/download/1.0-11460/Dolphin.MMJR.v11460.apk -P ~/dragoonDoriseTools/
 	echo -e  "Press the ${RED}A button${NONE} to install Dolphin"
@@ -225,6 +234,16 @@ if [ $hasDolphin == false ]; then
 	echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
 	read pause
 fi
+if [ $hasDolphin == false ]; then
+	echo -e "Nintendo Wii & GameCube - Dolphin..."
+	wget  -q --show-progress https://dl.dolphin-emu.org/builds/28/42/dolphin-master-5.0-15954.apk -P ~/dragoonDoriseTools/
+	echo -e  "Press the ${RED}A button${NONE} to install Dolphin"
+	read pause		
+	xdg-open ~/dragoonDoriseTools/dolphin-master-5.0-15954.apk
+	echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
+	read pause
+fi
+
 if [ $hasYaba == false ]; then
 	echo -e "Saturn - Yaba Sanshioro 2..."
 	termux-open "https://play.google.com/store/apps/details?id=org.devmiyax.yabasanshioro2"

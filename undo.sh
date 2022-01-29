@@ -58,9 +58,17 @@ rm -rf ~/storage  &> ~/storage/shared/pegasus_installer_log.log
 
 FOLDER=~/storage/shared/dolphin-mmjr_bak/
 if [ -d "$FOLDER" ]; then
-	echo -ne "Restoring RetroArch config..."
+	echo -ne "Restoring Dolphin MMJR config..."
 	cp ~/storage/shared/dolphin-mmjr_bak/ ~/storage/shared/dolphin-mmjr/  &> ~/storage/shared/pegasus_installer_log.log
 	rm ~/storage/shared/dolphin-mmjr_bak/  &> ~/storage/shared/pegasus_installer_log.log
+	echo -e "${GREEN}OK${NONE}"
+fi
+
+FOLDER=~/storage/shared/Android/data/org.dolphinemu.dolphinemu_bak
+if [ -d "$FOLDER" ]; then
+	echo -ne "Restoring Dolphin config..."
+	cp ~/storage/shared/Android/data/org.dolphinemu.dolphinemu_bak ~/storage/shared/Android/data/org.dolphinemu.dolphinemu  &> ~/storage/shared/pegasus_installer_log.log
+	rm ~/storage/shared/Android/data/org.dolphinemu.dolphinemu_bak  &> ~/storage/shared/pegasus_installer_log.log
 	echo -e "${GREEN}OK${NONE}"
 fi
 
