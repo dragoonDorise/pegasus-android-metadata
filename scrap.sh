@@ -356,9 +356,9 @@ scrap_ss () {
 		wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
 		echo -e "${GREEN}Found it!${NONE}"
 	else
-		echo -ne "${BOLD}Searching USA Region..."
+		echo -ne "${BOLD}Searching US Region..."
 		firstString="$urlMedia"
-		secondString="(usa)"
+		secondString="(us)"
 		urlMedia="${firstString/(wor)/"$secondString"}"  	
 		StatusString=$(wget --spider "$urlMedia" 2>&1)
 		if [[ $StatusString == *"image/png"* ]]; then
@@ -368,16 +368,16 @@ scrap_ss () {
 				echo -ne "${BOLD}Searching EU Region..."
 				firstString="$urlMedia"
 				secondString="(eu)"
-				urlMedia="${firstString/(usa)/"$secondString"}"  	
+				urlMedia="${firstString/(us)/"$secondString"}"  	
 				StatusString=$(wget --spider "$urlMedia" 2>&1)
 			if [[ $StatusString == *"image/png"* ]]; then
 				wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
 				echo -e "${GREEN}Found it!${NONE}"
 			
 			else
-				echo -ne "${BOLD}Searching US Region..."
+				echo -ne "${BOLD}Searching USA Region..."
 				firstString="$urlMedia"
-				secondString="(us)"
+				secondString="(usa)"
 				urlMedia="${firstString/(eu)/"$secondString"}"  
 				StatusString=$(wget --spider "$urlMedia" 2>&1)
 				if [[ $StatusString == *"image/png"* ]]; then
@@ -670,7 +670,10 @@ for scraper in ${scrapers[@]};
 		 		fi
 		 		
 		 		#Blanks cleaning up, TODO: DRY
-		 		firstString=$romNameNoExtension
+ 				firstString=$romNameNoExtension
+ 				secondString=""
+ 				romNameNoExtensionNoSpace="${firstString/"&"/"$secondString"}" 				 
+		 		firstString=$romNameNoExtensionNoSpace
 		 		secondString="%20"
 		 		romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
 		 		firstString=$romNameNoExtensionNoSpace
