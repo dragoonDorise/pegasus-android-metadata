@@ -724,15 +724,13 @@ for scraper in ${scrapers[@]};
 					 if [ $hasWheel == false ] || [ $hasSs == false ] || [ $hasBox == false ]; then
 						#Second Scan: Screenscraper		
 						 url="https://www.screenscraper.fr/api2/jeuInfos.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&output=json&ssid=${userSS}&sspassword=${passSS}&crc=&systemeid=${ssID}&romtype=rom&romnom=${romNameNoExtensionNoSpace}.zip"
-						 echo $userSS;
-						 echo $passSS;
 						 
 						echo $url;
 						 #ID Game
 						 content=$(curl "$url") 
 						 
 						 echo $content;
-						 exit
+						 
 						 
 						 gameIDSS=$( jq -r  '.response.jeu.id' <<< "${content}" ) 
 									 
