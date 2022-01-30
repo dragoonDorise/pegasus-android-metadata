@@ -16,7 +16,6 @@ hasMupen=false
 hasPPSSPP=false
 hasDuckstation=false
 hasDrastic=false
-hasDolphin=false
 hasDolphinMMJ=false
 hasRetroArch=false
 hasCitra=false
@@ -82,11 +81,7 @@ FOLDER=~/storage/shared/dolphin-mmjr
 if [ -d "$FOLDER" ]; then
 	hasDolphinMMJ=true
 fi
-#Dolphin
-FOLDER=~/storage/shared/Android/data/org.dolphinemu.dolphinemu
-if [ -d "$FOLDER" ]; then
-	hasDolphin=true
-fi
+
 clear
 echo -e ""
 echo -e "Checking installed emulators..."
@@ -136,7 +131,7 @@ if [[ $handheldModel == "ODIN" ]] || [[ $handheldModel == "ANDROID" ]]; then
 		echo -e  "${RED}Not installed${NONE}"
 	fi
 	echo -ne "Nintendo Wii & GameCube - Dolphin MMJR..."
-	if [ $hasDolphin == true ]; then
+	if [ $hasDolphinMMJ == true ]; then
 		echo -e  "${GREEN}Installed${NONE}"
 	else
 		echo -e  "${RED}Not installed${NONE}"
@@ -148,7 +143,7 @@ fi
 #Only on Rp2+
 if [[ $handheldModel == "RP2+" ]]; then
 echo -ne "Nintendo Wii & GameCube - Dolphin MMJR..."
-	if [ $hasDolphin == true ]; then
+	if [ $hasDolphinMMJ == true ]; then
 		echo -e  "${GREEN}Installed${NONE}"
 	else
 		echo -e  "${RED}Not installed${NONE}"
@@ -190,18 +185,15 @@ clear
 if [[ $handheldModel == "ODIN" ]]; then
 	hasRedDream=true
 	hasYaba=true
-	hasDolphinMMJ=true
 fi
 
 if [[ $handheldModel == "RP2+" ]]; then
 	hasCitra=true
-	hasDolphin=true
 fi
 
 if [[ $handheldModel == "RG552" ]] || [[ $handheldModel == "ANDROID" ]]; then
 	hasCitra=true
 	hasAether=true
-	hasDolphin=true
 fi
 
 if [ $hasRetroArch == false ]; then
@@ -231,15 +223,6 @@ if [ $hasDolphinMMJ == false ]; then
 	echo -e  "Press the ${RED}A button${NONE} to install Dolphin"
 	read pause		
 	xdg-open ~/dragoonDoriseTools/Dolphin.MMJR.v11460.apk
-	echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
-	read pause
-fi
-if [ $hasDolphin == false ]; then
-	echo -e "Nintendo Wii & GameCube - Dolphin..."
-	wget  -q --show-progress https://dl.dolphin-emu.org/builds/28/42/dolphin-master-5.0-15954.apk -P ~/dragoonDoriseTools/
-	echo -e  "Press the ${RED}A button${NONE} to install Dolphin"
-	read pause		
-	xdg-open ~/dragoonDoriseTools/dolphin-master-5.0-15954.apk
 	echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
 	read pause
 fi

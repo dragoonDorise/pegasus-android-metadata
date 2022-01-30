@@ -49,3 +49,7 @@
 
 - AYN Odin configuration
 - Duckstation, Dolphin, Mupen and Flycast configuration
+
+  1.2.6
+
+- Reset Screenscraper credetials on menu
