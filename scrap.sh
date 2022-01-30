@@ -632,7 +632,9 @@ for scraper in ${scrapers[@]};
 			read pass
 			echo $pass > ~/dragoonDoriseTools/.screenScraperPass
 			
-			echo -e "${GREEN}Thanks!${NONE} Press the ${RED}A Button${NONE} to start scraping your roms"
+			echo -e "${GREEN}Thanks!${NONE}"
+			echo -e "You can change the credentials later by opening Termux again"
+			echo -e "Press the ${RED}A Button${NONE} to start scraping your roms"
 			read pause
 		fi
 		
