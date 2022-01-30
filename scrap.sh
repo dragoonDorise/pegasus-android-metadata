@@ -720,8 +720,6 @@ for scraper in ${scrapers[@]};
 						 hasBox=true
 					fi
 										 
-										 userSS="djrodtc"
-										passSS="cacadevaca" 
 					 #We only search games with no art
 					 if [ $hasWheel == false ] || [ $hasSs == false ] || [ $hasBox == false ]; then
 						#Second Scan: Screenscraper		
