@@ -489,7 +489,9 @@ for scraper in ${scrapers[@]};
 			 
 			 #Retroarch system folder name
 			 get_ra_alias $system
-			
+			 echo ""
+			 echo -e "Scraping $system..."
+			 echo ""
 			 #Roms loop
 			 for entry in ~/storage/$storageLocation/$system/*
 			 do
@@ -639,6 +641,9 @@ for scraper in ${scrapers[@]};
 				   
 			  #ScreenScraper system ID
 			  get_sc_id $system
+				echo ""
+				echo -e "Scraping $system..."
+				echo ""
 			  
 			  #Roms loop
 			  for entry in ~/storage/$storageLocation/$system/*
