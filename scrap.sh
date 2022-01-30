@@ -418,7 +418,7 @@ selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
 	"dreamcast" "Sega - Dreamcast" OFF \
 	"fbneo" "FBNeo - Arcade Games" OFF \
 	"gamegear" "Sega - Game Gear" OFF \
-	"gb" "Nintendo - Game Boy" ON \
+	"gb" "Nintendo - Game Boy" OFF \
 	"gba" "Nintendo - Game Boy Advance" OFF \
 	"gbc" "Nintendo - Game Boy Color" OFF \
 	"gc" "Nintendo - GameCube" OFF \
@@ -458,7 +458,7 @@ clear
 while true; do
 	scrapers_names=$(whiptail --title "Chose your Scrap Engine - We recomend to choose both" \
 	   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
-		"RETROARCH" "Retroarch Thumbs - Fast but only works on No Intro Romsets" OFF \
+		"RETROARCH" "Retroarch Thumbs - Fast but only works on No Intro Romsets" ON \
 		"SCREENSCRAPER" "ScreenScraper - Really slow but more reliable, needs a free user account" ON \
 	   3>&1 1<&2 2>&3)
 	case $scrapers_names in
