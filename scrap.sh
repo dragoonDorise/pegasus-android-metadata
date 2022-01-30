@@ -549,7 +549,7 @@ for scraper in ${scrapers[@]};
 				romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"    						
 					
 				if [ $system == "mame" ]; then
-					startcapture= false
+					startcapture=false
 				fi
 				
 				if [ $startcapture == true ]; then
