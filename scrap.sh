@@ -558,7 +558,7 @@ for scraper in ${scrapers[@]};
 						if [[ $StatusString == *"image/png"* ]]; then
 							wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/screenshot/
 						else
-							echo -e "Image not found: $romNameNoExtensionNoSpace screenshot..."
+							echo -e "Image not found: $romNameNoExtension screenshot..."
 						fi
 						
 					fi
@@ -573,7 +573,7 @@ for scraper in ${scrapers[@]};
 							wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/box2dfront/
 							echo -e ""
 						else
-							echo -e "Image not found: $romNameNoExtensionNoSpace screenshot..."
+							echo -e "Image not found: $romNameNoExtension screenshot..."
 						fi
 					fi
 					
@@ -729,8 +729,7 @@ for scraper in ${scrapers[@]};
 				 		#ID Game
 				 		content=$(curl "$url") 
 				 		gameIDSS=$( jq -r  '.response.jeu.id' <<< "${content}" ) 
-							 
-						echo $gameIDSS		
+							 		
 				 		
 						urlMediaWheel="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel(wor)"			 
 						urlMediaWheelHD="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel-hd(wor)"			 
@@ -740,7 +739,7 @@ for scraper in ${scrapers[@]};
 				 		ssSavePath="./storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png"
 				 		box2dfrontSavePath="./storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png"
 										 		
-				 		echo -e "Downloading Images for $romNameNoExtensionNoSpace"		
+				 		echo -e "Downloading Images for $romNameNoExtension"		
 				 		
 						if [ $hasWheel == true ]; then
 							echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
