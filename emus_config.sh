@@ -18,11 +18,11 @@ handheldModel=$(cat ~/dragoonDoriseTools/.device)
 if [ $handheldModel == "ODIN" ]; then
 
 	hasDuckstation=false
-	hasDolphin=false
+	hasDolphinMMJ=false
 
-	FOLDER=~/storage/shared/Android/data/org.dolphinemu.dolphinemu
+	FOLDER=~/storage/shared/dolphin-mmjr
 	if [ -d "$FOLDER" ]; then
-		hasDolphin=true
+		hasDolphinMMJ=true
 	fi
 	FOLDER=~/storage/shared/duckstation
 	if [ -d "$FOLDER" ]; then
@@ -32,13 +32,13 @@ if [ $handheldModel == "ODIN" ]; then
 	
 	echo -ne "Creating Dolphin Backup..."
 	#We create the backup only if we don't have one, to prevent erasing the original backup if the user reinstalls
-	FOLDER=~/storage/shared/Android/data/org.dolphinemu.dolphinemu_bak/
+	FOLDER=~/storage/shared/dolphin-mmjr_bak/
 	if [ -d "$FOLDER" ]; then
 		echo -e "${GREEN}OK${NONE}"
 	else
-		if [ $hasDolphin == true ]; then
-			cp -r ~/storage/shared/Android/data/org.dolphinemu.dolphinemu ~/storage/shared/Android/data/org.dolphinemu.dolphinemu_bak
-			rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/odin/org.dolphinemu.dolphinemu/ ~/storage/shared/Android/data/org.dolphinemu.dolphinemu/ &> ~/storage/shared/pegasus_installer_log.log
+		if [ $hasDolphinMMJ == true ]; then
+			cp -r ~/storage/shared/dolphin-mmjr ~/storage/shared/dolphin-mmjr_bak
+			rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/odin/dolphin-mmjr/ ~/storage/shared/dolphin-mmjr &> ~/storage/shared/pegasus_installer_log.log
 		fi
 		echo -e "${GREEN}OK${NONE}"
 	fi
