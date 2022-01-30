@@ -590,6 +590,12 @@ for scraper in ${scrapers[@]};
 		echo -e "Press the ${RED}A Button${NONE} to finish. We recomend to do a second loop with ScreenScraper if you didn't do it already"
 		read pause	
 		
+
+
+	fi
+
+	if [ $scraper == "SCREENSCRAPER" ]; then
+		echo -e "Using ScreenScraper..."		
 		#We check for existing credentials
 		userStored=false
 		FILE=~/dragoonDoriseTools/.screenScraperUser
@@ -623,12 +629,6 @@ for scraper in ${scrapers[@]};
 			echo -e "${GREEN}Thanks!${NONE} Press the ${RED}A Button${NONE} to start scraping your roms"
 			read pause
 		fi
-
-
-	fi
-
-	if [ $scraper == "SCREENSCRAPER" ]; then
-		echo -e "Useing ScreenScraper..."		
 		
 		 #ScreenScraper loop
 		 for device_name in ${selected_device_names[@]};
