@@ -412,7 +412,7 @@ selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
 	"3do" "The 3DO Company - 3DO" OFF \
 	"3ds" "Nintendo - Nintendo 3DS" OFF \
 	"atari2600" "Atari - 2600" OFF \
-	"atarilynx" "Atari - Lynx" OFF \
+	"lynx" "Atari - Lynx" OFF \
 	"doom" "DOOM" OFF \
 	"dos" "DOS" OFF \
 	"dreamcast" "Sega - Dreamcast" OFF \
@@ -428,6 +428,7 @@ selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
 	"nds" "Nintendo - Nintendo DS" OFF \
 	"ngp" "SNK - Neo Geo Pocket" OFF \
 	"ngpc" "SNK - Neo Geo Pocket Color" OFF \
+	"mame" "Mame - Arcade Games" OFF \
 	"mastersystem" "Sega - Master System" OFF \
 	"nes" "Nintendo - Nintendo Entertainment System" OFF \
 	"neogeo" "SNK - Neo Geo" OFF \
@@ -447,7 +448,7 @@ selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
    3>&1 1<&2 2>&3)
 
 if [[ $selected_device_descriptions == "ALL" ]]; then
-	selected_device_descriptions_all="atari2600 atarilynx doom dos fbneo pcengine pcenginecd gb gba gbc gc 3ds n64 nds nes pokemini snes sneswide wii neogeo neogeocd ngp ngpc scummvm sega32x dreamcast gamegear mastersystem genesis genesiswide segacd saturn psx ps2 psp 3do"
+	selected_device_descriptions_all="mame atari2600 lynx doom dos fbneo pcengine pcenginecd gb gba gbc gc 3ds n64 nds nes pokemini snes sneswide wii neogeo neogeocd ngp ngpc scummvm sega32x dreamcast gamegear mastersystem genesis genesiswide segacd saturn psx ps2 psp 3do"
 	mapfile -t selected_device_names <<< $selected_device_descriptions_all
 else
 	mapfile -t selected_device_names <<< $selected_device_descriptions
@@ -547,6 +548,9 @@ for scraper in ${scrapers[@]};
 				secondString="%20"
 				romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"    						
 					
+				if [ $system == "mame" ]; then
+					startcapture= false
+				fi
 				
 				if [ $startcapture == true ]; then
 						
