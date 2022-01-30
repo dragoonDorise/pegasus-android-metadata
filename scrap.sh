@@ -729,7 +729,8 @@ for scraper in ${scrapers[@]};
 				 		#ID Game
 				 		content=$(curl "$url") 
 				 		gameIDSS=$( jq -r  '.response.jeu.id' <<< "${content}" ) 
-							 		
+							 
+						echo $gameIDSS		
 				 		
 						urlMediaWheel="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel(wor)"			 
 						urlMediaWheelHD="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel-hd(wor)"			 
