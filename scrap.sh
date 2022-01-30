@@ -740,11 +740,11 @@ for scraper in ${scrapers[@]};
 						#Second Scan: Screenscraper		
 						 url="https://www.screenscraper.fr/api2/jeuInfos.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&output=json&ssid=${userSS}&sspassword=${passSS}&crc=&systemeid=${ssID}&romtype=rom&romnom=${romNameNoExtensionNoSpace}.zip"
 						 
-						echo $url;
+						#echo $url;
 						 #ID Game
 						 content=$(curl "$url") 
 						 
-						 echo $content;
+						 #echo $content;
 						 
 						 
 						 gameIDSS=$( jq -r  '.response.jeu.id' <<< "${content}" ) 
