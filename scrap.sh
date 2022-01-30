@@ -694,9 +694,24 @@ for scraper in ${scrapers[@]};
 				 firstString=$romNameNoExtensionNoSpace
 				 secondString="%20"
 				 romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"   
-				 firstString=$romNameNoExtensionNoSpace
-				 secondString="%20"
-				 romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"    						
+				firstString=$romNameNoExtensionNoSpace
+ 				secondString="%20"
+ 				romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"    						
+				firstString=$romNameNoExtensionNoSpace
+ 				secondString="%20"
+ 				romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"    						
+				firstString=$romNameNoExtensionNoSpace
+ 				secondString="%20"
+ 				romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"    						
+				firstString=$romNameNoExtensionNoSpace
+ 				secondString="%20"
+ 				romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"    						
+				firstString=$romNameNoExtensionNoSpace
+ 				secondString="%20"
+ 				romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"    						
+				firstString=$romNameNoExtensionNoSpace
+ 				secondString="%20"
+ 				romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"    						
 					 
 				 
 				 if [ $startcapture == true ]; then
