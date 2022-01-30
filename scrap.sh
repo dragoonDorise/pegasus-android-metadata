@@ -558,7 +558,7 @@ for scraper in ${scrapers[@]};
 						if [[ $StatusString == *"image/png"* ]]; then
 							wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/screenshot/
 						else
-							echo -ne "Image not found: $romNameNoExtension screenshot..."
+							echo -e "Image not found: $romNameNoExtensionNoSpace screenshot..."
 						fi
 						
 					fi
@@ -573,7 +573,7 @@ for scraper in ${scrapers[@]};
 							wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/box2dfront/
 							echo -e ""
 						else
-							echo -ne "Image not found: $romNameNoExtension screenshot..."
+							echo -e "Image not found: $romNameNoExtensionNoSpace screenshot..."
 						fi
 					fi
 					
