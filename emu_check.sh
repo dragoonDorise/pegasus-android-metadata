@@ -119,7 +119,7 @@ fi
 if [[ $handheldModel == "ODIN" ]] || [[ $handheldModel == "ANDROID" ]]; then
 
 	echo -ne "PS2 - AetherSX2..."
-	if [ $hasCitra == true ]; then
+	if [ $hasAether == true ]; then
 		echo -e  "${GREEN}Installed${NONE}"
 	else
 		echo -e  "${RED}Not installed${NONE}"
@@ -265,9 +265,10 @@ if [ $hasDrastic == false ]; then
 fi
 if [ $hasCitra == false ]; then
 	echo -e "Nintendo 3DS - Citra MMJ..."		
-	wget  -q --show-progress https://github.com/weihuoya/citra/releases/download/20220120/Citra_MMJ_20220120.apk -P ~/dragoonDoriseTools/
+	wget  -q --show-progress https://github.com/weihuoya/citra/releases/download/20220127/Citra_MMJ_20220127.apk -P ~/dragoonDoriseTools/
 	echo -e  "Press the ${RED}A button${NONE} to install Citra MMJ"
 	read pause				
-	xdg-open ~/dragoonDoriseTools/Citra_MMJ_20220120.apk
+	xdg-open ~/dragoonDoriseTools/Citra_MMJ_20220127.apk
 fi
+
 		
