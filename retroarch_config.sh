@@ -388,12 +388,7 @@ if [[ $handheldModel == "ODIN" ]]; then
 	
 	#Configuration
 	rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/odin/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> ~/storage/shared/pegasus_installer_log.log
-	
-	#Pegasus metadatas
-	cp ~/dragoonDoriseTools/pegasus-android-metadata/roms/n64/metadata.pegasus.txt.odin ~/storage/$storageLocation/n64/metadata.pegasus.txt
-	
-	cp ~/dragoonDoriseTools/pegasus-android-metadata/roms/dreamcast/metadata.pegasus.txt.odin ~/storage/$storageLocation/dreamcast/metadata.pegasus.txt
-	
+		
 fi
 
 #sed -i 's/A/B/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
