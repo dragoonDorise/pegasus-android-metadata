@@ -13,9 +13,14 @@ BLINK='\x1b[5m'
 clear
 rm -rf ~/storage &>> /dev/null
 termux-setup-storage
-echo -e "Pegasus installer 1.2.4e"
+echo -e "Pegasus installer 1.2.6"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "We recommend you to hide the virtual keyboard by swiping from the left of the screen."
+echo -e  "${RED}Read before continuing${NONE}"
+echo -e  "If you are going to store your roms in the SD Card make sure your SD Card is inserted"
+echo -e  "${BOLD}Because of Termux limitations you can't use custom folders for your roms${NONE}"
+echo -e  "${BOLD}This script will create all the rom folders for you in your device${NONE}"
+echo -e  "Nothing will be erased from your SD Card"
 echo -e  "Press the ${RED}A button${NONE} to start"
 
 read clear
@@ -247,6 +252,7 @@ echo -e "${GREEN}OK${NONE}"
 
 echo "/bin/bash ~/startup.sh" > ~/.bashrc
 sleep .5
+clear
 echo -e ""
 echo -e ""
 echo -e  "${GREEN}Success!!${NONE}"
@@ -265,7 +271,7 @@ fi
 echo -e  "${BOLD}We recommend roms named after no-intro romsets${NONE}"
 echo -e ""
 echo -e  "Now let's install ${RED}Pegasus${NONE}"
-echo -e  "Press the ${RED}A button${NONE} to install Pegasus, when Pegasus is installed click ${BOLD}DONE${NONE} in the installation window so you can come back to scrape your roms' artwork!"
+echo -e  "Press the ${RED}A button${NONE} to install Pegasus, when Pegasus is installed click ${BOLD}DONE${NONE} in the installation window so you can come back to scrap your roms' artwork!"
 read pause
 clear
 echo -ne  "Installing ${RED}Pegasus${NONE}..."
