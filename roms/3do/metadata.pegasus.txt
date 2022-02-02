@@ -1,6 +1,6 @@
 collection: 3DO
 shortname: 3do
-extensions: bin, chd, cue, iso, chd
+extensions: bin, chd, cue, iso, zip
 launch: am start
   -n com.retroarch/.browser.retroactivity.RetroActivityFuture
   -e ROM {file.path}
