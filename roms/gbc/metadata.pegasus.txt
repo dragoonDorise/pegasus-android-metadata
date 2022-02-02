@@ -1,6 +1,6 @@
 collection: Game Boy Color
 shortname: gbc
-extensions: dmg, gb, gbc, zip, 7z
+extensions: gbc, zip, 7z
 launch: am start
   -n com.retroarch/.browser.retroactivity.RetroActivityFuture
   -e ROM {file.path}
