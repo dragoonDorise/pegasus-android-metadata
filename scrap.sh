@@ -825,6 +825,9 @@ for scraper in ${scrapers[@]};
 						#Wheel HD just in case
 						FILE=~/storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png
 						if [ -f "$FILE" ]; then
+	 						hasWheel=true
+						fi
+						if [ $hasWheel == true ]; then
 							echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 						else 
 							scrap_ss "$urlMediaWheelHD" "$wheelSavePath" "Wheel HD"
