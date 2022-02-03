@@ -33,7 +33,7 @@ get_sc_id(){
 		ssID="11";;
 		gba)
 		ssID="12";;
-		gamecube)
+		gc)
 		ssID="13";;
 		n64)
 		ssID="14";;

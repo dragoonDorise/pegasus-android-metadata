@@ -17,9 +17,10 @@ while true; do
 	"1" "Update & Configure Pegasus Installer" ON \
 	"2" "Scrap your Roms" OFF \
 	"3" "Change SNES Aspect Ratio" OFF \
-	"4" "Uninstall Pegasus Installer" OFF \
+	"4" "Turn Bezels ON/OFF" OFF \
 	"5" "Reset Screen Scraper credentials" OFF \
-	"6" "Open Termux CLI" OFF \
+	"6" "Uninstall Pegasus Installer" OFF \
+	"7" "Open Termux CLI" OFF \
 	3>&1 1>&2 2>&3)
 	case $selected_option in
 		[1]* ) break;;
@@ -51,7 +52,8 @@ fi
 
 if [[ $selected_option == "4" ]]
 then
-	/bin/bash ~/undo.sh
+	/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/ra_bezels.sh
+	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 fi
 if [[ $selected_option == "5" ]]
 then
@@ -62,15 +64,11 @@ then
 	echo -e "Press the ${RED}A Button${NONE} if you already have an account"
 	echo -e "Type y and press the ${RED}A Button${NONE} and I'll open ScreenScraper on your browser, remember to come back when you are registered"
 	read account
-	if [[ $account == "y" ]]; then
+	if [[ $account == "Y" ]] || [[ $account == "y" ]]; then
 		termux-open "https://www.screenscraper.fr/membreinscription.php"
 	fi
 	
-	if [[ $account == "Y" ]]; then
-		termux-open "https://www.screenscraper.fr"
-	fi
-	
-	echo -e "Now I'm going to ask for your user and password. Both will be stored on your device, ${BOLD}I won't send them or read them${NONE}"
+	echo -e "Now I'm going to ask for your user and password. Both will be stored on your device, ${BOLD}I won't send them anywhere or read them${NONE}"
 	echo -e "What is your ScreenScraper user? Type it and press the ${RED}A button${NONE}"
 	read user
 	echo $user > ~/dragoonDoriseTools/.screenScraperUser
@@ -82,8 +80,12 @@ then
 	read pause
 	/bin/bash ~/scrap.sh
 fi
-
 if [[ $selected_option == "6" ]]
+then
+	/bin/bash ~/undo.sh
+fi
+
+if [[ $selected_option == "7" ]]
 then
 	clear
 fi

@@ -68,13 +68,10 @@ echo -e "${GREEN}OK${NONE}"
 #Snes configuration
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/snes_config.sh
 
+
+
 echo -e "Downloading RetroArch Recommended Cores..."
 installCores="true"
-#if (whiptail --title "Download RetroArch Cores?" --yesno "Do you want to download all the recommended RetroArch Cores? If you installed #RetroArch from the Play Store or are unseure choose YES." 8 78); then
-#	installCores="true"
-#else
-#	installCores="false"
-#fi
 
 if [ $installCores == "true" ]; then
 	
@@ -391,4 +388,7 @@ if [[ $handheldModel == "ODIN" ]]; then
 		
 fi
 
-#sed -i 's/A/B/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
+#Bezels
+/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/ra_bezels.sh
+
+
