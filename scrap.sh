@@ -359,45 +359,63 @@ scrap_ss () {
 		echo -ne "${BOLD}Searching US Region..."
 		firstString="$urlMedia"
 		secondString="(us)"
-		urlMedia="${firstString/(wor)/"$secondString"}"  	
+		urlMedia="${firstString/(wor)/"$secondString"}"
+		echo ""
+		echo $urlMedia  	
+		echo ""
 		StatusString=$(wget --spider "$urlMedia" 2>&1)
 		if [[ $StatusString == *"image/png"* ]]; then
 			wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
 			echo -e "${GREEN}Found it!${NONE}"
 		else
-				echo -ne "${BOLD}Searching EU Region..."
+			echo -ne "${BOLD}Searching EU Region..."
+			firstString="$urlMedia"
+			secondString="(eu)"
+			urlMedia="${firstString/(us)/"$secondString"}"  	
+			echo ""
+			echo $urlMedia  	
+			echo ""
+		
+			StatusString=$(wget --spider "$urlMedia" 2>&1)
+			if [[ $StatusString == *"image/png"* ]]; then
+				wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
+				echo -e "${GREEN}Found it!${NONE}"
+			
+			else
+				echo -ne "${BOLD}Searching USA Region..."
 				firstString="$urlMedia"
-				secondString="(eu)"
-				urlMedia="${firstString/(us)/"$secondString"}"  	
+				secondString="(usa)"
+				urlMedia="${firstString/(eu)/"$secondString"}"  
+				echo ""
+				echo $urlMedia  	
+				echo ""
+				
 				StatusString=$(wget --spider "$urlMedia" 2>&1)
 				if [[ $StatusString == *"image/png"* ]]; then
 					wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
 					echo -e "${GREEN}Found it!${NONE}"
-				
 				else
-					echo -ne "${BOLD}Searching USA Region..."
+					echo -ne "${BOLD}Searching Custom Region..."
 					firstString="$urlMedia"
-					secondString="(usa)"
-					urlMedia="${firstString/(eu)/"$secondString"}"  
+					secondString="(cus)"
+					urlMedia="${firstString/(usa)/"$secondString"}" 
+					echo ""
+					echo $urlMedia  	
+					echo ""
+					 	
 					StatusString=$(wget --spider "$urlMedia" 2>&1)
 					if [[ $StatusString == *"image/png"* ]]; then
 						wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
 						echo -e "${GREEN}Found it!${NONE}"
 					else
-						echo -ne "${BOLD}Searching Custom Region..."
-						firstString="$urlMedia"
-						secondString="(cus)"
-						urlMedia="${firstString/(usa)/"$secondString"}"  	
-						StatusString=$(wget --spider "$urlMedia" 2>&1)
-					if [[ $StatusString == *"image/png"* ]]; then
-						wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
-						echo -e "${GREEN}Found it!${NONE}"
-					
-					else
 						echo -ne "${BOLD}Searching No Region..."
 						firstString="$urlMedia"
 						secondString=""
 						urlMedia="${firstString/(cus)/"$secondString"}"  	
+						echo ""
+						echo $urlMedia  	
+						echo ""
+						
 						StatusString=$(wget --spider "$urlMedia" 2>&1)
 						if [[ $StatusString == *"image/png"* ]]; then
 							wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
