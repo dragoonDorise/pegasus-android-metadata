@@ -384,6 +384,16 @@ scrap_ss () {
 					wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
 					echo -e "${GREEN}Found it!${NONE}"
 				else
+					echo -ne "${BOLD}Searching No Region..."
+					firstString="$urlMedia"
+					secondString=""
+					urlMedia="${firstString/(usa)/"$secondString"}"  	
+					StatusString=$(wget --spider "$urlMedia" 2>&1)
+				if [[ $StatusString == *"image/png"* ]]; then
+					wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
+					echo -e "${GREEN}Found it!${NONE}"
+				
+				else				
 					echo -e "${RED}NO IMG FOUND${NONE}"
 				fi
 				
@@ -789,7 +799,6 @@ for scraper in ${scrapers[@]};
 						urlMediaWheel="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel(wor)"			 
 						urlMediaWheelHD="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel-hd(wor)"			 
 						 urlMediaSs="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=ss(wor)"
-						 urlMediaSs2="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=ss"
 						 urlMediaBox="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=box-2D(wor)"		
 						 wheelSavePath="./storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png"
 						 ssSavePath="./storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png"
@@ -817,13 +826,6 @@ for scraper in ${scrapers[@]};
 						else 
 							scrap_ss "$urlMediaSs" "$ssSavePath" "Screenshot"
 						fi
-												
-						if [ $hasSs == true ]; then
-							echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
-						else 
-							scrap_ss "$urlMediaSs2" "$ssSavePath" "Screenshot - Alternate"
-						fi
-						
 						
 						if [ $hasBox == true ]; then
 							echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
