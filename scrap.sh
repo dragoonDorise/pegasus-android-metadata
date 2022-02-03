@@ -384,17 +384,28 @@ scrap_ss () {
 						wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
 						echo -e "${GREEN}Found it!${NONE}"
 					else
-						echo -ne "${BOLD}Searching No Region..."
+						echo -ne "${BOLD}Searching Custom Region..."
 						firstString="$urlMedia"
-						secondString=""
+						secondString="(cus)"
 						urlMedia="${firstString/(usa)/"$secondString"}"  	
 						StatusString=$(wget --spider "$urlMedia" 2>&1)
 					if [[ $StatusString == *"image/png"* ]]; then
 						wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
 						echo -e "${GREEN}Found it!${NONE}"
 					
-					else				
-						echo -e "${RED}NO IMG FOUND${NONE}"
+					else
+						echo -ne "${BOLD}Searching No Region..."
+						firstString="$urlMedia"
+						secondString=""
+						urlMedia="${firstString/(cus)/"$secondString"}"  	
+						StatusString=$(wget --spider "$urlMedia" 2>&1)
+						if [[ $StatusString == *"image/png"* ]]; then
+							wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
+							echo -e "${GREEN}Found it!${NONE}"
+						
+						else				
+							echo -e "${RED}NO IMG FOUND${NONE}"
+						fi
 					fi
 				fi
 			fi
