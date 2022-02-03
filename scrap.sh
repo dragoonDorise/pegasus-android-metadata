@@ -622,10 +622,6 @@ for scraper in ${scrapers[@]};
 
 	if [ $scraper == "SCREENSCRAPER" ]; then
 		echo -e "Using ScreenScraper..."		
-		mkdir ~/storage/$storageLocation/$system/media &> /dev/null
- 		mkdir ~/storage/$storageLocation/$system/media/screenshot &> /dev/null
- 		mkdir ~/storage/$storageLocation/$system/media/box2dfront &> /dev/null
-	 	mkdir ~/storage/$storageLocation/$system/media/wheel &> /dev/null
 		
 		#We check for existing credentials
 		userStored=false
@@ -669,6 +665,10 @@ for scraper in ${scrapers[@]};
 					
 			  message=$device_name
 			  system="${message//'"'/}"            
+				mkdir ~/storage/$storageLocation/$system/media &> /dev/null
+				mkdir ~/storage/$storageLocation/$system/media/screenshot &> /dev/null
+				mkdir ~/storage/$storageLocation/$system/media/box2dfront &> /dev/null
+				mkdir ~/storage/$storageLocation/$system/media/wheel &> /dev/null
 				   
 			  #ScreenScraper system ID
 			  get_sc_id $system
