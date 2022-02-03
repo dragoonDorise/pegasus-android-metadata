@@ -794,7 +794,7 @@ for scraper in ${scrapers[@]};
 						 ssSavePath="./storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png"
 						 box2dfrontSavePath="./storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png"
 												 
-						 echo -e "Downloading Images for $romNameNoExtension"		
+						 echo -e "Downloading Images for $romNameNoExtensionNoSpace"		
 						 
 						if [ $hasWheel == true ]; then
 							echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
