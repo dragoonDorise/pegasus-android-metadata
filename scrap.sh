@@ -827,6 +827,7 @@ for scraper in ${scrapers[@]};
 						if [ -f "$FILE" ]; then
 	 						hasWheel=true
 						fi
+						sleep .5
 						if [ $hasWheel == true ]; then
 							echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 						else 
