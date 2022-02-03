@@ -599,7 +599,7 @@ for scraper in ${scrapers[@]};
 							wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/box2dfront/
 							echo -e ""
 						else
-							echo -e "Image not found: $romNameNoExtension screenshot..."
+							echo -e "Image not found: $romNameNoExtension box2dfront..."
 						fi
 					fi
 					
