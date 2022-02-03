@@ -803,7 +803,7 @@ for scraper in ${scrapers[@]};
 						 
 						#echo $url;
 						 #ID Game
-						 content=$(curl "$url") 
+						 content=$(curl "$url"  &> /dev/null) 
 						 
 						 #echo $content;
 						 
