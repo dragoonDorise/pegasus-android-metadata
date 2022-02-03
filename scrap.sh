@@ -352,19 +352,16 @@ scrap_ss () {
 	echo -e "${BOLD}Scraping: $media.${NONE}"
 	StatusString=$(wget --spider "$urlMedia" 2>&1)
 	echo -ne "${BOLD}Searching World Region..."
-	if [[ $StatusString == *"image/png"* ]]; then
+	if [[ $StatusString == *"image/png"* ]] || [[ $StatusString == *"image/jpeg"* ]] || [[ $StatusString == *"image/jpg"* ]]; then
 		wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
 		echo -e "${GREEN}Found it!${NONE}"
 	else
 		echo -ne "${BOLD}Searching US Region..."
 		firstString="$urlMedia"
 		secondString="(us)"
-		urlMedia="${firstString/(wor)/"$secondString"}"
-		echo ""
-		echo $urlMedia  	
-		echo ""
+		urlMedia="${firstString/(wor)/"$secondString"}"  	
 		StatusString=$(wget --spider "$urlMedia" 2>&1)
-		if [[ $StatusString == *"image/png"* ]]; then
+		if [[ $StatusString == *"image/png"* ]] || [[ $StatusString == *"image/jpeg"* ]] || [[ $StatusString == *"image/jpg"* ]]; then
 			wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
 			echo -e "${GREEN}Found it!${NONE}"
 		else
@@ -372,12 +369,8 @@ scrap_ss () {
 			firstString="$urlMedia"
 			secondString="(eu)"
 			urlMedia="${firstString/(us)/"$secondString"}"  	
-			echo ""
-			echo $urlMedia  	
-			echo ""
-		
 			StatusString=$(wget --spider "$urlMedia" 2>&1)
-			if [[ $StatusString == *"image/png"* ]]; then
+			if [[ $StatusString == *"image/png"* ]] || [[ $StatusString == *"image/jpeg"* ]] || [[ $StatusString == *"image/jpg"* ]]; then
 				wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
 				echo -e "${GREEN}Found it!${NONE}"
 			
@@ -386,25 +379,17 @@ scrap_ss () {
 				firstString="$urlMedia"
 				secondString="(usa)"
 				urlMedia="${firstString/(eu)/"$secondString"}"  
-				echo ""
-				echo $urlMedia  	
-				echo ""
-				
 				StatusString=$(wget --spider "$urlMedia" 2>&1)
-				if [[ $StatusString == *"image/png"* ]]; then
+				if [[ $StatusString == *"image/png"* ]] || [[ $StatusString == *"image/jpeg"* ]] || [[ $StatusString == *"image/jpg"* ]]; then
 					wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
 					echo -e "${GREEN}Found it!${NONE}"
 				else
 					echo -ne "${BOLD}Searching Custom Region..."
 					firstString="$urlMedia"
 					secondString="(cus)"
-					urlMedia="${firstString/(usa)/"$secondString"}" 
-					echo ""
-					echo $urlMedia  	
-					echo ""
-					 	
+					urlMedia="${firstString/(usa)/"$secondString"}"  	
 					StatusString=$(wget --spider "$urlMedia" 2>&1)
-					if [[ $StatusString == *"image/png"* ]]; then
+					if [[ $StatusString == *"image/png"* ]] || [[ $StatusString == *"image/jpeg"* ]] || [[ $StatusString == *"image/jpg"* ]]; then
 						wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
 						echo -e "${GREEN}Found it!${NONE}"
 					else
@@ -412,12 +397,8 @@ scrap_ss () {
 						firstString="$urlMedia"
 						secondString=""
 						urlMedia="${firstString/(cus)/"$secondString"}"  	
-						echo ""
-						echo $urlMedia  	
-						echo ""
-						
 						StatusString=$(wget --spider "$urlMedia" 2>&1)
-						if [[ $StatusString == *"image/png"* ]]; then
+						if [[ $StatusString == *"image/png"* ]] || [[ $StatusString == *"image/jpeg"* ]] || [[ $StatusString == *"image/jpg"* ]]; then
 							wget -q --show-progress "$urlMedia" -O "$urlSave" &> /dev/null
 							echo -e "${GREEN}Found it!${NONE}"
 						
@@ -600,7 +581,7 @@ for scraper in ${scrapers[@]};
 					else
 							
 						StatusString=$(wget --spider "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$romNameNoExtension.png" 2>&1)
-						if [[ $StatusString == *"image/png"* ]]; then
+						if [[ $StatusString == *"image/png"* ]] || [[ $StatusString == *"image/jpeg"* ]] || [[ $StatusString == *"image/jpg"* ]]; then
 							wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/screenshot/
 						else
 							echo -e "Image not found: $romNameNoExtension screenshot..."
@@ -614,7 +595,7 @@ for scraper in ${scrapers[@]};
 					else
 					
 						StatusString=$(wget --spider "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$romNameNoExtension.png" 2>&1)
-						if [[ $StatusString == *"image/png"* ]]; then
+						if [[ $StatusString == *"image/png"* ]] || [[ $StatusString == *"image/jpeg"* ]] || [[ $StatusString == *"image/jpg"* ]]; then
 							wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$romNameNoExtension.png" -P ~/storage/$storageLocation/$system/media/box2dfront/
 							echo -e ""
 						else
