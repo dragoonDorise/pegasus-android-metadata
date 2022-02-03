@@ -1,5 +1,7 @@
 #!/bin/sh
 #
+touch ~/storage/shared/scrap.log  &> /dev/null
+echo "" > ~/storage/shared/scrap.log &> /dev/null
 useInternalStorage=false
 FILE=~/dragoonDoriseTools/.storageInternal
 if [ -f "$FILE" ]; then
@@ -403,6 +405,7 @@ scrap_ss () {
 							echo -e "${GREEN}Found it!${NONE}"
 						
 						else				
+							echo $urlMedia >> ~/storage/shared/scrap.log &> /dev/null
 							echo -e "${RED}NO IMG FOUND${NONE}"
 						fi
 					fi
