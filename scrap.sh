@@ -43,6 +43,8 @@ get_sc_id(){
 		ssID="15";;
 		wii)
 		ssID="16";;
+		3ds)
+		ssID="17";;		
 		sega32x)
 		ssID="19";;
 		segacd)
