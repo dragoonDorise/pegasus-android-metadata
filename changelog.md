@@ -52,10 +52,9 @@
 
   1.2.6
 
-- Reset Screenscraper credetials on menu
+- Reset Screenscraper credentials on menu
 
   1.2.7
 
-- Reset Screenscraper credetials on menu
 - Fix scraping Gamecube games
 - Added config for enabling / disabling Bezels
