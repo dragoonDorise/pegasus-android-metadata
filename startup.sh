@@ -21,6 +21,7 @@ while true; do
 	"5" "Reset Screen Scraper credentials" OFF \
 	"6" "Uninstall Pegasus Installer" OFF \
 	"7" "Open Termux CLI" OFF \
+	"7" "Exit" OFF \
 	3>&1 1>&2 2>&3)
 	case $selected_option in
 		[1]* ) break;;
@@ -29,6 +30,8 @@ while true; do
 		[4]* ) break;;
 		[5]* ) break;;
 		[6]* ) break;;
+		[7]* ) break;;
+		[8]* ) break;;
 		* ) echo "Please hide your keyboard";;
 	esac
  done
@@ -95,3 +98,7 @@ then
 	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 fi
 
+if [[ $selected_option == "8" ]]
+then
+	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
+fi
