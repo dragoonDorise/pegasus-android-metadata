@@ -723,6 +723,31 @@ for scraper in ${scrapers[@]};
 				firstString=$romNameNoExtensionNoSpace
  				secondString="%20"
  				romNameNoExtensionNoSpace="${firstString/" "/"$secondString"}"    						
+				firstString=$romNameNoExtensionNoSpace
+ 				secondString=""
+ 				romNameNoExtensionNoSpace="${firstString/".nkit"/"$secondString"}"    						
+				firstString=$romNameNoExtensionNoSpace
+				secondString=""
+				romNameNoExtensionNoSpace="${firstString/"(Disc 1)"/"$secondString"}"    						
+				firstString=$romNameNoExtensionNoSpace
+				secondString=""
+				romNameNoExtensionNoSpace="${firstString/"(Disc 2)"/"$secondString"}"    						
+				firstString=$romNameNoExtensionNoSpace
+				secondString=""
+				romNameNoExtensionNoSpace="${firstString/"(Disc 3)"/"$secondString"}"    						
+				firstString=$romNameNoExtensionNoSpace
+				secondString=""
+				romNameNoExtensionNoSpace="${firstString/"(Disc 4)"/"$secondString"}"    						
+				firstString=$romNameNoExtensionNoSpace
+				secondString=""
+				romNameNoExtensionNoSpace="${firstString/"(Rev 2)"/"$secondString"}"    						
+				firstString=$romNameNoExtensionNoSpace
+				secondString=""
+				romNameNoExtensionNoSpace="${firstString/"!"/"$secondString"}"    						
+				firstString=$romNameNoExtensionNoSpace
+				secondString=""
+				romNameNoExtensionNoSpace="${firstString/"-"/"$secondString"}"    						
+	 
 					 
 				 
 				 if [ $startcapture == true ]; then
