@@ -21,7 +21,7 @@ while true; do
 	"5" "Reset Screen Scraper credentials" OFF \
 	"6" "Uninstall Pegasus Installer" OFF \
 	"7" "Open Termux CLI" OFF \
-	"7" "Exit" OFF \
+	"8" "Exit" OFF \
 	3>&1 1>&2 2>&3)
 	case $selected_option in
 		[1]* ) break;;
