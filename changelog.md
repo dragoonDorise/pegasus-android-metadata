@@ -58,3 +58,7 @@
 
 - Fix scraping Gamecube games
 - Added config for enabling / disabling Bezels
+
+  1.2.8
+
+- RetroArch64 support
