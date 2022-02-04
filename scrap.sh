@@ -430,46 +430,86 @@ UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
-
-selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
-   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
-	"ALL" "This option will look for all systems on your SD Card" OFF \
-	"3do" "The 3DO Company - 3DO" OFF \
-	"3ds" "Nintendo - Nintendo 3DS" OFF \
-	"atari2600" "Atari - 2600" OFF \
-	"lynx" "Atari - Lynx" OFF \
-	"doom" "DOOM" OFF \
-	"dos" "DOS" OFF \
-	"dreamcast" "Sega - Dreamcast" OFF \
-	"fbneo" "FBNeo - Arcade Games" OFF \
-	"gamegear" "Sega - Game Gear" OFF \
-	"gb" "Nintendo - Game Boy" OFF \
-	"gba" "Nintendo - Game Boy Advance" OFF \
-	"gbc" "Nintendo - Game Boy Color" OFF \
-	"gc" "Nintendo - GameCube" OFF \
-	"genesis" "Sega - Mega Drive - Genesis" OFF \
-	"genesiswide" "Genesis Wide Hack" OFF \
-	"n64" "Nintendo - Nintendo 64" OFF \
-	"nds" "Nintendo - Nintendo DS" OFF \
-	"ngp" "SNK - Neo Geo Pocket" OFF \
-	"ngpc" "SNK - Neo Geo Pocket Color" OFF \
-	"mastersystem" "Sega - Master System" OFF \
-	"nes" "Nintendo - Nintendo Entertainment System" OFF \
-	"neogeo" "SNK - Neo Geo" OFF \
-	"neogeocd" "SNK - Neo Geo CD" OFF \
-	"pcengine" "NEC - PC Engine - TurboGrafx 16" OFF \
-	"pcenginecd" "NEC - PC Engine CD - TurboGrafx-CD" OFF \
-	"psx" "Sony - PlayStation" OFF \
-	"ps2" "Sony - PlayStation 2" OFF \
-	"psp" "Sony - PlayStation Portable" OFF \
-	"saturn" "Sega - Saturn" OFF \
-	"scummvm" "ScummVM" OFF \
-	"sega32x" "Sega - 32X" OFF \
-	"segacd" "Sega - Mega-CD - Sega CD" OFF \
-	"snes" "Nintendo - Super Nintendo Entertainment System" OFF \
-	"sneswide" "Super Nes Wide Hack" OFF \
-	"wii" "Nintendo - Wii" OFF \
-   3>&1 1<&2 2>&3)
+while true; do
+	selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
+   	--checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
+		"ALL" "This option will look for all systems on your SD Card" OFF \
+		"3do" "The 3DO Company - 3DO" OFF \
+		"3ds" "Nintendo - Nintendo 3DS" OFF \
+		"atari2600" "Atari - 2600" OFF \
+		"lynx" "Atari - Lynx" OFF \
+		"doom" "DOOM" OFF \
+		"dos" "DOS" OFF \
+		"dreamcast" "Sega - Dreamcast" OFF \
+		"fbneo" "FBNeo - Arcade Games" OFF \
+		"gamegear" "Sega - Game Gear" OFF \
+		"gb" "Nintendo - Game Boy" OFF \
+		"gba" "Nintendo - Game Boy Advance" OFF \
+		"gbc" "Nintendo - Game Boy Color" OFF \
+		"gc" "Nintendo - GameCube" OFF \
+		"genesis" "Sega - Mega Drive - Genesis" OFF \
+		"genesiswide" "Genesis Wide Hack" OFF \
+		"n64" "Nintendo - Nintendo 64" OFF \
+		"nds" "Nintendo - Nintendo DS" OFF \
+		"ngp" "SNK - Neo Geo Pocket" OFF \
+		"ngpc" "SNK - Neo Geo Pocket Color" OFF \
+		"mastersystem" "Sega - Master System" OFF \
+		"nes" "Nintendo - Nintendo Entertainment System" OFF \
+		"neogeo" "SNK - Neo Geo" OFF \
+		"neogeocd" "SNK - Neo Geo CD" OFF \
+		"pcengine" "NEC - PC Engine - TurboGrafx 16" OFF \
+		"pcenginecd" "NEC - PC Engine CD - TurboGrafx-CD" OFF \
+		"psx" "Sony - PlayStation" OFF \
+		"ps2" "Sony - PlayStation 2" OFF \
+		"psp" "Sony - PlayStation Portable" OFF \
+		"saturn" "Sega - Saturn" OFF \
+		"scummvm" "ScummVM" OFF \
+		"sega32x" "Sega - 32X" OFF \
+		"segacd" "Sega - Mega-CD - Sega CD" OFF \
+		"snes" "Nintendo - Super Nintendo Entertainment System" OFF \
+		"sneswide" "Super Nes Wide Hack" OFF \
+		"wii" "Nintendo - Wii" OFF \
+   	3>&1 1<&2 2>&3)
+	case $selected_device_descriptions in
+		[ALL]* ) break;;
+		[3do]* ) break;;
+		[3ds]* ) break;;
+		[atari2600]* ) break;;
+		[lynx]* ) break;;
+		[doom]* ) break;;
+		[dos]* ) break;;
+		[dreamcast]* ) break;;
+		[fbneo]* ) break;;
+		[gamegear]* ) break;;
+		[gb]* ) break;;
+		[gba]* ) break;;
+		[gbc]* ) break;;
+		[gc]* ) break;;
+		[genesis]* ) break;;
+		[genesiswide]* ) break;;
+		[n64]* ) break;;
+		[nds]* ) break;;
+		[ngp]* ) break;;
+		[ngpc]* ) break;;
+		[mastersystem]* ) break;;
+		[nes]* ) break;;
+		[neogeo]* ) break;;
+		[neogeocd]* ) break;;
+		[pcengine]* ) break;;
+		[pcenginecd]* ) break;;
+		[psx]* ) break;;
+		[ps2]* ) break;;
+		[psp]* ) break;;
+		[saturn]* ) break;;
+		[scummvm]* ) break;;
+		[sega32x]* ) break;;
+		[segacd]* ) break;;
+		[snes]* ) break;;
+		[sneswide]* ) break;;
+		[wii]* ) break;;
+		* ) echo "Please choose";;
+	esac
+ done
 
 if [[ $selected_device_descriptions == "ALL" ]]; then
 	selected_device_descriptions_all="atari2600 lynx doom dos fbneo pcengine pcenginecd gb gba gbc gc 3ds n64 nds nes pokemini snes sneswide wii neogeo neogeocd ngp ngpc scummvm sega32x dreamcast gamegear mastersystem genesis genesiswide segacd saturn psx ps2 psp 3do"
