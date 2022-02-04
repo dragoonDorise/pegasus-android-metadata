@@ -215,7 +215,8 @@ if [ -d "$FOLDER64" ]; then
 	hasRetroArch64=true
 fi
 if [[ $hasRetroArch64 == true ]]; then
-	find ~/storage/$storageLocation -type f -name "*.txt" -exec sed -i -e 's/com.retroarch/com.retroarch.aarch64/g' {} \;
+	find ~/storage/$storageLocation -type f -name "*.txt" -exec sed -i -e 's/com.retroarch\//com.retroarch.aarch64\//g' {} \;
+	find ~/storage/$storageLocation -type f -name "*.txt" -exec sed -i -e 's/-e DATADIR \/data\/data\/com.retroarch/-e DATADIR \/data\/data\/com.retroarch.aarch64/g' {} \;	
 fi
 echo -e "${GREEN}OK${NONE}"
 
