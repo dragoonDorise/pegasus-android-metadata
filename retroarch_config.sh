@@ -400,6 +400,9 @@ if [[ $handheldModel == "ODIN" ]]; then
 	#Configuration
 	rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/odin/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> ~/storage/shared/pegasus_installer_log.log
 	
+	cp ~/dragoonDoriseTools/pegasus-android-metadata/roms/dreamcast/metadata.pegasus.txt.odin ~/storage/$storageLocation/dreamcast/metadata.pegasus.txt
+	rm ~/storage/$storageLocation/dreamcast/metadata.pegasus.txt.odin	
+	
 	cp ~/dragoonDoriseTools/pegasus-android-metadata/roms/saturn/metadata.pegasus.txt.odin ~/storage/$storageLocation/saturn/metadata.pegasus.txt
 	rm ~/storage/$storageLocation/saturn/metadata.pegasus.txt.odin
 	find . -name "*.zip" -type f -delete
