@@ -45,9 +45,23 @@ roottext=yellow,red"
 	esac
    
  done
-touch ~/dragoonDoriseTools/.device 
-echo $handheldModel > ~/dragoonDoriseTools/.device
 
+while true; do
+	#touch ~/dragoonDoriseTools/.device
+	echo $handheldModel > ~/dragoonDoriseTools/.device
+
+	FILE=~/dragoonDoriseTools/.device
+	if [ -f "$FILE" ]; then
+		break;
+	fi
+	handheldModel=$(whiptail --title "What Android Device do you have" \
+	   --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
+		"RG552" "Anbernic RG552" OFF \
+		"ODIN" "AYN Odin" OFF \
+		"RP2+" "Retroid Pocket 2+" OFF \
+		"ANDROID" "A regular Android Device" OFF \
+	   3>&1 1<&2 2>&3)
+done
 
 #Detect installed emulators
 
