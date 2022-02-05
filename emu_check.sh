@@ -165,7 +165,7 @@ if [[ $handheldModel == "RG552" ]] || [[ $handheldModel == "ANDROID" ]]; then
 	else
 		echo -e  "${RED}Not installed${NONE}"
 	fi
-	echo -ne "Saturn - Yaba Sanshioro 2..."
+	echo -ne "Saturn - Yaba Sanshiro 2 Pro..."
 	if [ $hasYaba == true ]; then
 		echo -e  "${GREEN}Installed${NONE}"
 	else
@@ -228,8 +228,8 @@ if [ $hasDolphinMMJ == false ]; then
 fi
 
 if [ $hasYaba == false ]; then
-	echo -e "Saturn - Yaba Sanshioro 2..."
-	termux-open "https://play.google.com/store/apps/details?id=org.devmiyax.yabasanshioro2"
+	echo -e "Saturn - Yaba Sanshiro 2 Pro..."
+	termux-open "https://play.google.com/store/apps/details?id=org.devmiyax.yabasanshioro2.pro"
 	echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
 	read pause
 fi
