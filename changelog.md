@@ -62,3 +62,7 @@
   1.2.8
 
 - RetroArch64 support
+
+  1.2.9
+
+- Better device detection
