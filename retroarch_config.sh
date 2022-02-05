@@ -369,8 +369,20 @@ if [[ $handheldModel == "ODIN" ]]; then
 		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/flycast_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"	
 	fi
+		
+	#Yaba Sanshiro Core	
+	echo -ne "Downloading Yaba Sanshiro..."
+	FILE=~/storage/shared/RetroArch/downloads/flycast_libretro_android.so
+	if [ -f "$FILE" ]; then
+		echo -e "${GREEN}Already Downloaded${NONE}"	
+	else
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/yabasanshiro_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		echo -e "${GREEN}OK${NONE}"	
+	fi
 	
-	#Flycast Core	
+	
+	
+	#Mupen Core	
 	echo -ne "Downloading Mupen64 Plus GLE3..."
 	FILE=~/storage/shared/RetroArch/downloads/mupen64plus_next_gles3_libretro_android.so
 	if [ -f "$FILE" ]; then
@@ -382,9 +394,14 @@ if [[ $handheldModel == "ODIN" ]]; then
 	
 	unzip ~/storage/shared/RetroArch/downloads/flycast_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
 	unzip ~/storage/shared/RetroArch/downloads/mupen64plus_next_gles3_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
+	unzip ~/storage/shared/RetroArch/downloads/yabasanshiro_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
+	
 	
 	#Configuration
 	rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/odin/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> ~/storage/shared/pegasus_installer_log.log
+	
+	cp ~/dragoonDoriseTools/pegasus-android-metadata/roms/saturn/metadata.pegasus.txt.odin ~/storage/$storageLocation/saturn/metadata.pegasus.txt
+	rm ~/storage/$storageLocation/saturn/metadata.pegasus.txt.odin
 		
 fi
 
