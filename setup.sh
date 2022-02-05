@@ -260,6 +260,7 @@ echo -ne "Configuring Retroarch..."
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/retroarch_config.sh $handheldModel
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/emus_config.sh
 
+
 # Install Themes for Pegasus
 echo -ne "Downloading Pegasus Theme : RP Epic Noir..."
 git clone https://github.com/dragoonDorise/RP-epic-noir.git ~/storage/shared/pegasus-frontend/themes/RP-epic-noir &>> ~/storage/shared/pegasus_installer_log.log
