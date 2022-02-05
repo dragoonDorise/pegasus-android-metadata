@@ -1,6 +1,6 @@
 collection: Intellivision
 shortname: intellivision
-extensions: bin, int, rom
+extensions: bin, int, rom, zip, 7z
 launch: am start
   -n com.retroarch/.browser.retroactivity.RetroActivityFuture
   -e ROM {file.path}
