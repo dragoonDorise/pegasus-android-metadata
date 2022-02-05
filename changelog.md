@@ -66,3 +66,7 @@
   1.2.9
 
 - Better device detection
+
+  1.2.10
+
+- New themes!

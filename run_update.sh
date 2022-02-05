@@ -11,6 +11,11 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
+
+
+#Handheld detector
+handheldModel=$(cat ~/dragoonDoriseTools/.device)
+
 useInternalStorage=false
 FILE=~/dragoonDoriseTools/.storageInternal
 if [ -f "$FILE" ]; then
@@ -44,6 +49,27 @@ git pull &> ~/storage/shared/pegasus_installer_log.log
 cd ~/storage/shared/pegasus-frontend/themes/RP-switch
 git reset --hard &> ~/storage/shared/pegasus_installer_log.log 
 git pull &> ~/storage/shared/pegasus_installer_log.log 
+
+if [ $handheldModel != 'RP2+' ]; then
+	cd ~/storage/shared/pegasus-frontend/themes/gameOS
+	git reset --hard &> ~/storage/shared/pegasus_installer_log.log 
+	git pull &> ~/storage/shared/pegasus_installer_log.log 
+	
+	
+	cd ~/storage/shared/pegasus-frontend/themes/clearOS
+	git reset --hard &> ~/storage/shared/pegasus_installer_log.log 
+	git pull &> ~/storage/shared/pegasus_installer_log.log 
+	
+	
+	cd ~/storage/shared/pegasus-frontend/themes/neoretro-dark
+	git reset --hard &> ~/storage/shared/pegasus_installer_log.log 
+	git pull &> ~/storage/shared/pegasus_installer_log.log 
+fi
+if [ $handheldModel == 'RP2+' ]; then
+	cd ~/storage/shared/pegasus-frontend/themes/retromega
+	git reset --hard &> ~/storage/shared/pegasus_installer_log.log 
+	git pull &> ~/storage/shared/pegasus_installer_log.log 
+fi
 echo -e "${GREEN}OK${NONE}"
 
 #Metadata update
@@ -85,8 +111,6 @@ fi
 echo -e "${GREEN}OK${NONE}"
 
 
-#Handheld detector
-handheldModel="ANDROID"
 
 FILE=~/dragoonDoriseTools/.isRG552
 if [ -f "$FILE" ]; then

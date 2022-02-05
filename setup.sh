@@ -13,7 +13,7 @@ BLINK='\x1b[5m'
 clear
 rm -rf ~/storage &>> /dev/null
 termux-setup-storage
-echo -e "Pegasus installer 1.2.9b"
+echo -e "Pegasus installer 1.2.10"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "We recommend you to hide the virtual keyboard by swiping from the left of the screen."
 echo -e  "${RED}Read before continuing${NONE}"
@@ -270,6 +270,34 @@ echo -ne "Downloading Pegasus Theme : RP Switch..."
 rm -rf ~/storage/shared/pegasus-frontend/themes/RP-switch &>> ~/storage/shared/pegasus_installer_log.log
 git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themes/RP-switch &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
+
+if [ $handheldModel != 'RP2+' ]; then
+
+	echo -ne "Downloading Pegasus Theme : GameOS..."
+	git clone https://github.com/PlayingKarrde/gameOS.git ~/storage/shared/pegasus-frontend/themes/gameOS &>> ~/storage/shared/pegasus_installer_log.log
+	echo -e "${GREEN}OK${NONE}"
+
+	echo -ne "Downloading Pegasus Theme : ClearOS..."
+	git clone https://github.com/PlayingKarrde/clearOS.git ~/storage/shared/pegasus-frontend/themes/clearOS &>> ~/storage/shared/pegasus_installer_log.log
+	echo -e "${GREEN}OK${NONE}"
+	
+	echo -ne "Downloading Pegasus Theme : NeoRetro Dark..."
+	git clone https://github.com/TigraTT-Driver/neoretro-dark.git ~/storage/shared/pegasus-frontend/themes/neoretro-dark &>> ~/storage/shared/pegasus_installer_log.log
+	echo -e "${GREEN}OK${NONE}"
+
+fi
+
+if [ $handheldModel == 'RP2+' ]; then
+
+	echo -ne "Downloading Pegasus Theme : Retro Mega..."
+	git clone https://github.com/djfumberger/retromega.git ~/storage/shared/pegasus-frontend/themes/retromega &>> ~/storage/shared/pegasus_installer_log.log
+	echo -e "${GREEN}OK${NONE}"
+
+fi
+	echo -e "The default theme on Pegasus is RP Epic Noir"
+	echo -e "You can change it anytime on Pegasus."
+	echo -e  "Press the ${RED}A button${NONE} to continue to next step"
+	read pause
 
 
 echo "/bin/bash ~/startup.sh" > ~/.bashrc
