@@ -88,7 +88,14 @@ if [ $installCores == "true" ]; then
 		echo -e "${GREEN}OK${NONE}"	
 	fi
 
-	
+	echo -ne "Downloading Intellivision..."
+	FILE=~/storage/shared/RetroArch/downloads/freeintv_libretro_android.so
+	if [ -f "$FILE" ]; then
+		echo -e "${GREEN}Already Downloaded${NONE}"	
+	else
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/freeintv_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		echo -e "${GREEN}OK${NONE}"	
+	fi	
 	
 	echo -ne "Downloading Final Burn Alpha..."
 	FILE=~/storage/shared/RetroArch/downloads/fbalpha2012_neogeo_libretro_android.so
@@ -298,6 +305,8 @@ if [ $installCores == "true" ]; then
 	
 	echo -ne "${BOLD}Unzipping${NONE} cores..."
 	
+	
+	unzip ~/storage/shared/RetroArch/downloads/freeintv_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
 	unzip ~/storage/shared/RetroArch/downloads/gambatte_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
 	unzip ~/storage/shared/RetroArch/downloads/scummvm_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
 	unzip ~/storage/shared/RetroArch/downloads/fbneo_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
