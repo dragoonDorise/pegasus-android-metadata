@@ -402,6 +402,7 @@ if [[ $handheldModel == "ODIN" ]]; then
 	
 	cp ~/dragoonDoriseTools/pegasus-android-metadata/roms/saturn/metadata.pegasus.txt.odin ~/storage/$storageLocation/saturn/metadata.pegasus.txt
 	rm ~/storage/$storageLocation/saturn/metadata.pegasus.txt.odin
+	find . -name "*.zip" -type f -delete
 	cd ~/dragoonDoriseTools
 fi
 
