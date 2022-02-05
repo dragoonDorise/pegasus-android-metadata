@@ -25,6 +25,20 @@ echo -e  "Press the ${RED}A button${NONE} to start"
 
 read clear
 
+echo -ne "Installing components, please be patient..."
+rm ~/storage/shared/pegasus_installer_log.log &>> /dev/null
+touch ~/storage/shared/pegasus_installer_log.log &>> /dev/null
+sleep .5
+pkg update -y -F &>> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y -F &>> ~/storage/shared/pegasus_installer_log.log
+pkg install git wget jq rsync unzip whiptail -y  &>> ~/storage/shared/pegasus_installer_log.log
+
+mkdir ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
+cd ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
+
+echo -e "${GREEN}OK${NONE}"
+
+
+
 while true; do
 export NEWT_COLORS="
 root=,red
@@ -48,7 +62,6 @@ roottext=yellow,red"
 
 while true; do
 	#touch ~/dragoonDoriseTools/.device
-	mkdir dragoonDoriseTools
 	echo $handheldModel > ~/dragoonDoriseTools/.device
 
 	FILE=~/dragoonDoriseTools/.device
@@ -70,17 +83,7 @@ done
 
 
 clear
-echo -ne "Installing components, please be patient..."
-rm ~/storage/shared/pegasus_installer_log.log &>> /dev/null
-touch ~/storage/shared/pegasus_installer_log.log &>> /dev/null
-sleep .5
-pkg update -y -F &>> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y -F &>> ~/storage/shared/pegasus_installer_log.log
-pkg install git wget jq rsync unzip whiptail -y  &>> ~/storage/shared/pegasus_installer_log.log
 
-mkdir ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
-cd ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
-
-echo -e "${GREEN}OK${NONE}"
 
 echo -e "Downloading Metadata Pack for Android, please be patient..."
 #Download Pegasus Metadata files
