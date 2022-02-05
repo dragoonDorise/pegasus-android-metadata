@@ -77,7 +77,7 @@ if [ $installCores == "true" ]; then
 	
 	# Do this in a better way!
 	cd ~/storage/shared/RetroArch/downloads
-	find . -name "*.so" -type f -delete
+	#find . -name "*.so" -type f -delete
 	
 	echo -ne "Downloading Opera..."
 	FILE=~/storage/shared/RetroArch/downloads/opera_libretro_android.so
@@ -359,7 +359,7 @@ fi
 
 if [[ $handheldModel == "ODIN" ]]; then
 	echo -e "ODIN Special configuration..."
-	
+	cd ~/storage/shared/RetroArch/downloads
 	#Flycast Core	
 	echo -ne "Downloading Flycast..."
 	FILE=~/storage/shared/RetroArch/downloads/flycast_libretro_android.so
@@ -402,7 +402,7 @@ if [[ $handheldModel == "ODIN" ]]; then
 	
 	cp ~/dragoonDoriseTools/pegasus-android-metadata/roms/saturn/metadata.pegasus.txt.odin ~/storage/$storageLocation/saturn/metadata.pegasus.txt
 	rm ~/storage/$storageLocation/saturn/metadata.pegasus.txt.odin
-		
+	cd ~/dragoonDoriseTools
 fi
 
 #Bezels
