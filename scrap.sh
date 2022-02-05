@@ -666,6 +666,7 @@ for scraper in ${scrapers[@]};
 	fi
 
 	if [ $scraper == "SCREENSCRAPER" ]; then
+		clear
 		echo -e "Using ScreenScraper..."		
 		
 		#We check for existing credentials
