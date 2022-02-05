@@ -48,6 +48,7 @@ roottext=yellow,red"
 
 while true; do
 	#touch ~/dragoonDoriseTools/.device
+	mkdir dragoonDoriseTools
 	echo $handheldModel > ~/dragoonDoriseTools/.device
 
 	FILE=~/dragoonDoriseTools/.device
