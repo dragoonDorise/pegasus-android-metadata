@@ -13,6 +13,32 @@ BLINK='\x1b[5m'
 clear
 
 
+FILE=~/dragoonDoriseTools/.device
+if [ -f "$FILE" ]; then
+ echo ""
+else
+	while true; do
+		export NEWT_COLORS="
+		root=,red
+		roottext=yellow,red"
+			handheldModel=$(whiptail --title "What Android Device do you have" \
+   		--radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
+			"RG552" "Anbernic RG552" OFF \
+			"ODIN" "AYN Odin" OFF \
+			"RP2+" "Retroid Pocket 2+" OFF \
+			"ANDROID" "A regular Android Device" OFF \
+   		3>&1 1<&2 2>&3)
+			case $handheldModel in
+				[RG552]* ) break;;
+				[ODIN]* ) break;;
+				[RP2+]* ) break;;
+				[ANDROID]* ) break;;
+				* ) echo "Please answer yes or no.";;
+			esac
+   		
+ 	done
+	 echo $handheldModel > ~/dragoonDoriseTools/.device
+fi
 #Handheld detector
 handheldModel=$(cat ~/dragoonDoriseTools/.device)
 
