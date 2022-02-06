@@ -11,6 +11,16 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
+#Uninstall everything first
+rm -rf ~/dragoonDoriseTools  &> ~/storage/shared/pegasus_installer_log.log
+rm -f scrap.sh  &> ~/storage/shared/pegasus_installer_log.log
+rm -f update.sh  &> ~/storage/shared/pegasus_installer_log.log
+rm -f run_update.sh  &> ~/storage/shared/pegasus_installer_log.log
+rm -f undo.sh  &> ~/storage/shared/pegasus_installer_log.log
+rm -f startup.sh  &> ~/storage/shared/pegasus_installer_log.log
+rm -f snes_config.sh  &> ~/storage/shared/pegasus_installer_log.log
+rm -f ~/storage/shared/scrap.log  &> ~/storage/shared/pegasus_installer_log.log
+
 rm -rf ~/storage &>> /dev/null
 termux-setup-storage
 echo -e "Pegasus installer 1.3"
