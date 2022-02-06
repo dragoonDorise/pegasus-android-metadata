@@ -191,7 +191,7 @@ if [[ $handheldModel == "RP2+" ]]; then
 	hasCitra=true
 fi
 
-if [[ $handheldModel == "RG552" ]] || [[ $handheldModel == "ANDROID" ]]; then
+if [[ $handheldModel == "RG552" ]]; then
 	hasCitra=true
 	hasAether=true
 fi
