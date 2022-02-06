@@ -58,7 +58,7 @@ fi
 #Mupen64
 FOLDER=~/storage/shared/Android/data/org.mupen64plusae.v3.fzurita
 FOLDERPRO=~/storage/shared/Android/data/org.mupen64plusae.v3.fzurita.pro
-if [ -d "$FOLDER" ] || [ -d "FOLDERPRO" ]; then
+if [ -d "$FOLDER" ] || [ -d "$FOLDERPRO" ]; then
 	hasMupen=true
 fi
 #PPSSPP
