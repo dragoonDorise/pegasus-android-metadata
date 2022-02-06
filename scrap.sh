@@ -799,6 +799,8 @@ for scraper in ${scrapers[@]};
 				 #Blanks cleaning up, TODO: DRY
 				 firstString=$romNameNoExtension
 				 secondString=""
+				 romNameNoExtensionTrimmed=$(echo $firstString | sed 's/([.a-zA-Z0-9!]*)//g' | sed 's/[[!]*]//g')
+				 firstString=$romNameNoExtensionTrimmed
 				 romNameNoExtensionNoSpace="${firstString/"&"/"$secondString"}" 				 
 				 firstString=$romNameNoExtensionNoSpace
 				 secondString="%20"
