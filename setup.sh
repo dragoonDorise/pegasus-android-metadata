@@ -121,6 +121,17 @@ cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 echo -e "Downloading Pegasus, please be patient..."
 wget   -q --show-progress https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w40/pegasus-fe_alpha15-85-gfff1a5b2_android.apk -P ~/dragoonDoriseTools
 
+echo -e  "Now let's install ${RED}Pegasus${NONE}"
+echo -e  "Press the ${RED}A button${NONE} to install Pegasus, when Pegasus is installed click ${BOLD}DONE${NONE} in the installation window so you can come back to continue the next steps"
+read pause
+clear
+echo -ne  "Installing ${RED}Pegasus${NONE}..."
+#Launch Pegasus
+xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
+echo -e  "${GREEN}OK${NONE}"
+echo ""
+
+
 #Configure Pegasus
 echo -ne "Configuring Pegasus..."
 mkdir ~/storage/shared/pegasus-frontend &>> ~/storage/shared/pegasus_installer_log.log
@@ -270,6 +281,7 @@ echo -ne "Configuring Retroarch..."
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/retroarch_config.sh $handheldModel
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/emus_config.sh
 
+clear
 
 # Install Themes for Pegasus
 echo -ne "Downloading Pegasus Theme : RP Epic Noir..."
@@ -331,15 +343,6 @@ else
 fi
 echo -e  "${BOLD}We recommend roms named after no-intro romsets${NONE}"
 echo -e ""
-echo -e  "Now let's install ${RED}Pegasus${NONE}"
-echo -e  "Press the ${RED}A button${NONE} to install Pegasus, when Pegasus is installed click ${BOLD}DONE${NONE} in the installation window so you can come back to scrap your roms' artwork!"
-read pause
-clear
-echo -ne  "Installing ${RED}Pegasus${NONE}..."
-#Launch Pegasus
-xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
-echo -e  "${GREEN}OK${NONE}"
-echo ""
 echo -e "${YELLOW}Retroarch Cores${NONE}"
 echo -e "Remember to go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
 echo -e "And then select the core you want to install"

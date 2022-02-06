@@ -385,7 +385,7 @@ if [ $installCores == "true" ]; then
 	
 	echo -ne "${BOLD}Unzipping${NONE} cores..."
 	
-	for entry in ~/storage/shared/RetroArch/downloads/*
+	for entry in ~/storage/shared/RetroArch/downloads/*.zip
 	do
 	 	unzip $entry &> ~/storage/shared/pegasus_installer_log.log
 	done
