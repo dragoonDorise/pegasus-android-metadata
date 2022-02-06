@@ -1,5 +1,0 @@
-## SYSTEM SEGA NAOMI ##
--------------------------------------------------------------------------------
-ROM files extensions accepted: ".lst .bin .dat .zip .7z"
--------------------------------------------------------------------------------
-Extensions des fichiers ROMs permises: ".lst .bin .dat .zip .7z"

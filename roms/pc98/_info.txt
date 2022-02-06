@@ -1,5 +1,0 @@
-## SYSTEM NEC PC-9800 ##
--------------------------------------------------------------------------------
-ROM files extensions accepted: ".d98 .zip .98d .fdi .fdd .2hd .tfd .d88 .88d .hdm .xdf .dup .cmd .hdi .thd .nhd .hdd .hdn"
--------------------------------------------------------------------------------
-Extensions des fichiers ROMs permises: ".d98 .zip .98d .fdi .fdd .2hd .tfd .d88 .88d .hdm .xdf .dup .cmd .hdi .thd .nhd .hdd .hdn"

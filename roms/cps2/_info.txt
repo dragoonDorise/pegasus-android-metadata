@@ -1,7 +1,0 @@
-## SYSTEM CAPCOM PLAYSYSTEM 2 ##
--------------------------------------------------------------------------------
-ROM files extensions accepted: ".zip .zip .7z .7z"
-
-cps2
--------------------------------------------------------------------------------
-Extensions des fichiers ROMs permises: ".zip .zip .7z .7z"

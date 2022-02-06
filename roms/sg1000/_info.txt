@@ -1,5 +1,0 @@
-## SYSTEM SEGA SG1000 ##
--------------------------------------------------------------------------------
-ROM files extensions accepted: ".bin .sg .zip .7z"
--------------------------------------------------------------------------------
-Extensions des fichiers ROMs permises: ".bin .sg .zip .7z"

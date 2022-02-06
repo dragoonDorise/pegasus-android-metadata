@@ -303,33 +303,30 @@ if [ $installCores == "true" ]; then
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/scummvm_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+	
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/cap32_libretro_android.so   &> ~/storage/shared/pegasus_installer_log.log
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/hatari_libretro_android.so   &> ~/storage/shared/pegasus_installer_log.log
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/gearcoleco_libretro_android.so   &> ~/storage/shared/pegasus_installer_log.log
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fbalpha2012_cps1_libretro_android.so   &> ~/storage/shared/pegasus_installer_log.log
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fbalpha2012_cps2_libretro_android.so   &> ~/storage/shared/pegasus_installer_log.log
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fbalpha2012_cps3_libretro_android.so   &> ~/storage/shared/pegasus_installer_log.log
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/daphne_libretro_android.so   &> ~/storage/shared/pegasus_installer_log.log
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/lutro_libretro_android.so   &> ~/storage/shared/pegasus_installer_log.log
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/bluemsx_libretro_android.so   &> ~/storage/shared/pegasus_installer_log.log
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/tyrquake_libretro_android.so   &> ~/storage/shared/pegasus_installer_log.log
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/tic80_libretro_android.so   &> ~/storage/shared/pegasus_installer_log.log
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/vecx_libretro_android.so   &> ~/storage/shared/pegasus_installer_log.log
+	wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fuse_libretro_android.so   &> ~/storage/shared/pegasus_installer_log.log
+	
+	
+	
 	echo -ne "${BOLD}Unzipping${NONE} cores..."
 	
-	
-	unzip ~/storage/shared/RetroArch/downloads/freeintv_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/gambatte_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/scummvm_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/fbneo_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/mame2010_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/mame2003_plus_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/stella_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/mednafen_lynx_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/mednafen_wswan_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/prboom_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/dosbox_pure_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/mednafen_pce_fast_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/mgba_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/nestopia_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/bsnes_hd_beta_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/snes9x_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/genesis_plus_gx_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/genesis_plus_gx_wide_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/picodrive_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/neocd_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/mednafen_ngp_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/pcsx_rearmed_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/opera_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/retro8_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
+	for entry in ~/storage/$storageLocation/$system/*
+	do
+	 	unzip $entry &> ~/storage/shared/pegasus_installer_log.log
+	done
 	
 	find . -name "*.zip" -type f -delete
 	echo -e "${GREEN}OK${NONE}"

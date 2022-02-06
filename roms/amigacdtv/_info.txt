@@ -1,5 +1,0 @@
-## SYSTEM AMIGA CDTV ##
--------------------------------------------------------------------------------
-ROM files extensions accepted: ".bin .cue .iso"
--------------------------------------------------------------------------------
-Extensions des fichiers ROMs permises: ".bin .cue .iso"

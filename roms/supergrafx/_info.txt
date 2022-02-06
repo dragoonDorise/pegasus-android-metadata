@@ -1,5 +1,0 @@
-## SYSTEM SUPERGRAFX ##
--------------------------------------------------------------------------------
-ROM files extensions accepted: ".pce .sgx .cue .ccd .chd .zip .7z"
--------------------------------------------------------------------------------
-Extensions des fichiers ROMs permises: ".pce .sgx .cue .ccd .chd .zip .7z"

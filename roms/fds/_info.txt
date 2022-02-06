@@ -1,5 +1,0 @@
-## SYSTEM FAMILY COMPUTER DISK SYSTEM ##
--------------------------------------------------------------------------------
-ROM files extensions accepted: ".fds .zip .7z"
--------------------------------------------------------------------------------
-Extensions des fichiers ROMs permises: ".fds .zip .7z"

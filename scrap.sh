@@ -139,16 +139,14 @@ get_sc_id(){
 		ssID="109";;
 		amiga1200)
 		ssID="111";;
-		msx,msx1)
+		msx)
 		ssID="113";;
 		pcenginecd)
 		ssID="114";;
 		intellivision)
 		ssID="115";;
-		msx,msx2)
+		msx2)
 		ssID="116";;
-		msx,msx2)
-		ssID="117";;
 		msxturbor)
 		ssID="118";;
 		64dd)
@@ -342,7 +340,33 @@ get_ra_alias(){
 		3d0)
 			remoteSystem="The 3DO Company - 3DO"
 			;;
-	
+		amstradcpc)
+			remoteSystem="Amstrad - CPC"
+			;;
+		atarist)
+			remoteSystem="Atari - ST"
+			;;
+		colecovision)
+			remoteSystem="Coleco - ColecoVision"
+			;;
+		intellivision)
+			remoteSystem="Mattel - Intellivision"
+			;;
+		lutro)
+			remoteSystem="Lutro"
+			;;
+		msx)
+			remoteSystem="Microsoft - MSX"
+			;;
+		tic80)
+			remoteSystem="TIC-80"
+			;;
+		vectrex)
+			remoteSystem="GCE - Vectrex"
+			;;
+		zxspectrum)
+			remoteSystem="Sinclair - ZX Spectrum"
+			;;
 	  *)
 		echo -n "unknown"
 		;;
@@ -469,6 +493,15 @@ while true; do
 		"snes" "Nintendo - Super Nintendo Entertainment System" OFF \
 		"sneswide" "Super Nes Wide Hack" OFF \
 		"wii" "Nintendo - Wii" OFF \
+		"amstradcpc" "Amstrad CPC" OFF \
+		"atarist" "Atari ST" OFF \
+		"colecovision" "ColecoVision" OFF \
+		"intellivision" "Intellivision" OFF \
+		"lutro" "Lutro" OFF \
+		"msx" "MSX" OFF \
+		"tic80" "TIC 80" OFF \
+		"vectrex" "Vectrex" OFF \
+		"zxspectrum" "ZX Spectrum" OFF \
    	3>&1 1<&2 2>&3)
 	case $selected_device_descriptions in
 		[ALL]* ) break;;
@@ -507,12 +540,24 @@ while true; do
 		[snes]* ) break;;
 		[sneswide]* ) break;;
 		[wii]* ) break;;
+		[amstradcpc]* ) break;;
+		[atarist]* ) break;;
+		[colecovision]* ) break;;
+		[intellivision]* ) break;;
+		[lutro]* ) break;;
+		[msx]* ) break;;
+		[tic80]* ) break;;
+		[vectrex]* ) break;;
+		[zxspectrum]* ) break;;
+		
 		* ) echo "Please choose";;
 	esac
  done
+ 
+ 
 
 if [[ $selected_device_descriptions == "ALL" ]]; then
-	selected_device_descriptions_all="atari2600 lynx doom dos fbneo pcengine pcenginecd gb gba gbc gc 3ds n64 nds nes pokemini snes sneswide wii neogeo neogeocd ngp ngpc scummvm sega32x dreamcast gamegear mastersystem genesis genesiswide segacd saturn psx ps2 psp 3do"
+	selected_device_descriptions_all="atari2600 lynx doom dos fbneo pcengine pcenginecd gb gba gbc gc 3ds n64 nds nes pokemini snes sneswide wii neogeo neogeocd ngp ngpc scummvm sega32x dreamcast gamegear mastersystem genesis genesiswide segacd saturn psx ps2 psp 3do amstradcpc atarist colecovision intellivision lutro msx tic80 vectrex zxspectrum"
 	mapfile -t selected_device_names <<< $selected_device_descriptions_all
 else
 	mapfile -t selected_device_names <<< $selected_device_descriptions

@@ -1,5 +1,0 @@
-## SYSTEM AMIGA CD32 ##
--------------------------------------------------------------------------------
-ROM files extensions accepted: ".iso .cue .lha"
--------------------------------------------------------------------------------
-Extensions des fichiers ROMs permises: ".iso .cue .lha"

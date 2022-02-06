@@ -70,3 +70,23 @@
   1.2.10
 
 - New themes!
+
+  1.3
+
+- New systems on experimental support:
+  colecovision
+  cps1
+  cps2
+  cps3
+  quake
+  intellivision
+  daphne
+  zxspectrum
+  vectrex
+  atarist
+  cps2
+  msx
+  cps3
+  amstradcpc
+  lutro
+  tic80

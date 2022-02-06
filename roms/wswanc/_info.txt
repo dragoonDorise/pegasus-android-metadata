@@ -1,5 +1,0 @@
-## SYSTEM WONDERSWAN COLOR ##
--------------------------------------------------------------------------------
-ROM files extensions accepted: ".wsc .zip .7z"
--------------------------------------------------------------------------------
-Extensions des fichiers ROMs permises: ".wsc .zip .7z"

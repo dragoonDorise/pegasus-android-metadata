@@ -1,9 +1,0 @@
-## SYSTEM TYRQUAKE ##
--------------------------------------------------------------------------------
-ROM files extensions accepted: ".pak"
-
-Put your Quake 1 .PAK games in this directory.
--------------------------------------------------------------------------------
-Extensions des fichiers ROMs permises: ".pak"
-
-Placez ici vos fichiers .PAK pour Quake 1.

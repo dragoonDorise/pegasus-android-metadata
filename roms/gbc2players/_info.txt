@@ -1,5 +1,0 @@
-## SYSTEM GAME BOY COLOR (2 PLAYERS) ##
--------------------------------------------------------------------------------
-ROM files extensions accepted: ".gbc .zip .7z"
--------------------------------------------------------------------------------
-Extensions des fichiers ROMs permises: ".gbc .zip .7z"

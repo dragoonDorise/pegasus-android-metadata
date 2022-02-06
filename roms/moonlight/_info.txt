@@ -1,5 +1,0 @@
-## SYSTEM MOONLIGHT EMBEDDED ##
--------------------------------------------------------------------------------
-ROM files extensions accepted: ".moonlight"
--------------------------------------------------------------------------------
-Extensions des fichiers ROMs permises: ".moonlight"

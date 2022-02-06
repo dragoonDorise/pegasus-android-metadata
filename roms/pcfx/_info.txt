@@ -1,5 +1,0 @@
-## SYSTEM PC-FX ##
--------------------------------------------------------------------------------
-ROM files extensions accepted: ".cue .ccd .toc .chd .zip .7z"
--------------------------------------------------------------------------------
-Extensions des fichiers ROMs permises: ".cue .ccd .toc .chd .zip .7z"

@@ -1,5 +1,0 @@
-## SYSTEM WONDERSWAN ##
--------------------------------------------------------------------------------
-ROM files extensions accepted: ".ws .zip .7z"
--------------------------------------------------------------------------------
-Extensions des fichiers ROMs permises: ".ws .zip .7z"
