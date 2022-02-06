@@ -308,7 +308,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/cap32_libretro_android.so   &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/cap32_libretro_android.so.zip   &> ~/storage/shared/pegasus_installer_log.log
 	fi
 	FILE=~/storage/shared/RetroArch/downloads/hatari_libretro_android.so
 	if [ -f "$FILE" ]; then
@@ -385,12 +385,12 @@ if [ $installCores == "true" ]; then
 	
 	echo -ne "${BOLD}Unzipping${NONE} cores..."
 	
-	for entry in ~/storage/$storageLocation/$system/*
+	for entry in ~/storage/shared/RetroArch/downloads*
 	do
 	 	unzip $entry &> ~/storage/shared/pegasus_installer_log.log
 	done
 	
-	find . -name "*.zip" -type f -delete
+	#find . -name "*.zip" -type f -delete
 	echo -e "${GREEN}OK${NONE}"
 	
 	cd ~/dragoonDoriseTools
