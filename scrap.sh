@@ -898,10 +898,15 @@ for scraper in ${scrapers[@]};
 						 #ID Game
 						 content=$(curl "$url") 
 						 
-						 #Don't check art after a failed request to screenscraper
+						 #Don't check art after a failed curl request
 						 if [[ $content == "" ]]; then
-						 	echo -e "Couldn't match $romNameNoExtension, ${YELLOW}skipping${NONE}"
+						 	echo -e "Request failed to send for $romNameNoExtension, ${YELLOW}skipping${NONE}"
 						    continue;
+						 fi
+						 #Don't check art if screenscraper can't find a match
+					     if [[ $content == *"Erreur"* ]]; then
+  						 	echo -e "Couldn't find a match for $romNameNoExtension, ${YELLOW}skipping${NONE}"
+							continue;
 						 fi
 						 #echo $content;
 						 
