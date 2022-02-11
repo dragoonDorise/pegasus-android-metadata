@@ -343,6 +343,11 @@ else
 fi
 echo -e  "${BOLD}We recommend roms named after no-intro romsets${NONE}"
 echo -e ""
+
+echo -e  "Press the ${RED}A button${NONE} to continue to next step"
+read pause
+clear
+
 echo -e "${YELLOW}Retroarch Cores${NONE}"
 echo -e "Remember to go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
 echo -e "And then select the core you want to install"
