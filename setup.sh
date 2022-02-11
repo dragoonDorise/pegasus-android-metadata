@@ -92,9 +92,6 @@ done
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/emu_check.sh
 
 
-clear
-
-
 echo -e "Downloading Metadata Pack for Android, please be patient..."
 #Download Pegasus Metadata files
 git clone https://github.com/dragoonDorise/pegasus-android-metadata.git ~/dragoonDoriseTools/pegasus-android-metadata

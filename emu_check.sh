@@ -272,3 +272,6 @@ if [ $hasCitra == false ]; then
 fi
 
 		
+echo -e  "Emulators installed."
+echo -e "Press the ${RED}A button${NONE} to continue"
+read pause
