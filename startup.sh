@@ -67,6 +67,7 @@ then
 		find ~/storage/shared/RetroArch/config/ -type f -name "*.cfg" -exec sed -i -e 's/input_overlay_enable = "false"/input_overlay_enable = "true"/g' {} \;
 	else
 		termux-open "https://www.screenscraper.fr/membreinscription.php"
+		clear
 		echo -e "Press the ${RED}A Button${NONE} if you already have your account created"
 		read pause
 	fi
