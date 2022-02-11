@@ -298,6 +298,7 @@ fi
 
 
 if [[ $handheldModel == "RG552" ]]; then
+	echo -e ""
 	echo -ne "RG552 Special configuration..."
 
 	#Overlay Fixes for 5:3 screens	
@@ -325,6 +326,7 @@ if [[ $handheldModel == "RG552" ]]; then
 fi
 
 if [[ $handheldModel == "ODIN" ]]; then
+	echo -e ""
 	echo -e "ODIN Special configuration..."
 	cd ~/storage/shared/RetroArch/downloads
 	#Flycast Core	

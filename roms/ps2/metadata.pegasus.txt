@@ -2,10 +2,9 @@ collection: PlayStation 2
 shortname: ps2
 extensions: fake
 command: am start
--n  xyz.aethersx2.android/.EmulationActivity
--a android.intent.action.MAIN
--e bootPath {file.documenturi}
-  
+  -n  xyz.aethersx2.android/.EmulationActivity
+  -a android.intent.action.MAIN
+  -e bootPath {file.documenturi}
   
 game: AetherSX2
 file: AetherSX2.fake
