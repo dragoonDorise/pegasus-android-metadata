@@ -412,7 +412,7 @@ if [ $installCores == "true" ]; then
 	
 	for entry in ~/storage/shared/RetroArch/downloads/*.zip
 	do
-	 	unzip $entry &> ~/storage/shared/pegasus_installer_log.log
+	 	unzip -o $entry &> ~/storage/shared/pegasus_installer_log.log
 	done
 	
 	#find . -name "*.zip" -type f -delete

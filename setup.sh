@@ -23,7 +23,7 @@ rm -f ~/storage/shared/scrap.log  &> ~/storage/shared/pegasus_installer_log.log
 
 rm -rf ~/storage &>> /dev/null
 termux-setup-storage
-echo -e "Pegasus installer 1.3"
+echo -e "Pegasus installer 1.3b"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "We recommend you to hide the virtual keyboard by swiping from the left of the screen."
 echo -e  "${RED}Read before continuing${NONE}"
