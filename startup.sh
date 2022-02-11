@@ -64,13 +64,10 @@ then
 	rm ~/dragoonDoriseTools/.screenScraperPass
 	
 	echo -e "You need to have an account on ${BOLD}https://www.screenscraper.fr${NONE} for scraping your roms"	
-	echo -e "Press the ${RED}A Button${NONE} if you already have an account"
-	echo -e "Type y and press the ${RED}A Button${NONE} and I'll open ScreenScraper on your browser, remember to come back when you are registered"
-	read account
-	if [[ $account == "Y" ]] || [[ $account == "y" ]]; then
-		termux-open "https://www.screenscraper.fr/membreinscription.php"
-	fi
-	
+	echo -e "If you dont have an account go to https://www.screenscraper.fr/membreinscription.php and create one"
+	echo -e "Press the ${RED}A Button${NONE} if you already have your account created"
+	read pause
+
 	echo -e "Now I'm going to ask for your user and password. Both will be stored on your device, ${BOLD}I won't send them anywhere or read them${NONE}"
 	echo -e "What is your ScreenScraper user? Type it and press the ${RED}A button${NONE}"
 	read user
