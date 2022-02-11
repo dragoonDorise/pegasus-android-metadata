@@ -291,17 +291,6 @@ if [ $installCores == "true" ]; then
 		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/scummvm_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
-
-	
-	echo -ne "${BOLD}Unzipping${NONE} cores..."
-	
-	for entry in ~/storage/shared/RetroArch/downloads/*.zip
-	do
-	 	unzip -o $entry &> ~/storage/shared/pegasus_installer_log.log
-	done
-	
-	#find . -name "*.zip" -type f -delete
-	echo -e "${GREEN}OK${NONE}"
 	
 	cd ~/dragoonDoriseTools
 
@@ -368,12 +357,7 @@ if [[ $handheldModel == "ODIN" ]]; then
 	else
 		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mupen64plus_next_gles3_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"	
-	fi
-	
-	unzip ~/storage/shared/RetroArch/downloads/flycast_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/mupen64plus_next_gles3_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	unzip ~/storage/shared/RetroArch/downloads/yabasanshiro_libretro_android.so.zip &> ~/storage/shared/pegasus_installer_log.log
-	
+	fi	
 	
 	#Configuration
 	rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/odin/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> ~/storage/shared/pegasus_installer_log.log
@@ -387,7 +371,17 @@ if [[ $handheldModel == "ODIN" ]]; then
 	cd ~/dragoonDoriseTools
 fi
 
-echo -e "Cores downloaded"
+echo -ne "${BOLD}Unzipping${NONE} cores..."
+
+for entry in ~/storage/shared/RetroArch/downloads/*.zip
+do
+	 unzip -o $entry &> ~/storage/shared/pegasus_installer_log.log
+done
+
+#find . -name "*.zip" -type f -delete
+echo -e "${GREEN}OK${NONE}"
+
+
 echo -e  "Press the ${RED}A button${NONE} to continue"
 read pause
 
