@@ -724,11 +724,15 @@ for scraper in ${scrapers[@]};
 		fi
 		
 		if [ $userStored == false ]; then
-			echo -e "You need to have an account on ${BOLD}https://www.screenscraper.fr${NONE} for scraping your roms"	
-			echo -e "If you dont have an account go to https://www.screenscraper.fr/membreinscription.php and create one"
-			echo -e "Press the ${RED}A Button${NONE} if you already have your account created"
-			read pause
 		
+			if (whiptail --title "Screen Scraper" --yesno "Do you have an account on www.screenscraper.fr? If you don't we will open your browser so you can create one. Come back later" 8 78); then
+				find ~/storage/shared/RetroArch/config/ -type f -name "*.cfg" -exec sed -i -e 's/input_overlay_enable = "false"/input_overlay_enable = "true"/g' {} \;
+			else
+				termux-open "https://www.screenscraper.fr/membreinscription.php"
+				echo -e "Press the ${RED}A Button${NONE} if you already have your account created"
+				read pause
+			fi
+
 			echo -e "Now I'm going to ask for your user and password. Both will be stored on your device, ${BOLD}I won't send them or read them${NONE}"
 			echo -e "What is your ScreenScraper user? Type it and press the ${RED}A button${NONE}"
 			read user
