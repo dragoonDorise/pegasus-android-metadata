@@ -246,23 +246,12 @@ if [ $installCores == "true" ]; then
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	
-	
 	echo -ne "Downloading Sega32x..."
 	FILE=~/storage/shared/RetroArch/downloads/picodrive_libretro_android.so
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
 		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/picodrive_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
-		echo -e "${GREEN}OK${NONE}"		
-	fi
-
-	
-	echo -ne "Downloading Pico8..."
-	FILE=~/storage/shared/RetroArch/downloads/retro8_libretro_android.so
-	if [ -f "$FILE" ]; then
-		echo -e "${YELLOW}Already Downloaded${NONE}"	
-	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/retro8_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 
@@ -302,111 +291,7 @@ if [ $installCores == "true" ]; then
 		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/scummvm_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
-	
-	echo -ne "Downloading Amstrad CPC.."
-	FILE=~/storage/shared/RetroArch/downloads/cap32_libretro_android.so
-	if [ -f "$FILE" ]; then
-		echo -e "${YELLOW}Already Downloaded${NONE}"	
-	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/cap32_libretro_android.so.zip   &> ~/storage/shared/pegasus_installer_log.log
-		echo -e "${GREEN}OK${NONE}"		
-	fi
-	echo -ne "Downloading Atari ST..."
-	FILE=~/storage/shared/RetroArch/downloads/hatari_libretro_android.so
-	if [ -f "$FILE" ]; then
-		echo -e "${YELLOW}Already Downloaded${NONE}"	
-	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/hatari_libretro_android.so.zip   &> ~/storage/shared/pegasus_installer_log.log
-		echo -e "${GREEN}OK${NONE}"		
-	fi
-	echo -ne "Downloading ColecoVision..."
-	FILE=~/storage/shared/RetroArch/downloads/gearcoleco_libretro_android.so
-	if [ -f "$FILE" ]; then
-		echo -e "${YELLOW}Already Downloaded${NONE}"	
-	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/gearcoleco_libretro_android.so.zip   &> ~/storage/shared/pegasus_installer_log.log
-		echo -e "${GREEN}OK${NONE}"		
-	fi
-	echo -ne "Downloading CPS1..."
-	FILE=~/storage/shared/RetroArch/downloads/fbalpha2012_cps1_libretro_android.so
-	if [ -f "$FILE" ]; then
-		echo -e "${YELLOW}Already Downloaded${NONE}"	
-	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fbalpha2012_cps1_libretro_android.so.zip   &> ~/storage/shared/pegasus_installer_log.log
-		echo -e "${GREEN}OK${NONE}"		
-	fi
-	echo -ne "Downloading CPS2..."
-	FILE=~/storage/shared/RetroArch/downloads/fbalpha2012_cps2_libretro_android.so
-	if [ -f "$FILE" ]; then
-		echo -e "${YELLOW}Already Downloaded${NONE}"	
-	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fbalpha2012_cps2_libretro_android.so.zip   &> ~/storage/shared/pegasus_installer_log.log
-		echo -e "${GREEN}OK${NONE}"		
-	fi
-	echo -ne "Downloading CPS3..."
-	FILE=~/storage/shared/RetroArch/downloads/fbalpha2012_cps3_libretro_android.so
-	if [ -f "$FILE" ]; then
-		echo -e "${YELLOW}Already Downloaded${NONE}"	
-	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fbalpha2012_cps3_libretro_android.so.zip   &> ~/storage/shared/pegasus_installer_log.log
-		echo -e "${GREEN}OK${NONE}"		
-	fi
-	echo -ne "Downloading Daphne..."
-	FILE=~/storage/shared/RetroArch/downloads/daphne_libretro_android.so
-	if [ -f "$FILE" ]; then
-		echo -e "${YELLOW}Already Downloaded${NONE}"	
-	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/daphne_libretro_android.so.zip   &> ~/storage/shared/pegasus_installer_log.log
-		echo -e "${GREEN}OK${NONE}"		
-	fi
-	echo -ne "Downloading Lutro..."
-	FILE=~/storage/shared/RetroArch/downloads/lutro_libretro_android.so
-	if [ -f "$FILE" ]; then
-		echo -e "${YELLOW}Already Downloaded${NONE}"	
-	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/lutro_libretro_android.so.zip   &> ~/storage/shared/pegasus_installer_log.log
-	echo -e "${GREEN}OK${NONE}"		
-	fi
-		echo -ne "Downloading MSX..."
-	FILE=~/storage/shared/RetroArch/downloads/bluemsx_libretro_android.so
-	if [ -f "$FILE" ]; then
-		echo -e "${YELLOW}Already Downloaded${NONE}"	
-	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/bluemsx_libretro_android.so.zip   &> ~/storage/shared/pegasus_installer_log.log
-		echo -e "${GREEN}OK${NONE}"		
-	fi
-	echo -ne "Downloading Quake..."
-	FILE=~/storage/shared/RetroArch/downloads/tyrquake_libretro_android.so
-	if [ -f "$FILE" ]; then
-		echo -e "${YELLOW}Already Downloaded${NONE}"	
-	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/tyrquake_libretro_android.so.zip   &> ~/storage/shared/pegasus_installer_log.log
-		echo -e "${GREEN}OK${NONE}"		
-	fi
-		echo -ne "Downloading TIC80..."
-	FILE=~/storage/shared/RetroArch/downloads/tic80_libretro_android.so
-	if [ -f "$FILE" ]; then
-		echo -e "${YELLOW}Already Downloaded${NONE}"	
-	else		
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/tic80_libretro_android.so.zip   &> ~/storage/shared/pegasus_installer_log.log
-		echo -e "${GREEN}OK${NONE}"		
-	fi
-	echo -ne "Downloading VCEX..."
-	FILE=~/storage/shared/RetroArch/downloads/vecx_libretro_android.so
-	if [ -f "$FILE" ]; then
-		echo -e "${YELLOW}Already Downloaded${NONE}"	
-	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/vecx_libretro_android.so.zip   &> ~/storage/shared/pegasus_installer_log.log
-		echo -e "${GREEN}OK${NONE}"		
-	fi
-	echo -ne "Downloading ZX Spectrum..."
-	FILE=~/storage/shared/RetroArch/downloads/fuse_libretro_android.so
-	if [ -f "$FILE" ]; then
-		echo -e "${YELLOW}Already Downloaded${NONE}"	
-	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fuse_libretro_android.so.zip   &> ~/storage/shared/pegasus_installer_log.log
-		echo -e "${GREEN}OK${NONE}"		
-	fi
+
 	
 	echo -ne "${BOLD}Unzipping${NONE} cores..."
 	
