@@ -387,6 +387,9 @@ if [[ $handheldModel == "ODIN" ]]; then
 	cd ~/dragoonDoriseTools
 fi
 
+echo -e "Cores downloaded"
+echo -e  "Press the ${RED}A button${NONE} to continue"
+
 #Bezels
 /bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/ra_bezels.sh
 
