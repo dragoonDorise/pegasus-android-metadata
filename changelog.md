@@ -90,3 +90,6 @@
   amstradcpc
   lutro
   tic80
+
+  1.3.1
+  Small fixes
