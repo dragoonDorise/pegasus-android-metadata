@@ -146,7 +146,7 @@ if [ $handheldModel == 'RP2+' ]; then
 		
 	else
 		echo -ne "Downloading Pegasus Theme : Retro Mega..."
-		git clone https://github.com/djfumberger/retromega.git ~/storage/shared/pegasus-frontend/themes/retromega &>> ~/storage/shared/pegasus_installer_log.log
+		git clone https://github.com/plaidman/retromega-next.git ~/storage/shared/pegasus-frontend/themes/retromega &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"
 	fi
 
