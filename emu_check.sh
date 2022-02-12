@@ -84,7 +84,7 @@ fi
 
 clear
 echo -e ""
-echo -e "Checking installed emulators..."
+echo -e "Checking for installed emulators..."
 echo -e ""
 
 #Common emulators
