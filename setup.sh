@@ -87,9 +87,6 @@ while true; do
 	   3>&1 1<&2 2>&3)
 done
 
-#Detect installed emulators
-
-/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/emu_check.sh
 
 
 echo -e "Downloading Metadata Pack for Android, please be patient..."
