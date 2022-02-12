@@ -391,8 +391,7 @@ if [ $scrapNow == "YES" ]; then
 else
 	clear	
 	echo -e  "${STRONG}If you want to scrap more roms, update or uninstall Pegasus Installer:${NONE}"
-	echo -e  "In Pegasus go to the Android Collection and look for Rom Scraper / Termux"
-	echo -e  "Or just start Termux from your Android apps"
+	echo -e  "Just open the Termux app again"
 	echo -e  "Press the ${RED}A button${NONE} to exit"
 	read pause
 	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
