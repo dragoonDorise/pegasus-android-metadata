@@ -12,44 +12,64 @@ Website: [Pegasus Installer](https://www.pegasus-installer.com)
 
 This pack offers support for the following systems with their respective emulators, you'll need to download them on your own.
 
-| System                    | Emulator                                 | Status      | Overlays |
-| ------------------------- | ---------------------------------------- | ----------- | -------- |
-| 3DO                       | Retroarch 1.9 Opera core                 | Not Working | No       |
-| Atari 2600                | Retroarch 1.9 Stella core                | Working     | Yes      |
-| Atari Lynx                | Retroarch 1.9 Beetle Lynx core           | Working     | No       |
-| DooM                      | Retroarch 1.9 PrBoom core                | Not tested  | No       |
-| GameBoy                   | Retroarch 1.9 Gambatte core              | Working     | Yes      |
-| GameBoy Color             | Retroarch 1.9 Gambatte core              | Working     | Yes      |
-| GameBoy Advance           | Retroarch 1.9 mGBA core                  | Working     | Yes      |
-| GameCube                  | Dolphin                                  | Working     | -        |
-| Dos                       | Retroarch 1.9 DOSBox core                | Not tested  | No       |
-| Dreamcast                 | Reddream                                 | Working     | -        |
-| Final Burn Neo            | Retroarch 1.9 Fbn core                   | Working     | No       |
-| Mame 2003 Plus            | Retroarch 1.9 Mame 2003 Plus core        | Working     | Yes      |
-| Master System             | Retroarch 1.9 Genesis Plus GX core       | Working     | Yes      |
-| Neo Geo                   | Retroarch 1.9 Fba 2020 Neo Geo core      | Not Working | No       |
-| Neo Geo CD                | Retroarch 1.9 Fbn core                   | Not Working | No       |
-| Neo Geo Pocket & Color    | Retroarch 1.9 Beetle NeoPop              | Working     | Yes      |
-| Nintendo DS               | Drastic                                  | Working     | Yes      |
-| Nintendo 3DS              | Citra                                    | Working     | Yes      |
-| Nintendo NES              | Retroarch 1.9 Nestopia core              | Working     | Yes      |
-| Nintendo 64               | Mupen64plus FZ                           | Working     | -        |
-| Nintendo Wii              | Dolphin                                  | Working     | -        |
-| PC engine                 | Retroarch 1.9 Mednafen pce fast core     | Working     | Yes      |
-| Pico 8                    | Retroarch 1.9 Retro 8 core               | Not Working | No       |
-| Playstation               | Retroarch 1.9 PCSX Rearmed core          | Working     | Yes      |
-| Playstation 2             | Aether SX2                               | Working     | -        |
-| PSP                       | PPSSPP                                   | Working     | -        |
-| ScummVM                   | Retroarch 1.9 Scummvm core               | Working     | Yes      |
-| Sega 32X                  | Retroarch 1.9 PicoDrive core             | Working     | Yes      |
-| Sega CD                   | Retroarch 1.9 Genesis Plus GX core       | Working     | Yes      |
-| Sega Game Gear            | Retroarch 1.9 Genesis Plus GX core       | Working     | Yes      |
-| Sega Genesis / Mega Drive | Retroarch 1.9 Genesis Plus GX core       | Working     | Yes      |
-| Sega Genesis Widescreen   | Retroarch 1.9 Genesis Plus GX Wide core  | Working     | -        |
-| Sega Saturn               | Yaba Sanshiro 2 Pro                      | Working     | -        |
-| Super Nintendo            | Retroarch 1.9 Snes9x Current core        | Working     | Yes      |
-| Super Nintendo Widescreen | Retroarch 1.9 bsnes hd beta Current core | Working     | -        |
-| Wonderswan & Color        | Retroarch 1.9 Beetle Cygne core          | Not tested  | No       |
+| System                    | Emulator                                 | Status      | Bezels |
+| ------------------------- | ---------------------------------------- | ----------- | ------ |
+| 3DO                       | Retroarch 1.9 Opera core                 | Not Working | No     |
+| Atari 2600                | Retroarch 1.9 Stella core                | Working     | Yes    |
+| Atari Lynx                | Retroarch 1.9 Beetle Lynx core           | Working     | No     |
+| DooM                      | Retroarch 1.9 PrBoom core                | Working     | No     |
+| GameBoy                   | Retroarch 1.9 Gambatte core              | Working     | Yes    |
+| GameBoy Color             | Retroarch 1.9 Gambatte core              | Working     | Yes    |
+| GameBoy Advance           | Retroarch 1.9 mGBA core                  | Working     | Yes    |
+| GameCube                  | Dolphin                                  | Working     | -      |
+| Dos                       | Retroarch 1.9 DOSBox core                | Not tested  | No     |
+| Dreamcast                 | Reddream                                 | Working     | -      |
+| Final Burn Neo            | Retroarch 1.9 Fbn core                   | Working     | No     |
+| Mame 2003 Plus            | Retroarch 1.9 Mame 2003 Plus core        | Working     | Yes    |
+| Master System             | Retroarch 1.9 Genesis Plus GX core       | Working     | Yes    |
+| Neo Geo                   | Retroarch 1.9 Fba 2020 Neo Geo core      | Not Working | No     |
+| Neo Geo CD                | Retroarch 1.9 Fbn core                   | Not Working | No     |
+| Neo Geo Pocket & Color    | Retroarch 1.9 Beetle NeoPop              | Working     | Yes    |
+| Nintendo DS               | Drastic                                  | Working     | Yes    |
+| Nintendo 3DS              | Citra                                    | Working     | Yes    |
+| Nintendo NES              | Retroarch 1.9 Nestopia core              | Working     | Yes    |
+| Nintendo 64               | Mupen64plus FZ                           | Working     | -      |
+| Nintendo Wii              | Dolphin                                  | Working     | -      |
+| PC engine                 | Retroarch 1.9 Mednafen pce fast core     | Working     | Yes    |
+| Playstation               | Retroarch 1.9 PCSX Rearmed core          | Working     | Yes    |
+| Playstation 2             | Aether SX2                               | Working     | -      |
+| PSP                       | PPSSPP                                   | Working     | -      |
+| ScummVM                   | Retroarch 1.9 Scummvm core               | Working     | Yes    |
+| Sega 32X                  | Retroarch 1.9 PicoDrive core             | Working     | Yes    |
+| Sega CD                   | Retroarch 1.9 Genesis Plus GX core       | Working     | Yes    |
+| Sega Game Gear            | Retroarch 1.9 Genesis Plus GX core       | Working     | Yes    |
+| Sega Genesis / Mega Drive | Retroarch 1.9 Genesis Plus GX core       | Working     | Yes    |
+| Sega Genesis Widescreen   | Retroarch 1.9 Genesis Plus GX Wide core  | Working     | -      |
+| Sega Saturn               | Yaba Sanshiro 2 Pro                      | Working     | -      |
+| Super Nintendo            | Retroarch 1.9 Snes9x Current core        | Working     | Yes    |
+| Super Nintendo Widescreen | Retroarch 1.9 bsnes hd beta Current core | Working     | -      |
+| Wonderswan & Color        | Retroarch 1.9 Beetle Cygne core          | Not tested  | No     |
+
+We also support the following systems but you need to install / download the cores by yourself
+
+| System        | Emulator      | Status     | Bezels |
+| ------------- | ------------- | ---------- | ------ |
+| Amstrad CPC   | Retroarch 1.9 | Not tested | No     |
+| Atari ST      | Retroarch 1.9 | Not tested | No     |
+| Intellivision | Retroarch 1.9 | Not tested | No     |
+| Colecovision  | Retroarch 1.9 | Not tested | No     |
+| CPS1          | Retroarch 1.9 | Not tested | No     |
+| CPS2          | Retroarch 1.9 | Not tested | No     |
+| CPS3          | Retroarch 1.9 | Not tested | No     |
+| Game & Watch  | Retroarch 1.9 | Not tested | No     |
+| Lutro         | Retroarch 1.9 | Not tested | No     |
+| MSX           | Retroarch 1.9 | Not tested | No     |
+| Daphne        | Retroarch 1.9 | Not tested | No     |
+| Quake         | Retroarch 1.9 | Not tested | No     |
+| TIC 80        | Retroarch 1.9 | Not tested | No     |
+| Vectrex       | Retroarch 1.9 | Not tested | No     |
+| VirtualBoy    | Retroarch 1.9 | Not tested | No     |
+| Zx Spectrum   | Retroarch 1.9 | Not tested | No     |
 
 Keep in mind not all Android Handhelds are powerful enough to run all those systems. You can check your device compatibility in these Community maintained guides:
 
