@@ -802,12 +802,16 @@ for scraper in ${scrapers[@]};
 		 			#We only search games with no art
 		 			if [ $hasWheel == false ] || [ $hasSs == false ] || [ $hasBox == false ]; then
 						
-						content=$(cat "~/dragoonDoriseTools/pegasus-android-metadata/metadata.json") 
+						content=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/metadata.json) 
 						
-						urlMediaWheel=$( jq -r  '.platform.amstradcpc.games."${$romNameNoExtensionTrimmed}".medias.wheel' <<< "${content}" )
-						urlMediaSs=$( jq -r  '.platform.amstradcpc.games."${$romNameNoExtensionTrimmed}".medias.screenshot' <<< "${content}" )
-						urlMediaBox=$( jq -r  '.platform.amstradcpc.games."${$romNameNoExtensionTrimmed}".medias.box2dfront' <<< "${content}" )
+						urlMediaWheel=$( jq -r  '.platform.${system}.games."${$romNameNoExtensionTrimmed}".medias.wheel' <<< "${content}" )
+						urlMediaSs=$( jq -r  '.platform.${system}.games."${$romNameNoExtensionTrimmed}".medias.screenshot' <<< "${content}" )
+						urlMediaBox=$( jq -r  '.platform.${system}.games."${$romNameNoExtensionTrimmed}".medias.box2dfront' <<< "${content}" )
 						
+						echo $romNameNoExtensionTrimmed
+						echo $urlMediaWheel
+						echo $urlMediaSs
+						echo $urlMediaBox
 									 			
 			 			echo -e "Downloading Images for $romNameNoExtension"		
 			 			
