@@ -33,6 +33,7 @@ mkdir ~/storage/shared/RetroArch/overlays/ &> ~/storage/shared/pegasus_installer
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 echo -ne "Installing overlays..."
+rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/overlays/ ~/storage/shared/RetroArch/overlays/ &> ~/storage/shared/pegasus_installer_log.log
 
 
 echo -e "${GREEN}OK${NONE}"
