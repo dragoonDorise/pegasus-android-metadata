@@ -92,4 +92,9 @@
   tic80
 
   1.3.1
-  Small fixes
+
+- Small fixes
+
+  1.3.2
+
+- LaunchBox scraper

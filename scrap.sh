@@ -456,7 +456,7 @@ clear
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 while true; do
 	selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
-   	--checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
+	   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
 		"ALL" "This option will look for all systems on your SD Card" OFF \
 		"3do" "The 3DO Company - 3DO" OFF \
 		"3ds" "Nintendo - Nintendo 3DS" OFF \
@@ -467,7 +467,7 @@ while true; do
 		"dreamcast" "Sega - Dreamcast" OFF \
 		"fbneo" "FBNeo - Arcade Games" OFF \
 		"gamegear" "Sega - Game Gear" OFF \
-		"gb" "Nintendo - Game Boy" OFF \
+		"gb" "Nintendo - Game Boy" ON \
 		"gba" "Nintendo - Game Boy Advance" OFF \
 		"gbc" "Nintendo - Game Boy Color" OFF \
 		"gc" "Nintendo - GameCube" OFF \
@@ -502,7 +502,7 @@ while true; do
 		"tic80" "TIC 80" OFF \
 		"vectrex" "Vectrex" OFF \
 		"zxspectrum" "ZX Spectrum" OFF \
-   	3>&1 1<&2 2>&3)
+	   3>&1 1<&2 2>&3)
 	case $selected_device_descriptions in
 		[ALL]* ) break;;
 		[3do]* ) break;;
@@ -568,9 +568,9 @@ clear
 while true; do
 	scrapers_names=$(whiptail --title "Chose your Scrap Engine - We recomend to choose both" \
 	   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
-		"RETROARCH" "Retroarch Thumbs - Fast but only works on No Intro Romsets" ON \
+		"RETROARCH" "Retroarch Thumbs - Fast but only works on No Intro Romsets" OFF \
 		"LAUNCHBOX" "Launchbox GamesDB - Fast!" ON \
-		"SCREENSCRAPER" "ScreenScraper - Really slow but more reliable" ON \
+		"SCREENSCRAPER" "ScreenScraper - Really slow but more reliable" OFF \
 	   3>&1 1<&2 2>&3)
 	case $scrapers_names in
 		[RETROARCH]* ) break;;
@@ -705,7 +705,7 @@ for scraper in ${scrapers[@]};
 		 done
 		
 		echo -e "${GREEN}completed${NONE}" 	
-		echo -e "Press the ${RED}A Button${NONE} to finish. We recomend to do a second loop with ScreenScraper if you didn't do it already"
+		echo -e "Press the ${RED}A Button${NONE} to continue."
 		read pause	
 		
 
@@ -715,155 +715,177 @@ for scraper in ${scrapers[@]};
 	if [ $scraper == "LAUNCHBOX" ]; then
 		echo -e "Using Launchbox GamesDB..."	
 		for device_name in ${selected_device_names[@]};
-	 	do
-		 	message=$device_name
-		 	system="${message//'"'/}"            
-		 	#ls ~/storage/$storageLocation/$system
-		 	mkdir ~/storage/$storageLocation/$system/media &> /dev/null
-		 	mkdir ~/storage/$storageLocation/$system/media/screenshot &> /dev/null
-		 	mkdir ~/storage/$storageLocation/$system/media/box2dfront &> /dev/null
-		 	mkdir ~/storage/$storageLocation/$system/media/wheel &> /dev/null
-		 	
+		 do
+			 message=$device_name
+			 system="${message//'"'/}"            
+			 #ls ~/storage/$storageLocation/$system
+			 mkdir ~/storage/$storageLocation/$system/media &> /dev/null
+			 mkdir ~/storage/$storageLocation/$system/media/screenshot &> /dev/null
+			 mkdir ~/storage/$storageLocation/$system/media/box2dfront &> /dev/null
+			 mkdir ~/storage/$storageLocation/$system/media/wheel &> /dev/null
+			 
 			#Roms loop
-  			for entry in ~/storage/$storageLocation/$system/*
-  			do
-	  			#Cleaning up names
-	 			firstString=$entry
-	 			secondString=""
-	 			romName="${firstString/"/data/data/com.termux/files/home/storage/$storageLocation/$system/"/"$secondString"}"   		
-	 			romNameNoExtension=${romName%.*}		
-	 			
-	 			startcapture=true
-	  			
-	 			#.txt validation
-	  			STR=$romName
-	  			SUB='.txt'
-	  			if grep -q "$SUB" <<< "$STR"; then
-		  			startcapture=false
-	  			fi
-	 			#.sav validation
-	  			STR=$romName
-	  			SUB='.sav'
-	  			if grep -q "$SUB" <<< "$STR"; then
-		  			startcapture=false
-	  			fi
-	 			#Directory Validation
-	 			DIR=~/storage/$storageLocation/$system/$romName
-	 			if [ -d "$DIR" ]; then
-		 			startcapture=false
-	 			fi
-	 			
-	 			#Blanks cleaning up, TODO: DRY
-	 			firstString=$romNameNoExtension
-	 			secondString=""
-	 			romNameNoExtensionNoDisc="${firstString/"Disc "/""}"
-	 			firstString=$romNameNoExtensionNoDisc
-	 			romNameNoExtensionNoRev="${firstString/"Rev "/""}"
-	 			firstString=$romNameNoExtensionNoRev
-	 			romNameNoExtensionTrimmed=$(echo $firstString | sed 's/([.a-zA-Z0-9!]*)//g' | sed 's/[[!]*]//g')
-	 			firstString=$romNameNoExtensionTrimmed
-	 			romNameNoExtensionNoAnd="${firstString/"&"/"$secondString"}"
-	 			firstString=$romNameNoExtensionNoAnd
-	 			secondString="%20"
-	 			romNameNoExtensionNoDash="${firstString/" - "/"$secondString"}"
-	 			firstString=$romNameNoExtensionNoDash
-	 			romNameNoExtensionNoDash="${firstString/"-"/"$secondString"}"
-	 			firstString=$romNameNoExtensionNoDash
-	 			romNameNoExtensionNoSpace="${firstString//" "/"$secondString"}"
-	 			firstString=$romNameNoExtensionNoSpace
-	 			secondString=""
-	 			romNameNoExtensionNoNkit="${firstString/".nkit"/"$secondString"}"		
-	 			firstString=$romNameNoExtensionNoNkit
-	 			romNameNoExtensionNoSpace="${firstString/"!"/"$secondString"}"		
-	 			firstString=$romNameNoExtensionNoSpace
-			
-			
-				STR=$romNameNoExtensionNoDash
-				SUB=' , The'
+			  for entry in ~/storage/$storageLocation/$system/*
+			  do
+				  #Cleaning up names
+				 firstString=$entry
+				 secondString=""
+				 romName="${firstString/"/data/data/com.termux/files/home/storage/$storageLocation/$system/"/"$secondString"}"   		
+				 romNameNoExtension=${romName%.*}		
+				 
+				 startcapture=true
+				  
+				 #.txt validation
+				  STR=$romName
+				  SUB='.txt'
+				  if grep -q "$SUB" <<< "$STR"; then
+					  startcapture=false
+				  fi
+				 #.sav validation
+				  STR=$romName
+				  SUB='.sav'
+				  if grep -q "$SUB" <<< "$STR"; then
+					  startcapture=false
+				  fi
+				 #Directory Validation
+				 DIR=~/storage/$storageLocation/$system/$romName
+				 if [ -d "$DIR" ]; then
+					 startcapture=false
+				 fi
+				 
+				 #Blanks cleaning up, TODO: DRY
+				 firstString=$romNameNoExtension
+				 secondString=""
+				 romNameNoExtensionNoDisc="${firstString/"Disc "/""}"
+				 firstString=$romNameNoExtensionNoDisc
+				 romNameNoExtensionNoRev="${firstString/"Rev "/""}"
+				 firstString=$romNameNoExtensionNoRev
+				 romNameNoExtensionTrimmed=$(echo $firstString | sed -r "s/(.[()].*)//g")				 				 
+				 firstString=$romNameNoExtensionTrimmed
+				 romNameNoExtensionNoAnd="${firstString/"&"/"$secondString"}"
+				 firstString=$romNameNoExtensionNoAnd
+				 secondString="%20"
+				 romNameNoExtensionNoDash="${firstString/" - "/"$secondString"}"
+				 firstString=$romNameNoExtensionNoDash
+				 romNameNoExtensionNoDash="${firstString/"-"/"$secondString"}"
+				 firstString=$romNameNoExtensionNoDash
+				 romNameNoExtensionNoSpace="${firstString//" "/"$secondString"}"
+				 firstString=$romNameNoExtensionNoSpace
+				 secondString=""
+				 romNameNoExtensionNoNkit="${firstString/".nkit"/"$secondString"}"		
+				 firstString=$romNameNoExtensionNoNkit
+				 romNameNoExtensionNoSpace="${firstString/"!"/"$secondString"}"		
+				 firstString=$romNameNoExtensionNoSpace
+				#echo "romNameNoExtensionTrimmed"
+				#echo $romNameNoExtensionTrimmed
+				
+				STR=$romNameNoExtensionTrimmed
+				SUB=', The'
 				if [[ "$STR" == *"$SUB"* ]]; then
  
- 					firstString=$romNameNoExtensionNoDash
- 					secondString=""
- 					romNameNoExtensionNoThe="${firstString/" , The"/"$secondString"}"		
-  				
- 					romNameNoExtensionForLaunchbox="The $romNameNoExtensionNoThe"		
+					 firstString=$romNameNoExtensionTrimmed
+					 secondString=""
+					 romNameNoExtensionNoThe="${firstString/", The"/"$secondString"}"		
 				  
-				fi			
+					 romNameNoExtensionForLaunchbox="The $romNameNoExtensionNoThe"		
+						 
+					   else
+					 romNameNoExtensionForLaunchbox=$romNameNoExtensionTrimmed
+					 
+				fi		
 				
-				echo $romNameNoExtensionForLaunchbox;
+				romNameNoExtensionForLaunchbox=$(echo $romNameNoExtensionForLaunchbox | sed -r "s/,//g")
+				#echo "romNameNoExtensionForLaunchbox"	
+				#echo $romNameNoExtensionForLaunchbox
+								
 				
-	 			if [ $startcapture == true ]; then
-		 			
-		 			hasWheel=false
-		 			hasSs=false
-		 			hasBox=false
-		 			
+				 if [ $startcapture == true ]; then
+					 
+					 hasWheel=false
+					 hasSs=false
+					 hasBox=false
+					 
 					FILE=~/storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png
 					if [ -f "$FILE" ]; then
-			 			hasWheel=true
+						 hasWheel=true
 					fi
 						
 					FILE=~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png
 					if [ -f "$FILE" ]; then
-			 			hasSs=true
+						 hasSs=true
 					fi
 						
 					FILE=~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png
 					if [ -f "$FILE" ]; then
-			 			hasBox=true
+						 hasBox=true
 					fi
-							 			
-		 			#We only search games with no art
-		 			if [ $hasWheel == false ] || [ $hasSs == false ] || [ $hasBox == false ]; then
+										 
+					 #We only search games with no art
+					 if [ $hasWheel == false ] || [ $hasSs == false ] || [ $hasBox == false ]; then
 						
 						content=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/metadata.json) 
+						
+						#echo ".platform.$system.games.\"$romNameNoExtensionForLaunchbox\".medias.wheel"
+						
 						
 						urlMediaWheel=$( jq -r  ".platform.$system.games.\"$romNameNoExtensionForLaunchbox\".medias.wheel" <<< "${content}" )
 						urlMediaSs=$( jq -r  ".platform.$system.games.\"$romNameNoExtensionForLaunchbox\".medias.screenshot" <<< "${content}" )
 						urlMediaBox=$( jq -r  ".platform.$system.games.\"$romNameNoExtensionForLaunchbox\".medias.box2dfront" <<< "${content}" )
 						
-						echo $romNameNoExtensionForLaunchbox
-						echo $urlMediaWheel
-						echo $urlMediaSs
-						echo $urlMediaBox
-									 			
-			 			echo -e "Downloading Images for $romNameNoExtension"		
-			 			
-						if [ $hasWheel == true ]; then
-							echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
-						else 
-							wget  -q --show-progress "$urlMediaWheel" -P ~/storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png
-						fi
+						wheelSavePath="./storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png"
+						ssSavePath="./storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png"
+						box2dfrontSavePath="./storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png"
 						
-						if [ $hasSs == true ]; then
-							echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
-						else 
-							wget  -q --show-progress "$urlMediaWheel" -P ~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png
-						fi
+						#echo $romNameNoExtensionForLaunchbox
+						#echo $urlMediaWheel
+						#echo $urlMediaSs
+						#echo $urlMediaBox
 						
-						if [ $hasBox == true ]; then
-							echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
-						else 
-							wget  -q --show-progress "$urlMediaWheel" -P ~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png
-						fi
 						
+												 
+						echo -e "Downloading Images for $romNameNoExtension"		
+						
+						if [[ $urlMediaWheel != null ]]; then
+						 
+							if [ $hasWheel == true ]; then
+								echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
+							else 
+								wget -q --show-progress "$urlMediaWheel" -O "$wheelSavePath"
+							fi
+						
+						fi
+						if [[ $urlMediaSs != null ]]; then
+							if [ $hasSs == true ]; then
+								echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
+							else 
+								wget -q --show-progress "$urlMediaSs" -O "$ssSavePath"
+							fi
+						fi
+						if [[ $urlMediaBox != null ]]; then	
+							if [ $hasBox == true ]; then
+								echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
+							else 
+								wget -q --show-progress "$urlMediaBox" -O "$box2dfrontSavePath"
+							fi
+						fi
+							
 						
 						
 					else
 						echo -e "Game already scraped" &> /dev/null
 					fi
-		 			
+					 
 					
-	 			
-	 			fi
+				 
+				 fi
 			
-  			done			 
-		 	
-	   	#rsync -r ~/pegasus-artwork/$system/ ~/storage/$storageLocation/$system/
-	 	done
+			  done			 
+			 
+		   #rsync -r ~/pegasus-artwork/$system/ ~/storage/$storageLocation/$system/
+		 done
 		
 		echo -e "${GREEN}completed${NONE}" 	
-		echo -e "Press the ${RED}A Button${NONE} to finish. We recomend to do a second loop with ScreenScraper if you didn't do it already"
+		echo -e "Press the ${RED}A Button${NONE} to continue."
 		read pause	
 		
 	
@@ -1012,12 +1034,12 @@ for scraper in ${scrapers[@]};
 						 
 						 #Don't check art after a failed curl request
 						 if [[ $content == "" ]]; then
-						 	echo -e "Request failed to send for $romNameNoExtension, ${YELLOW}skipping${NONE}"
-						    continue;
+							 echo -e "Request failed to send for $romNameNoExtension, ${YELLOW}skipping${NONE}"
+							continue;
 						 fi
 						 #Don't check art if screenscraper can't find a match
-					     if [[ $content == *"Erreur"* ]]; then
-  						 	echo -e "Couldn't find a match for $romNameNoExtension, ${YELLOW}skipping${NONE}"
+						 if [[ $content == *"Erreur"* ]]; then
+							   echo -e "Couldn't find a match for $romNameNoExtension, ${YELLOW}skipping${NONE}"
 							continue;
 						 fi
 						 #echo $content;
@@ -1056,7 +1078,7 @@ for scraper in ${scrapers[@]};
 						#Wheel HD just in case
 						FILE=~/storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png
 						if [ -f "$FILE" ]; then
-	 						hasWheel=true
+							 hasWheel=true
 						fi
 						
 						if [ $hasWheel == true ]; then
