@@ -777,18 +777,21 @@ for scraper in ${scrapers[@]};
 	 			romNameNoExtensionNoSpace="${firstString/"!"/"$secondString"}"		
 	 			firstString=$romNameNoExtensionNoSpace
 			
-				echo $romNameNoExtension
-				echo $romNameNoExtensionNoDisc
-				echo $romNameNoExtensionNoRev
-	 			echo $romNameNoExtensionTrimmed
-				echo $romNameNoExtensionNoAnd
-				echo $romNameNoExtensionNoDash
-				echo $romNameNoExtensionNoSpace
-				echo $romNameNoExtensionNoNkit
-				echo $romNameNoExtensionNoSpace
-				 
-				 exit
-				 
+			
+				STR=$romNameNoExtensionNoDash
+				SUB=' , The'
+				if [[ "$STR" == *"$SUB"* ]]; then
+ 
+ 					firstString=$romNameNoExtensionNoDash
+ 					secondString=""
+ 					romNameNoExtensionNoThe="${firstString/" , The"/"$secondString"}"		
+  				
+ 					romNameNoExtensionForLaunchbox="The $romNameNoExtensionNoThe"		
+				  
+				fi			
+				
+				echo $romNameNoExtensionForLaunchbox;
+				
 	 			if [ $startcapture == true ]; then
 		 			
 		 			hasWheel=false
@@ -815,11 +818,11 @@ for scraper in ${scrapers[@]};
 						
 						content=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/metadata.json) 
 						
-						urlMediaWheel=$( jq -r  ".platform.$system.games.\"$romNameNoExtensionTrimmed\".medias.wheel" <<< "${content}" )
-						urlMediaSs=$( jq -r  ".platform.$system.games.\"$romNameNoExtensionTrimmed\".medias.screenshot" <<< "${content}" )
-						urlMediaBox=$( jq -r  ".platform.$system.games.\"$romNameNoExtensionTrimmed\".medias.box2dfront" <<< "${content}" )
+						urlMediaWheel=$( jq -r  ".platform.$system.games.\"$romNameNoExtensionForLaunchbox\".medias.wheel" <<< "${content}" )
+						urlMediaSs=$( jq -r  ".platform.$system.games.\"$romNameNoExtensionForLaunchbox\".medias.screenshot" <<< "${content}" )
+						urlMediaBox=$( jq -r  ".platform.$system.games.\"$romNameNoExtensionForLaunchbox\".medias.box2dfront" <<< "${content}" )
 						
-						echo $romNameNoExtensionTrimmed
+						echo $romNameNoExtensionForLaunchbox
 						echo $urlMediaWheel
 						echo $urlMediaSs
 						echo $urlMediaBox
