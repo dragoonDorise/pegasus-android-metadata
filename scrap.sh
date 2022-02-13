@@ -804,9 +804,9 @@ for scraper in ${scrapers[@]};
 						
 						content=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/metadata.json) 
 						
-						urlMediaWheel=$( jq -r  '.platform.${system}.games."${$romNameNoExtensionTrimmed}".medias.wheel' <<< "${content}" )
-						urlMediaSs=$( jq -r  '.platform.${system}.games."${$romNameNoExtensionTrimmed}".medias.screenshot' <<< "${content}" )
-						urlMediaBox=$( jq -r  '.platform.${system}.games."${$romNameNoExtensionTrimmed}".medias.box2dfront' <<< "${content}" )
+						urlMediaWheel=$( jq -r  ".platform.$system.games.\"$romNameNoExtensionTrimmed\".medias.wheel" <<< "${content}" )
+						urlMediaSs=$( jq -r  ".platform.$system.games.\"$romNameNoExtensionTrimmed\".medias.screenshot" <<< "${content}" )
+						urlMediaBox=$( jq -r  ".platform.$system.games.\"$romNameNoExtensionTrimmed\".medias.box2dfront" <<< "${content}" )
 						
 						echo $romNameNoExtensionTrimmed
 						echo $urlMediaWheel
