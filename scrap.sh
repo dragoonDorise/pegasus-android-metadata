@@ -588,6 +588,7 @@ for scraper in ${scrapers[@]};
  do
  
 	if [ $scraper == "RETROARCH" ]; then
+		clear
 		echo -e "Using Retroarch Thumbnails..."	
 		for device_name in ${selected_device_names[@]};
 		 do
@@ -713,6 +714,7 @@ for scraper in ${scrapers[@]};
 	fi
 		
 	if [ $scraper == "LAUNCHBOX" ]; then
+		clear
 		echo -e "Using Launchbox GamesDB..."	
 		for device_name in ${selected_device_names[@]};
 		 do
@@ -843,7 +845,7 @@ for scraper in ${scrapers[@]};
 						
 						
 												 
-						echo -e "Downloading Images for $romNameNoExtension"		
+						echo -e "Searching Images for $romNameNoExtension"		
 						
 						if [[ $urlMediaWheel != null ]]; then
 						 
