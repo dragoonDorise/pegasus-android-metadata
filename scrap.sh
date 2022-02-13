@@ -777,7 +777,18 @@ for scraper in ${scrapers[@]};
 	 			romNameNoExtensionNoSpace="${firstString/"!"/"$secondString"}"		
 	 			firstString=$romNameNoExtensionNoSpace
 			
-	 			
+				echo $romNameNoExtension
+				echo $romNameNoExtensionNoDisc
+				echo $romNameNoExtensionNoRev
+	 			echo $romNameNoExtensionTrimmed
+				echo $romNameNoExtensionNoAnd
+				echo $romNameNoExtensionNoDash
+				echo $romNameNoExtensionNoSpace
+				echo $romNameNoExtensionNoNkit
+				echo $romNameNoExtensionNoSpace
+				 
+				 exit
+				 
 	 			if [ $startcapture == true ]; then
 		 			
 		 			hasWheel=false
