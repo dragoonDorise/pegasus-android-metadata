@@ -549,7 +549,6 @@ while true; do
 		[tic80]* ) break;;
 		[vectrex]* ) break;;
 		[zxspectrum]* ) break;;
-		
 		* ) echo "Please choose";;
 	esac
  done
