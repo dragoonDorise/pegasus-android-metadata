@@ -15,7 +15,7 @@ hasYaba=false
 hasMupen=false
 hasPPSSPP=false
 hasDuckstation=false
-hasDrastic=false
+# hasDrastic=false
 hasDolphinMMJ=false
 hasRetroArch=false
 hasCitra=false
@@ -72,10 +72,10 @@ if [ -d "$FOLDER" ]; then
 	hasDuckstation=true
 fi
 #Drastic
-FOLDER=~/storage/shared/DraStic
-if [ -d "$FOLDER" ]; then
-	hasDrastic=true
-fi
+# FOLDER=~/storage/shared/DraStic
+# if [ -d "$FOLDER" ]; then
+# 	hasDrastic=true
+# fi
 #DolphinMMJ
 FOLDER=~/storage/shared/dolphin-mmjr
 if [ -d "$FOLDER" ]; then
@@ -107,12 +107,12 @@ if [ $hasDuckstation == true ]; then
 else
 	echo -e  "${RED}Not installed${NONE}"
 fi
-echo -ne "Nintendo DS - Drastic..."
-if [ $hasDrastic == true ]; then
-	echo -e  "${GREEN}Installed${NONE}"
-else
-	echo -e  "${RED}Not installed${NONE}"
-fi
+# echo -ne "Nintendo DS - Drastic..."
+# if [ $hasDrastic == true ]; then
+	# echo -e  "${GREEN}Installed${NONE}"
+# else
+	# echo -e  "${RED}Not installed${NONE}"
+# fi
 
 
 #Only ODIN & ANDROID
@@ -257,12 +257,12 @@ if [ $hasAether == false ]; then
 	echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
 	read pause
 fi
-if [ $hasDrastic == false ]; then
-	echo -e "Nintendo DS - Drastic..."
-	termux-open "https://play.google.com/store/apps/details?id=com.dsemu.drastic"
-	echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
-	read pause
-fi
+# if [ $hasDrastic == false ]; then
+	# echo -e "Nintendo DS - Drastic..."
+	# termux-open "https://play.google.com/store/apps/details?id=com.dsemu.drastic"
+	# echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
+	# read pause
+# fi
 if [ $hasCitra == false ]; then
 	echo -e "Nintendo 3DS - Citra MMJ..."		
 	wget  -q --show-progress https://github.com/weihuoya/citra/releases/download/20220127/Citra_MMJ_20220127.apk -P ~/dragoonDoriseTools/
