@@ -30,7 +30,7 @@ This pack offers support for the following systems with their respective emulato
 | Neo Geo                   | Retroarch 1.9 Fba 2020 Neo Geo core      | Not Working | No     |
 | Neo Geo CD                | Retroarch 1.9 Fbn core                   | Not Working | No     |
 | Neo Geo Pocket & Color    | Retroarch 1.9 Beetle NeoPop              | Working     | Yes    |
-| Nintendo DS               | Drastic                                  | Working     | Yes    |
+| Nintendo DS               | Drastic                                  | Unlisted    | Yes    |
 | Nintendo 3DS              | Citra                                    | Working     | Yes    |
 | Nintendo NES              | Retroarch 1.9 Nestopia core              | Working     | Yes    |
 | Nintendo 64               | Mupen64plus FZ                           | Working     | -      |
