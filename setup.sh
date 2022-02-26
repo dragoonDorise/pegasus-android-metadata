@@ -39,7 +39,8 @@ echo -ne "Installing components, please be patient..."
 rm ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 touch ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 sleep .5
-pkg update -y -F &>> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y -F &>> ~/storage/shared/pegasus_installer_log.log
+pkg autoclean
+pkg update -y &>> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y &>> ~/storage/shared/pegasus_installer_log.log
 pkg install git wget jq rsync unzip whiptail -y  &>> ~/storage/shared/pegasus_installer_log.log
 
 mkdir ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
