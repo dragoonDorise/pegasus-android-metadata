@@ -23,7 +23,7 @@ rm -f ~/storage/shared/scrap.log  &>> /dev/null
 
 rm -rf ~/storage &>> /dev/null
 termux-setup-storage
-echo -e "Pegasus installer 1.3.1b"
+echo -e "Pegasus installer 1.3.1c"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "We recommend you to hide the virtual keyboard by swiping from the left of the screen."
 echo -e  "${RED}Read before continuing${NONE}"
@@ -50,6 +50,29 @@ echo -e "${GREEN}OK${NONE}"
 
 
 
+echo -e "Downloading Metadata Pack for Android, please be patient..."
+#Download Pegasus Metadata files
+git clone https://github.com/dragoonDorise/pegasus-android-metadata.git ~/dragoonDoriseTools/pegasus-android-metadata
+#Validate
+FOLDER=~/dragoonDoriseTools/pegasus-android-metadata/
+if [ -d "$FOLDER" ]; then
+	echo -e "${GREEN}Download OK${NONE}"
+else
+	echo -e "${RED}ERROR${NONE}"
+	echo -e "It seems Termux repositories are down. Let's fix it"
+	echo -e "When you press the ${RED}A button${NONE} selector will open. In the first screen ${BOLD}select all three options with the ${GREEN}Y button${NONE} and then Accept using the ${RED}A button${NONE}${NONE}"
+	echo -e "Then in the next screen select the first option and press the ${RED}A button${NONE}"
+	read pause
+	termux-change-repo
+	pkg update -y -F &>> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y -F &>> ~/storage/shared/pegasus_installer_log.log
+	pkg install git wget rsync unzip whiptail -y  &>> ~/storage/shared/pegasus_installer_log.log
+	
+	
+fi
+
+clear
+
+
 while true; do
 export NEWT_COLORS="
 root=,red
@@ -70,26 +93,6 @@ roottext=yellow,red"
 	esac
    
  done
-clear
-echo -e "Downloading Metadata Pack for Android, please be patient..."
-#Download Pegasus Metadata files
-git clone https://github.com/dragoonDorise/pegasus-android-metadata.git ~/dragoonDoriseTools/pegasus-android-metadata
-#Validate
-FOLDER=~/dragoonDoriseTools/pegasus-android-metadata/
-if [ -d "$FOLDER" ]; then
-	echo -e "${GREEN}Download OK${NONE}"
-else
-	echo -e "${RED}ERROR${NONE}"
-	echo -e "It seems Termux repositories are down. Let's fix it"
-	echo -e "When you press the ${RED}A button${NONE} selector will open. In the first screen ${BOLD}select all three options with the ${GREEN}Y button${NONE} and then Accept using the ${RED}A button${NONE}${NONE}"
-	echo -e "Then in the next screen select the first option and press the ${RED}A button${NONE}"
-	read pause
-	termux-change-repo
-	pkg update -y &>> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y &>> ~/storage/shared/pegasus_installer_log.log
-	pkg install git wget rsync unzip whiptail -y  &>> ~/storage/shared/pegasus_installer_log.log
-	
-	
-fi
 
 while true; do
 	#touch ~/dragoonDoriseTools/.device
@@ -109,7 +112,7 @@ while true; do
 done
 
 
-clear
+
 
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 
