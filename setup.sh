@@ -23,7 +23,7 @@ rm -f ~/storage/shared/scrap.log  &>> /dev/null
 
 rm -rf ~/storage &>> /dev/null
 termux-setup-storage
-echo -e "Pegasus installer 1.3.1c"
+echo -e "Pegasus installer 1.3.1d"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "We recommend you to hide the virtual keyboard by swiping from the left of the screen."
 echo -e  "${RED}Read before continuing${NONE}"
@@ -39,6 +39,10 @@ echo -ne "Installing components, please be patient..."
 rm ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 touch ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 sleep .5
+export DEBIAN_FRONTEND=noninteractive
+apt-get update && 
+	apt-get -o "Dpkg::Options::=--force-confold"  upgrade -q -y --force-yes &&
+	apt-get -o "Dpkg::Options::=--force-confold"  dist-upgrade -q -y --force-yes
 pkg autoclean
 pkg update -y && pkg upgrade -y
 pkg install git wget jq rsync unzip whiptail -y
