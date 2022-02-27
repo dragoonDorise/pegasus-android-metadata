@@ -98,3 +98,7 @@
   1.3.2
 
 - LaunchBox scraper
+
+  1.3.3
+
+- Plenty of fixes for Termux compatibility issues

@@ -507,12 +507,12 @@ cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
  
  $selected_device_descriptions = "ALL"
 
-if [[ $selected_device_descriptions == *"ALL"* ]]; then
+#if [[ $selected_device_descriptions == *"ALL"* ]]; then
 	selected_device_descriptions_all="atari2600 lynx doom dos fbneo pcengine pcenginecd gb gba gbc gc 3ds n64 nds nes pokemini snes sneswide wii neogeo neogeocd ngp ngpc scummvm sega32x dreamcast gamegear mastersystem genesis genesiswide segacd saturn psx ps2 psp 3do amstradcpc atarist colecovision intellivision lutro msx tic80 vectrex zxspectrum"
 	mapfile -t selected_device_names <<< $selected_device_descriptions_all
-else
-	mapfile -t selected_device_names <<< $selected_device_descriptions
-fi
+#else
+#	mapfile -t selected_device_names <<< $selected_device_descriptions
+#fi
 clear
 
 
@@ -1050,4 +1050,4 @@ for scraper in ${scrapers[@]};
  echo -e "Remember to restart Pegasus to see the new artwork" 
  echo -e  "Press the ${RED}A button${NONE} to finish"
  read pause
- am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
+ #am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
