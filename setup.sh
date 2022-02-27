@@ -302,6 +302,10 @@ rm -rf ~/storage/shared/pegasus-frontend/themes/RP-switch &>> ~/storage/shared/p
 git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themes/RP-switch &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 
+echo -ne "Downloading Pegasus Theme : Retro Mega Next..."
+git clone https://github.com/plaidman/retromega-next.git ~/storage/shared/pegasus-frontend/themes/retromega &>> ~/storage/shared/pegasus_installer_log.log
+echo -e "${GREEN}OK${NONE}"
+
 if [ $handheldModel != 'RP2+' ]; then
 
 	echo -ne "Downloading Pegasus Theme : GameOS..."
@@ -318,18 +322,10 @@ if [ $handheldModel != 'RP2+' ]; then
 
 fi
 
-if [ $handheldModel == 'RP2+' ]; then
-
-	echo -ne "Downloading Pegasus Theme : Retro Mega..."
-	git clone https://github.com/plaidman/retromega-next.git ~/storage/shared/pegasus-frontend/themes/retromega &>> ~/storage/shared/pegasus_installer_log.log
-	echo -e "${GREEN}OK${NONE}"
-
-fi
-	echo -e "The default theme on Pegasus is RP Epic Noir"
-	echo -e "You can change it anytime on Pegasus."
-	echo -e  "Press the ${RED}A button${NONE} to continue to next step"
-	read pause
-
+echo -e "The default theme on Pegasus is RP Epic Noir"
+echo -e "You can change it anytime on Pegasus."
+echo -e  "Press the ${RED}A button${NONE} to continue to next step"
+read pause
 
 echo "/bin/bash ~/startup.sh" > ~/.bashrc
 sleep .5
