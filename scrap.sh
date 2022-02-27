@@ -454,7 +454,7 @@ UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
-while true; do
+
 	selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
 	   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
 		"ALL" "This option will look for all systems on your SD Card" OFF \
@@ -503,59 +503,11 @@ while true; do
 		"vectrex" "Vectrex" OFF \
 		"zxspectrum" "ZX Spectrum" OFF \
 	   3>&1 1<&2 2>&3)
-	case $selected_device_descriptions in
-		[ALL]* ) break;;
-		[3do]* ) break;;
-		[3ds]* ) break;;
-		[atari2600]* ) break;;
-		[lynx]* ) break;;
-		[doom]* ) break;;
-		[dos]* ) break;;
-		[dreamcast]* ) break;;
-		[fbneo]* ) break;;
-		[gamegear]* ) break;;
-		[gb]* ) break;;
-		[gba]* ) break;;
-		[gbc]* ) break;;
-		[gc]* ) break;;
-		[genesis]* ) break;;
-		[genesiswide]* ) break;;
-		[n64]* ) break;;
-		[nds]* ) break;;
-		[ngp]* ) break;;
-		[ngpc]* ) break;;
-		[mastersystem]* ) break;;
-		[nes]* ) break;;
-		[neogeo]* ) break;;
-		[neogeocd]* ) break;;
-		[pcengine]* ) break;;
-		[pcenginecd]* ) break;;
-		[psx]* ) break;;
-		[ps2]* ) break;;
-		[psp]* ) break;;
-		[saturn]* ) break;;
-		[scummvm]* ) break;;
-		[sega32x]* ) break;;
-		[segacd]* ) break;;
-		[snes]* ) break;;
-		[sneswide]* ) break;;
-		[wii]* ) break;;
-		[amstradcpc]* ) break;;
-		[atarist]* ) break;;
-		[colecovision]* ) break;;
-		[intellivision]* ) break;;
-		[lutro]* ) break;;
-		[msx]* ) break;;
-		[tic80]* ) break;;
-		[vectrex]* ) break;;
-		[zxspectrum]* ) break;;
-		* ) echo "Please choose";;
-	esac
- done
+
  
  
 
-if [[ $selected_device_descriptions == "ALL" ]]; then
+if [[ $selected_device_descriptions == *"ALL"* ]]; then
 	selected_device_descriptions_all="atari2600 lynx doom dos fbneo pcengine pcenginecd gb gba gbc gc 3ds n64 nds nes pokemini snes sneswide wii neogeo neogeocd ngp ngpc scummvm sega32x dreamcast gamegear mastersystem genesis genesiswide segacd saturn psx ps2 psp 3do amstradcpc atarist colecovision intellivision lutro msx tic80 vectrex zxspectrum"
 	mapfile -t selected_device_names <<< $selected_device_descriptions_all
 else
@@ -564,21 +516,12 @@ fi
 clear
 
 
-while true; do
 	scrapers_names=$(whiptail --title "Chose your Scrap Engine - We recomend to choose both" \
 	   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
 		"RETROARCH" "Retroarch Thumbs - Fast but only works on No Intro Romsets" ON \
 		"LAUNCHBOX" "Launchbox GamesDB - Fast - Still on beta" ON \
 		"SCREENSCRAPER" "ScreenScraper - Really slow but more reliable" ON \
 	   3>&1 1<&2 2>&3)
-	case $scrapers_names in
-		[RETROARCH]* ) break;;
-		[SCREENSCRAPER]* ) break;;
-		[LAUNCHBOX]* ) break;;		
-		* ) echo "Please choose";;
-	esac
- done
-
 
 clear
 mapfile -t scrapers <<< $scrapers_names
@@ -586,7 +529,7 @@ mapfile -t scrapers <<< $scrapers_names
 for scraper in ${scrapers[@]};
  do
  
-	if [ $scraper == "RETROARCH" ]; then
+	if [[ $scraper == *"RETROARCH"* ]]; then
 		clear
 		echo -e "Using Retroarch Thumbnails..."	
 		for device_name in ${selected_device_names[@]};
@@ -712,7 +655,7 @@ for scraper in ${scrapers[@]};
 
 	fi
 		
-	if [ $scraper == "LAUNCHBOX" ]; then
+	if [[ $scraper == *"LAUNCHBOX"* ]]; then
 		clear
 		echo -e "Using Launchbox GamesDB..."	
 		for device_name in ${selected_device_names[@]};
@@ -886,15 +829,11 @@ for scraper in ${scrapers[@]};
 		 done
 		
 		echo -e "${GREEN}completed${NONE}" 	
-		echo -e "Press the ${RED}A Button${NONE} to continue."
-		read pause	
-		
-	
 	
 	fi
 	
 
-	if [ $scraper == "SCREENSCRAPER" ]; then
+	if [[ $scraper == *"SCREENSCRAPER"* ]]; then
 		clear
 		echo -e "Using ScreenScraper..."		
 		
