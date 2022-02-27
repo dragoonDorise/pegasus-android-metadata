@@ -648,8 +648,6 @@ for scraper in ${scrapers[@]};
 		 done
 		
 		echo -e "${GREEN}completed${NONE}" 	
-		echo -e "Press the ${RED}A Button${NONE} to continue."
-		read pause	
 		
 
 
