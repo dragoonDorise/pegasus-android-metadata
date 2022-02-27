@@ -1050,4 +1050,4 @@ for scraper in ${scrapers[@]};
  echo -e "Remember to restart Pegasus to see the new artwork" 
  echo -e  "Press the ${RED}A button${NONE} to finish"
  read pause
- #am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
+ am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
