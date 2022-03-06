@@ -21,4 +21,7 @@ if [[ $handheldModel != "RP2+" ]]; then
 		find ~/storage/shared/RetroArch/config/ -type f -name "*.cfg" -exec sed -i -e 's/input_overlay_enable = "true"/input_overlay_enable = "false"/g' {} \;
 	fi
 fi
+if [[ $handheldModel == "RP2+" ]]; then
+	find ~/storage/shared/RetroArch/config/ -type f -name "*.cfg" -exec sed -i -e 's/input_overlay_enable = "true"/input_overlay_enable = "false"/g' {} \;
+fi
 clear
