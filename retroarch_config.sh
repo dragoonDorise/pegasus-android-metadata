@@ -79,7 +79,26 @@ if [ $installCores == "true" ]; then
 	# Do this in a better way!
 	cd ~/storage/shared/RetroArch/downloads
 	#find . -name "*.so" -type f -delete
+		
+	echo -ne "Downloading a5200 (Atari 5200)..."
+	FILE=~/storage/shared/RetroArch/downloads/opera_libretro_android.so
+	if [ -f "$FILE" ]; then
+		echo -e "${YELLOW}Already Downloaded${NONE}"	
+	else
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/a5200_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		echo -e "${GREEN}OK${NONE}"	
+	fi
 	
+	echo -ne "Downloading Pro System (Atari 7800)..."
+	FILE=~/storage/shared/RetroArch/downloads/opera_libretro_android.so
+	if [ -f "$FILE" ]; then
+		echo -e "${YELLOW}Already Downloaded${NONE}"	
+	else
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/prosystem_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		echo -e "${GREEN}OK${NONE}"	
+	fi
+	
+		
 	echo -ne "Downloading Opera..."
 	FILE=~/storage/shared/RetroArch/downloads/opera_libretro_android.so
 	if [ -f "$FILE" ]; then

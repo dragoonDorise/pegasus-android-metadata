@@ -237,6 +237,12 @@ get_ra_alias(){
 		atari2600)
 			remoteSystem="Atari - 2600"
 			;;
+		atari5200)
+			remoteSystem="Atari - 5200"
+		;;
+		atari7800)
+			remoteSystem="Atari - 7800"
+		;;
 		lynx)
 			remoteSystem="Atari - Lynx"
 			;;
@@ -508,7 +514,7 @@ cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
  $selected_device_descriptions = "ALL"
 
 #if [[ $selected_device_descriptions == *"ALL"* ]]; then
-	selected_device_descriptions_all="atari2600 lynx doom dos fbneo pcengine pcenginecd gb gba gbc gc 3ds n64 nds nes pokemini snes sneswide wii neogeo neogeocd ngp ngpc scummvm sega32x dreamcast gamegear mastersystem genesis genesiswide segacd saturn psx ps2 psp 3do amstradcpc atarist colecovision intellivision lutro msx tic80 vectrex zxspectrum"
+	selected_device_descriptions_all="atari2600 atari5200 atari7800 lynx doom dos fbneo pcengine pcenginecd gb gba gbc gc 3ds n64 nds nes pokemini snes sneswide wii neogeo neogeocd ngp ngpc scummvm sega32x dreamcast gamegear mastersystem genesis genesiswide segacd saturn psx ps2 psp 3do amstradcpc atarist colecovision intellivision lutro msx tic80 vectrex zxspectrum"
 	mapfile -t selected_device_names <<< $selected_device_descriptions_all
 #else
 #	mapfile -t selected_device_names <<< $selected_device_descriptions
@@ -516,11 +522,11 @@ cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 clear
 
 
-	scrapers_names=$(whiptail --title "Chose your Scrap Engine - We recomend to choose both" \
+	scrapers_names=$(whiptail --title "Chose your Scrap Engine - We recomend to choose all of them" \
 	   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
 		"RETROARCH" "Retroarch Thumbs - Fast but only works on No Intro Romsets" ON \
 		"LAUNCHBOX" "Launchbox GamesDB - Fast - Still on beta" ON \
-		"SCREENSCRAPER" "ScreenScraper - Really slow but more reliable" ON \
+		"SCREENSCRAPER" "ScreenScraper - Really really slow but more reliable" ON \
 	   3>&1 1<&2 2>&3)
 
 clear

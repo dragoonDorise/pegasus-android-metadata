@@ -102,3 +102,7 @@
   1.3.3
 
 - Plenty of fixes for Termux compatibility issues
+
+  1.3.4
+
+- Added Atari 5200 & 7800

@@ -16,6 +16,8 @@ This pack offers support for the following systems with their respective emulato
 | ------------------------- | ---------------------------------------- | ----------- | ------ |
 | 3DO                       | Retroarch 1.9 Opera core                 | Not Working | No     |
 | Atari 2600                | Retroarch 1.9 Stella core                | Working     | Yes    |
+| Atari 5200                | Retroarch 1.9 a5200 core                 | Not tested  | No     |
+| Atari 7800                | Retroarch 1.9 Prosystem core             | Not tested  | No     |
 | Atari Lynx                | Retroarch 1.9 Beetle Lynx core           | Working     | No     |
 | DooM                      | Retroarch 1.9 PrBoom core                | Working     | No     |
 | GameBoy                   | Retroarch 1.9 Gambatte core              | Working     | Yes    |
