@@ -157,6 +157,7 @@ fi
 echo -e "${GREEN}OK${NONE}"
 
 #Metadata update
+echo "### Updating Rom folders "  &>> ~/storage/shared/pegasus_installer_log.log
 echo -ne  "Updating Metadata..."
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/$storageLocation &>> ~/storage/shared/pegasus_installer_log.log
 echo "### Rom folders updated "  &>> ~/storage/shared/pegasus_installer_log.log
