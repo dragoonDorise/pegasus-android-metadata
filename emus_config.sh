@@ -37,8 +37,9 @@ if [ $handheldModel == "ODIN" ]; then
 		echo -e "${GREEN}OK${NONE}"
 	else
 		if [ $hasDolphinMMJ == true ]; then
+			echo "### Creating dolphin Backup "  &>> ~/storage/shared/pegasus_installer_log.log			
 			cp -r ~/storage/shared/dolphin-mmjr ~/storage/shared/dolphin-mmjr_bak
-			rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/odin/dolphin-mmjr/ ~/storage/shared/dolphin-mmjr &> ~/storage/shared/pegasus_installer_log.log
+			rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/odin/dolphin-mmjr/ ~/storage/shared/dolphin-mmjr &>> ~/storage/shared/pegasus_installer_log.log
 		fi
 		echo -e "${GREEN}OK${NONE}"
 	fi
@@ -49,8 +50,9 @@ if [ $handheldModel == "ODIN" ]; then
 		echo -e "${GREEN}OK${NONE}"
 	else
 		if [ $hasDuckstation == true ]; then
+			echo "### Crearing Duckstation Bakckup "  &>> ~/storage/shared/pegasus_installer_log.log		
 			cp -r ~/storage/shared/duckstation/ ~/storage/shared/duckstation_bak/
-			rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/odin/duckstation/ ~/storage/shared/duckstation/ &> ~/storage/shared/pegasus_installer_log.log
+			rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/odin/duckstation/ ~/storage/shared/duckstation/ &>> ~/storage/shared/pegasus_installer_log.log
 		fi
 		echo -e "${GREEN}OK${NONE}"
 	fi
