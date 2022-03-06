@@ -11,6 +11,9 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
+rm ~/storage/shared/pegasus_installer_log.log &>> /dev/null
+touch ~/storage/shared/pegasus_installer_log.log &>> /dev/null
+echo "### Update: logs reset"  &>> ~/storage/shared/pegasus_installer_log.log
 echo -ne  "Updating Updater..."
 cd ~/dragoonDoriseTools/pegasus-android-metadata/ &>> ~/storage/shared/pegasus_installer_log.log 
 echo "### Update: cd metadata directory "  &>> ~/storage/shared/pegasus_installer_log.log

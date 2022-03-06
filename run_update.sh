@@ -11,8 +11,6 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
-rm ~/storage/shared/pegasus_installer_log.log &>> /dev/null
-touch ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 echo "### Update started - Log cleaned up "  &>> ~/storage/shared/pegasus_installer_log.log
 
 FILE=~/dragoonDoriseTools/.device
