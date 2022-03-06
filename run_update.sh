@@ -11,7 +11,9 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
-
+rm ~/storage/shared/pegasus_installer_log.log &>> /dev/null
+touch ~/storage/shared/pegasus_installer_log.log &>> /dev/null
+echo "### Update started - Log cleaned up "  &>> ~/storage/shared/pegasus_installer_log.log
 
 FILE=~/dragoonDoriseTools/.device
 if [ -f "$FILE" ]; then
@@ -66,14 +68,15 @@ echo -ne  "Updating Scripts..."
 pkg install git wget rsync unzip whiptail jq -y  &>> ~/storage/shared/pegasus_installer_log.log
 echo "/bin/bash ~/startup.sh" > ~/.bashrc
 echo -e "${GREEN}OK${NONE}"
+echo "### Updating scripts "  &>> ~/storage/shared/pegasus_installer_log.log
 
 echo -ne  "Updating Bundled Themes (won't affect any other themes)..."
 
 FOLDER=~/storage/shared/pegasus-frontend/themes/RP-epic-noir
 if [ -d "$FOLDER" ]; then
 	cd ~/storage/shared/pegasus-frontend/themes/RP-epic-noir
-	git reset --hard &> ~/storage/shared/pegasus_installer_log.log 
-	git pull &> ~/storage/shared/pegasus_installer_log.log 
+	git reset --hard &>> ~/storage/shared/pegasus_installer_log.log 
+	git pull &>> ~/storage/shared/pegasus_installer_log.log 
 	
 else
 	echo -ne "Downloading Pegasus Theme : RP Epic Noir..."
@@ -84,8 +87,8 @@ fi
 FOLDER=~/storage/shared/pegasus-frontend/themes/RP-switch
 if [ -d "$FOLDER" ]; then
 	cd ~/storage/shared/pegasus-frontend/themes/RP-switch
-	git reset --hard &> ~/storage/shared/pegasus_installer_log.log 
-	git pull &> ~/storage/shared/pegasus_installer_log.log 
+	git reset --hard &>> ~/storage/shared/pegasus_installer_log.log 
+	git pull &>> ~/storage/shared/pegasus_installer_log.log 
 else
 	echo -ne "Downloading Pegasus Theme : RP Switch..."
 	#We delete the theme, for previous users
@@ -100,8 +103,8 @@ if [ $handheldModel != 'RP2+' ]; then
 	FOLDER=~/storage/shared/pegasus-frontend/themes/gameOS
 	if [ -d "$FOLDER" ]; then
 		cd ~/storage/shared/pegasus-frontend/themes/gameOS
-		git reset --hard &> ~/storage/shared/pegasus_installer_log.log 
-		git pull &> ~/storage/shared/pegasus_installer_log.log 
+		git reset --hard &>> ~/storage/shared/pegasus_installer_log.log 
+		git pull &>> ~/storage/shared/pegasus_installer_log.log 
 		
 	else
 		echo -ne "Downloading Pegasus Theme : GameOS..."
@@ -112,8 +115,8 @@ if [ $handheldModel != 'RP2+' ]; then
 	FOLDER=~/storage/shared/pegasus-frontend/themes/clearOS
 	if [ -d "$FOLDER" ]; then
 		cd ~/storage/shared/pegasus-frontend/themes/clearOS
-		git reset --hard &> ~/storage/shared/pegasus_installer_log.log 
-		git pull &> ~/storage/shared/pegasus_installer_log.log 
+		git reset --hard &>> ~/storage/shared/pegasus_installer_log.log 
+		git pull &>> ~/storage/shared/pegasus_installer_log.log 
 		
 	else
 		echo -ne "Downloading Pegasus Theme : ClearOS..."
@@ -124,14 +127,15 @@ if [ $handheldModel != 'RP2+' ]; then
 	FOLDER=~/storage/shared/pegasus-frontend/themes/neoretro-dark
 	if [ -d "$FOLDER" ]; then
 		cd ~/storage/shared/pegasus-frontend/themes/neoretro-dark
-		git reset --hard &> ~/storage/shared/pegasus_installer_log.log 
-		git pull &> ~/storage/shared/pegasus_installer_log.log 
+		git reset --hard &>> ~/storage/shared/pegasus_installer_log.log 
+		git pull &>> ~/storage/shared/pegasus_installer_log.log 
 		
 	else
 		echo -ne "Downloading Pegasus Theme : NeoRetro Dark..."
 		git clone https://github.com/TigraTT-Driver/neoretro-dark.git ~/storage/shared/pegasus-frontend/themes/neoretro-dark &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"
 	fi
+echo "### Themes updated "  &>> ~/storage/shared/pegasus_installer_log.log
 
 fi
 
@@ -141,21 +145,23 @@ if [ $handheldModel == 'RP2+' ]; then
 	FOLDER=~/storage/shared/pegasus-frontend/themes/neoretro-dark
 	if [ -d "$FOLDER" ]; then
 	cd ~/storage/shared/pegasus-frontend/themes/retromega
-	git reset --hard &> ~/storage/shared/pegasus_installer_log.log 
-	git pull &> ~/storage/shared/pegasus_installer_log.log 
+	git reset --hard &>> ~/storage/shared/pegasus_installer_log.log 
+	git pull &>> ~/storage/shared/pegasus_installer_log.log 
 		
 	else
 		echo -ne "Downloading Pegasus Theme : Retro Mega..."
 		git clone https://github.com/plaidman/retromega-next.git ~/storage/shared/pegasus-frontend/themes/retromega &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"
 	fi
+echo "### RP2+ themes updated"  &>> ~/storage/shared/pegasus_installer_log.log
 
 fi
 echo -e "${GREEN}OK${NONE}"
 
 #Metadata update
 echo -ne  "Updating Metadata..."
-rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/$storageLocation &> ~/storage/shared/pegasus_installer_log.log
+rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/$storageLocation &>> ~/storage/shared/pegasus_installer_log.log
+echo "### Rom folders updated "  &>> ~/storage/shared/pegasus_installer_log.log
 
 #Retroarch64 support
 if [ $hasRetroArch64 == true ]; then	
@@ -163,9 +169,11 @@ if [ $hasRetroArch64 == true ]; then
 	find ~/storage/$storageLocation/ -type f -name "*.txt" -exec sed -i -e 's/-e DATADIR \/data\/data\/com.retroarch/-e DATADIR \/data\/data\/com.retroarch.aarch64/g' {} \;	
 	find ~/storage/$storageLocation/ -type f -name "*.txt" -exec sed -i -e 's/.browser.retroactivity/com.retroarch.browser.retroactivity/g' {} \;	
 	find ~/storage/$storageLocation/ -type f -name "*.txt" -exec sed -i -e 's/com.retroarch-1/com.retroarch.aarch64-1/g' {} \;	
+	echo "### RA64 sed"  &>> ~/storage/shared/pegasus_installer_log.log
+	
 fi
-#cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend &> ~/storage/shared/pegasus_installer_log.log
-cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend &> ~/storage/shared/pegasus_installer_log.log
+#cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend &>> ~/storage/shared/pegasus_installer_log.log
+cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend &>> ~/storage/shared/pegasus_installer_log.log
 
 
 if [ $useInternalStorage == false ]; then
@@ -182,7 +190,7 @@ if [ $useInternalStorage == false ]; then
 	 	fi
  	done
 
- 	sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt &> ~/storage/shared/pegasus_installer_log.log 
+ 	sed -i "s/0000-0000\//${sdcardID}\/Android\/data\/com.termux\/files\//g" ~/storage/shared/pegasus-frontend/game_dirs.txt &>> ~/storage/shared/pegasus_installer_log.log 
 
 else
 
@@ -191,6 +199,7 @@ else
 fi
 echo -e "${GREEN}OK${NONE}"
 
+echo "### Folder roms Pegasus updated "  &>> ~/storage/shared/pegasus_installer_log.log
 
 
 FILE=~/dragoonDoriseTools/.isRG552
@@ -219,6 +228,7 @@ echo ""
 echo -e  "Your version was: ${PURPLE}$version${NONE}"
 echo -e "Installed version is now: ${GREEN}$newVersion${NONE}"
 echo -e ""
+echo "### Updated completed"  &>> ~/storage/shared/pegasus_installer_log.log
 
 echo -e "${YELLOW}REMEMBER TO INSTALL CORES${NONE} If you downloaded new cores.."
 echo -e "Go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
