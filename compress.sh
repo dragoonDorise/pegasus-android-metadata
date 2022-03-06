@@ -10,8 +10,7 @@ WHITE='\033[01;37m'
 BOLD='\033[1m'
 UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
-clear
-
+#clear
 useInternalStorage=false
 enableCompression=false
 FILE=~/dragoonDoriseTools/.storageInternal
@@ -35,10 +34,9 @@ selected_device_descriptions=$(whiptail --title "Pegasus Rom Compressor" \
 	"ps2" "Sony - PlayStation 2" OFF \
 
    3>&1 1<&2 2>&3)
-for device_name in ${selected_device_names[@]};
- 		do
-	 		message=$device_name
-	 		system="${message//'"'/}"          
+for device_name in ${selected_device_names[@]}; do
+message=$device_name
+system="${message//'"'/}"
 cd ~/storage/$storageLocation/$system
 
 
