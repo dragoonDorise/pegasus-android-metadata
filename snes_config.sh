@@ -24,6 +24,7 @@ if [ -f "$FILE" ]; then
 	snesMode="CLASSIC"
 	snesConfigured="true"
 fi
+echo "### SNES AR Selection "  &>> ~/storage/shared/pegasus_installer_log.log
 
 while true; do
 	snesMode=$(whiptail --title "Please choose your Super Nintendo Aspect Ratio" \
@@ -40,31 +41,32 @@ while true; do
  done
 
 if [[ $handheldModel == "RG552" ]]; then
+	echo "### SNES RG552 "  &>> ~/storage/shared/pegasus_installer_log.log
 	
 	if [[ $snesMode == "CLASSIC" ]]; then
 		rm ~/dragoonDoriseTools/.snes43 &>> ~/storage/shared/pegasus_installer_log.log
 		rm ~/dragoonDoriseTools/.snes87 &>> ~/storage/shared/pegasus_installer_log.log
 		touch ~/dragoonDoriseTools/.snes43 &>> ~/storage/shared/pegasus_installer_log.log
-	cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes.cfg ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_log.log	
+	cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes.cfg ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &>> ~/storage/shared/pegasus_installer_log.log	
 		
 	else
 		rm ~/dragoonDoriseTools/.snes43 &>> ~/storage/shared/pegasus_installer_log.log
 		rm ~/dragoonDoriseTools/.snes87 &>> ~/storage/shared/pegasus_installer_log.log
 		touch ~/dragoonDoriseTools/.snes87 &>> ~/storage/shared/pegasus_installer_log.log
-		cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes87.cfg ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_log.log	
+		cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/rg552/RetroArch/config/Snes9x/snes87.cfg ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &>> ~/storage/shared/pegasus_installer_log.log	
 	fi
 else
 	if [[ $snesMode == "CLASSIC" ]]; then
 		rm ~/dragoonDoriseTools/.snes43 &>> ~/storage/shared/pegasus_installer_log.log
 		rm ~/dragoonDoriseTools/.snes87 &>> ~/storage/shared/pegasus_installer_log.log
 		touch ~/dragoonDoriseTools/.snes43 &>> ~/storage/shared/pegasus_installer_log.log
-		cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/Snes9x/snes.cfg ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_log.log	
+		cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/Snes9x/snes.cfg ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &>> ~/storage/shared/pegasus_installer_log.log	
 		
 	else
 		rm ~/dragoonDoriseTools/.snes43 &>> ~/storage/shared/pegasus_installer_log.log
 		rm ~/dragoonDoriseTools/.snes87 &>> ~/storage/shared/pegasus_installer_log.log
 		touch ~/dragoonDoriseTools/.snes87 &>> ~/storage/shared/pegasus_installer_log.log
-		cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/Snes9x/snes87.cfg ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_log.log	
+		cp -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/Snes9x/snes87.cfg ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &>> ~/storage/shared/pegasus_installer_log.log	
 	fi
 
 fi
