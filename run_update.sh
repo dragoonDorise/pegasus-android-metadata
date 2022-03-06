@@ -12,7 +12,7 @@ UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
 
-echo "### Update started "  &>> ~/storage/shared/pegasus_installer_log.log
+echo "### Update started - Log cleaned up "  &> ~/storage/shared/pegasus_installer_log.log
 
 FILE=~/dragoonDoriseTools/.device
 if [ -f "$FILE" ]; then
