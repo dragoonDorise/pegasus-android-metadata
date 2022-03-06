@@ -86,7 +86,7 @@ clear
 echo -e ""
 echo -e "Checking for installed emulators..."
 echo -e ""
-
+echo "### Checking emulators "  &>> ~/storage/shared/pegasus_installer_log.log
 #Common emulators
 
 echo -ne "Retroarch..."
@@ -117,7 +117,7 @@ fi
 
 #Only ODIN & ANDROID
 if [[ $handheldModel == "ODIN" ]] || [[ $handheldModel == "ANDROID" ]]; then
-
+	echo "### Emus only for ODIN $ Android "  &>> ~/storage/shared/pegasus_installer_log.log
 	echo -ne "PS2 - AetherSX2..."
 	if [ $hasAether == true ]; then
 		echo -e  "${GREEN}Installed${NONE}"
@@ -141,8 +141,9 @@ if [[ $handheldModel == "ODIN" ]] || [[ $handheldModel == "ANDROID" ]]; then
 fi
 
 #Only on Rp2+
-if [[ $handheldModel == "RP2+" ]]; then
-echo -ne "Nintendo Wii & GameCube - Dolphin MMJR..."
+if [[ $handheldModel == "RP2+" ]]; then	
+	echo "### RP2+ Only Emus "  &>> ~/storage/shared/pegasus_installer_log.log	
+	echo -ne "Nintendo Wii & GameCube - Dolphin MMJR..."
 	if [ $hasDolphinMMJ == true ]; then
 		echo -e  "${GREEN}Installed${NONE}"
 	else
@@ -153,6 +154,7 @@ fi
 
 #Only on RG552 or Android
 if [[ $handheldModel == "RG552" ]] || [[ $handheldModel == "ANDROID" ]]; then
+	echo "### RG552 & Android only Emus "  &>> ~/storage/shared/pegasus_installer_log.log
 	echo -ne "Nintendo 64 - Mupen 64 Plus..."
 	if [ $hasMupen == true ]; then
 		echo -e  "${GREEN}Installed${NONE}"
@@ -179,6 +181,7 @@ echo -e "Come back in here after every installation to continue the installation
 echo -e  "Press the ${RED}A button${NONE} to install the missing emulators."
 read pause
 clear
+echo "### Downloading missing emus start "  &>> ~/storage/shared/pegasus_installer_log.log
 
 #We prevent to download some emulators
 
@@ -271,6 +274,7 @@ if [ $hasCitra == false ]; then
 	xdg-open ~/dragoonDoriseTools/Citra_MMJ_20220127.apk
 fi
 
+echo "### Downloading missing emulator finish "  &>> ~/storage/shared/pegasus_installer_log.log
 		
 echo -e  "Emulators installed."
 echo -e "Press the ${RED}A button${NONE} to continue"

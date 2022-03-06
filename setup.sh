@@ -46,12 +46,12 @@ apt-get update &&
 pkg autoclean
 pkg update -y && pkg upgrade -y
 pkg install git wget jq rsync unzip whiptail -y
-
+echo "### Packages installed "  &>> ~/storage/shared/pegasus_installer_log.log
 mkdir ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
 cd ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
 
 echo -e "${GREEN}OK${NONE}"
-
+echo "### Folder created "  &>> ~/storage/shared/pegasus_installer_log.log
 
 
 echo -e "Downloading Metadata Pack for Android, please be patient..."
@@ -61,7 +61,9 @@ git clone https://github.com/dragoonDorise/pegasus-android-metadata.git ~/dragoo
 FOLDER=~/dragoonDoriseTools/pegasus-android-metadata/
 if [ -d "$FOLDER" ]; then
 	echo -e "${GREEN}Download OK${NONE}"
+	echo "### Repo cloned "  &>> ~/storage/shared/pegasus_installer_log.log
 else
+	echo "### Termux Mirrors down"  &>> ~/storage/shared/pegasus_installer_log.log
 	echo -e "${RED}ERROR${NONE}"
 	echo -e "It seems Termux repositories are down. Let's fix it"
 	echo -e "When you press the ${RED}A button${NONE} selector will open. In the first screen ${BOLD}select all three options with the ${GREEN}Y button${NONE} and then Accept using the ${RED}A button${NONE}${NONE}"
@@ -97,11 +99,11 @@ roottext=yellow,red"
 	esac
    
  done
-
+echo "### HandHeld Selected : ${handheldModel} "  &>> ~/storage/shared/pegasus_installer_log.log
 while true; do
 	#touch ~/dragoonDoriseTools/.device
 	echo $handheldModel > ~/dragoonDoriseTools/.device
-
+	echo "### Handlhedl selection failed first time "  &>> ~/storage/shared/pegasus_installer_log.log
 	FILE=~/dragoonDoriseTools/.device
 	if [ -f "$FILE" ]; then
 		break;
@@ -128,6 +130,7 @@ cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 #Download Pegasus
 echo -e "Downloading Pegasus, please be patient..."
 wget   -q --show-progress https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w40/pegasus-fe_alpha15-85-gfff1a5b2_android.apk -P ~/dragoonDoriseTools
+echo "### Pegasus downloaded"  &>> ~/storage/shared/pegasus_installer_log.log
 
 echo -e  "Now let's install ${RED}Pegasus${NONE}"
 echo -e  "Press the ${RED}A button${NONE} to install Pegasus, when Pegasus is installed click ${BOLD}DONE${NONE} in the installation window so you can come back to continue the next steps"
@@ -138,6 +141,7 @@ echo -ne  "Installing ${RED}Pegasus${NONE}..."
 xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
 echo -e  "${GREEN}OK${NONE}"
 echo ""
+echo "### Pegasus installed"  &>> ~/storage/shared/pegasus_installer_log.log
 
 
 #Configure Pegasus
@@ -145,7 +149,7 @@ echo -ne "Configuring Pegasus..."
 mkdir ~/storage/shared/pegasus-frontend &>> ~/storage/shared/pegasus_installer_log.log
 mkdir ~/storage/shared/pegasus-frontend/themes &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
-
+echo "### Pegasus configured"  &>> ~/storage/shared/pegasus_installer_log.log
 #Backup
 echo -ne "Creating Backups of everything..."
 cp ~/storage/shared/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend/settings.txt.bak &>> ~/storage/shared/pegasus_installer_log.log
@@ -153,7 +157,7 @@ cp ~/storage/shared/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-fron
 cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend &>> ~/storage/shared/pegasus_installer_log.log
 cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
-
+echo "### Backups created"  &>> ~/storage/shared/pegasus_installer_log.log
 echo -ne "Installing Scrap, Update & Undo Scripts..."
 cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/update.sh &>> ~/storage/shared/pegasus_installer_log.log
 chmod a+rwx ~/update.sh &>> ~/storage/shared/pegasus_installer_log.log
@@ -167,7 +171,7 @@ cp ~/dragoonDoriseTools/pegasus-android-metadata/startup.sh  ~/startup.sh &>> ~/
 chmod a+rwx ~/startup.sh &>> ~/storage/shared/pegasus_installer_log.log
 cp ~/dragoonDoriseTools/pegasus-android-metadata/snes_config.sh  ~/snes_config.sh &>> ~/storage/shared/pegasus_installer_log.log
 chmod a+rwx ~/snes_config.sh &>> ~/storage/shared/pegasus_installer_log.log
-
+echo "### Symlinks created"  &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 clear
 while true; do
@@ -183,7 +187,7 @@ while true; do
 	esac
    
  done
-
+echo "### Storage Selected: ${storageOption}"  &>> ~/storage/shared/pegasus_installer_log.log
 rm ~/dragoonDoriseTools/.storageInternal &> /dev/null
 rm ~/dragoonDoriseTools/.storageSD &> /dev/null
 echo -ne "Storage Selected..."
@@ -208,7 +212,7 @@ else
 	 done	
 
 	 if [ $sdcardID == false ]; then
-	 
+	 	echo "### no SD Card Detected"  &>> ~/storage/shared/pegasus_installer_log.log
 		 echo -e "We couldn't find your SD Card name"
 		echo -e "Maybe you are using an extenal HD Drive" 
 		echo -e "Please type the name of the right storage."
@@ -249,12 +253,12 @@ if [ $useInternalStorage == false ]; then
 else
 	sed -i "s/0000-0000/emulated\/0\/roms/g" ~/storage/shared/pegasus-frontend/game_dirs.txt &>> ~/storage/shared/pegasus_installer_log.log 
 fi
-
+echo "### Pegasus Rom folders configured"  &>> ~/storage/shared/pegasus_installer_log.log
 
 
 # Instaling roms folders
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/$storageLocation &>> ~/storage/shared/pegasus_installer_log.log
-
+echo "### Rom folders created"  &>> ~/storage/shared/pegasus_installer_log.log
 
 #Retroarch 64? We edit the metadatafiles
 hasRetroArch64=false
@@ -269,7 +273,7 @@ if [[ $hasRetroArch64 == true ]]; then
 	find ~/storage/$storageLocation/ -type f -name "*.txt" -exec sed -i -e 's/com.retroarch-1/com.retroarch.aarch64-1/g' {} \;	
 fi
 echo -e "${GREEN}OK${NONE}"
-
+echo "### RetroArch64 stuff"  &>> ~/storage/shared/pegasus_installer_log.log
 
 #Configure Retroarch
 echo -ne "Creating RetroArch Backup..."
@@ -282,7 +286,7 @@ else
 	cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg &>> ~/storage/shared/pegasus_installer_log.log
 	echo -e "${GREEN}OK${NONE}"
 fi
-
+echo "### RetroArch backup"  &>> ~/storage/shared/pegasus_installer_log.log
 echo -ne "Configuring Retroarch..."
 
 #RetroArch Configs
@@ -301,7 +305,6 @@ echo -ne "Downloading Pegasus Theme : RP Switch..."
 rm -rf ~/storage/shared/pegasus-frontend/themes/RP-switch &>> ~/storage/shared/pegasus_installer_log.log
 git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themes/RP-switch &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
-
 if [ $handheldModel != 'RP2+' ]; then
 
 	echo -ne "Downloading Pegasus Theme : GameOS..."
@@ -315,7 +318,8 @@ if [ $handheldModel != 'RP2+' ]; then
 	echo -ne "Downloading Pegasus Theme : NeoRetro Dark..."
 	git clone https://github.com/TigraTT-Driver/neoretro-dark.git ~/storage/shared/pegasus-frontend/themes/neoretro-dark &>> ~/storage/shared/pegasus_installer_log.log
 	echo -e "${GREEN}OK${NONE}"
-
+	echo "### Themes installed"  &>> ~/storage/shared/pegasus_installer_log.log
+	
 fi
 
 if [ $handheldModel == 'RP2+' ]; then
@@ -323,7 +327,8 @@ if [ $handheldModel == 'RP2+' ]; then
 	echo -ne "Downloading Pegasus Theme : Retro Mega..."
 	git clone https://github.com/plaidman/retromega-next.git ~/storage/shared/pegasus-frontend/themes/retromega &>> ~/storage/shared/pegasus_installer_log.log
 	echo -e "${GREEN}OK${NONE}"
-
+	echo "### RP2+ Themes installed"  &>> ~/storage/shared/pegasus_installer_log.log
+	
 fi
 	echo -e "The default theme on Pegasus is RP Epic Noir"
 	echo -e "You can change it anytime on Pegasus."
@@ -332,6 +337,7 @@ fi
 
 
 echo "/bin/bash ~/startup.sh" > ~/.bashrc
+echo "### Startup created"  &>> ~/storage/shared/pegasus_installer_log.log
 sleep .5
 clear
 echo -e ""
@@ -371,6 +377,7 @@ echo -e "The roms on ${GREEN}/Android/data/com.termux/files/${NONE} will be dele
 echo -e "No other files on the SD Card will be affected"
 echo -e  "Press the ${RED}A button${NONE} to continue to next step"
 read pause
+echo "### Installation Finished"  &>> ~/storage/shared/pegasus_installer_log.log
 
 while true; do
 	scrapNow=$(whiptail --title "Do you want to scrap your roms now?" \

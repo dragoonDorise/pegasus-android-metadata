@@ -29,37 +29,37 @@ if [ -f "$FILE" ]; then
 fi
 echo -e "Detecting model...${GREEN}$handheldModel${NONE}"
 echo -ne "Creating config files & backup old ones..."
-mkdir ~/storage/shared/RetroArch/overlays/ &> ~/storage/shared/pegasus_installer_log.log
-rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> ~/storage/shared/pegasus_installer_log.log
+mkdir ~/storage/shared/RetroArch/overlays/ &>> ~/storage/shared/pegasus_installer_log.log
+rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/config/ ~/storage/shared/RetroArch/config/ &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 echo -ne "Installing overlays..."
-rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/overlays/ ~/storage/shared/RetroArch/overlays/ &> ~/storage/shared/pegasus_installer_log.log
+rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch/overlays/ ~/storage/shared/RetroArch/overlays/ &>> ~/storage/shared/pegasus_installer_log.log
 
 
 echo -e "${GREEN}OK${NONE}"
 echo -ne "Applying hotkeys..."
-sed -i 's/config_save_on_exit = "true"/config_save_on_exit = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/input_overlay_enable = "true"/input_overlay_enable = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/menu_show_load_content_animation = "true"/menu_show_load_content_animation = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/notification_show_autoconfig = "true"/notification_show_autoconfig = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/notification_show_config_override_load = "true"/notification_show_config_override_load = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/notification_show_refresh_rate = "true"/notification_show_refresh_rate = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/notification_show_remap_load = "true"/notification_show_remap_load = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/notification_show_screenshot = "true"/notification_show_screenshot = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/notification_show_set_initial_disk = "true"/notification_show_set_initial_disk = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/notification_show_patch_applied = "true"/notification_show_patch_applied = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-#sed -i 's/video_scale_integer = "false"/video_scale_integer = "true"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/input_menu_toggle_gamepad_combo = "0"/input_menu_toggle_gamepad_combo = "6"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/input_enable_hotkey_btn = "nul"/input_enable_hotkey_btn = "109"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/input_exit_emulator_btn = "nul"/input_exit_emulator_btn = "108"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/input_load_state_btn = "nul"/input_load_state_btn = "102"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/input_menu_toggle_gamepad_combo = "nul"/input_menu_toggle_gamepad_combo = "6"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/input_rewind_btn = "nul"/input_rewind_btn = "104"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/input_save_state_btn = "nul"/input_save_state_btn = "103"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/input_state_slot_decrease_btn = "nul"/input_state_slot_decrease_btn = "h0down"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/input_state_slot_increase_btn = "nul"/input_state_slot_increase_btn = "h0up"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/input_toggle_fast_forward_btn = "nul"/input_toggle_fast_forward_btn = "105"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
-sed -i 's/menu_driver = "glui"/menu_driver = "ozone"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/config_save_on_exit = "true"/config_save_on_exit = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_overlay_enable = "true"/input_overlay_enable = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/menu_show_load_content_animation = "true"/menu_show_load_content_animation = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/notification_show_autoconfig = "true"/notification_show_autoconfig = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/notification_show_config_override_load = "true"/notification_show_config_override_load = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/notification_show_refresh_rate = "true"/notification_show_refresh_rate = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/notification_show_remap_load = "true"/notification_show_remap_load = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/notification_show_screenshot = "true"/notification_show_screenshot = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/notification_show_set_initial_disk = "true"/notification_show_set_initial_disk = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/notification_show_patch_applied = "true"/notification_show_patch_applied = "false"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+#sed -i 's/video_scale_integer = "false"/video_scale_integer = "true"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_menu_toggle_gamepad_combo = "0"/input_menu_toggle_gamepad_combo = "6"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_enable_hotkey_btn = "nul"/input_enable_hotkey_btn = "109"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_exit_emulator_btn = "nul"/input_exit_emulator_btn = "108"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_load_state_btn = "nul"/input_load_state_btn = "102"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_menu_toggle_gamepad_combo = "nul"/input_menu_toggle_gamepad_combo = "6"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_rewind_btn = "nul"/input_rewind_btn = "104"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_save_state_btn = "nul"/input_save_state_btn = "103"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_state_slot_decrease_btn = "nul"/input_state_slot_decrease_btn = "h0down"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_state_slot_increase_btn = "nul"/input_state_slot_increase_btn = "h0up"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/input_toggle_fast_forward_btn = "nul"/input_toggle_fast_forward_btn = "105"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+sed -i 's/menu_driver = "glui"/menu_driver = "ozone"/g' ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
 echo -e "${GREEN}OK${NONE}"
 
 
@@ -85,7 +85,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/a5200_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/a5200_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"	
 	fi
 	
@@ -94,7 +94,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/prosystem_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/prosystem_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"	
 	fi
 	
@@ -104,7 +104,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/opera_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/opera_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"	
 	fi
 
@@ -113,7 +113,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/freeintv_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/freeintv_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"	
 	fi	
 	
@@ -122,7 +122,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fbalpha2012_neogeo_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fbalpha2012_neogeo_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"	
 	fi
 	
@@ -131,7 +131,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fbneo_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/fbneo_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"	
 	fi
 	echo -ne "Downloading Mame 2010..."
@@ -139,7 +139,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mame2010_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mame2010_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	echo -ne "Downloading Mame 2003 Plus..."
@@ -147,7 +147,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mame2003_plus_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mame2003_plus_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 
@@ -156,7 +156,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/stella_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/stella_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 		
@@ -165,7 +165,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_lynx_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_lynx_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	
@@ -174,7 +174,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_wswan_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_wswan_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	
@@ -183,7 +183,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/prboom_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/prboom_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	
@@ -192,7 +192,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/dosbox_pure_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/dosbox_pure_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	echo -ne "Downloading PC Engine..."
@@ -200,7 +200,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_pce_fast_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_pce_fast_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	
@@ -209,7 +209,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/gambatte_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/gambatte_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	
@@ -218,7 +218,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mgba_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mgba_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	
@@ -227,7 +227,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/nestopia_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/nestopia_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	
@@ -236,7 +236,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/bsnes_hd_beta_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/bsnes_hd_beta_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	echo -ne "Downloading SNES..."
@@ -244,7 +244,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/snes9x_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/snes9x_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	
@@ -253,7 +253,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/genesis_plus_gx_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/genesis_plus_gx_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	
@@ -262,7 +262,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/genesis_plus_gx_wide_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/genesis_plus_gx_wide_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	
@@ -271,7 +271,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/picodrive_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/picodrive_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 
@@ -280,7 +280,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/neocd_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/neocd_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	
@@ -290,7 +290,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_ngp_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mednafen_ngp_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 
@@ -299,7 +299,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/pcsx_rearmed_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/pcsx_rearmed_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi	
 
@@ -308,7 +308,7 @@ if [ $installCores == "true" ]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else	
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/scummvm_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/scummvm_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"		
 	fi
 	
@@ -321,22 +321,22 @@ if [[ $handheldModel == "RG552" ]]; then
 	echo -ne "RG552 Special configuration..."
 
 	#Overlay Fixes for 5:3 screens	
-	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/genesis.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/MAME\ 2003-Plus/mame.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.625000"/input_overlay_scale_landscape = "1.735000"/g' ~/storage/shared/RetroArch/config/Beetle\ NeoPop/ngp.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.625000"/input_overlay_scale_landscape = "1.735000"/g' ~/storage/shared/RetroArch/config/Beetle\ NeoPop/ngpc.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Beetle\ Cygne/wswan.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Beetle\ Cygne/wswanc.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Beetle\ Lynx/lynx.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.680000"/input_overlay_scale_landscape = "1.780000"/g' ~/storage/shared/RetroArch/config/Gambatte/gb.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.685000"/input_overlay_scale_landscape = "1.785000"/g' ~/storage/shared/RetroArch/config/Gambatte/gbc.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.544999"/input_overlay_scale_landscape = "1.645000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/gamegear.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/genesis.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Nestopia/nes.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/mastersystem.cfg &> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.205000"/g' ~/storage/shared/RetroArch/config/PicoDrive/sega32x.cfg &> ~/storage/shared/pegasus_installer_log.log 	
-	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.105000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/segacd.cfg &> ~/storage/shared/pegasus_installer_log.log 	
+	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/genesis.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/MAME\ 2003-Plus/mame.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.625000"/input_overlay_scale_landscape = "1.735000"/g' ~/storage/shared/RetroArch/config/Beetle\ NeoPop/ngp.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.625000"/input_overlay_scale_landscape = "1.735000"/g' ~/storage/shared/RetroArch/config/Beetle\ NeoPop/ngpc.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Beetle\ Cygne/wswan.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Beetle\ Cygne/wswanc.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Beetle\ Lynx/lynx.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.680000"/input_overlay_scale_landscape = "1.780000"/g' ~/storage/shared/RetroArch/config/Gambatte/gb.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.685000"/input_overlay_scale_landscape = "1.785000"/g' ~/storage/shared/RetroArch/config/Gambatte/gbc.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.544999"/input_overlay_scale_landscape = "1.645000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/gamegear.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/genesis.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Nestopia/nes.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Snes9x/snes.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.125000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/mastersystem.cfg &>> ~/storage/shared/pegasus_installer_log.log 
+	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.205000"/g' ~/storage/shared/RetroArch/config/PicoDrive/sega32x.cfg &>> ~/storage/shared/pegasus_installer_log.log 	
+	sed -i 's/input_overlay_scale_landscape = "1.060000"/input_overlay_scale_landscape = "1.105000"/g' ~/storage/shared/RetroArch/config/Genesis\ Plus\ GX/segacd.cfg &>> ~/storage/shared/pegasus_installer_log.log 	
 		
 		
 		
@@ -354,7 +354,7 @@ if [[ $handheldModel == "ODIN" ]]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/flycast_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/flycast_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"	
 	fi
 		
@@ -364,7 +364,7 @@ if [[ $handheldModel == "ODIN" ]]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/yabasanshiro_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/yabasanshiro_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"	
 	fi
 	
@@ -376,12 +376,12 @@ if [[ $handheldModel == "ODIN" ]]; then
 	if [ -f "$FILE" ]; then
 		echo -e "${YELLOW}Already Downloaded${NONE}"	
 	else
-		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mupen64plus_next_gles3_libretro_android.so.zip  &> ~/storage/shared/pegasus_installer_log.log
+		wget https://buildbot.libretro.com/nightly/android/latest/arm64-v8a/mupen64plus_next_gles3_libretro_android.so.zip  &>> ~/storage/shared/pegasus_installer_log.log
 		echo -e "${GREEN}OK${NONE}"	
 	fi	
 	
 	#Configuration
-	rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/odin/RetroArch/config/ ~/storage/shared/RetroArch/config/ &> ~/storage/shared/pegasus_installer_log.log
+	rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/odin/RetroArch/config/ ~/storage/shared/RetroArch/config/ &>> ~/storage/shared/pegasus_installer_log.log
 	
 	cp ~/dragoonDoriseTools/pegasus-android-metadata/roms/dreamcast/metadata.pegasus.txt.odin ~/storage/$storageLocation/dreamcast/metadata.pegasus.txt
 	rm ~/storage/$storageLocation/dreamcast/metadata.pegasus.txt.odin	
@@ -396,7 +396,7 @@ echo -ne "${BOLD}Unzipping${NONE} cores..."
 cd ~/storage/shared/RetroArch/downloads
 for entry in ~/storage/shared/RetroArch/downloads/*.zip
 do
-	 unzip -o $entry &> ~/storage/shared/pegasus_installer_log.log
+	 unzip -o $entry &>> ~/storage/shared/pegasus_installer_log.log
 done
 
 find . -name "*.zip" -type f -delete
