@@ -35,7 +35,12 @@ echo -e  "Press the ${RED}A button${NONE} to start"
 
 read clear
 echo "### Installing pkgs"  &>> ~/storage/shared/pegasus_installer_log.log
-echo -ne "Installing components, please be patient..."
+echo -n "Installing components, please be patient..."
+echo -e  ""
+echo -e  "If the script seems to be stuck in this step for several minutes or you get some questions, just press Y ( capital ) and ENTER when prompted"
+echo -e  "This is ussually that happens on the Nvidia Shield"
+echo -e  ""
+
 rm ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 touch ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 sleep .5
