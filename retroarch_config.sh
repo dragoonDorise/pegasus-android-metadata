@@ -45,14 +45,18 @@ rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch
 
 echo -e "${GREEN}OK${NONE}"
 echo "### RA Hotkeys "  &>> ~/storage/shared/pegasus_installer_log.log
-echo -ne "Applying hotkeys..."
+
+
 
 raPath="com.retroarch"
 hasRetroArch64=false
 FOLDER64=~/storage/shared/Android/data/com.retroarch.aarch64
 if [ $hasRetroArch64 == true ]; then
+	echo "### RA Hotkeys for RA64"  &>> ~/storage/shared/pegasus_installer_log.log
 	raPath="com.retroarch.aarch64"
 fi
+
+echo -ne "Applying hotkeys..."
 
 sed -i 's/config_save_on_exit = "true"/config_save_on_exit = "false"/g' ~/storage/shared/Android/data/${raPath}/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 
 sed -i 's/input_overlay_enable = "true"/input_overlay_enable = "false"/g' ~/storage/shared/Android/data/${raPath}/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log 

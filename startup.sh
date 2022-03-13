@@ -21,7 +21,8 @@ while true; do
 	"5" "Reset Screen Scraper credentials" OFF \
 	"6" "Uninstall Pegasus Installer" OFF \
 	"7" "Open Termux CLI" OFF \
-	"8" "Exit" OFF \
+	"8" "Reinstall Termux dependencies" OFF \
+	"9" "Exit" OFF \
 	3>&1 1>&2 2>&3)
 	case $selected_option in
 		[1]* ) break;;
@@ -32,6 +33,7 @@ while true; do
 		[6]* ) break;;
 		[7]* ) break;;
 		[8]* ) break;;
+		[9]* ) break;;
 		* ) echo "Please hide your keyboard";;
 	esac
  done
@@ -98,8 +100,13 @@ if [[ $selected_option == "" ]]
 then
 	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 fi
-
 if [[ $selected_option == "8" ]]
+then
+	/bin/bash ~/dragoonDoriseTools/termux_pkg_install.sh
+fi
+
+
+if [[ $selected_option == "9" ]]
 then
 	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 fi
