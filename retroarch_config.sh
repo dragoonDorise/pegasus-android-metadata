@@ -101,11 +101,12 @@ if [ -f "$FILE" ]; then
 	sed -i 's/input_state_slot_increase_btn = "nul"/input_state_slot_increase_btn = "h0up"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
 	sed -i 's/input_toggle_fast_forward_btn = "nul"/input_toggle_fast_forward_btn = "105"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
 	sed -i 's/menu_driver = "glui"/menu_driver = "ozone"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	
+	clear
 	echo -e "Open Retroarch and go back to Main Menu -> Configuration File"
 	echo -e "Select Load Configuration and then Save Current Configurtion"
 	echo -e "Exit RetroArch and come back here to continue with the configuration"
 	echo -e "Press the ${RED}A button${NONE} to continue"
+	read pause
 	echo -ne "Applying hotkeys..."
 	
 
