@@ -33,15 +33,11 @@ echo -e  "${BOLD}This script will create all the rom folders for you in your dev
 echo -e  "Nothing will be erased from your SD Card"
 echo -e  "If the script seems to be stuck in this frst step for several minutes or if asks you some questions, just press Y ( capital ) and ENTER when prompted"
 echo -e  "This ussually happens on the Nvidia Shield"
-echo -e  "Press the ${RED}A button${NONE} to start"
 
+echo -e  "Press the ${RED}A button${NONE} to start"
 read clear
 echo "### Installing pkgs"  &>> ~/storage/shared/pegasus_installer_log.log
 echo -n "Installing components, please be patient..."
-echo -e  ""
-echo -e  "If the script seems to be stuck in this step for several minutes or you get some questions, just press Y ( capital ) and ENTER when prompted"
-echo -e  "This is ussually that happens on the Nvidia Shield"
-echo -e  ""
 
 rm ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 touch ~/storage/shared/pegasus_installer_log.log &>> /dev/null
