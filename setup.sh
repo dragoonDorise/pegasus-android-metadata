@@ -23,7 +23,7 @@ rm -f ~/storage/shared/scrap.log  &>> /dev/null
 
 rm -rf ~/storage &>> /dev/null
 termux-setup-storage
-echo -e "Pegasus installer 1.3.1d"
+echo -e "Pegasus installer 1.3.4"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
 echo -e  "We recommend you to hide the virtual keyboard by swiping from the left of the screen."
 echo -e  "${RED}Read before continuing${NONE}"
@@ -31,6 +31,8 @@ echo -e  "If you are going to store your roms in the SD Card make sure your SD C
 echo -e  "${BOLD}Because of Termux limitations you can't use custom folders for your roms${NONE}"
 echo -e  "${BOLD}This script will create all the rom folders for you in your device${NONE}"
 echo -e  "Nothing will be erased from your SD Card"
+echo -e  "If the script seems to be stuck in this frst step for several minutes or if asks you some questions, just press Y ( capital ) and ENTER when prompted"
+echo -e  "This ussually happens on the Nvidia Shield"
 echo -e  "Press the ${RED}A button${NONE} to start"
 
 read clear
@@ -225,9 +227,12 @@ else
 
 	 if [ $sdcardID == false ]; then
 	 	echo "### no SD Card Detected"  &>> ~/storage/shared/pegasus_installer_log.log
-		 echo -e "We couldn't find your SD Card name"
+		 echo -e "We couldn't find your SD Card ID name"
 		echo -e "Maybe you are using an extenal HD Drive" 
-		echo -e "Please type the name of the right storage."
+		echo -e "Please type the ID name of the right storage."
+		echo -e "You can find the ID name using any file explorer"
+		echo -e "like Retroarch built in file explorer"
+		echo -e "The ID Name looks something like 23S4-SF23"
 		echo -e "${BOLD}This is case sensitive${NONE}."
 		echo ""			
 			for entry in /storage/*
