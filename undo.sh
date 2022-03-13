@@ -9,6 +9,12 @@ WHITE='\033[01;37m'
 BOLD='\033[1m'
 UNDERLINE='\033[4m'
 
+hasRetroArch64=false
+FOLDER64=~/storage/shared/Android/data/com.retroarch.aarch64
+if [ -d "$FOLDER64" ]; then
+	hasRetroArch64=true
+fi
+
 useInternalStorage=false
 FILE=~/dragoonDoriseTools/.storageInternal
 if [ -f "$FILE" ]; then
@@ -44,7 +50,15 @@ rm -f ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk  &>> ~/st
 echo -e "${GREEN}OK${NONE}"
 #Restoring Retroarch
 echo -ne "Restoring RetroArch config..."
-cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log
+if [[ $hasRetroArch64 == false ]]; then
+	cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log
+fi
+if [[ $hasRetroArch64 == true ]]; then
+	cp ~/storage/shared/Android/data/com.retroarch.aarch64/files/retroarch.bak.cfg ~/storage/shared/Android/data/com.retroarch.aarch64/files/retroarch.cfg &>> ~/storage/shared/pegasus_installer_log.log
+fi
+
+
+
 #We check there is a config_bak folder so we can safely delete the config folder
 FOLDER=~/storage/shared/RetroArch/config_bak/
 if [ -d "$FOLDER" ]; then

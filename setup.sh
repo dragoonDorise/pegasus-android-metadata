@@ -300,7 +300,12 @@ if [ -d "$FOLDER" ]; then
 	echo -e "${GREEN}OK${NONE}"
 else
 	cp -r ~/storage/shared/RetroArch/config/ ~/storage/shared/RetroArch/config_bak/ &>> ~/storage/shared/pegasus_installer_log.log
-	cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg &>> ~/storage/shared/pegasus_installer_log.log
+	if [[ $hasRetroArch64 == false ]]; then
+		cp ~/storage/shared/Android/data/com.retroarch/files/retroarch.cfg ~/storage/shared/Android/data/com.retroarch/files/retroarch.bak.cfg &>> ~/storage/shared/pegasus_installer_log.log
+	fi
+	if [[ $hasRetroArch64 == true ]]; then
+		cp ~/storage/shared/Android/data/com.retroarch.aarch64/files/retroarch.cfg ~/storage/shared/Android/data/com.retroarch.aarch64/files/retroarch.bak.cfg &>> ~/storage/shared/pegasus_installer_log.log
+	fi
 	echo -e "${GREEN}OK${NONE}"
 fi
 echo "### RetroArch backup done"  &>> ~/storage/shared/pegasus_installer_log.log
