@@ -324,26 +324,28 @@ clear
 echo "### Downloading themes "  &>> ~/storage/shared/pegasus_installer_log.log
 # Install Themes for Pegasus
 echo -ne "Downloading Pegasus Theme : RP Epic Noir..."
-git clone https://github.com/dragoonDorise/RP-epic-noir.git ~/storage/shared/pegasus-frontend/themes/RP-epic-noir &>> ~/storage/shared/pegasus_installer_log.log
+git clone https://github.com/dragoonDorise/RP-epic-noir.git ~/dragoonDoriseTools/themes/RP-epic-noir &>> ~/storage/shared/pegasus_installer_log.log
+
+
 echo -e "${GREEN}OK${NONE}"
 
 echo -ne "Downloading Pegasus Theme : RP Switch..."
 #We delete the theme, for previous users
 rm -rf ~/storage/shared/pegasus-frontend/themes/RP-switch &>> ~/storage/shared/pegasus_installer_log.log
-git clone https://github.com/dragoonDorise/RP-switch.git ~/storage/shared/pegasus-frontend/themes/RP-switch &>> ~/storage/shared/pegasus_installer_log.log
+git clone https://github.com/dragoonDorise/RP-switch.git ~/dragoonDoriseTools/themes/RP-switch &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 if [ $handheldModel != 'RP2+' ]; then
 
 	echo -ne "Downloading Pegasus Theme : GameOS..."
-	git clone https://github.com/PlayingKarrde/gameOS.git ~/storage/shared/pegasus-frontend/themes/gameOS &>> ~/storage/shared/pegasus_installer_log.log
+	git clone https://github.com/PlayingKarrde/gameOS.git ~/dragoonDoriseTools/themes/gameOS &>> ~/storage/shared/pegasus_installer_log.log
 	echo -e "${GREEN}OK${NONE}"
 
 	echo -ne "Downloading Pegasus Theme : ClearOS..."
-	git clone https://github.com/PlayingKarrde/clearOS.git ~/storage/shared/pegasus-frontend/themes/clearOS &>> ~/storage/shared/pegasus_installer_log.log
+	git clone https://github.com/PlayingKarrde/clearOS.git ~/dragoonDoriseTools/themes/clearOS &>> ~/storage/shared/pegasus_installer_log.log
 	echo -e "${GREEN}OK${NONE}"
 	
 	echo -ne "Downloading Pegasus Theme : NeoRetro Dark..."
-	git clone https://github.com/TigraTT-Driver/neoretro-dark.git ~/storage/shared/pegasus-frontend/themes/neoretro-dark &>> ~/storage/shared/pegasus_installer_log.log
+	git clone https://github.com/TigraTT-Driver/neoretro-dark.git ~/dragoonDoriseTools/themes/neoretro-dark &>> ~/storage/shared/pegasus_installer_log.log
 	echo -e "${GREEN}OK${NONE}"
 	echo "### Themes installed"  &>> ~/storage/shared/pegasus_installer_log.log
 	
@@ -353,7 +355,7 @@ if [ $handheldModel == 'RP2+' ]; then
 	echo "### Downloading RP2+ themes "  &>> ~/storage/shared/pegasus_installer_log.log
 	
 	echo -ne "Downloading Pegasus Theme : Retro Mega..."
-	git clone https://github.com/plaidman/retromega-next.git ~/storage/shared/pegasus-frontend/themes/retromega &>> ~/storage/shared/pegasus_installer_log.log
+	git clone https://github.com/plaidman/retromega-next.git ~/dragoonDoriseTools/themes/retromega &>> ~/storage/shared/pegasus_installer_log.log
 	echo -e "${GREEN}OK${NONE}"
 	echo "### RP2+ Themes installed"  &>> ~/storage/shared/pegasus_installer_log.log
 	
@@ -363,6 +365,8 @@ fi
 	echo -e  "Press the ${RED}A button${NONE} to continue to next step"
 	read pause
 
+echo "### Rsync the dl themes "  &>> ~/storage/shared/pegasus_installer_log.log
+rsync -r ~/dragoonDoriseTools/themes/ ~/storage/shared/pegasus-frontend/themes/ &>> ~/storage/shared/pegasus_installer_log.log
 
 echo "/bin/bash ~/startup.sh" > ~/.bashrc
 echo "### Startup created"  &>> ~/storage/shared/pegasus_installer_log.log
@@ -403,6 +407,9 @@ echo -e "${RED}IMPORTANT${NONE}"
 echo -e "Be aware that if you delete the Termux app Android will ${RED}DELETE${NONE} the Termux folder on your SD Card"
 echo -e "The roms on ${GREEN}/Android/data/com.termux/files/${NONE} will be deleted"
 echo -e "No other files on the SD Card will be affected"
+echo -e "If you have ${RED}Android > 10${NONE} you need to manually apply RetroArch configuration"
+echo -e "Go to Retroarch - > Main Menu -> Configuration File -> Load Configuration"
+echo -e "and select ${BOLD}custom-retroarch.cfg${NONE} on /storage/emulated/0/RetroArch/config"
 echo -e  "Press the ${RED}A button${NONE} to continue to next step"
 read pause
 echo "### Installation Finished"  &>> ~/storage/shared/pegasus_installer_log.log
