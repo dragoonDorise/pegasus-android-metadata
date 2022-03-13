@@ -51,15 +51,17 @@ if (whiptail --title "Android Version" --yesno "Do you have Android 11 or newer?
 	echo -e ""
 	echo -e "${RED}IMPORTANT${NONE}"
 	echo -e ""
-	echo -e "You need to manually save and load the retroarch configuration."
-	echo -e "Open Retroarch now and go to Main Menu -> Configuration File"
-	echo -e "Select Save New Configuration and exit RetroArch"
+	echo -e "As of today RetroAarch hotkey configuration is not available for users of Android 11"
+	echo -e "We are working on it!"
+	#echo -e "You need to manually save and load the retroarch configuration."
+	#echo -e "Open Retroarch now and go to Main Menu -> Configuration File"
+	#echo -e "Select Save New Configuration and exit RetroArch"
 	echo -e  "Press the ${RED}A button${NONE} to continue"
 	touch ~/dragoonDoriseTools/.androidOS11
 	read pause
 else
 	echo "No Android 11, great!"
-	echo "### Has Android 12"  &>> ~/storage/shared/pegasus_installer_log.log
+	echo "### Has Android 10"  &>> ~/storage/shared/pegasus_installer_log.log
 fi
 
 echo "### RA Hotkeys "  &>> ~/storage/shared/pegasus_installer_log.log
@@ -77,37 +79,36 @@ fi
 FILE=~/dragoonDoriseTools/.androidOS11
 if [ -f "$FILE" ]; then
 		
-	raconfig11=$(find ~/storage/shared/Retroarch/config/ -maxdepth 1 -type f -name "*.cfg")
-	
-	sed -i 's/config_save_on_exit = "true"/config_save_on_exit = "false"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_overlay_enable = "true"/input_overlay_enable = "false"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/menu_show_load_content_animation = "true"/menu_show_load_content_animation = "false"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/notification_show_autoconfig = "true"/notification_show_autoconfig = "false"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/notification_show_config_override_load = "true"/notification_show_config_override_load = "false"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/notification_show_refresh_rate = "true"/notification_show_refresh_rate = "false"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/notification_show_remap_load = "true"/notification_show_remap_load = "false"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/notification_show_screenshot = "true"/notification_show_screenshot = "false"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/notification_show_set_initial_disk = "true"/notification_show_set_initial_disk = "false"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/notification_show_patch_applied = "true"/notification_show_patch_applied = "false"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	#sed -i 's/video_scale_integer = "false"/video_scale_integer = "true"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_menu_toggle_gamepad_combo = "0"/input_menu_toggle_gamepad_combo = "6"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_enable_hotkey_btn = "nul"/input_enable_hotkey_btn = "109"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_exit_emulator_btn = "nul"/input_exit_emulator_btn = "108"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_load_state_btn = "nul"/input_load_state_btn = "102"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_menu_toggle_gamepad_combo = "nul"/input_menu_toggle_gamepad_combo = "6"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_rewind_btn = "nul"/input_rewind_btn = "104"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_save_state_btn = "nul"/input_save_state_btn = "103"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_state_slot_decrease_btn = "nul"/input_state_slot_decrease_btn = "h0down"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_state_slot_increase_btn = "nul"/input_state_slot_increase_btn = "h0up"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/input_toggle_fast_forward_btn = "nul"/input_toggle_fast_forward_btn = "105"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	sed -i 's/menu_driver = "glui"/menu_driver = "ozone"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
-	clear
-	echo -e "Open Retroarch and go back to Main Menu -> Configuration File"
-	echo -e "Select Load Configuration and then Save Current Configurtion"
-	echo -e "Exit RetroArch and come back here to continue with the configuration"
-	echo -e "Press the ${RED}A button${NONE} to continue"
-	read pause
-	echo -ne "Applying hotkeys..."
+	#raconfig11=$(find ~/storage/shared/Retroarch/config/ -maxdepth 1 -type f -name "*.cfg")
+	#
+	#sed -i 's/config_save_on_exit = "true"/config_save_on_exit = "false"/g' ${raconfig11} &>> #~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/input_overlay_enable = "true"/input_overlay_enable = "false"/g' ${raconfig11} &>> #~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/menu_show_load_content_animation = "true"/menu_show_load_content_animation = "false"/g' ${raconfig11} &>> #~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/notification_show_autoconfig = "true"/notification_show_autoconfig = "false"/g' ${raconfig11} &>> #~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/notification_show_config_override_load = "true"/notification_show_config_override_load = "false"/g' $#{raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/notification_show_refresh_rate = "true"/notification_show_refresh_rate = "false"/g' ${raconfig11} &>> #~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/notification_show_remap_load = "true"/notification_show_remap_load = "false"/g' ${raconfig11} &>> #~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/notification_show_screenshot = "true"/notification_show_screenshot = "false"/g' ${raconfig11} &>> #~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/notification_show_set_initial_disk = "true"/notification_show_set_initial_disk = "false"/g' ${raconfig11} #&>> ~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/notification_show_patch_applied = "true"/notification_show_patch_applied = "false"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/input_menu_toggle_gamepad_combo = "0"/input_menu_toggle_gamepad_combo = "6"/g' ${raconfig11} &>> #~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/input_enable_hotkey_btn = "nul"/input_enable_hotkey_btn = "109"/g' ${raconfig11} &>> #~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/input_exit_emulator_btn = "nul"/input_exit_emulator_btn = "108"/g' ${raconfig11} &>> #~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/input_load_state_btn = "nul"/input_load_state_btn = "102"/g' ${raconfig11} &>> #~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/input_menu_toggle_gamepad_combo = "nul"/input_menu_toggle_gamepad_combo = "6"/g' ${raconfig11} &>> #~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/input_rewind_btn = "nul"/input_rewind_btn = "104"/g' ${raconfig11} &>> #~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/input_save_state_btn = "nul"/input_save_state_btn = "103"/g' ${raconfig11} &>> #~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/input_state_slot_decrease_btn = "nul"/input_state_slot_decrease_btn = "h0down"/g' ${raconfig11} &>> #~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/input_state_slot_increase_btn = "nul"/input_state_slot_increase_btn = "h0up"/g' ${raconfig11} &>> #~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/input_toggle_fast_forward_btn = "nul"/input_toggle_fast_forward_btn = "105"/g' ${raconfig11} &>> #~/storage/shared/pegasus_installer_log.log 
+	#sed -i 's/menu_driver = "glui"/menu_driver = "ozone"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
+	#clear
+	#echo -e "Open Retroarch and go back to Main Menu -> Configuration File"
+	#echo -e "Select Load Configuration and then Save Current Configurtion"
+	#echo -e "Exit RetroArch and come back here to continue with the configuration"
+	#echo -e "Press the ${RED}A button${NONE} to continue"
+	#read pause
+	#echo -ne "Applying hotkeys..."
 	
 
 else
