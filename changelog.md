@@ -106,3 +106,7 @@
   1.3.4
 
 - Added Atari 5200 & 7800
+
+  1.3.5
+
+- Android 11 experimental compatibility
