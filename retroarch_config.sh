@@ -47,8 +47,12 @@ echo -e "${GREEN}OK${NONE}"
 
 if (whiptail --title "Android Version" --yesno "Do you have Android 11 or newer?" 8 78); then
 	echo "### Has Android 11"  &>> ~/storage/shared/pegasus_installer_log.log
+	clear
+	echo -e ""
+	echo -e "${RED}IMPORTANT${NONE}"
+	echo -e ""
 	echo -e "You need to manually save and load the retroarch configuration."
-	echo -e "Open Retroarch and go to Main Menu -> Configuration File"
+	echo -e "Open Retroarch now and go to Main Menu -> Configuration File"
 	echo -e "Select Save New Configuration and exit RetroArch"
 	echo -e  "Press the ${RED}A button${NONE} to continue"
 	touch ~/dragoonDoriseTools/.androidOS11
@@ -73,7 +77,7 @@ fi
 FILE=~/dragoonDoriseTools/.androidOS11
 if [ -f "$FILE" ]; then
 		
-	raconfig11= $(find ~/storage/shared/Retroarch/config/ -maxdepth 1 -type f -name "*.cfg")
+	raconfig11=$(find ~/storage/shared/Retroarch/config/ -maxdepth 1 -type f -name "*.cfg")
 	
 	sed -i 's/config_save_on_exit = "true"/config_save_on_exit = "false"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
 	sed -i 's/input_overlay_enable = "true"/input_overlay_enable = "false"/g' ${raconfig11} &>> ~/storage/shared/pegasus_installer_log.log 
