@@ -49,8 +49,6 @@ echo "### RA Hotkeys "  &>> ~/storage/shared/pegasus_installer_log.log
 
 
 raPath="com.retroarch"
-hasRetroArch64=false
-FOLDER64=~/storage/shared/Android/data/com.retroarch.aarch64
 if [ $hasRetroArch64 == true ]; then
 	echo "### RA Hotkeys for RA64"  &>> ~/storage/shared/pegasus_installer_log.log
 	raPath="com.retroarch.aarch64"
