@@ -292,6 +292,18 @@ fi
 echo -e "${GREEN}OK${NONE}"
 echo "### RetroArch64 sed done"  &>> ~/storage/shared/pegasus_installer_log.log
 
+# PPSSPP Gold? We need to edit the metadata file
+hasPPSSPPGold=false
+PPSSPPGold=~/storage/shared/Android/data/org.ppsspp.ppssppgold
+if [ -d "$PPSSPPGold" ]; then
+	hasPPSSPPGold=true
+fi
+if [[ $hasPPSSPPGold == true ]]; then
+	find ~/storage/$storageLocation/ -type f -name "*.txt" -exec sed -i -e 's/org.ppsspp.ppsspp\/.PpssppActivity/org.ppsspp.ppssppgold\/org.ppsspp.ppsspp.PpssppActivity/g' {} \;
+fi
+echo -e "${GREEN}OK${NONE}"
+echo "### PPSSPP Gold sed done"  &>> ~/storage/shared/pegasus_installer_log.log
+
 #Configure Retroarch
 echo "### RA Backup "  &>> ~/storage/shared/pegasus_installer_log.log
 echo -ne "Creating RetroArch Backup..."

@@ -63,7 +63,8 @@ if [ -d "$FOLDER" ] || [ -d "$FOLDERPRO" ]; then
 fi
 #PPSSPP
 FOLDER=~/storage/shared/Android/data/org.ppsspp.ppsspp
-if [ -d "$FOLDER" ]; then
+FOLDERGOLD=~/storage/shared/Android/data/org.ppsspp.ppssppgold
+if [ -d "$FOLDER" ] || [ -d "$FOLDERGOLD" ]; then
 	hasPPSSPP=true
 fi
 #duckstation
