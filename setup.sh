@@ -160,7 +160,7 @@ echo "### Creating Backups "  &>> ~/storage/shared/pegasus_installer_log.log
 
 echo -ne "Creating Backups of everything..."
 cp ~/storage/shared/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend/settings.txt.bak &>> ~/storage/shared/pegasus_installer_log.log
-cp ~/storage/shared/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend/settings.txt.bak &>> ~/storage/shared/pegasus_installer_log.log
+cp ~/storage/shared/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend/game_dirs.txt.bak &>> ~/storage/shared/pegasus_installer_log.log
 cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/settings.txt ~/storage/shared/pegasus-frontend &>> ~/storage/shared/pegasus_installer_log.log
 cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-frontend/game_dirs.txt ~/storage/shared/pegasus-frontend &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
@@ -291,6 +291,18 @@ if [[ $hasRetroArch64 == true ]]; then
 fi
 echo -e "${GREEN}OK${NONE}"
 echo "### RetroArch64 sed done"  &>> ~/storage/shared/pegasus_installer_log.log
+
+# PPSSPP Gold? We need to edit the metadata file
+hasPPSSPPGold=false
+PPSSPPGold=~/storage/shared/Android/data/org.ppsspp.ppssppgold
+if [ -d "$PPSSPPGold" ]; then
+	hasPPSSPPGold=true
+fi
+if [[ $hasPPSSPPGold == true ]]; then
+	find ~/storage/$storageLocation/ -type f -name "*.txt" -exec sed -i -e 's/org.ppsspp.ppsspp\/.PpssppActivity/org.ppsspp.ppssppgold\/org.ppsspp.ppsspp.PpssppActivity/g' {} \;
+fi
+echo -e "${GREEN}OK${NONE}"
+echo "### PPSSPP Gold sed done"  &>> ~/storage/shared/pegasus_installer_log.log
 
 #Configure Retroarch
 echo "### RA Backup "  &>> ~/storage/shared/pegasus_installer_log.log
