@@ -95,6 +95,19 @@ else
 	echo -e "${GREEN}OK${NONE}"
 fi
 
+FOLDER=~/storage/shared/pegasus-frontend/themes/retromega
+if [ -d "$FOLDER" ]; then
+	cd ~/dragoonDoriseTools/themes/retromega
+	git reset --hard &>> ~/storage/shared/pegasus_installer_log.log 
+	git pull &>> ~/storage/shared/pegasus_installer_log.log 
+	
+else
+	echo -ne "Downloading Pegasus Theme : Retro Mega..."
+	git clone https://github.com/plaidman/retromega-next.git ~/dragoonDoriseTools/themes/retromega &>> ~/storage/shared/pegasus_installer_log.log
+	echo -e "${GREEN}OK${NONE}"
+fi
+
+
 
 if [ $handheldModel != 'RP2+' ]; then
 	
@@ -137,25 +150,10 @@ echo "### Themes updated "  &>> ~/storage/shared/pegasus_installer_log.log
 
 fi
 
-#RP2 Exclusive themes
-if [ $handheldModel == 'RP2+' ]; then
-
-	FOLDER=~/storage/shared/pegasus-frontend/themes/neoretro-dark
-	if [ -d "$FOLDER" ]; then
-	cd ~/dragoonDoriseTools/themes/retromega
-	git reset --hard &>> ~/storage/shared/pegasus_installer_log.log 
-	git pull &>> ~/storage/shared/pegasus_installer_log.log 
-		
-	else
-		echo -ne "Downloading Pegasus Theme : Retro Mega..."
-		git clone https://github.com/plaidman/retromega-next.git ~/dragoonDoriseTools/themes/retromega &>> ~/storage/shared/pegasus_installer_log.log
-		echo -e "${GREEN}OK${NONE}"
-	fi
-echo "### RP2+ themes updated"  &>> ~/storage/shared/pegasus_installer_log.log
 echo "### Rsync the dl themes "  &>> ~/storage/shared/pegasus_installer_log.log
 rsync -r ~/dragoonDoriseTools/themes/ ~/storage/shared/pegasus-frontend/themes/ &>> ~/storage/shared/pegasus_installer_log.log
 
-fi
+
 echo -e "${GREEN}OK${NONE}"
 
 #Metadata update

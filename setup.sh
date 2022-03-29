@@ -333,15 +333,18 @@ echo "### Downloading themes "  &>> ~/storage/shared/pegasus_installer_log.log
 # Install Themes for Pegasus
 echo -ne "Downloading Pegasus Theme : RP Epic Noir..."
 git clone https://github.com/dragoonDorise/RP-epic-noir.git ~/dragoonDoriseTools/themes/RP-epic-noir &>> ~/storage/shared/pegasus_installer_log.log
-
-
 echo -e "${GREEN}OK${NONE}"
 
 echo -ne "Downloading Pegasus Theme : RP Switch..."
 #We delete the theme, for previous users
 rm -rf ~/storage/shared/pegasus-frontend/themes/RP-switch &>> ~/storage/shared/pegasus_installer_log.log
 git clone https://github.com/dragoonDorise/RP-switch.git ~/dragoonDoriseTools/themes/RP-switch &>> ~/storage/shared/pegasus_installer_log.log
+
 echo -e "${GREEN}OK${NONE}"
+	echo -ne "Downloading Pegasus Theme : Retro Mega..."
+git clone https://github.com/plaidman/retromega-next.git ~/dragoonDoriseTools/themes/retromega &>> ~/storage/shared/pegasus_installer_log.log
+echo -e "${GREEN}OK${NONE}"
+
 if [ $handheldModel != 'RP2+' ]; then
 
 	echo -ne "Downloading Pegasus Theme : GameOS..."
@@ -358,16 +361,8 @@ if [ $handheldModel != 'RP2+' ]; then
 	echo "### Themes installed"  &>> ~/storage/shared/pegasus_installer_log.log
 	
 fi
+	
 
-if [ $handheldModel == 'RP2+' ]; then
-	echo "### Downloading RP2+ themes "  &>> ~/storage/shared/pegasus_installer_log.log
-	
-	echo -ne "Downloading Pegasus Theme : Retro Mega..."
-	git clone https://github.com/plaidman/retromega-next.git ~/dragoonDoriseTools/themes/retromega &>> ~/storage/shared/pegasus_installer_log.log
-	echo -e "${GREEN}OK${NONE}"
-	echo "### RP2+ Themes installed"  &>> ~/storage/shared/pegasus_installer_log.log
-	
-fi
 	echo -e "The default theme on Pegasus is RP Epic Noir"
 	echo -e "You can change it anytime on Pegasus."
 	echo -e  "Press the ${RED}A button${NONE} to continue to next step"
