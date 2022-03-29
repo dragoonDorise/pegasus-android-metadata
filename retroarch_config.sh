@@ -51,13 +51,13 @@ if (whiptail --title "Android Version" --yesno "Do you have Android 11 or newer?
 	echo -e ""
 	echo -e "${RED}IMPORTANT${NONE}"
 	echo -e ""
-	echo -e "As of today RetroAarch hotkey configuration is not available for users of Android 11"
-	echo -e "We are working on it!"
+	echo -e "As of today this script won't work on Android 11 or newer, sorry!"
+	echo -e "We are working on it, so keep tuned!"
 	#echo -e "You need to manually save and load the retroarch configuration."
 	#echo -e "Open Retroarch now and go to Main Menu -> Configuration File"
 	#echo -e "Select Save New Configuration and exit RetroArch"
-	echo -e  "Press the ${RED}A button${NONE} to continue"
-	touch ~/dragoonDoriseTools/.androidOS11
+	echo -e  "Press the ${RED}A button${NONE} to exit"
+	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 	read pause
 else
 	echo "No Android 11, great!"
