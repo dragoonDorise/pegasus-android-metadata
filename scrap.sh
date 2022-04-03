@@ -835,9 +835,13 @@ for scraper in ${scrapers[@]};
 		echo -e "${GREEN}completed${NONE}" 	
 	
 	fi
-	
 
 	if [[ $scraper == *"SCREENSCRAPER"* ]]; then
+		if (whiptail --title "Scrape metadata" --yesno "Would you like to scrape metadata for individual games?" 8 78); then
+			saveMetadata=true
+		else
+			saveMetadata=false
+		fi
 		clear
 		echo -e "Using ScreenScraper..."		
 		
@@ -900,7 +904,6 @@ for scraper in ${scrapers[@]};
 				 secondString=""
 				 romName="${firstString/"/data/data/com.termux/files/home/storage/$storageLocation/$system/"/"$secondString"}"   		
 				 romNameNoExtension=${romName%.*}		
-				 
 				 startcapture=true
 				  
 				 #.txt validation
@@ -945,7 +948,6 @@ for scraper in ${scrapers[@]};
 				 romNameNoExtensionNoSpace="${firstString/"!"/"$secondString"}"		
 				 firstString=$romNameNoExtensionNoSpace
 
-				 
 				 if [ $startcapture == true ]; then
 					 
 					 hasWheel=false
@@ -989,7 +991,7 @@ for scraper in ${scrapers[@]};
 						 #echo $content;
 						 
 						 
-						 gameIDSS=$( jq -r  '.response.jeu.id' <<< "${content}" ) 
+						 gameIDSS=$( jq -r  '.response.jeu.id' <<< "${content}" )
 									 
 						 
 						urlMediaWheel="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel(wor)"			 
@@ -1000,7 +1002,7 @@ for scraper in ${scrapers[@]};
 						 ssSavePath="./storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png"
 						 box2dfrontSavePath="./storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png"
 												 
-						 echo -e "Downloading Images for $romNameNoExtension - $gameIDSS"		
+						 echo -e "Downloading Images for $romNameNoExtension - $gameIDSS"
 						 
 						if [ $hasWheel == true ]; then
 							echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
@@ -1030,14 +1032,30 @@ for scraper in ${scrapers[@]};
 						else 
 							scrap_ss "$urlMediaWheelHD" "$wheelSavePath" "Wheel HD"
 						fi
-						
-						
+
+						if [ $saveMetadata == true ]; then
+							genre_array=$( jq -r '[foreach .response.jeu.genres[].noms[] as $item ([[],[]]; if $item.langue == "en" then $item.text else "" end)]' <<< "${content}" )
+							echo "" >> ./storage/$storageLocation/$system/metadata.pegasus.txt
+							echo "" >> ./storage/$storageLocation/$system/metadata.pegasus.txt
+							echo game: $romNameNoExtension >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
+							echo file: $romName >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
+							echo developer: $( jq -r  '.response.jeu.developpeur.text' <<< "${content}" ) >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
+							echo publisher: $( jq -r  '.response.jeu.editeur.text' <<< "${content}" ) >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
+							echo genre: $( jq '. - [""] | join(", ")' <<< "${genre_array}" ) | sed 's/[\"]//g' >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
+							echo description: $( jq -r  '.response.jeu.synopsis[0].text' <<< "${content}" ) >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
+							echo release: $( jq -r  '.response.jeu.dates[0].text' <<< "${content}" ) >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
+							echo players: $( jq -r  '.response.jeu.joueurs.text' <<< "${content}" ) >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
+							echo rating: $( jq -r  '.response.jeu.classifications[0].text' <<< "${content}" ) >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
+							echo assets.logo: ./media/wheel/$romNameNoExtension.png >> ./storage/$storageLocation/$system/metadata.pegasus.txt
+							echo assets.screenshot: ./media/screenshot/$romNameNoExtension.png >> ./storage/$storageLocation/$system/metadata.pegasus.txt
+							echo assets.boxfront: ./media/box2dfront/$romNameNoExtension.png >> ./storage/$storageLocation/$system/metadata.pegasus.txt
+
+							echo -e "Metadata saved to ${system}/metadata.pegasus.txt"
+						 fi
 						
 					else
 						echo -e "Game already scraped" &> /dev/null
 					fi
-					 
-					
 				 
 				 fi
 		 
@@ -1048,10 +1066,7 @@ for scraper in ${scrapers[@]};
 
 	fi
 
-
-
  done
-
 
  echo -e "Remember to restart Pegasus to see the new artwork" 
  echo -e  "Press the ${RED}A button${NONE} to finish"
