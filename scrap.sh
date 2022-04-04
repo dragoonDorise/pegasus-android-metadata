@@ -895,6 +895,9 @@ for scraper in ${scrapers[@]};
 				echo ""
 				echo -e "Scraping $system..."
 				echo ""
+
+				#Check for existing metadata
+				systemMetadata=$(cat ~/storage/$storageLocation/$system/metadata.pegasus.txt)
 			  
 			  #Roms loop
 			  for entry in ~/storage/$storageLocation/$system/*
@@ -931,7 +934,7 @@ for scraper in ${scrapers[@]};
 				 firstString=$romNameNoExtensionNoDisc
 				 romNameNoExtensionNoRev="${firstString/"Rev "/""}"
 				 firstString=$romNameNoExtensionNoRev
-				 romNameNoExtensionTrimmed=$(echo $firstString | sed 's/([.a-zA-Z0-9!]*)//g' | sed 's/[[!]*]//g')
+				 romNameNoExtensionTrimmed=$(echo $firstString | sed 's/([^()]*)//g' | sed 's/[[A-z0-9!+]*]//g' )
 				 firstString=$romNameNoExtensionTrimmed
 				 romNameNoExtensionNoAnd="${firstString/"&"/"$secondString"}"
 				 firstString=$romNameNoExtensionNoAnd
@@ -953,6 +956,7 @@ for scraper in ${scrapers[@]};
 					 hasWheel=false
 					 hasSs=false
 					 hasBox=false
+					 hasMetadata=false
 					 
 					FILE=~/storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png
 					if [ -f "$FILE" ]; then
@@ -968,9 +972,13 @@ for scraper in ${scrapers[@]};
 					if [ -f "$FILE" ]; then
 						 hasBox=true
 					fi
+
+					if [[ $systemMetadata == *"game: $romNameNoExtension"* ]]; then
+						hasMetadata=true
+					fi
 										 
-					 #We only search games with no art
-					 if [ $hasWheel == false ] || [ $hasSs == false ] || [ $hasBox == false ]; then
+					 #We only search games with no art or metadata
+					 if [ $hasWheel == false ] || [ $hasSs == false ] || [ $hasBox == false ] || ([ $hasMetadata == false ] && [ $saveMetadata == true ]); then
 						#Second Scan: Screenscraper		
 						 url="https://www.screenscraper.fr/api2/jeuInfos.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&output=json&ssid=${userSS}&sspassword=${passSS}&crc=&systemeid=${ssID}&romtype=rom&romnom=${romNameNoExtensionNoSpace}.zip"
 						 
@@ -988,19 +996,17 @@ for scraper in ${scrapers[@]};
 							   echo -e "Couldn't find a match for $romNameNoExtension, ${YELLOW}skipping${NONE}"
 							continue;
 						 fi
-						 #echo $content;
-						 
 						 
 						 gameIDSS=$( jq -r  '.response.jeu.id' <<< "${content}" )
 									 
 						 
 						urlMediaWheel="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel(wor)"			 
 						urlMediaWheelHD="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel-hd(wor)"			 
-						 urlMediaSs="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=ss(wor)"
-						 urlMediaBox="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=box-2D(wor)"		
-						 wheelSavePath="./storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png"
-						 ssSavePath="./storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png"
-						 box2dfrontSavePath="./storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png"
+						urlMediaSs="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=ss(wor)"
+						urlMediaBox="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=box-2D(wor)"		
+						wheelSavePath="./storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png"
+						ssSavePath="./storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png"
+						box2dfrontSavePath="./storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png"
 												 
 						 echo -e "Downloading Images for $romNameNoExtension - $gameIDSS"
 						 
@@ -1034,6 +1040,11 @@ for scraper in ${scrapers[@]};
 						fi
 
 						if [ $saveMetadata == true ]; then
+							if [[ $hasMetadata == true ]]; then
+								echo -e "Metadata already exists for $romNameNoExtension, ${YELLOW}ignoring${NONE}"
+								continue;
+							fi
+
 							genre_array=$( jq -r '[foreach .response.jeu.genres[].noms[] as $item ([[],[]]; if $item.langue == "en" then $item.text else "" end)]' <<< "${content}" )
 							echo "" >> ./storage/$storageLocation/$system/metadata.pegasus.txt
 							echo "" >> ./storage/$storageLocation/$system/metadata.pegasus.txt
