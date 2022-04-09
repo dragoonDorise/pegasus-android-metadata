@@ -203,7 +203,7 @@ fi
 if [ $hasRetroArch == false ]; then
 	echo -e "Multisystem - RetroArch..."
 	echo ""
-	wget  -q --show-progress https://buildbot.libretro.com/stable/1.9.14/android/RetroArch.apk -P ~/dragoonDoriseTools/
+	wget  -q --show-progress https://buildbot.libretro.com/stable/1.10.2/android/RetroArch.apk -P ~/dragoonDoriseTools/
 	echo ""
 	echo -e "We need to install RetroArch before we can continue..."
 	echo -e  "When RetroArch is installed click ${BOLD}OPEN${NONE} in the installation window so RetroArch is opened."
@@ -223,10 +223,10 @@ if [ $hasRedDream == false ]; then
 fi
 if [ $hasDolphinMMJ == false ]; then
 	echo -e "Nintendo Wii & GameCube - Dolphin MMJR..."
-	wget  -q --show-progress https://github.com/Bankaimaster999/Dolphin-MMJR/releases/download/1.0-11460/Dolphin.MMJR.v11460.apk -P ~/dragoonDoriseTools/
+	wget  -q --show-progress https://github.com/Bankaimaster999/Dolphin-MMJR/releases/download/1.0-11485/Dolphin.MMJR.v11485.apk -P ~/dragoonDoriseTools/
 	echo -e  "Press the ${RED}A button${NONE} to install Dolphin"
 	read pause		
-	xdg-open ~/dragoonDoriseTools/Dolphin.MMJR.v11460.apk
+	xdg-open ~/dragoonDoriseTools/Dolphin.MMJR.v11485.apk
 	echo -e  "Press the ${RED}A button${NONE} to install the next emulator"
 	read pause
 fi
@@ -269,10 +269,10 @@ if [ $hasDrastic == false ]; then
 fi
 if [ $hasCitra == false ]; then
 	echo -e "Nintendo 3DS - Citra MMJ..."		
-	wget  -q --show-progress https://github.com/weihuoya/citra/releases/download/20220127/Citra_MMJ_20220127.apk -P ~/dragoonDoriseTools/
+	wget  -q --show-progress https://github.com/weihuoya/citra/releases/download/20220225/Citra_MMJ_20220225.apk -P ~/dragoonDoriseTools/
 	echo -e  "Press the ${RED}A button${NONE} to install Citra MMJ"
 	read pause				
-	xdg-open ~/dragoonDoriseTools/Citra_MMJ_20220127.apk
+	xdg-open ~/dragoonDoriseTools/Citra_MMJ_20220225.apk
 fi
 
 echo "### Downloading missing emulator finish "  &>> ~/storage/shared/pegasus_installer_log.log

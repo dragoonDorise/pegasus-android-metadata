@@ -133,7 +133,7 @@ echo "### Downloading Pegasus "  &>> ~/storage/shared/pegasus_installer_log.log
 
 #Download Pegasus
 echo -e "Downloading Pegasus, please be patient..."
-wget   -q --show-progress https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2021w40/pegasus-fe_alpha15-85-gfff1a5b2_android.apk -P ~/dragoonDoriseTools
+wget   -q --show-progress https://github.com/mmatyas/pegasus-frontend/releases/download/alpha16/pegasus-fe_alpha16_android.apk -P ~/dragoonDoriseTools
 echo "### Pegasus downloaded"  &>> ~/storage/shared/pegasus_installer_log.log
 
 echo -e  "Now let's install ${RED}Pegasus${NONE}"
@@ -142,7 +142,7 @@ read pause
 clear
 echo -ne  "Installing ${RED}Pegasus${NONE}..."
 #Launch Pegasus
-xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
+xdg-open ~/dragoonDoriseTools//pegasus-fe_alpha16_android.apk
 echo -e  "${GREEN}OK${NONE}"
 echo ""
 echo "### Pegasus installed"  &>> ~/storage/shared/pegasus_installer_log.log
