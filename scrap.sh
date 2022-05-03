@@ -587,15 +587,10 @@ for scraper in ${scrapers[@]};
 						else
 							echo -e "Image not found: $romNameNoExtension box2dfront..."
 						fi
-					fi
-					
-					#exit
-				
+					fi				
 				fi
 		
 			 done
-			 
-		   #rsync -r ~/pegasus-artwork/$system/ ~/storage/$storageLocation/$system/
 		 done
 		
 		echo -e "${GREEN}completed${NONE}" 	
@@ -669,9 +664,7 @@ for scraper in ${scrapers[@]};
 				 firstString=$romNameNoExtensionNoNkit
 				 romNameNoExtensionNoSpace="${firstString/"!"/"$secondString"}"		
 				 firstString=$romNameNoExtensionNoSpace
-				#echo "romNameNoExtensionTrimmed"
-				#echo $romNameNoExtensionTrimmed
-				
+
 				STR=$romNameNoExtensionTrimmed
 				SUB=', The'
 				if [[ "$STR" == *"$SUB"* ]]; then
@@ -687,10 +680,7 @@ for scraper in ${scrapers[@]};
 					 
 				fi		
 				
-				romNameNoExtensionForLaunchbox=$(echo $romNameNoExtensionForLaunchbox | sed -r "s/,//g")
-				#echo "romNameNoExtensionForLaunchbox"	
-				#echo $romNameNoExtensionForLaunchbox
-								
+				romNameNoExtensionForLaunchbox=$(echo $romNameNoExtensionForLaunchbox | sed -r "s/,//g")								
 				
 				 if [ $startcapture == true ]; then
 					 
@@ -712,15 +702,12 @@ for scraper in ${scrapers[@]};
 					if [ -f "$FILE" ]; then
 						 hasBox=true
 					fi
-										 
+
 					 #We only search games with no art
 					 if [ $hasWheel == false ] || [ $hasSs == false ] || [ $hasBox == false ]; then
 						
-						content=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/metadata.json) 
-						
-						#echo ".platform.$system.games.\"$romNameNoExtensionForLaunchbox\".medias.wheel"
-						
-						
+						content=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/metadata.json)
+
 						urlMediaWheel=$( jq -r  ".platform.$system.games.\"$romNameNoExtensionForLaunchbox\".medias.wheel" <<< "${content}" )
 						urlMediaSs=$( jq -r  ".platform.$system.games.\"$romNameNoExtensionForLaunchbox\".medias.screenshot" <<< "${content}" )
 						urlMediaBox=$( jq -r  ".platform.$system.games.\"$romNameNoExtensionForLaunchbox\".medias.box2dfront" <<< "${content}" )
@@ -728,14 +715,7 @@ for scraper in ${scrapers[@]};
 						wheelSavePath="./storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png"
 						ssSavePath="./storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png"
 						box2dfrontSavePath="./storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png"
-						
-						#echo $romNameNoExtensionForLaunchbox
-						#echo $urlMediaWheel
-						#echo $urlMediaSs
-						#echo $urlMediaBox
-						
-						
-												 
+
 						echo -e "Searching Images for $romNameNoExtension"		
 						
 						if [[ $urlMediaWheel != null ]]; then
@@ -767,18 +747,11 @@ for scraper in ${scrapers[@]};
 					else
 						echo -e "Game already scraped" &> /dev/null
 					fi
-					 
-					
-				 
 				 fi
-			
 			  done			 
-			 
-		   #rsync -r ~/pegasus-artwork/$system/ ~/storage/$storageLocation/$system/
 		 done
 		
-		echo -e "${GREEN}completed${NONE}" 	
-	
+		echo -e "${GREEN}completed${NONE}"
 	fi
 
 	if [[ $scraper == *"SCREENSCRAPER"* ]]; then
@@ -897,7 +870,7 @@ for scraper in ${scrapers[@]};
 				firstString=$romNameNoExtensionNoDisc
 				romNameNoExtensionNoRev="${firstString/"Rev "/""}"
 				firstString=$romNameNoExtensionNoRev
-				romNameNoExtensionTrimmed=$(echo $firstString | sed 's/ ([^()]*)//g' | sed 's/ [[A-z0-9!+]*]//g' )
+				romNameNoExtensionTrimmed=$(echo $firstString | sed 's/ ([^()]*)//g' | sed 's/ [[A-z0-9!+]*]//g' | sed 's/([^()]*)//g' | sed 's/[[A-z0-9!+]*]//g')
 				firstString=$romNameNoExtensionTrimmed
 				romNameNoExtensionNoAnd="${firstString/"&"/"$secondString"}"
 				firstString=$romNameNoExtensionNoAnd
