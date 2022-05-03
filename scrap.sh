@@ -879,7 +879,7 @@ for scraper in ${scrapers[@]};
 					continue;
 				fi
 				#Extension Validation
-				#"" means metadata couldn't be parsed, no extensions found
+				#"" means metadata couldn't be parsed, no extensions to check
 				if [[ $extensions == "" ]]; then
 					startcapture=true
 				else
@@ -897,7 +897,7 @@ for scraper in ${scrapers[@]};
 				firstString=$romNameNoExtensionNoDisc
 				romNameNoExtensionNoRev="${firstString/"Rev "/""}"
 				firstString=$romNameNoExtensionNoRev
-				romNameNoExtensionTrimmed=$(echo $firstString | sed 's/([^()]*)//g' | sed 's/[[A-z0-9!+]*]//g' )
+				romNameNoExtensionTrimmed=$(echo $firstString | sed 's/ ([^()]*)//g' | sed 's/ [[A-z0-9!+]*]//g' )
 				firstString=$romNameNoExtensionTrimmed
 				romNameNoExtensionNoAnd="${firstString/"&"/"$secondString"}"
 				firstString=$romNameNoExtensionNoAnd
@@ -935,7 +935,7 @@ for scraper in ${scrapers[@]};
 						hasBox=true
 					fi
 
-					if [[ $systemMetadata == "" ]] || [[ $systemMetadata == *"game: $romNameNoExtension"* ]]; then
+					if [[ $systemMetadata == "" ]] || [[ $systemMetadata == *"game: $romNameNoExtensionTrimmed"* ]]; then
 						hasMetadata=true
 					fi
 
@@ -956,12 +956,12 @@ for scraper in ${scrapers[@]};
 						fi
 						#Don't check art after a failed curl request
 						if [[ $content == "" ]]; then
-							echo -e "Request failed to send for $romNameNoExtension, ${YELLOW}skipping${NONE}"
+							echo -e "Request failed to send for $romNameNoExtensionTrimmed, ${YELLOW}skipping${NONE}"
 							continue;
 						fi
 						#Don't check art if screenscraper can't find a match
 						if [[ $content == *"Erreur"* ]]; then
-							echo -e "Couldn't find a match for $romNameNoExtension, ${YELLOW}skipping${NONE}"
+							echo -e "Couldn't find a match for $romNameNoExtensionTrimmed, ${YELLOW}skipping${NONE}"
 							continue;
 						fi
 
@@ -975,7 +975,7 @@ for scraper in ${scrapers[@]};
 						ssSavePath="./storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png"
 						box2dfrontSavePath="./storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png"
 
-						echo -e "Downloading Images for $romNameNoExtension - $gameIDSS"
+						echo -e "Downloading Images for $romNameNoExtensionTrimmed - $gameIDSS"
 
 						if [ $hasWheel == true ]; then
 							echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
@@ -1008,14 +1008,14 @@ for scraper in ${scrapers[@]};
 
 						if [ $saveMetadata == true ]; then
 							if [[ $hasMetadata == true ]]; then
-								echo -e "Metadata already exists for $romNameNoExtension, ${YELLOW}ignoring${NONE}"
+								echo -e "Metadata already exists for $romNameNoExtensionTrimmed, ${YELLOW}ignoring${NONE}"
 								continue;
 							fi
 
 							genre_array=$( jq -r '[foreach .response.jeu.genres[].noms[] as $item ([[],[]]; if $item.langue == "en" then $item.text else "" end)]' <<< "${content}" )
 							echo "" >> ./storage/$storageLocation/$system/metadata.pegasus.txt
 							echo "" >> ./storage/$storageLocation/$system/metadata.pegasus.txt
-							echo game: $romNameNoExtension >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
+							echo game: $romNameNoExtensionTrimmed >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
 							echo file: $romName >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
 							echo developer: $( jq -r  '.response.jeu.developpeur.text' <<< "${content}" ) >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
 							echo publisher: $( jq -r  '.response.jeu.editeur.text' <<< "${content}" ) >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
