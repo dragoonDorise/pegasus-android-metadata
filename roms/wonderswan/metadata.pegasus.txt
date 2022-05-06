@@ -11,5 +11,3 @@ launch: am start
 -e APK /data/app/com.retroarch-1/base.apk
 -e SDCARD /storage/emulated/0
 -e EXTERNAL /storage/emulated/0/Android/data/com.retroarch/files
-
-
