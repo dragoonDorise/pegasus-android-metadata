@@ -521,6 +521,12 @@ for scraper in ${scrapers[@]};
 				 if grep -q "$SUB" <<< "$STR"; then
 					 startcapture=false
 				 fi
+				#.srm validation
+				 STR=$romName
+				 SUB='.srm'
+				 if grep -q "$SUB" <<< "$STR"; then
+					 startcapture=false
+				 fi
 				 
 				#Directory Validation
 				DIR=~/storage/$storageLocation/$system/$romName
@@ -635,6 +641,13 @@ for scraper in ${scrapers[@]};
 				  if grep -q "$SUB" <<< "$STR"; then
 					  startcapture=false
 				  fi
+				#.srm validation
+				 STR=$romName
+				 SUB='.srm'
+				 if grep -q "$SUB" <<< "$STR"; then
+					 startcapture=false
+				 fi
+
 				 #Directory Validation
 				 DIR=~/storage/$storageLocation/$system/$romName
 				 if [ -d "$DIR" ]; then
@@ -817,7 +830,8 @@ for scraper in ${scrapers[@]};
 			metadataFile=~/storage/$storageLocation/$system/metadata.pegasus.txt
 			if [[ -f $metadataFile ]]; then
 				systemMetadata=$(cat $metadataFile)
-				extensions=$(sed -n 's/extensions:\s//p' $metadataFile)
+				fileExtensions=$(grep -E '^extensions' $metadataFile)
+				extensions="${fileExtensions/"extensions: "/""}"
 			else
 				systemMetadata=""
 				extensions=""
@@ -846,6 +860,13 @@ for scraper in ${scrapers[@]};
 				if grep -q "$SUB" <<< "$STR"; then
 					continue;
 				fi
+				#.srm validation
+				 STR=$romName
+				 SUB='.srm'
+				 if grep -q "$SUB" <<< "$STR"; then
+					 continue;
+				 fi
+
 				#Directory Validation
 				DIR=~/storage/$storageLocation/$system/$romName
 				if [ -d "$DIR" ]; then
@@ -970,7 +991,7 @@ for scraper in ${scrapers[@]};
 						#Wheel HD just in case
 						FILE=~/storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png
 						if [ -f "$FILE" ]; then
-								hasWheel=true
+							hasWheel=true
 						fi
 						
 						if [ $hasWheel == true ]; then
