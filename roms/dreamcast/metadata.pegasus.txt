@@ -5,7 +5,3 @@ launch: am start
   -n io.recompiled.redream/.MainActivity
   -a android.intent.action.VIEW
   -d "{file.path}"
-  
-  extension: chd
-  
-  

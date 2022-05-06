@@ -7,5 +7,3 @@ launch: am start
   -e LIBRETRO /data/data/com.retroarch/cores/a5200_libretro_android.so
   -e CONFIGFILE /storage/emulated/0/Android/data/com.retroarch/files/retroarch.cfg
   -e QUITFOCUS
-  
-  
