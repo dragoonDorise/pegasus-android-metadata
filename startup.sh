@@ -17,18 +17,12 @@ while true; do
 	"1" "Update & Configure Pegasus Installer" ON \
 	"2" "Scrap your Roms" OFF \
 	"3" "Change SNES Aspect Ratio" OFF \
-<<<<<<< HEAD
 	"4" "Turn Bezels ON/OFF" OFF \
 	"5" "Reset Screen Scraper credentials" OFF \
 	"6" "Uninstall Pegasus Installer" OFF \
 	"7" "Open Termux CLI" OFF \
 	"8" "Reinstall Termux dependencies" OFF \
 	"9" "Exit" OFF \
-=======
-	"4" "Uninstall Pegasus Installer" OFF \
-	"5" "Compress your roms" OFF \
-	"6" "Open Termux CLI" OFF \
->>>>>>> 95a8634 (Fix artifacts)
 	3>&1 1>&2 2>&3)
 	case $selected_option in
 		[1]* ) break;;
@@ -63,7 +57,6 @@ fi
 
 if [[ $selected_option == "4" ]]
 then
-<<<<<<< HEAD
 	/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/ra_bezels.sh
 	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 fi
@@ -71,7 +64,7 @@ if [[ $selected_option == "5" ]]
 then
 	rm ~/dragoonDoriseTools/.screenScraperUser
 	rm ~/dragoonDoriseTools/.screenScraperPass
-
+	
 	if (whiptail --title "Screen Scraper" --yesno "Do you have an account on www.screenscraper.fr? If you don't we will open your browser so you can create one. Come back later" 8 78); then
 		find ~/storage/shared/RetroArch/config/ -type f -name "*.cfg" -exec sed -i -e 's/input_overlay_enable = "false"/input_overlay_enable = "true"/g' {} \;
 	else
@@ -80,7 +73,7 @@ then
 		echo -e "Press the ${RED}A Button${NONE} if you already have your account created"
 		read pause
 	fi
-
+	
 	echo -e "Now I'm going to ask for your user and password. Both will be stored on your device, ${BOLD}I won't send them anywhere or read them${NONE}"
 	echo -e "What is your ScreenScraper user? Type it and press the ${RED}A button${NONE}"
 	read user
@@ -88,7 +81,7 @@ then
 	echo -e "What is your ScreenScraper password? Type it and press the ${RED}A button${NONE}"
 	read pass
 	echo $pass > ~/dragoonDoriseTools/.screenScraperPass
-
+	
 	echo -e "${GREEN}Thanks!${NONE} Press the ${RED}A Button${NONE} to start scraping your roms"
 	read pause
 	/bin/bash ~/scrap.sh
@@ -99,18 +92,6 @@ then
 fi
 
 if [[ $selected_option == "7" ]]
-=======
-	/bin/bash ~/undo.sh
-fi
-
-
-if [[ $selected_option == "5" ]]
->>>>>>> 95a8634 (Fix artifacts)
-then
-	/bin/bash ~/compress.sh
-fi
-
-if [[ $selected_option == "6" ]]
 then
 	clear
 fi
