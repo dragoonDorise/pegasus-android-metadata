@@ -42,6 +42,7 @@ echo -n "Installing components, please be patient..."
 rm ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 touch ~/storage/shared/pegasus_installer_log.log &>> /dev/null
 sleep .5
+<<<<<<< HEAD
 export DEBIAN_FRONTEND=noninteractive
 apt-get update && 
 	apt-get -o "Dpkg::Options::=--force-confold"  upgrade -q -y --force-yes &&
@@ -50,6 +51,11 @@ pkg autoclean
 pkg update -y && pkg upgrade -y
 pkg install git wget jq rsync unzip whiptail -y
 echo "### Creating Dragoon Folder "  &>> ~/storage/shared/pegasus_installer_log.log
+=======
+pkg update -y -F &>> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y -F &>> ~/storage/shared/pegasus_installer_log.log
+pkg install git wget jq rsync unzip whiptail build-essential liblz4 libuv ninja -y  &>> ~/storage/shared/pegasus_installer_log.log
+
+>>>>>>> 99909d1 (Fix artifacts)
 mkdir ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
 cd ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
 
@@ -166,8 +172,14 @@ cp ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/pegasus-fronten
 echo -e "${GREEN}OK${NONE}"
 echo "### Backups created"  &>> ~/storage/shared/pegasus_installer_log.log
 
+<<<<<<< HEAD
 echo "### Creating Symlinks "  &>> ~/storage/shared/pegasus_installer_log.log
 echo -ne "Installing Scrap, Update & Undo Scripts..."
+=======
+echo -ne "Installing Scrap, Update, Compress & Undo Scripts..."
+cp ~/dragoonDoriseTools/pegasus-android-metadata/compress.sh ~/compress.sh &>> ~/storage/shared/pegasus_installer_log.log
+chmod a+rwx ~/compress.sh &>> ~/storage/shared/pegasus_installer_log.log
+>>>>>>> 99909d1 (Fix artifacts)
 cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/update.sh &>> ~/storage/shared/pegasus_installer_log.log
 chmod a+rwx ~/update.sh &>> ~/storage/shared/pegasus_installer_log.log
 cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/run_update.sh &>> ~/storage/shared/pegasus_installer_log.log
@@ -273,6 +285,7 @@ echo "### Pegasus Rom folders configured"  &>> ~/storage/shared/pegasus_installe
 echo "### Creating roms folders "  &>> ~/storage/shared/pegasus_installer_log.log
 # Instaling roms folders
 rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/roms/ ~/storage/$storageLocation &>> ~/storage/shared/pegasus_installer_log.log
+<<<<<<< HEAD
 echo "### Rom folders created"  &>> ~/storage/shared/pegasus_installer_log.log
 
 #Retroarch 64? We edit the metadatafiles
@@ -283,6 +296,9 @@ FOLDER64=~/storage/shared/Android/data/com.retroarch.aarch64
 if [ -d "$FOLDER64" ]; then
 	hasRetroArch64=true
 fi
+=======
+#Retroarch64 support
+>>>>>>> 99909d1 (Fix artifacts)
 if [[ $hasRetroArch64 == true ]]; then
 	find ~/storage/$storageLocation/ -type f -name "*.txt" -exec sed -i -e 's/com.retroarch\//com.retroarch.aarch64\//g' {} \;
 	find ~/storage/$storageLocation/ -type f -name "*.txt" -exec sed -i -e 's/-e DATADIR \/data\/data\/com.retroarch/-e DATADIR \/data\/data\/com.retroarch.aarch64/g' {} \;	
@@ -396,7 +412,15 @@ echo -e ""
 echo -e  "Press the ${RED}A button${NONE} to continue to next step"
 read pause
 clear
+<<<<<<< HEAD
 
+=======
+echo -ne  "Installing ${RED}Pegasus${NONE}..."
+#Launch Pegasus
+xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha15-85-gfff1a5b2_android.apk
+echo -e  "${GREEN}OK${NONE}"
+echo ""
+>>>>>>> 99909d1 (Fix artifacts)
 echo -e "${YELLOW}Retroarch Cores${NONE}"
 echo -e "Remember to go to Retroarch's Main Menu -> Load Core -> Install or Restore a Core"
 echo -e "And then select the core you want to install"
@@ -416,6 +440,8 @@ echo -e "and select ${BOLD}custom-retroarch.cfg${NONE} on /storage/emulated/0/Re
 echo -e  "Press the ${RED}A button${NONE} to continue to next step"
 read pause
 echo "### Installation Finished"  &>> ~/storage/shared/pegasus_installer_log.log
+
+bash ~/compress.sh
 
 while true; do
 	scrapNow=$(whiptail --title "Do you want to scrap your roms now?" \
@@ -449,4 +475,3 @@ else
 	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 
 fi
-
