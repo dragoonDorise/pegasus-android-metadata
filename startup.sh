@@ -111,9 +111,3 @@ if [[ $selected_option == "9" ]]
 then
 	/bin/bash ~/dragoonDoriseTools/termux_pkg_install.sh
 fi
-
-
-if [[ $selected_option == "9" ]]
-then
-	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
-fi
