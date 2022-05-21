@@ -1,3 +1,15 @@
+#Colors
+NONE='\033[00m'
+RED='\033[01;31m'
+GREEN='\033[01;32m'
+YELLOW='\033[01;33m'
+PURPLE='\033[01;35m'
+CYAN='\033[01;36m'
+WHITE='\033[01;37m'
+BOLD='\033[1m'
+UNDERLINE='\033[4m'
+BLINK='\x1b[5m'
+
 #Functions for CHDMAN & Maxcso
 compressCHDMAN () {
     for file in ./*.{iso,cue}; do
@@ -57,3 +69,7 @@ for system in $(eval echo "${SYSTEMS}"); do
     rm -rf ./*.{iso,cue,bin} &>> ~/storage/shared/pegasus_installer_log.log
     fi
 done
+clear
+ echo -e "You may need to re-scrap your games after they've been compressed!"
+ echo -e  "Press the ${RED}A button${NONE} to finish"
+ read pause
