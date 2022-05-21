@@ -18,7 +18,7 @@ compressCHDMAN () {
     name="${file%.*}" #Remove extension
     chdman createcd -i "file" -o "name.chd" --force
 done
-
+}
 compressMaxcso () {
     for file in ./*.{iso,cue}; do
     maxcso "$file"
