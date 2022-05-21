@@ -259,7 +259,7 @@ if [ -f "$FILE" ]; then
 fi
 
 
- echo "### Configuring Pegasys folders "  &>> ~/storage/shared/pegasus_installer_log.log
+ echo "### Configuring Pegasus folders "  &>> ~/storage/shared/pegasus_installer_log.log
  
 echo -ne "Configuring Rom Storage..."
 if [ $useInternalStorage == false ]; then
