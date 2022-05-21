@@ -16,7 +16,7 @@ BLINK='\x1b[5m'
 compressCHDMAN () {
     for file in ./*.{iso,cue}; do
     name="${file%.*}" #Remove extension
-    chdman createcd -i "file" -o "name.chd" --force
+    chdman createcd -i "$file" -o "$name".chd --force
 done
 }
 compressMaxcso () {
