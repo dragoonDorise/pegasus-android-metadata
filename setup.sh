@@ -417,6 +417,31 @@ echo -e  "Press the ${RED}A button${NONE} to continue to next step"
 read pause
 echo "### Installation Finished"  &>> ~/storage/shared/pegasus_installer_log.log
 
+#Compressor section (compress before scraping)
+while true; do
+	compressNow=$(whiptail --title "Do you want to compress your roms now?" \
+   --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
+	"YES" "Compress my roms!" OFF \
+	"NO" "You can always do the scraping later by opening Termux" OFF \
+   3>&1 1<&2 2>&3)
+	case $compressNow in
+		[YES]* ) break;;
+		[NO]* ) break;;
+		* ) echo "Please answer yes or no.";;
+	esac
+
+ done
+
+if [ $compressNow == "YES" ]; then
+	clear
+	echo -e  "";
+	echo -e  "Do you have your roms ready on your SD Card or Internal Storage?"
+	echo -e  "${BOLD}Let's start compressing them!${NONE}"
+	echo -e  "Press the ${RED}A button${NONE} to continue"
+	read pause
+	cd ~/
+	bash ~/compress.sh
+fi
 while true; do
 	scrapNow=$(whiptail --title "Do you want to scrap your roms now?" \
    --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
@@ -425,10 +450,10 @@ while true; do
    3>&1 1<&2 2>&3)
 	case $scrapNow in
 		[YES]* ) break;;
-		[NO]* ) break;;	
+		[NO]* ) break;;
 		* ) echo "Please answer yes or no.";;
 	esac
-   
+
  done
 
 if [ $scrapNow == "YES" ]; then
@@ -442,7 +467,7 @@ if [ $scrapNow == "YES" ]; then
 	bash ~/scrap.sh	
 else
 	clear	
-	echo -e  "${STRONG}If you want to scrap more roms, update or uninstall Pegasus Installer:${NONE}"
+	echo -e  "${STRONG}If you want to compress or scrap more roms, update or uninstall Pegasus Installer:${NONE}"
 	echo -e  "Just open the Termux app again"
 	echo -e  "Press the ${RED}A button${NONE} to exit"
 	read pause
