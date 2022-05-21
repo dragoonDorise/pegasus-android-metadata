@@ -47,13 +47,13 @@ while true; do
 done
 
 for system in $(eval echo "${SYSTEMS}"); do
-    cd ~/storage/$storageLocation/$system/
+    cd ~/storage/$storageLocation/$system/ &>> ~/storage/shared/pegasus_installer_log.log
     if [ "$system" = psp ]; then
-    compressMaxcso
+    compressMaxcso &>> ~/storage/shared/pegasus_installer_log.log
     else
-    compressCHDMAN
+    compressCHDMAN &>> ~/storage/shared/pegasus_installer_log.log
     fi
 	if [ "$removeOldROM" = "YES" ]; then
-    rm -rf ./*.{iso,cue,bin}
+    rm -rf ./*.{iso,cue,bin} &>> ~/storage/shared/pegasus_installer_log.log
     fi
 done
