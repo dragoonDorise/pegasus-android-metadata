@@ -14,6 +14,7 @@ clear
 #Uninstall everything first
 rm -rf ~/dragoonDoriseTools  &>> /dev/null
 rm -f scrap.sh &>> /dev/null
+rm -f compress.sh &>> /dev/null
 rm -f update.sh  &>> /dev/null
 rm -f run_update.sh  &>> /dev/null
 rm -f undo.sh  &>> /dev/null
