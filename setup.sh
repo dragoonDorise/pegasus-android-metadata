@@ -447,7 +447,7 @@ while true; do
 	compressNow=$(whiptail --title "Do you want to compress your roms now?" \
    --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
 	"YES" "Compress my roms!" OFF \
-	"NO" "You can always do the scraping later by opening Termux" OFF \
+	"NO" "You can always do the compressing later by opening Termux" OFF \
    3>&1 1<&2 2>&3)
 	case $compressNow in
 		[YES]* ) break;;
