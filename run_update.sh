@@ -63,7 +63,7 @@ if [ -d "$FOLDER64" ]; then
 fi
 #update scripts
 echo -ne  "Updating Scripts..."
-pkg install git wget rsync unzip whiptail jq -y  &>> ~/storage/shared/pegasus_installer_log.log
+pkg install git wget jq rsync unzip whiptail binutils build-essential liblz4 libuv ninja -y  &>> ~/storage/shared/pegasus_installer_log.log
 echo "/bin/bash ~/startup.sh" > ~/.bashrc
 echo -e "${GREEN}OK${NONE}"
 echo "### Updating scripts "  &>> ~/storage/shared/pegasus_installer_log.log
