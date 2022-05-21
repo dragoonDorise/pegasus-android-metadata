@@ -51,7 +51,7 @@ while true; do
 	"YES" "Delete old ROMs" OFF \
 	"NO" "Keep the old ROMs" OFF \
    3>&1 1<&2 2>&3)
-	case $compressNow in
+	case $removeOldROM in
 		[YES]* ) break;;
 		[NO]* ) break;;
 		* ) echo "Please answer yes or no.";;
