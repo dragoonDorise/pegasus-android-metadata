@@ -23,6 +23,7 @@ compressMaxcso () {
     for file in ./*.{iso,cue}; do
     maxcso "$file"
 done
+}
 
 #Check for .storageInternal and determine if ROMs are in internal or not
 useInternalStorage=false
