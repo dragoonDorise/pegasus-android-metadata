@@ -81,6 +81,28 @@ fi
 
 clear
 
+#Getting CHDMAN & Maxcso for compression
+echo "### Downloading & Installing Compression binaries"  &>> ~/storage/shared/pegasus_installer_log.log
+echo -e "Downloading CHDMAN, please be patient..."
+git clone https://github.com/CharlesThobe/chdman.git ~/dragoonDoriseTools/CHDMAN/ &>> ~/storage/shared/pegasus_installer_log.log
+echo -e "Compiling CHDMAN..." &>> ~/storage/shared/pegasus_installer_log.log
+cd ~/dragoonDoriseTools/CHDMAN/ &>> ~/storage/shared/pegasus_installer_log.log
+mkdir build && cd build &>> ~/storage/shared/pegasus_installer_log.log
+cmake -G Ninja .. && ninja &>> ~/storage/shared/pegasus_installer_log.log
+echo "Moving CHDMAN to PATH and making it executable" &>> ~/storage/shared/pegasus_installer_log.log
+cp ./chdman "$PATH"/chdman &>> ~/storage/shared/pegasus_installer_log.log
+chmod +x "$PATH"/chdman &>> ~/storage/shared/pegasus_installer_log.log
+
+echo -e "Downloading Maxcso, please be patient..."
+git clone https://github.com/unknownbrackets/maxcso.git ~/dragoonDoriseTools/Maxcso/ &>> ~/storage/shared/pegasus_installer_log.log
+echo -e "Compiling Maxcso..." &>> ~/storage/shared/pegasus_installer_log.log
+cd ~/dragoonDoriseTools/Maxcso/ &>> ~/storage/shared/pegasus_installer_log.log
+make &>> ~/storage/shared/pegasus_installer_log.log
+echo "Moving Maxcso to PATH and making it executable" &>> ~/storage/shared/pegasus_installer_log.log
+cp ./maxcso "$PATH"/maxcso &>> ~/storage/shared/pegasus_installer_log.log
+chmod +x "$PATH"/maxcso &>> ~/storage/shared/pegasus_installer_log.log
+
+
 echo "### Handheld selection "  &>> ~/storage/shared/pegasus_installer_log.log
 
 while true; do
