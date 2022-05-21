@@ -109,18 +109,17 @@ There are some some tips that can help you manage your collection Better.
 - Clean your Mame roms
 - Scrape your own artwork
 
-## Use CHD format
+## Compress your ROMs
 
-Stop using ISO format for CD systems, you can save tons of space using the CHD format.
+Stop using ISO format for CD systems, you can save tons of space using the CHD/CSO format.
 
-1 Download [CHDMAN](https://archive.org/download/chdman/CHDMAN.zip)
-And put it into your ISO rom folder
+This pack comes with [CHDMAN](https://github.com/CharlesThobe/chdman) and [Maxcso](https://github.com/unknownbrackets/maxcso) to help compress Roms locally on your device.
 
-2 Create a convert.bat file in the very same folder and copy this code inside that create.bat file
+CSO is for PPSSPP since it doesn't support CHD.
 
-    for /r %%i in (_.cue, _.gdi, \*.iso) do chdman createcd -i "%%i" -o "%%~ni.chd"
+This will take a lot of time depending on your device and the number of ROMs you compress!
 
-3 Execute create.bat, in some minutes/hours you'll see how your old ISO roms are now in CHD format and that they now take a lot less space.
+Note that for GameCube and Wii ROMs, they can be converted to RVZ within the dolphin app itself. In Dolphin. tap and hold on a game then select "Convert File".
 
 ## Clean up your Mame roms
 
