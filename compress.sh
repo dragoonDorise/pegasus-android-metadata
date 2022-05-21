@@ -34,16 +34,17 @@ SYSTEMS=$(whiptail --title "ROM Compressor" --checklist "Please select the syste
 
 #Option to delete original uncompressed ROMs
 while true; do
-	removeOldROM=$(whiptail --title "Do you want to automatically PERMANENTELY delete the uncompressed ROMs?" \
+	removeOldROM=$(whiptail --title "Do you want to automatically PERMANENTELY delete the uncompressed ROMs after compression?" \
    --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
-	"YES" "Compress my roms!" OFF \
-	"NO" "You can always do the scraping later by opening Termux" OFF \
+	"YES" "Delete old ROMs" OFF \
+	"NO" "Keep the old ROMs" OFF \
    3>&1 1<&2 2>&3)
 	case $compressNow in
 		[YES]* ) break;;
 		[NO]* ) break;;
 		* ) echo "Please answer yes or no.";;
 	esac
+done
 
 for system in $(eval echo "${SYSTEMS}"); do
     cd ~/storage/$storageLocation/$system/
@@ -51,5 +52,8 @@ for system in $(eval echo "${SYSTEMS}"); do
     compressMaxcso
     else
     compressCHDMAN
+    fi
+	if [ "$removeOldROM" = "YES" ]; then
+    rm -rf ./*.{iso,cue,bin}
     fi
 done
