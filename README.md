@@ -128,7 +128,11 @@ Mame romsets are usually full of clones and roms that we don't want, follow this
 Thanks to:
 
 Duimon for the [Reatroarch Overlays](https://github.com/Duimon/Retroarch-Overlays)
+
 ÁlvaroMG for [Reatroarch Overlays](https://forums.launchbox-app.com/files/file/1180-handhelds-overlays-designed-by-álvaromg/)
+
 Retro Game Corps [RG552 Linux Setup](https://retrogamecorps.com/2021/12/27/anbernic-rg552-linux-setup-guide/)
+
 The M.A.M.E Team & Charles Thobe for [CHDMAN](https://github.com/CharlesThobe/chdman)
-UnknownBrackets for [Maxcso](https://github.com/unknownbrackets/maxcso
+
+UnknownBrackets for [Maxcso](https://github.com/unknownbrackets/maxcso)
