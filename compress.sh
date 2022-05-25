@@ -38,7 +38,7 @@ else
 fi
 
 #Pick the systems
-SYSTEMS=$(whiptail --title "ROM Compressor" --checklist "Please select the systems whose ROMs you want to compress" 20 78 15 \
+SYSTEMS=$(whiptail --title "ROM Compressor" --checklist "Please select the systems whose ROMs you want to compress" 20 78 5 \
 	"dreamcast" "Sega - Dreamcast" OFF \
 	"ps2" "Sony - PlayStation 2" OFF \
 	"psp" "Sony - PlayStation Portable" OFF \
