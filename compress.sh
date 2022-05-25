@@ -1,26 +1,13 @@
 #!/bin/bash
 
 #Colors
-NONE='\033[00m'
-RED='\033[01;31m'
-GREEN='\033[01;32m'
-YELLOW='\033[01;33m'
-PURPLE='\033[01;35m'
-CYAN='\033[01;36m'
-WHITE='\033[01;37m'
-BOLD='\033[1m'
-UNDERLINE='\033[4m'
-BLINK='\x1b[5m'
 
-#Functions for CHDMAN & Maxcso
+RED='\033[01;31m'
+
+#Function for CHDMAN
 compressCHDMAN () {
     name="${1%.*}" #Remove extension
     chdman createcd -i "$1" -o "$name".chd --force
-done
-}
-compressMaxcso () {
-    maxcso "$1"
-done
 }
 
 #Check for .storageInternal and determine if ROMs are in internal or not
@@ -63,14 +50,16 @@ for system in $(eval echo "${SYSTEMS}"); do
 	cd ~/storage/$storageLocation/$system/
     for file in ./*.{iso,cue}; do
 		if [ "$system" = psp ]; then
-			compressMaxcso "$file" &>> ~/storage/shared/pegasus_installer_log.log
+			maxcso "$file" &>> ~/storage/shared/pegasus_installer_log.log
 		else
 			compressCHDMAN "$file" &>> ~/storage/shared/pegasus_installer_log.log
 		fi
 		if [ "$removeOldROM" = "YES" ]; then
-			rm -rf "$file" "${file%.bin}" &>> ~/storage/shared/pegasus_installer_log.log
+			name="${file%.*}"
+			rm -rf "$file" "$name".bin &>> ~/storage/shared/pegasus_installer_log.log
 		fi
 
+done
 done
 clear
  echo -e "You may need to re-scrap your games after they've been compressed!"
