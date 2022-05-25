@@ -14,14 +14,12 @@ BLINK='\x1b[5m'
 
 #Functions for CHDMAN & Maxcso
 compressCHDMAN () {
-    for file in ./*.{iso,cue}; do
-    name="${file%.*}" #Remove extension
-    chdman createcd -i "$file" -o "$name".chd --force
+    name="${1%.*}" #Remove extension
+    chdman createcd -i "$1" -o "$name".chd --force
 done
 }
 compressMaxcso () {
-    for file in ./*.{iso,cue}; do
-    maxcso "$file"
+    maxcso "$1"
 done
 }
 
@@ -62,15 +60,17 @@ while true; do
 done
 
 for system in $(eval echo "${SYSTEMS}"); do
-    cd ~/storage/$storageLocation/$system/ &>> ~/storage/shared/pegasus_installer_log.log
-    if [ "$system" = psp ]; then
-    compressMaxcso &>> ~/storage/shared/pegasus_installer_log.log
-    else
-    compressCHDMAN &>> ~/storage/shared/pegasus_installer_log.log
-    fi
-	if [ "$removeOldROM" = "YES" ]; then
-    rm -rf ./*.{iso,cue,bin} &>> ~/storage/shared/pegasus_installer_log.log
-    fi
+	cd ~/storage/$storageLocation/$system/
+    for file in ./*.{iso,cue}; do
+		if [ "$system" = psp ]; then
+			compressMaxcso "$file" &>> ~/storage/shared/pegasus_installer_log.log
+		else
+			compressCHDMAN "$file" &>> ~/storage/shared/pegasus_installer_log.log
+		fi
+		if [ "$removeOldROM" = "YES" ]; then
+			rm -rf "$file" "${file%.bin}" &>> ~/storage/shared/pegasus_installer_log.log
+		fi
+
 done
 clear
  echo -e "You may need to re-scrap your games after they've been compressed!"
