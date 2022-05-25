@@ -103,7 +103,7 @@ then
 	clear
 fi
 
-if [[ $selected_option == "" ]]
+if [[ $selected_option == "10" ]]
 then
 	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 fi
