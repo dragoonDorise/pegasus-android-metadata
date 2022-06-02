@@ -10,7 +10,6 @@ if [ -f "$FILE" ]; then
 else
 	useInternalStorage=false
 	storageLocation="external-1"
-	
 fi
 
 get_sc_id(){
@@ -44,7 +43,7 @@ get_sc_id(){
 		wii)
 		ssID="16";;
 		3ds)
-		ssID="17";;		
+		ssID="17";;
 		sega32x)
 		ssID="19";;
 		segacd)
@@ -76,7 +75,7 @@ get_sc_id(){
 		atarist)
 		ssID="42";;
 		atari800)
-		ssID="43";;			
+		ssID="43";;
 		wswan)
 		ssID="45";;
 		wswanc)
@@ -90,7 +89,7 @@ get_sc_id(){
 		psx)
 		ssID="57";;
 		ps2)
-		ssID="58";;			
+		ssID="58";;
 		psp)
 		ssID="61";;
 		amiga600)
@@ -100,13 +99,13 @@ get_sc_id(){
 		c64)
 		ssID="66";;
 		scv)
-		ssID="67";;			
+		ssID="67";;
 		neogeocd)
 		ssID="70";;
 		pcfx)
 		ssID="72";;
 		vic20)
-		ssID="73";;			
+		ssID="73";;
 		zxspectrum)
 		ssID="76";;
 		zx81)
@@ -114,7 +113,7 @@ get_sc_id(){
 		x68000)
 		ssID="79";;
 		channelf)
-		ssID="80";;			
+		ssID="80";;
 		ngpc)
 		ssID="82";;
 		apple2)
@@ -176,7 +175,7 @@ get_sc_id(){
 		neogeo)
 		ssID="142";;
 		psp)
-		ssID="172";;						
+		ssID="172";;
 		snes)
 		ssID="202";;
 		sneswide)
@@ -376,7 +375,7 @@ get_ra_alias(){
 	  *)
 		echo -n "unknown"
 		;;
-	esac			
+	esac
 }
 
 scrap_ss () {
@@ -467,7 +466,7 @@ selected_device_descriptions_all="atari2600 atari5200 atari7800 lynx doom dos fb
 mapfile -t selected_device_names <<< $selected_device_descriptions_all
 clear
 
-scrapers_names=$(whiptail --title "Chose your Scrap Engine - We recomend to choose all of them" \
+scrapers_names=$(whiptail --title "Choose your Scrape Engine - We recomend to choose all of them" \
 	--checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
 	"RETROARCH" "Retroarch Thumbs - Fast but only works on No Intro Romsets" ON \
 	"LAUNCHBOX" "Launchbox GamesDB - Fast - Still on beta" ON \
@@ -787,7 +786,7 @@ for scraper in ${scrapers[@]};
 		
 		if [ $userStored == false ]; then
 		
-			if (whiptail --title "Screen Scraper" --yesno "Do you have an account on www.screenscraper.fr? If you don't we will open your browser so you can create one. Come back later" 8 78); then
+			if (whiptail --title "Screen Scraper" --yesno "Do you have an account on www.screenscraper.fr? If you don't we will open your browser so you can create one. Come back afterwards" 8 78); then
 				find ~/storage/shared/RetroArch/config/ -type f -name "*.cfg" -exec sed -i -e 's/input_overlay_enable = "false"/input_overlay_enable = "true"/g' {} \;
 			else
 				termux-open "https://www.screenscraper.fr/membreinscription.php"
@@ -796,7 +795,7 @@ for scraper in ${scrapers[@]};
 				read pause
 			fi
 
-			echo -e "Now I'm going to ask for your user and password. Both will be stored on your device, ${BOLD}I won't send them or read them${NONE}"
+			echo -e "Now I'm going to ask for your username and password. ${BOLD}These will never be read or used outside this scraper${NONE}"
 			echo -e "What is your ScreenScraper user? Type it and press the ${RED}A button${NONE}"
 			read user
 			echo $user > ~/dragoonDoriseTools/.screenScraperUser
@@ -844,7 +843,7 @@ for scraper in ${scrapers[@]};
 				#Cleaning up names
 				firstString=$entry
 				secondString=""
-				romName="${firstString/"/data/data/com.termux/files/home/storage/$storageLocation/$system/"/"$secondString"}"   		
+				romName="${firstString/"/data/data/com.termux/files/home/storage/$storageLocation/$system/"/"$secondString"}"
 				romNameNoExtension=${romName%.*}
 				startcapture=true
 				
@@ -951,11 +950,15 @@ for scraper in ${scrapers[@]};
 						#Don't check art after a failed curl request
 						if [[ $content == "" ]]; then
 							echo -e "Request failed to send for $romNameNoExtensionTrimmed, ${YELLOW}skipping${NONE}"
+							echo ""
+							echo "Request failed for $romNameNoExtensionTrimmed" >> ~/storage/shared/scrap.log
 							continue;
 						fi
 						#Don't check art if screenscraper can't find a match
 						if [[ $content == *"Erreur"* ]]; then
 							echo -e "Couldn't find a match for $romNameNoExtensionTrimmed, ${YELLOW}skipping${NONE}"
+							echo ""
+							echo "Couldn't find a match for $romNameNoExtensionTrimmed" >> ~/storage/shared/scrap.log
 							continue;
 						fi
 

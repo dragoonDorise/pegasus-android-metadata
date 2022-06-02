@@ -15,14 +15,15 @@ clear
 while true; do
 	selected_option=$(whiptail --title "Pegasus Installer Menu" --radiolist "Move using your DPAD and select your options with the Y button. Press the A button to select." 20 40 15 \
 	"1" "Update & Configure Pegasus Installer" ON \
-	"2" "Scrap your Roms" OFF \
-	"3" "Change SNES Aspect Ratio" OFF \
-	"4" "Turn Bezels ON/OFF" OFF \
-	"5" "Reset Screen Scraper credentials" OFF \
-	"6" "Uninstall Pegasus Installer" OFF \
-	"7" "Open Termux CLI" OFF \
-	"8" "Reinstall Termux dependencies" OFF \
-	"9" "Exit" OFF \
+	"2" "Scrape your Roms" OFF \
+	"3" "Compress your Roms" OFF \
+	"4" "Change SNES Aspect Ratio" OFF \
+	"5" "Turn Bezels ON/OFF" OFF \
+	"6" "Reset Screen Scraper credentials" OFF \
+	"7" "Uninstall Pegasus Installer" OFF \
+	"8" "Open Termux CLI" OFF \
+	"9" "Reinstall Termux dependencies" OFF \
+	"10" "Exit" OFF \
 	3>&1 1>&2 2>&3)
 	case $selected_option in
 		[1]* ) break;;
@@ -34,10 +35,10 @@ while true; do
 		[7]* ) break;;
 		[8]* ) break;;
 		[9]* ) break;;
+		[10]* ) break;;
 		* ) echo "Please hide your keyboard";;
 	esac
- done
-
+done
 
 if [[ $selected_option == "1" ]]
 then
@@ -51,16 +52,22 @@ fi
 
 if [[ $selected_option == "3" ]]
 then
-	/bin/bash ~/snes_config.sh
-	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
+	/bin/bash ~/compress.sh
 fi
 
 if [[ $selected_option == "4" ]]
 then
+	/bin/bash ~/snes_config.sh
+	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
+fi
+
+if [[ $selected_option == "5" ]]
+then
 	/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/ra_bezels.sh
 	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 fi
-if [[ $selected_option == "5" ]]
+
+if [[ $selected_option == "6" ]]
 then
 	rm ~/dragoonDoriseTools/.screenScraperUser
 	rm ~/dragoonDoriseTools/.screenScraperPass
@@ -86,27 +93,23 @@ then
 	read pause
 	/bin/bash ~/scrap.sh
 fi
-if [[ $selected_option == "6" ]]
+
+if [[ $selected_option == "7" ]]
 then
 	/bin/bash ~/undo.sh
 fi
 
-if [[ $selected_option == "7" ]]
+if [[ $selected_option == "8" ]]
 then
 	clear
 fi
 
-if [[ $selected_option == "" ]]
-then
-	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
-fi
-if [[ $selected_option == "8" ]]
+if [[ $selected_option == "9" ]]
 then
 	/bin/bash ~/dragoonDoriseTools/termux_pkg_install.sh
 fi
 
-
-if [[ $selected_option == "9" ]]
+if [[ $selected_option == "10" ]]
 then
 	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 fi

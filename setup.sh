@@ -14,6 +14,7 @@ clear
 #Uninstall everything first
 rm -rf ~/dragoonDoriseTools  &>> /dev/null
 rm -f scrap.sh &>> /dev/null
+rm -f compress.sh &>> /dev/null
 rm -f update.sh  &>> /dev/null
 rm -f run_update.sh  &>> /dev/null
 rm -f undo.sh  &>> /dev/null
@@ -31,7 +32,7 @@ echo -e  "If you are going to store your roms in the SD Card make sure your SD C
 echo -e  "${BOLD}Because of Termux limitations you can't use custom folders for your roms${NONE}"
 echo -e  "${BOLD}This script will create all the rom folders for you in your device${NONE}"
 echo -e  "Nothing will be erased from your SD Card"
-echo -e  "If the script seems to be stuck in this frst step for several minutes or if asks you some questions, just press Y ( capital ) and ENTER when prompted"
+echo -e  "If the script seems to be stuck in this first step for several minutes or if asks you some questions, just press Y ( capital ) and ENTER when prompted"
 echo -e  "This ussually happens on the Nvidia Shield"
 
 echo -e  "Press the ${RED}A button${NONE} to start"
@@ -48,14 +49,14 @@ apt-get update &&
 	apt-get -o "Dpkg::Options::=--force-confold"  dist-upgrade -q -y --force-yes
 pkg autoclean
 pkg update -y && pkg upgrade -y
-pkg install git wget jq rsync unzip whiptail -y
+pkg install git wget jq rsync unzip whiptail binutils build-essential liblz4 libuv ninja -y
 echo "### Creating Dragoon Folder "  &>> ~/storage/shared/pegasus_installer_log.log
 mkdir ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
 cd ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
 
 echo -e "${GREEN}OK${NONE}"
 
-echo "### Git cloning "  &>> ~/storage/shared/pegasus_installer_log.log
+echo "### Cloning the git repo"  &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "Downloading Metadata Pack for Android, please be patient..."
 #Download Pegasus Metadata files
 git clone https://github.com/dragoonDorise/pegasus-android-metadata.git ~/dragoonDoriseTools/pegasus-android-metadata
@@ -73,12 +74,34 @@ else
 	read pause
 	termux-change-repo
 	pkg update -y -F &>> ~/storage/shared/pegasus_installer_log.log && pkg upgrade -y -F &>> ~/storage/shared/pegasus_installer_log.log
-	pkg install git wget rsync unzip whiptail -y  &>> ~/storage/shared/pegasus_installer_log.log
+	pkg install git wget jq rsync unzip whiptail binutils build-essential liblz4 libuv ninja -y  &>> ~/storage/shared/pegasus_installer_log.log
 	
 	
 fi
 
 clear
+
+#Getting CHDMAN & Maxcso for compression
+echo "### Downloading & Installing Compression binaries"  &>> ~/storage/shared/pegasus_installer_log.log
+echo -e "Downloading CHDMAN, please be patient..."
+git clone https://github.com/CharlesThobe/chdman.git ~/dragoonDoriseTools/CHDMAN/ &>> ~/storage/shared/pegasus_installer_log.log
+echo -e "Compiling CHDMAN..." &>> ~/storage/shared/pegasus_installer_log.log
+cd ~/dragoonDoriseTools/CHDMAN/ &>> ~/storage/shared/pegasus_installer_log.log
+mkdir build && cd build &>> ~/storage/shared/pegasus_installer_log.log
+cmake -G Ninja .. && ninja &>> ~/storage/shared/pegasus_installer_log.log
+echo "Moving CHDMAN to PATH and making it executable" &>> ~/storage/shared/pegasus_installer_log.log
+cp ./chdman "$PATH"/chdman &>> ~/storage/shared/pegasus_installer_log.log
+chmod +x "$PATH"/chdman &>> ~/storage/shared/pegasus_installer_log.log
+
+echo -e "Downloading Maxcso, please be patient..."
+git clone https://github.com/unknownbrackets/maxcso.git ~/dragoonDoriseTools/Maxcso/ &>> ~/storage/shared/pegasus_installer_log.log
+echo -e "Compiling Maxcso..." &>> ~/storage/shared/pegasus_installer_log.log
+cd ~/dragoonDoriseTools/Maxcso/ &>> ~/storage/shared/pegasus_installer_log.log
+make &>> ~/storage/shared/pegasus_installer_log.log
+echo "Moving Maxcso to PATH and making it executable" &>> ~/storage/shared/pegasus_installer_log.log
+cp ./maxcso "$PATH"/maxcso &>> ~/storage/shared/pegasus_installer_log.log
+chmod +x "$PATH"/maxcso &>> ~/storage/shared/pegasus_installer_log.log
+
 
 echo "### Handheld selection "  &>> ~/storage/shared/pegasus_installer_log.log
 
@@ -100,13 +123,12 @@ roottext=yellow,red"
 		[ANDROID]* ) break;;
 		* ) echo "Please answer yes or no.";;
 	esac
-   
  done
 echo "### HandHeld Selected : ${handheldModel} "  &>> ~/storage/shared/pegasus_installer_log.log
 while true; do
 	#touch ~/dragoonDoriseTools/.device
 	echo $handheldModel > ~/dragoonDoriseTools/.device
-	echo "### Handlhedl selection failed first time "  &>> ~/storage/shared/pegasus_installer_log.log
+	echo "### Handlheld selection failed first time"  &>> ~/storage/shared/pegasus_installer_log.log
 	FILE=~/dragoonDoriseTools/.device
 	if [ -f "$FILE" ]; then
 		break;
@@ -119,9 +141,6 @@ while true; do
 		"ANDROID" "A regular Android Device" OFF \
 	   3>&1 1<&2 2>&3)
 done
-
-
-
 
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 
@@ -174,6 +193,8 @@ cp ~/dragoonDoriseTools/pegasus-android-metadata/update.sh ~/run_update.sh &>> ~
 chmod a+rwx ~/run_update.sh &>> ~/storage/shared/pegasus_installer_log.log
 cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/scrap.sh &>> ~/storage/shared/pegasus_installer_log.log
 chmod a+rwx ~/scrap.sh &>> ~/storage/shared/pegasus_installer_log.log
+cp ~/dragoonDoriseTools/pegasus-android-metadata/compress.sh  ~/compress.sh &>> ~/storage/shared/pegasus_installer_log.log
+chmod a+rwx ~/compress.sh &>> ~/storage/shared/pegasus_installer_log.log
 cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh &>> ~/storage/shared/pegasus_installer_log.log
 chmod a+rwx ~/undo.sh &>> ~/storage/shared/pegasus_installer_log.log
 cp ~/dragoonDoriseTools/pegasus-android-metadata/startup.sh  ~/startup.sh &>> ~/storage/shared/pegasus_installer_log.log
@@ -259,7 +280,7 @@ if [ -f "$FILE" ]; then
 fi
 
 
- echo "### Configuring Pegasys folders "  &>> ~/storage/shared/pegasus_installer_log.log
+ echo "### Configuring Pegasus folders "  &>> ~/storage/shared/pegasus_installer_log.log
  
 echo -ne "Configuring Rom Storage..."
 if [ $useInternalStorage == false ]; then
@@ -417,18 +438,43 @@ echo -e  "Press the ${RED}A button${NONE} to continue to next step"
 read pause
 echo "### Installation Finished"  &>> ~/storage/shared/pegasus_installer_log.log
 
+#Compressor section (compress before scraping)
 while true; do
-	scrapNow=$(whiptail --title "Do you want to scrap your roms now?" \
+	compressNow=$(whiptail --title "Do you want to compress your roms now?" \
    --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
-	"YES" "Scrap my roms!" OFF \
+	"YES" "Compress my roms!" OFF \
+	"NO" "You can always do the compressing later by opening Termux" OFF \
+   3>&1 1<&2 2>&3)
+	case $compressNow in
+		[YES]* ) break;;
+		[NO]* ) break;;
+		* ) echo "Please answer yes or no.";;
+	esac
+
+ done
+
+if [ $compressNow == "YES" ]; then
+	clear
+	echo -e  "";
+	echo -e  "Do you have your roms ready on your SD Card or Internal Storage?"
+	echo -e  "${BOLD}Let's start compressing them!${NONE}"
+	echo -e  "Press the ${RED}A button${NONE} to continue"
+	read pause
+	cd ~/
+	bash ~/compress.sh
+fi
+while true; do
+	scrapNow=$(whiptail --title "Do you want to scrape your roms now?" \
+   --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
+	"YES" "Scrape my roms!" OFF \
 	"NO" "You can always do the scraping later by opening Termux" OFF \
    3>&1 1<&2 2>&3)
 	case $scrapNow in
 		[YES]* ) break;;
-		[NO]* ) break;;	
+		[NO]* ) break;;
 		* ) echo "Please answer yes or no.";;
 	esac
-   
+
  done
 
 if [ $scrapNow == "YES" ]; then
@@ -442,7 +488,7 @@ if [ $scrapNow == "YES" ]; then
 	bash ~/scrap.sh	
 else
 	clear	
-	echo -e  "${STRONG}If you want to scrap more roms, update or uninstall Pegasus Installer:${NONE}"
+	echo -e  "${STRONG}If you want to compress or scrape more roms, update or uninstall Pegasus Installer:${NONE}"
 	echo -e  "Just open the Termux app again"
 	echo -e  "Press the ${RED}A button${NONE} to exit"
 	read pause
