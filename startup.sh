@@ -15,7 +15,7 @@ clear
 while true; do
 	selected_option=$(whiptail --title "Pegasus Installer Menu" --radiolist "Move using your DPAD and select your options with the Y button. Press the A button to select." 20 40 15 \
 	"1" "Update & Configure Pegasus Installer" ON \
-	"2" "Scrap your Roms" OFF \
+	"2" "Scrape your Roms" OFF \
 	"3" "Compress your Roms" OFF \
 	"4" "Change SNES Aspect Ratio" OFF \
 	"5" "Turn Bezels ON/OFF" OFF \

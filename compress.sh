@@ -64,7 +64,7 @@ for system in $(eval echo "${SYSTEMS}"); do
 done
 done
 clear
- echo -e "You may need to re-scrap your games after they've been compressed!"
+ echo -e "You may need to re-scrape your games after they've been compressed!"
  echo -e "You may have leftover .bin files if the names do not exactly match the .cue file."
  echo -e  "Press the ${RED}A button${NONE} to finish"
  read pause

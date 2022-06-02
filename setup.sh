@@ -32,7 +32,7 @@ echo -e  "If you are going to store your roms in the SD Card make sure your SD C
 echo -e  "${BOLD}Because of Termux limitations you can't use custom folders for your roms${NONE}"
 echo -e  "${BOLD}This script will create all the rom folders for you in your device${NONE}"
 echo -e  "Nothing will be erased from your SD Card"
-echo -e  "If the script seems to be stuck in this frst step for several minutes or if asks you some questions, just press Y ( capital ) and ENTER when prompted"
+echo -e  "If the script seems to be stuck in this first step for several minutes or if asks you some questions, just press Y ( capital ) and ENTER when prompted"
 echo -e  "This ussually happens on the Nvidia Shield"
 
 echo -e  "Press the ${RED}A button${NONE} to start"
@@ -56,7 +56,7 @@ cd ~/dragoonDoriseTools &>> ~/storage/shared/pegasus_installer_log.log
 
 echo -e "${GREEN}OK${NONE}"
 
-echo "### Git cloning "  &>> ~/storage/shared/pegasus_installer_log.log
+echo "### Cloning the git repo"  &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "Downloading Metadata Pack for Android, please be patient..."
 #Download Pegasus Metadata files
 git clone https://github.com/dragoonDorise/pegasus-android-metadata.git ~/dragoonDoriseTools/pegasus-android-metadata
@@ -123,13 +123,12 @@ roottext=yellow,red"
 		[ANDROID]* ) break;;
 		* ) echo "Please answer yes or no.";;
 	esac
-   
  done
 echo "### HandHeld Selected : ${handheldModel} "  &>> ~/storage/shared/pegasus_installer_log.log
 while true; do
 	#touch ~/dragoonDoriseTools/.device
 	echo $handheldModel > ~/dragoonDoriseTools/.device
-	echo "### Handlhedl selection failed first time "  &>> ~/storage/shared/pegasus_installer_log.log
+	echo "### Handlheld selection failed first time"  &>> ~/storage/shared/pegasus_installer_log.log
 	FILE=~/dragoonDoriseTools/.device
 	if [ -f "$FILE" ]; then
 		break;
@@ -142,9 +141,6 @@ while true; do
 		"ANDROID" "A regular Android Device" OFF \
 	   3>&1 1<&2 2>&3)
 done
-
-
-
 
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
 
@@ -468,9 +464,9 @@ if [ $compressNow == "YES" ]; then
 	bash ~/compress.sh
 fi
 while true; do
-	scrapNow=$(whiptail --title "Do you want to scrap your roms now?" \
+	scrapNow=$(whiptail --title "Do you want to scrape your roms now?" \
    --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
-	"YES" "Scrap my roms!" OFF \
+	"YES" "Scrape my roms!" OFF \
 	"NO" "You can always do the scraping later by opening Termux" OFF \
    3>&1 1<&2 2>&3)
 	case $scrapNow in
@@ -492,7 +488,7 @@ if [ $scrapNow == "YES" ]; then
 	bash ~/scrap.sh	
 else
 	clear	
-	echo -e  "${STRONG}If you want to compress or scrap more roms, update or uninstall Pegasus Installer:${NONE}"
+	echo -e  "${STRONG}If you want to compress or scrape more roms, update or uninstall Pegasus Installer:${NONE}"
 	echo -e  "Just open the Termux app again"
 	echo -e  "Press the ${RED}A button${NONE} to exit"
 	read pause
