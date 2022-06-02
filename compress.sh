@@ -1,7 +1,9 @@
 #!/bin/bash
 
-#Colors
+touch ~/storage/shared/pegasus_installer_log.log
+echo "##### COMPRESS #####" >> ~/storage/shared/pegasus_installer_log.log
 
+#Colors
 RED='\033[01;31m'
 
 #Function for CHDMAN
@@ -63,5 +65,6 @@ done
 done
 clear
  echo -e "You may need to re-scrap your games after they've been compressed!"
+ echo -e "You may have leftover .bin files if the names do not exactly match the .cue file."
  echo -e  "Press the ${RED}A button${NONE} to finish"
  read pause

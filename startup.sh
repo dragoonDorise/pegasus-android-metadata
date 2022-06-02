@@ -38,8 +38,7 @@ while true; do
 		[10]* ) break;;
 		* ) echo "Please hide your keyboard";;
 	esac
- done
-
+done
 
 if [[ $selected_option == "1" ]]
 then
@@ -67,6 +66,7 @@ then
 	/bin/bash ~/dragoonDoriseTools/pegasus-android-metadata/ra_bezels.sh
 	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 fi
+
 if [[ $selected_option == "6" ]]
 then
 	rm ~/dragoonDoriseTools/.screenScraperUser
@@ -93,6 +93,7 @@ then
 	read pause
 	/bin/bash ~/scrap.sh
 fi
+
 if [[ $selected_option == "7" ]]
 then
 	/bin/bash ~/undo.sh
@@ -103,11 +104,12 @@ then
 	clear
 fi
 
-if [[ $selected_option == "10" ]]
-then
-	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
-fi
 if [[ $selected_option == "9" ]]
 then
 	/bin/bash ~/dragoonDoriseTools/termux_pkg_install.sh
+fi
+
+if [[ $selected_option == "10" ]]
+then
+	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
 fi
