@@ -45,24 +45,7 @@ rsync -r ~/dragoonDoriseTools/pegasus-android-metadata/internal/common/RetroArch
 
 echo -e "${GREEN}OK${NONE}"
 
-if (whiptail --title "Android Version" --yesno "Do you have Android 11 or newer?" 8 78); then
-	echo "### Has Android 11"  &>> ~/storage/shared/pegasus_installer_log.log
-	clear
-	echo -e ""
-	echo -e "${RED}IMPORTANT${NONE}"
-	echo -e ""
-	echo -e "As of today this script won't work on Android 11 or newer, sorry!"
-	echo -e "We are working on it, so stay tuned!"
-	#echo -e "You need to manually save and load the retroarch configuration."
-	#echo -e "Open Retroarch now and go to Main Menu -> Configuration File"
-	#echo -e "Select Save New Configuration and exit RetroArch"
-	echo -e  "Press the ${RED}A button${NONE} to exit"
-	am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
-	read pause
-else
-	echo "No Android 11, great!"
-	echo "### Has Android 10"  &>> ~/storage/shared/pegasus_installer_log.log
-fi
+
 
 echo "### RA Hotkeys "  &>> ~/storage/shared/pegasus_installer_log.log
 
