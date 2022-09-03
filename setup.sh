@@ -26,7 +26,7 @@ rm -rf ~/storage &>> /dev/null
 termux-setup-storage
 echo -e "Pegasus installer 1.3.4b"
 echo -e  "${BOLD}Hi!${NONE} We're gonna start configuring your ${GREEN}Android Device${NONE}"
-echo -e  "We recommend you to hide the virtual keyboard by swiping from the left of the screen."
+echo -e  "${BOLD}We recommend you to hide the virtual keyboard by swiping from the left of the screen.${NONE}"
 echo -e  "${RED}Read before continuing${NONE}"
 echo -e  "If you are going to store your roms in the SD Card make sure your SD Card is inserted"
 echo -e  "${BOLD}Because of Termux limitations you can't use custom folders for your roms${NONE}"
@@ -112,8 +112,8 @@ roottext=yellow,red"
 	handheldModel=$(whiptail --title "What Android Device do you have" \
    --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
 	"RG552" "Anbernic RG552" OFF \
-	"ODIN" "AYN Odin" OFF \
-	"RP2+" "Retroid Pocket 2+" OFF \
+	"ODIN" "16:9 Devices like Odin or RP3" OFF \
+	"RP2+" "4:3 Devices Like RP2+ and RG553" OFF \
 	"ANDROID" "A regular Android Device" OFF \
    3>&1 1<&2 2>&3)
 	case $handheldModel in
@@ -152,7 +152,7 @@ echo "### Downloading Pegasus "  &>> ~/storage/shared/pegasus_installer_log.log
 
 #Download Pegasus
 echo -e "Downloading Pegasus, please be patient..."
-wget   -q --show-progress https://github.com/mmatyas/pegasus-frontend/releases/download/alpha16/pegasus-fe_alpha16_android.apk -P ~/dragoonDoriseTools
+wget   -q --show-progress https://github.com/mmatyas/pegasus-frontend/releases/download/weekly_2022w30/pegasus-fe_alpha16-42-g996720eb_android.apk -P ~/dragoonDoriseTools
 echo "### Pegasus downloaded"  &>> ~/storage/shared/pegasus_installer_log.log
 
 echo -e  "Now let's install ${RED}Pegasus${NONE}"
@@ -161,7 +161,7 @@ read pause
 clear
 echo -ne  "Installing ${RED}Pegasus${NONE}..."
 #Launch Pegasus
-xdg-open ~/dragoonDoriseTools//pegasus-fe_alpha16_android.apk
+xdg-open ~/dragoonDoriseTools/pegasus-fe_alpha16-42-g996720eb_android.apk
 echo -e  "${GREEN}OK${NONE}"
 echo ""
 echo "### Pegasus installed"  &>> ~/storage/shared/pegasus_installer_log.log
@@ -204,20 +204,36 @@ chmod a+rwx ~/snes_config.sh &>> ~/storage/shared/pegasus_installer_log.log
 echo "### Symlinks created"  &>> ~/storage/shared/pegasus_installer_log.log
 echo -e "${GREEN}OK${NONE}"
 clear
-echo "### Storage selection "  &>> ~/storage/shared/pegasus_installer_log.log
-while true; do
-	storageOption=$(whiptail --title "Where do you want to store your roms?" \
-   --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
-	"SDCard" "The roms will be stored in your SD Card or external HD" ON \
-	"Internal" "The roms will be stored in your Internal Storage " OFF \
-   3>&1 1<&2 2>&3)
-	case $storageOption in
-		[SDCard]* ) break;;
-		[Internal]* ) break;;
-		* ) echo "Please answer yes or no.";;
-	esac
-   
- done
+echo "### Storage selection & Android version "  &>> ~/storage/shared/pegasus_installer_log.log
+
+if (whiptail --title "Android Version" --yesno "Do you have Android 11 or newer?" 8 78); then
+	echo "### Has Android 11"  &>> ~/storage/shared/pegasus_installer_log.log
+	clear
+	echo -e ""
+	echo -e "${RED}IMPORTANT${NONE}"
+	echo -e ""
+	echo -e "As of today this script can't store your games on your SD Card if you are using Android 11 or newer, you'll only be able to use Internal Storage"
+	echo -e "If you want to use your SD Card Space we recommend you to format it as Internal Storage"
+	storageOption='Internal'
+	read pause
+else
+	while true; do
+		storageOption=$(whiptail --title "Where do you want to store your roms?" \
+	   --radiolist "Move using your DPAD and select your platforms with the Y button. Press the A button to select." 10 80 4 \
+		"SDCard" "The roms will be stored in your SD Card or external HD" ON \
+		"Internal" "The roms will be stored in your Internal Storage " OFF \
+	   3>&1 1<&2 2>&3)
+		case $storageOption in
+			[SDCard]* ) break;;
+			[Internal]* ) break;;
+			* ) echo "Please answer yes or no.";;
+		esac
+	   
+	 done
+	
+fi
+
+
 echo "### Storage Selected: ${storageOption}"  &>> ~/storage/shared/pegasus_installer_log.log
 rm ~/dragoonDoriseTools/.storageInternal &> /dev/null
 rm ~/dragoonDoriseTools/.storageSD &> /dev/null
