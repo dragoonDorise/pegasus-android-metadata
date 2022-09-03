@@ -27,6 +27,8 @@ cp ~/dragoonDoriseTools/pegasus-android-metadata/run_update.sh ~/run_update.sh
 chmod a+rwx ~/run_update.sh
 cp ~/dragoonDoriseTools/pegasus-android-metadata/scrap.sh  ~/scrap.sh
 chmod a+rwx ~/scrap.sh
+cp ~/dragoonDoriseTools/pegasus-android-metadata/compress.sh  ~/compress.sh
+chmod a+rwx ~/compress.sh
 cp ~/dragoonDoriseTools/pegasus-android-metadata/undo.sh  ~/undo.sh
 chmod a+rwx ~/undo.sh
 cp ~/dragoonDoriseTools/pegasus-android-metadata/startup.sh  ~/startup.sh &>> ~/storage/shared/pegasus_installer_log.log

@@ -37,6 +37,7 @@ cp ~/storage/shared/pegasus-frontend/game_dirs.txt.bak ~/storage/shared/pegasus-
 echo -e "${GREEN}OK${NONE}"
 echo -ne "Deleting scripts..."
 rm -f scrap.sh  &>> ~/storage/shared/pegasus_installer_log.log
+rm -f compress.sh  &>> ~/storage/shared/pegasus_installer_log.log
 rm -f update.sh  &>> ~/storage/shared/pegasus_installer_log.log
 rm -f run_update.sh  &>> ~/storage/shared/pegasus_installer_log.log
 rm -f undo.sh  &>> ~/storage/shared/pegasus_installer_log.log

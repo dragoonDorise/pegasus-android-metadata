@@ -10,7 +10,6 @@ if [ -f "$FILE" ]; then
 else
 	useInternalStorage=false
 	storageLocation="external-1"
-	
 fi
 
 get_sc_id(){
@@ -44,7 +43,7 @@ get_sc_id(){
 		wii)
 		ssID="16";;
 		3ds)
-		ssID="17";;		
+		ssID="17";;
 		sega32x)
 		ssID="19";;
 		segacd)
@@ -76,7 +75,7 @@ get_sc_id(){
 		atarist)
 		ssID="42";;
 		atari800)
-		ssID="43";;			
+		ssID="43";;
 		wswan)
 		ssID="45";;
 		wswanc)
@@ -90,7 +89,7 @@ get_sc_id(){
 		psx)
 		ssID="57";;
 		ps2)
-		ssID="58";;			
+		ssID="58";;
 		psp)
 		ssID="61";;
 		amiga600)
@@ -100,13 +99,13 @@ get_sc_id(){
 		c64)
 		ssID="66";;
 		scv)
-		ssID="67";;			
+		ssID="67";;
 		neogeocd)
 		ssID="70";;
 		pcfx)
 		ssID="72";;
 		vic20)
-		ssID="73";;			
+		ssID="73";;
 		zxspectrum)
 		ssID="76";;
 		zx81)
@@ -114,7 +113,7 @@ get_sc_id(){
 		x68000)
 		ssID="79";;
 		channelf)
-		ssID="80";;			
+		ssID="80";;
 		ngpc)
 		ssID="82";;
 		apple2)
@@ -176,7 +175,7 @@ get_sc_id(){
 		neogeo)
 		ssID="142";;
 		psp)
-		ssID="172";;						
+		ssID="172";;
 		snes)
 		ssID="202";;
 		sneswide)
@@ -376,7 +375,7 @@ get_ra_alias(){
 	  *)
 		echo -n "unknown"
 		;;
-	esac			
+	esac
 }
 
 scrap_ss () {
@@ -460,74 +459,19 @@ UNDERLINE='\033[4m'
 BLINK='\x1b[5m'
 clear
 cat ~/dragoonDoriseTools/pegasus-android-metadata/logo.ans
-
-#	selected_device_descriptions=$(whiptail --title "Pegasus Rom Scrapper" \
-#	   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
-#		"ALL" "This option will look for all systems on your SD Card" OFF \
-#		"3do" "The 3DO Company - 3DO" OFF \
-#		"3ds" "Nintendo - Nintendo 3DS" OFF \
-#		"atari2600" "Atari - 2600" OFF \
-#		"lynx" "Atari - Lynx" OFF \
-#		"doom" "DOOM" OFF \
-#		"dos" "DOS" OFF \
-#		"dreamcast" "Sega - Dreamcast" OFF \
-#		"fbneo" "FBNeo - Arcade Games" OFF \
-#		"gamegear" "Sega - Game Gear" OFF \
-#		"gb" "Nintendo - Game Boy" OFF \
-#		"gba" "Nintendo - Game Boy Advance" OFF \
-#		"gbc" "Nintendo - Game Boy Color" OFF \
-#		"gc" "Nintendo - GameCube" OFF \
-#		"genesis" "Sega - Mega Drive - Genesis" OFF \
-#		"genesiswide" "Genesis Wide Hack" OFF \
-#		"n64" "Nintendo - Nintendo 64" OFF \
-#		"nds" "Nintendo - Nintendo DS" OFF \
-#		"ngp" "SNK - Neo Geo Pocket" OFF \
-#		"ngpc" "SNK - Neo Geo Pocket Color" OFF \
-#		"mastersystem" "Sega - Master System" OFF \
-#		"nes" "Nintendo - Nintendo Entertainment System" OFF \
-#		"neogeo" "SNK - Neo Geo" OFF \
-#		"neogeocd" "SNK - Neo Geo CD" OFF \
-#		"pcengine" "NEC - PC Engine - TurboGrafx 16" OFF \
-#		"pcenginecd" "NEC - PC Engine CD - TurboGrafx-CD" OFF \
-#		"psx" "Sony - PlayStation" OFF \
-#		"ps2" "Sony - PlayStation 2" OFF \
-#		"psp" "Sony - PlayStation Portable" OFF \
-#		"saturn" "Sega - Saturn" OFF \
-#		"scummvm" "ScummVM" OFF \
-#		"sega32x" "Sega - 32X" OFF \
-#		"segacd" "Sega - Mega-CD - Sega CD" OFF \
-#		"snes" "Nintendo - Super Nintendo Entertainment System" OFF \
-#		"sneswide" "Super Nes Wide Hack" OFF \
-#		"wii" "Nintendo - Wii" OFF \
-#		"amstradcpc" "Amstrad CPC" OFF \
-#		"atarist" "Atari ST" OFF \
-#		"colecovision" "ColecoVision" OFF \
-#		"intellivision" "Intellivision" OFF \
-#		"lutro" "Lutro" OFF \
-#		"msx" "MSX" OFF \
-#		"tic80" "TIC 80" OFF \
-#		"vectrex" "Vectrex" OFF \
-#		"zxspectrum" "ZX Spectrum" OFF \
-#	   3>&1 1<&2 2>&3)
-#
  
  $selected_device_descriptions = "ALL"
 
-#if [[ $selected_device_descriptions == *"ALL"* ]]; then
-	selected_device_descriptions_all="atari2600 atari5200 atari7800 lynx doom dos fbneo pcengine pcenginecd gb gba gbc gc 3ds n64 nds nes pokemini snes sneswide wii neogeo neogeocd ngp ngpc scummvm sega32x dreamcast gamegear mastersystem genesis genesiswide segacd saturn psx ps2 psp 3do amstradcpc atarist colecovision intellivision lutro msx tic80 vectrex zxspectrum"
-	mapfile -t selected_device_names <<< $selected_device_descriptions_all
-#else
-#	mapfile -t selected_device_names <<< $selected_device_descriptions
-#fi
+selected_device_descriptions_all="atari2600 atari5200 atari7800 lynx doom dos fbneo pcengine pcenginecd gb gba gbc gc 3ds n64 nds nes pokemini snes sneswide wii neogeo neogeocd ngp ngpc scummvm sega32x dreamcast gamegear mastersystem genesis genesiswide segacd saturn psx ps2 psp 3do amstradcpc atarist colecovision intellivision lutro msx tic80 vectrex zxspectrum"
+mapfile -t selected_device_names <<< $selected_device_descriptions_all
 clear
 
-
-	scrapers_names=$(whiptail --title "Chose your Scrap Engine - We recomend to choose all of them" \
-	   --checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
-		"RETROARCH" "Retroarch Thumbs - Fast but only works on No Intro Romsets" ON \
-		"LAUNCHBOX" "Launchbox GamesDB - Fast - Still on beta" ON \
-		"SCREENSCRAPER" "ScreenScraper - Really really slow but more reliable" ON \
-	   3>&1 1<&2 2>&3)
+scrapers_names=$(whiptail --title "Choose your Scrape Engine - We recomend to choose all of them" \
+	--checklist "Move using your DPAD and select your options with the Y button. Press the A button to select." 10 80 4 \
+	"RETROARCH" "Retroarch Thumbs - Fast but only works on No Intro Romsets" ON \
+	"LAUNCHBOX" "Launchbox GamesDB - Fast - Still on beta" ON \
+	"SCREENSCRAPER" "ScreenScraper - Really really slow but more reliable" ON \
+	3>&1 1<&2 2>&3)
 
 clear
 mapfile -t scrapers <<< $scrapers_names
@@ -573,6 +517,12 @@ for scraper in ${scrapers[@]};
 				#.sav validation
 				 STR=$romName
 				 SUB='.sav'
+				 if grep -q "$SUB" <<< "$STR"; then
+					 startcapture=false
+				 fi
+				#.srm validation
+				 STR=$romName
+				 SUB='.srm'
 				 if grep -q "$SUB" <<< "$STR"; then
 					 startcapture=false
 				 fi
@@ -642,15 +592,10 @@ for scraper in ${scrapers[@]};
 						else
 							echo -e "Image not found: $romNameNoExtension box2dfront..."
 						fi
-					fi
-					
-					#exit
-				
+					fi				
 				fi
 		
 			 done
-			 
-		   #rsync -r ~/pegasus-artwork/$system/ ~/storage/$storageLocation/$system/
 		 done
 		
 		echo -e "${GREEN}completed${NONE}" 	
@@ -695,6 +640,13 @@ for scraper in ${scrapers[@]};
 				  if grep -q "$SUB" <<< "$STR"; then
 					  startcapture=false
 				  fi
+				#.srm validation
+				 STR=$romName
+				 SUB='.srm'
+				 if grep -q "$SUB" <<< "$STR"; then
+					 startcapture=false
+				 fi
+
 				 #Directory Validation
 				 DIR=~/storage/$storageLocation/$system/$romName
 				 if [ -d "$DIR" ]; then
@@ -724,9 +676,7 @@ for scraper in ${scrapers[@]};
 				 firstString=$romNameNoExtensionNoNkit
 				 romNameNoExtensionNoSpace="${firstString/"!"/"$secondString"}"		
 				 firstString=$romNameNoExtensionNoSpace
-				#echo "romNameNoExtensionTrimmed"
-				#echo $romNameNoExtensionTrimmed
-				
+
 				STR=$romNameNoExtensionTrimmed
 				SUB=', The'
 				if [[ "$STR" == *"$SUB"* ]]; then
@@ -742,10 +692,7 @@ for scraper in ${scrapers[@]};
 					 
 				fi		
 				
-				romNameNoExtensionForLaunchbox=$(echo $romNameNoExtensionForLaunchbox | sed -r "s/,//g")
-				#echo "romNameNoExtensionForLaunchbox"	
-				#echo $romNameNoExtensionForLaunchbox
-								
+				romNameNoExtensionForLaunchbox=$(echo $romNameNoExtensionForLaunchbox | sed -r "s/,//g")								
 				
 				 if [ $startcapture == true ]; then
 					 
@@ -767,15 +714,12 @@ for scraper in ${scrapers[@]};
 					if [ -f "$FILE" ]; then
 						 hasBox=true
 					fi
-										 
+
 					 #We only search games with no art
 					 if [ $hasWheel == false ] || [ $hasSs == false ] || [ $hasBox == false ]; then
 						
-						content=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/metadata.json) 
-						
-						#echo ".platform.$system.games.\"$romNameNoExtensionForLaunchbox\".medias.wheel"
-						
-						
+						content=$(cat ~/dragoonDoriseTools/pegasus-android-metadata/metadata.json)
+
 						urlMediaWheel=$( jq -r  ".platform.$system.games.\"$romNameNoExtensionForLaunchbox\".medias.wheel" <<< "${content}" )
 						urlMediaSs=$( jq -r  ".platform.$system.games.\"$romNameNoExtensionForLaunchbox\".medias.screenshot" <<< "${content}" )
 						urlMediaBox=$( jq -r  ".platform.$system.games.\"$romNameNoExtensionForLaunchbox\".medias.box2dfront" <<< "${content}" )
@@ -783,14 +727,7 @@ for scraper in ${scrapers[@]};
 						wheelSavePath="./storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png"
 						ssSavePath="./storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png"
 						box2dfrontSavePath="./storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png"
-						
-						#echo $romNameNoExtensionForLaunchbox
-						#echo $urlMediaWheel
-						#echo $urlMediaSs
-						#echo $urlMediaBox
-						
-						
-												 
+
 						echo -e "Searching Images for $romNameNoExtension"		
 						
 						if [[ $urlMediaWheel != null ]]; then
@@ -822,18 +759,11 @@ for scraper in ${scrapers[@]};
 					else
 						echo -e "Game already scraped" &> /dev/null
 					fi
-					 
-					
-				 
 				 fi
-			
 			  done			 
-			 
-		   #rsync -r ~/pegasus-artwork/$system/ ~/storage/$storageLocation/$system/
 		 done
 		
-		echo -e "${GREEN}completed${NONE}" 	
-	
+		echo -e "${GREEN}completed${NONE}"
 	fi
 
 	if [[ $scraper == *"SCREENSCRAPER"* ]]; then
@@ -856,7 +786,7 @@ for scraper in ${scrapers[@]};
 		
 		if [ $userStored == false ]; then
 		
-			if (whiptail --title "Screen Scraper" --yesno "Do you have an account on www.screenscraper.fr? If you don't we will open your browser so you can create one. Come back later" 8 78); then
+			if (whiptail --title "Screen Scraper" --yesno "Do you have an account on www.screenscraper.fr? If you don't we will open your browser so you can create one. Come back afterwards" 8 78); then
 				find ~/storage/shared/RetroArch/config/ -type f -name "*.cfg" -exec sed -i -e 's/input_overlay_enable = "false"/input_overlay_enable = "true"/g' {} \;
 			else
 				termux-open "https://www.screenscraper.fr/membreinscription.php"
@@ -865,7 +795,7 @@ for scraper in ${scrapers[@]};
 				read pause
 			fi
 
-			echo -e "Now I'm going to ask for your user and password. Both will be stored on your device, ${BOLD}I won't send them or read them${NONE}"
+			echo -e "Now I'm going to ask for your username and password. ${BOLD}These will never be read or used outside this scraper${NONE}"
 			echo -e "What is your ScreenScraper user? Type it and press the ${RED}A button${NONE}"
 			read user
 			echo $user > ~/dragoonDoriseTools/.screenScraperUser
@@ -879,127 +809,161 @@ for scraper in ${scrapers[@]};
 			read pause
 		fi
 		
-		 #ScreenScraper loop
-		 for device_name in ${selected_device_names[@]};
-		  do
-					
-			  message=$device_name
-			  system="${message//'"'/}"            
-				mkdir ~/storage/$storageLocation/$system/media &> /dev/null
-				mkdir ~/storage/$storageLocation/$system/media/screenshot &> /dev/null
-				mkdir ~/storage/$storageLocation/$system/media/box2dfront &> /dev/null
-				mkdir ~/storage/$storageLocation/$system/media/wheel &> /dev/null
-				   
-			  #ScreenScraper system ID
-			  get_sc_id $system
-				echo ""
-				echo -e "Scraping $system..."
-				echo ""
+		#ScreenScraper loop
+		for device_name in ${selected_device_names[@]};
+		do			
+			message=$device_name
+			system="${message//'"'/}"            
+			mkdir ~/storage/$storageLocation/$system/media &> /dev/null
+			mkdir ~/storage/$storageLocation/$system/media/screenshot &> /dev/null
+			mkdir ~/storage/$storageLocation/$system/media/box2dfront &> /dev/null
+			mkdir ~/storage/$storageLocation/$system/media/wheel &> /dev/null
+				
+			#ScreenScraper system ID
+			get_sc_id $system
+			echo ""
+			echo -e "Scraping $system..."
+			echo ""
 
-				#Check for existing metadata
-				systemMetadata=$(cat ~/storage/$storageLocation/$system/metadata.pegasus.txt)
-			  
-			  #Roms loop
-			  for entry in ~/storage/$storageLocation/$system/*
-			  do
-				  #Cleaning up names
-				 firstString=$entry
-				 secondString=""
-				 romName="${firstString/"/data/data/com.termux/files/home/storage/$storageLocation/$system/"/"$secondString"}"   		
-				 romNameNoExtension=${romName%.*}		
-				 startcapture=true
-				  
-				 #.txt validation
-				  STR=$romName
-				  SUB='.txt'
-				  if grep -q "$SUB" <<< "$STR"; then
-					  startcapture=false
-				  fi
-				 #.sav validation
-				  STR=$romName
-				  SUB='.sav'
-				  if grep -q "$SUB" <<< "$STR"; then
-					  startcapture=false
-				  fi
-				 #Directory Validation
-				 DIR=~/storage/$storageLocation/$system/$romName
-				 if [ -d "$DIR" ]; then
-					 startcapture=false
+			#Check for metadata file
+			metadataFile=~/storage/$storageLocation/$system/metadata.pegasus.txt
+			if [[ -f $metadataFile ]]; then
+				systemMetadata=$(cat $metadataFile)
+				fileExtensions=$(grep -E '^extensions' $metadataFile)
+				extensions="${fileExtensions/"extensions: "/""}"
+			else
+				systemMetadata=""
+				extensions=""
+			fi
+
+			#Roms loop
+			for entry in ~/storage/$storageLocation/$system/*
+			do
+
+				#Cleaning up names
+				firstString=$entry
+				secondString=""
+				romName="${firstString/"/data/data/com.termux/files/home/storage/$storageLocation/$system/"/"$secondString"}"
+				romNameNoExtension=${romName%.*}
+				startcapture=true
+				
+				#.txt validation
+				STR=$romName
+				SUB='.txt'
+				if grep -q "$SUB" <<< "$STR"; then
+					continue;
+				fi
+				#.sav validation
+				STR=$romName
+				SUB='.sav'
+				if grep -q "$SUB" <<< "$STR"; then
+					continue;
+				fi
+				#.srm validation
+				 STR=$romName
+				 SUB='.srm'
+				 if grep -q "$SUB" <<< "$STR"; then
+					 continue;
 				 fi
-				 
-				 #Blanks cleaning up, TODO: DRY
-				 firstString=$romNameNoExtension
-				 secondString=""
-				 romNameNoExtensionNoDisc="${firstString/"Disc "/""}"
-				 firstString=$romNameNoExtensionNoDisc
-				 romNameNoExtensionNoRev="${firstString/"Rev "/""}"
-				 firstString=$romNameNoExtensionNoRev
-				 romNameNoExtensionTrimmed=$(echo $firstString | sed 's/([^()]*)//g' | sed 's/[[A-z0-9!+]*]//g' )
-				 firstString=$romNameNoExtensionTrimmed
-				 romNameNoExtensionNoAnd="${firstString/"&"/"$secondString"}"
-				 firstString=$romNameNoExtensionNoAnd
-				 secondString="%20"
-				 romNameNoExtensionNoDash="${firstString/" - "/"$secondString"}"
-				 firstString=$romNameNoExtensionNoDash
-				 romNameNoExtensionNoDash="${firstString/"-"/"$secondString"}"
-				 firstString=$romNameNoExtensionNoDash
-				 romNameNoExtensionNoSpace="${firstString//" "/"$secondString"}"
-				 firstString=$romNameNoExtensionNoSpace
-				 secondString=""
-				 romNameNoExtensionNoNkit="${firstString/".nkit"/"$secondString"}"		
-				 firstString=$romNameNoExtensionNoNkit
-				 romNameNoExtensionNoSpace="${firstString/"!"/"$secondString"}"		
-				 firstString=$romNameNoExtensionNoSpace
 
-				 if [ $startcapture == true ]; then
-					 
-					 hasWheel=false
-					 hasSs=false
-					 hasBox=false
-					 hasMetadata=false
-					 
+				#Directory Validation
+				DIR=~/storage/$storageLocation/$system/$romName
+				if [ -d "$DIR" ]; then
+					continue;
+				fi
+				#Extension Validation
+				#"" means metadata couldn't be parsed, no extensions to check
+				if [[ $extensions == "" ]]; then
+					startcapture=true
+				else
+					if grep -q "${romName##*.}" <<< "$extensions"]; then
+						startcapture=true
+					else
+						continue;
+					fi
+				fi
+				
+				#Blanks cleaning up, TODO: DRY
+				firstString=$romNameNoExtension
+				secondString=""
+				romNameNoExtensionNoDisc="${firstString/"Disc "/""}"
+				firstString=$romNameNoExtensionNoDisc
+				romNameNoExtensionNoRev="${firstString/"Rev "/""}"
+				firstString=$romNameNoExtensionNoRev
+				romNameNoExtensionTrimmed=$(echo $firstString | sed 's/ ([^()]*)//g' | sed 's/ [[A-z0-9!+]*]//g' | sed 's/([^()]*)//g' | sed 's/[[A-z0-9!+]*]//g')
+				firstString=$romNameNoExtensionTrimmed
+				romNameNoExtensionNoAnd="${firstString/"&"/"$secondString"}"
+				firstString=$romNameNoExtensionNoAnd
+				secondString="%20"
+				romNameNoExtensionNoDash="${firstString/" - "/"$secondString"}"
+				firstString=$romNameNoExtensionNoDash
+				romNameNoExtensionNoDash="${firstString/"-"/"$secondString"}"
+				firstString=$romNameNoExtensionNoDash
+				romNameNoExtensionNoSpace="${firstString//" "/"$secondString"}"
+				firstString=$romNameNoExtensionNoSpace
+				secondString=""
+				romNameNoExtensionNoNkit="${firstString/".nkit"/"$secondString"}"
+				firstString=$romNameNoExtensionNoNkit
+				romNameNoExtensionNoSpace="${firstString/"!"/"$secondString"}"
+				firstString=$romNameNoExtensionNoSpace
+
+				if [ $startcapture == true ]; then
+					hasWheel=false
+					hasSs=false
+					hasBox=false
+					hasMetadata=false
+
 					FILE=~/storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png
 					if [ -f "$FILE" ]; then
-						 hasWheel=true
-					fi
-						
-					FILE=~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png
-					if [ -f "$FILE" ]; then
-						 hasSs=true
-					fi
-						
-					FILE=~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png
-					if [ -f "$FILE" ]; then
-						 hasBox=true
+						hasWheel=true
 					fi
 
-					if [[ $systemMetadata == *"game: $romNameNoExtension"* ]]; then
+					FILE=~/storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png
+					if [ -f "$FILE" ]; then
+						hasSs=true
+					fi
+
+					FILE=~/storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png
+					if [ -f "$FILE" ]; then
+						hasBox=true
+					fi
+
+					if [[ $systemMetadata == "" ]] || [[ $systemMetadata == *"game: $romNameNoExtensionTrimmed"* ]]; then
 						hasMetadata=true
 					fi
-										 
-					 #We only search games with no art or metadata
-					 if [ $hasWheel == false ] || [ $hasSs == false ] || [ $hasBox == false ] || ([ $hasMetadata == false ] && [ $saveMetadata == true ]); then
-						#Second Scan: Screenscraper		
-						 url="https://www.screenscraper.fr/api2/jeuInfos.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&output=json&ssid=${userSS}&sspassword=${passSS}&crc=&systemeid=${ssID}&romtype=rom&romnom=${romNameNoExtensionNoSpace}.zip"
-						 
-						#echo $url;
-						 #ID Game
-						 content=$(curl "$url") 
-						 
-						 #Don't check art after a failed curl request
-						 if [[ $content == "" ]]; then
-							 echo -e "Request failed to send for $romNameNoExtension, ${YELLOW}skipping${NONE}"
+
+					#We only search games with no art or metadata
+					if [ $hasWheel == false ] || [ $hasSs == false ] || [ $hasBox == false ] || ([ $hasMetadata == false ] && [ $saveMetadata == true ]); then
+					#Second Scan: Screenscraper		
+						url="https://www.screenscraper.fr/api2/jeuInfos.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&output=json&ssid=${userSS}&sspassword=${passSS}&crc=&systemeid=${ssID}&romtype=rom&romnom=${romNameNoExtensionNoSpace}.zip"
+
+						#ID Game
+						content=$(curl "$url") 
+
+						#Don't check art if screenscraper is closed
+						if [[ $content == *"API closed"* ]]; then
+							echo -e "The Screenscraper API is currently down, please try again later." 
+							echo -e  "Press the ${RED}A button${NONE} to finish"
+							read pause
+							am startservice -a com.termux.service_stop com.termux/.app.TermuxService &> /dev/null
+						fi
+						#Don't check art after a failed curl request
+						if [[ $content == "" ]]; then
+							echo -e "Request failed to send for $romNameNoExtensionTrimmed, ${YELLOW}skipping${NONE}"
+							echo ""
+							echo "Request failed for $romNameNoExtensionTrimmed" >> ~/storage/shared/scrap.log
 							continue;
-						 fi
-						 #Don't check art if screenscraper can't find a match
-						 if [[ $content == *"Erreur"* ]]; then
-							   echo -e "Couldn't find a match for $romNameNoExtension, ${YELLOW}skipping${NONE}"
+						fi
+						#Don't check art if screenscraper can't find a match
+						if [[ $content == *"Erreur"* ]]; then
+							echo -e "Couldn't find a match for $romNameNoExtensionTrimmed, ${YELLOW}skipping${NONE}"
+							echo ""
+							echo "Couldn't find a match for $romNameNoExtensionTrimmed" >> ~/storage/shared/scrap.log
 							continue;
-						 fi
-						 
-						 gameIDSS=$( jq -r  '.response.jeu.id' <<< "${content}" )
-									 
-						 
+						fi
+
+						gameIDSS=$( jq -r  '.response.jeu.id' <<< "${content}" )
+
 						urlMediaWheel="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel(wor)"			 
 						urlMediaWheelHD="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=wheel-hd(wor)"			 
 						urlMediaSs="https://www.screenscraper.fr/api2/mediaJeu.php?devid=djrodtc&devpassword=diFay35WElL&softname=zzz&ssid=${userSS}&sspassword=${passSS}&crc=&md5=&sha1=&systemeid=${ssID}&jeuid=${gameIDSS}&media=ss(wor)"
@@ -1007,9 +971,9 @@ for scraper in ${scrapers[@]};
 						wheelSavePath="./storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png"
 						ssSavePath="./storage/$storageLocation/$system/media/screenshot/$romNameNoExtension.png"
 						box2dfrontSavePath="./storage/$storageLocation/$system/media/box2dfront/$romNameNoExtension.png"
-												 
-						 echo -e "Downloading Images for $romNameNoExtension - $gameIDSS"
-						 
+
+						echo -e "Downloading Images for $romNameNoExtensionTrimmed - $gameIDSS"
+
 						if [ $hasWheel == true ]; then
 							echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 						else 
@@ -1030,7 +994,7 @@ for scraper in ${scrapers[@]};
 						#Wheel HD just in case
 						FILE=~/storage/$storageLocation/$system/media/wheel/$romNameNoExtension.png
 						if [ -f "$FILE" ]; then
-							 hasWheel=true
+							hasWheel=true
 						fi
 						
 						if [ $hasWheel == true ]; then
@@ -1041,14 +1005,14 @@ for scraper in ${scrapers[@]};
 
 						if [ $saveMetadata == true ]; then
 							if [[ $hasMetadata == true ]]; then
-								echo -e "Metadata already exists for $romNameNoExtension, ${YELLOW}ignoring${NONE}"
+								echo -e "Metadata already exists for $romNameNoExtensionTrimmed, ${YELLOW}ignoring${NONE}"
 								continue;
 							fi
 
 							genre_array=$( jq -r '[foreach .response.jeu.genres[].noms[] as $item ([[],[]]; if $item.langue == "en" then $item.text else "" end)]' <<< "${content}" )
 							echo "" >> ./storage/$storageLocation/$system/metadata.pegasus.txt
 							echo "" >> ./storage/$storageLocation/$system/metadata.pegasus.txt
-							echo game: $romNameNoExtension >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
+							echo game: $romNameNoExtensionTrimmed >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
 							echo file: $romName >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
 							echo developer: $( jq -r  '.response.jeu.developpeur.text' <<< "${content}" ) >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
 							echo publisher: $( jq -r  '.response.jeu.editeur.text' <<< "${content}" ) >> ./storage/${storageLocation}/${system}/metadata.pegasus.txt
@@ -1062,22 +1026,16 @@ for scraper in ${scrapers[@]};
 							echo assets.boxfront: ./media/box2dfront/$romNameNoExtension.png >> ./storage/$storageLocation/$system/metadata.pegasus.txt
 
 							echo -e "Metadata saved to ${system}/metadata.pegasus.txt"
-						 fi
-						
+						fi
+					
 					else
 						echo -e "Game already scraped" &> /dev/null
 					fi
-				 
-				 fi
-		 
-			  done
-			  
-			#rsync -r ~/pegasus-artwork/$system/ ~/storage/$storageLocation/$system/
-		  done
-
+				fi
+			done			  
+		done
 	fi
-
- done
+done
 
  echo -e "Remember to restart Pegasus to see the new artwork" 
  echo -e  "Press the ${RED}A button${NONE} to finish"
